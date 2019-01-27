@@ -48,21 +48,10 @@
         <div class="left_col scroll-view">
 
           <div class="navbar nav_title" style="border: 0;">
-          <a href="index.html" class="site_title"><i class="fa fa-dashboard"></i> <span><?php echo APP_TITLE ?></span></a>
+            <a href="index.html" class="site_title"><i class="fa fa-dashboard"></i> <span><?php echo APP_TITLE ?></span></a>
           </div>
           <div class="clearfix"></div>
 
-          <!-- menu prile quick info -->
-          <div class="profile">
-            <div class="profile_pic">
-              <img src="<?php echo APP_ROOT; ?>assets/images/img.jpg" alt="..." class="img-circle profile_img">
-            </div>
-            <div class="profile_info">
-   <span>Welcome,</span>
-<?php // TODO: SQL firstname+lastname ?> <h2>John Doe</h2>
-            </div>
-          </div>
-          <!-- /menu prile quick info -->
           <br />
 
           <!-- sidebar menu -->
@@ -81,22 +70,44 @@
           ?>
       <!-- /top navigation -->
 
+
+
+
+
+
       <!-- page content -->
       <div class="right_col" role="main">
         <div class="">
           <div class="page-title">
             <div class="title_left">
-              <h3>Plain Page</h3>
+              <h3>Forms</h3>
             </div>
           </div>
+          <?php 
+            require "./classes/form-class.php";
+            $form = new Form;
+            $form->input("First Name","fname",1);
+            $form->password("Password","fname",0);
+            $form->render();
+          ?>
           <div class="clearfix"></div>
-          
       <?php
       require "./classes/footer-class.php";
       #$footer= new Footer;
        ?>
       </div>
       <!-- /page content -->
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
   </div>
