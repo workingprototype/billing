@@ -134,7 +134,7 @@
                   </ul>
                   <div class="clearfix"></div>
 
- <?php include_once ("./user-management/user.php"); ?>
+ <?php include_once ("./user-management/user.table.php"); ?>
 
 
                 </div>
