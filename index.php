@@ -6,9 +6,9 @@ if($request[0]!=null){
   if($request[0]=="login"){
     include("./login.html");
   }else{
-    include("./empty.html");
+    include("./pages/blank-page.php");
   }
 }else{
-  include("./empty.html");
+  include("./pages/blank-page.php");
 }
 ?>
