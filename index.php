@@ -20,6 +20,11 @@ if(isset($_GET['dir'])){
     elseif($request[0]=="forms"){
       include("./pages/forms-page.php");
     }
+    
+    
+    elseif($request[0]=="function"){
+      include("./pages/functions-all.php");
+    }
 
 
     elseif($request[0]=="breg"){
