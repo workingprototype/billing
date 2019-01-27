@@ -16,6 +16,11 @@ if(isset($_GET['dir'])){
       include("./pages/forms-page.php");
     }
     
+
+    elseif($request[0]=="breg"){
+      include("./pages/b-registration-page.php");
+    }
+    
     else{
       include("./pages/404-page.php");
     }

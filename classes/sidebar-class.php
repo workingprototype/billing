@@ -47,7 +47,7 @@ class Sidebar
         <!-- /menu footer buttons -->";
     }
     public function __construct() {
-        $this->submenu("Blank","blank");
+        $this->submenu("Business Registration","breg");
         $this->submenu("Blank2","blank");
         $this->menu("Menu1");
     }
