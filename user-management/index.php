@@ -180,7 +180,7 @@ console.log(g_id);
 										$("#users_grid").bootgrid('reload');
                                 });
 								//$(this).parent('tr').remove();
-								//$("#employee_grid").bootgrid('remove', $(this).data("row-id"))
+								//$("#users_grid").bootgrid('remove', $(this).data("row-id"))
                     }
     });
 });
