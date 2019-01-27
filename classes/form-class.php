@@ -4,11 +4,16 @@
  */
 class Form
 {
-    public $formtype = "get";
+    public $formtype = "post";
+    public $formaction = "";
     public $formgroups = "";
+    public function action($var)
+    {
+      $this->formaction=$var;
+    }
     public function select($label,$name='label',$opt)
     {
-        if($name='label'){
+        if($name=='label'){
             $name=$label;
         }
         $this->formgroups .= "<div class=\"form-group col-12\">
@@ -26,7 +31,7 @@ class Form
     }
     public function input($label,$name='label',$required=0)
     {
-        if($name='label'){
+        if($name=='label'){
             $name=$label;
         }
         if($required==0){
@@ -46,7 +51,7 @@ class Form
     }
     public function email($label,$name='label',$required=0)
     {
-        if($name='label'){
+        if($name=='label'){
             $name=$label;
         }
         if($required==0){
@@ -66,7 +71,7 @@ class Form
     }
     public function password($label,$name='label',$required=0)
     {
-        if($name='label'){
+        if($name=='label'){
             $name=$label;
         }
         if($required==0){
@@ -88,6 +93,7 @@ class Form
     {
         $this->render=str_replace("----balsudhfwe----",$this->formtype, $this->render);
         $this->render=str_replace("-----aajshndflkb----",$this->formgroups, $this->render);
+        $this->render=str_replace("----asdas34dasfef----",APP_ROOT.$this->formaction, $this->render);
     }
     public function __construct($var = 1) {
         if ($var == 1)
@@ -97,7 +103,7 @@ class Form
               <div class=\"x_panel\">
                 <div class=\"x_content\">
                   <br />
-                  <form id=\"demo-form2\" method=\"----balsudhfwe----\" data-parsley-validate class=\"form-horizontal form-label-left\">
+                  <form id=\"demo-form2\" action=\"----asdas34dasfef----\" method=\"----balsudhfwe----\" data-parsley-validate class=\"form-horizontal form-label-left\">
                     -----aajshndflkb----
                     <div class=\"form-group\">
                       <div class=\"col-md-6 col-sm-6 col-xs-12 col-md-offset-3\">

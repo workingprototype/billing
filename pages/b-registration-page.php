@@ -82,24 +82,25 @@
       <?php
       include "./classes/form-class.php";
       $breg= new Form;
-      $breg->input("Account Name","acc_name",1);
-      $breg->select("Group","group",['supplier','customer']);
-      $breg->input("Opening Balance","op_bal",1);
-      $breg->select("Debit/Credit","drcr",['Debit','Credit']);
-      $breg->input("Address","addr",1);
-      $breg->input("City","city",1);
-      $breg->input("State","state",1);
-      $breg->input("Postal Code","pincode",1);
-      $breg->input("State Code","stcode",1);
-      $breg->input("Phone","phone");
-      $breg->input("Mobile","mobile");
-      $breg->email("Email","mail");
-      $breg->input("VAT Number","vat",1);
-      $breg->input("PAN Number","pan",1);
-      $breg->input("GSTN","gstn",1);
-      $breg->input("Aadhar","aadhar",1);
-      $breg->input("Bank Account Number","bankacc",1);
-      $breg->input("IFSC Code of Bank","ifsc",1);
+      $breg->action("function/breg");
+      $breg->input("Account Name","a",1);
+      $breg->select("Group","b",['supplier','customer']);
+      $breg->input("Opening Balance","c",1);
+      $breg->select("Debit/Credit","d",['Debit','Credit']);
+      $breg->input("Address","e",1);
+      $breg->input("City","f",1);
+      $breg->input("State","g",1);
+      $breg->input("Postal Code","h",1);
+      $breg->input("State Code","i",1);
+      $breg->input("Phone","j");
+      $breg->input("Mobile","k");
+      $breg->email("Email","l");
+      $breg->input("VAT Number","m",1);
+      $breg->input("PAN Number","n",1);
+      $breg->input("GSTN","o",1);
+      $breg->input("Aadhar","p",1);
+      $breg->input("Bank Account Number","q",1);
+      $breg->input("IFSC Code of Bank","r",1);
 
       $breg->render();
       ?>
