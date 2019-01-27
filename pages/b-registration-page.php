@@ -78,15 +78,28 @@
       <!-- page content -->
       <div class="right_col" role="main">
        <h2>Business Registration</h2>
-    
+
       <?php
       include "./classes/form-class.php";
       $breg= new Form;
-      $breg->input("Business Name","bname",1);
-      $breg->email("Email Address","mailid",1);
+      $breg->input("Account Name","acc_name",1);
+      $breg->select("Group","group",['supplier','customer']);
+      $breg->input("Opening Balance","op_bal",1);
+      $breg->select("Debit/Credit","drcr",['Debit','Credit']);
       $breg->input("Address","addr",1);
       $breg->input("City","city",1);
       $breg->input("State","state",1);
+      $breg->input("Postal Code","pincode",1);
+      $breg->input("State Code","stcode",1);
+      $breg->input("Phone","phone");
+      $breg->input("Mobile","mobile");
+      $breg->email("Email","mail");
+      $breg->input("VAT Number","vat",1);
+      $breg->input("PAN Number","pan",1);
+      $breg->input("GSTN","gstn",1);
+      $breg->input("Aadhar","aadhar",1);
+      $breg->input("Bank Account Number","bankacc",1);
+      $breg->input("IFSC Code of Bank","ifsc",1);
 
       $breg->render();
       ?>

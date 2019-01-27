@@ -6,6 +6,24 @@ class Form
 {
     public $formtype = "get";
     public $formgroups = "";
+    public function select($label,$name='label',$opt)
+    {
+        if($name='label'){
+            $name=$label;
+        }
+        $this->formgroups .= "<div class=\"form-group col-12\">
+        <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" for=\"first-name\">$label <span class=\"required\"></span>
+        </label>
+        <div class=\"col-md-6 col-sm-6 col-xs-12\">
+          <select id=\"$name\" name=\"$name\" class=\"form-control col-md-7 col-xs-12\">";
+          foreach ($opt as $key => $value) {
+            $this->formgroups.="<option> $value </option>";
+          }
+          $this->formgroups.="
+          </select>
+        </div>
+      </div>";
+    }
     public function input($label,$name='label',$required=0)
     {
         if($name='label'){
@@ -22,7 +40,7 @@ class Form
         <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" for=\"first-name\">$label <span class=\"required\">$r</span>
         </label>
         <div class=\"col-md-6 col-sm-6 col-xs-12\">
-          <input type=\"text\" id=\"first-name\" name=\"$name\" $r2  class=\"form-control col-md-7 col-xs-12\">
+          <input type=\"text\" id=\"$name\" name=\"$name\" $r2  class=\"form-control col-md-7 col-xs-12\">
         </div>
       </div>";
     }
@@ -42,7 +60,7 @@ class Form
         <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" for=\"first-name\">$label <span class=\"required\">$r</span>
         </label>
         <div class=\"col-md-6 col-sm-6 col-xs-12\">
-          <input type=\"email\" id=\"first-name\" name=\"$name\" $r2  class=\"form-control col-md-7 col-xs-12\">
+          <input type=\"email\" id=\"$name\" name=\"$name\" $r2  class=\"form-control col-md-7 col-xs-12\">
         </div>
       </div>";
     }
@@ -125,7 +143,7 @@ class Form
                   <div class=\"x_content\">
                     <br />
                     <form class=\"form-horizontal form-label-left\">
-  
+
                       <div class=\"form-group\">
                         <label class=\"control-label col-md-3 col-sm-3 col-xs-12\">Default Input</label>
                         <div class=\"col-md-9 col-sm-9 col-xs-12\">
@@ -291,7 +309,7 @@ class Form
                           </select>
                         </div>
                       </div>
-  
+
                       <div class=\"control-group\">
                         <label class=\"control-label col-md-3 col-sm-3 col-xs-12\">Input Tags</label>
                         <div class=\"col-md-9 col-sm-9 col-xs-12\">
@@ -304,7 +322,7 @@ class Form
                           <br>
                           <small class=\"text-navy\">Normal Bootstrap elements</small>
                         </label>
-  
+
                         <div class=\"col-md-9 col-sm-9 col-xs-12\">
                           <div class=\"checkbox\">
                             <label>
@@ -328,13 +346,13 @@ class Form
                           </div>
                         </div>
                       </div>
-  
+
                       <div class=\"form-group\">
                         <label class=\"col-md-3 col-sm-3 col-xs-12 control-label\">Checkboxes and radios
                           <br>
                           <small class=\"text-navy\">Normal Bootstrap elements</small>
                         </label>
-  
+
                         <div class=\"col-md-9 col-sm-9 col-xs-12\">
                           <div class=\"checkbox\">
                             <label>
@@ -403,8 +421,8 @@ class Form
                           </div>
                         </div>
                       </div>
-  
-  
+
+
                       <div class=\"ln_solid\"></div>
                       <div class=\"form-group\">
                         <div class=\"col-md-9 col-sm-9 col-xs-12 col-md-offset-3\">
@@ -412,7 +430,7 @@ class Form
                           <button type=\"submit\" class=\"btn btn-success\">Submit</button>
                         </div>
                       </div>
-  
+
                     </form>
                   </div>
                 </div>
