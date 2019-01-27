@@ -23,9 +23,9 @@ class Sidebar
     public function echo()
     {
         echo "<div id=\"sidebar-menu\" class=\"main_menu_side hidden-print main_menu\">
-        
+
                                 <div class=\"menu_section\">
-                                    <h3>General</h3>
+                                    <h2>User Role: </h2>
                                     <ul class=\"nav side-menu\">
                                         $this->content
                                     </ul>
@@ -36,6 +36,9 @@ class Sidebar
         $this->submenu("Blank","blank");
         $this->submenu("Blank2","blank");
         $this->menu("Menu1");
+          $this->submenu("Users","users");
+        $this->submenu("Roles","roles");
+        $this->menu("User Management");
     }
 }
 
