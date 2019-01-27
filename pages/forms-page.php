@@ -70,14 +70,26 @@
           ?>
       <!-- /top navigation -->
 
+
+
+
+
+
       <!-- page content -->
       <div class="right_col" role="main">
         <div class="">
           <div class="page-title">
             <div class="title_left">
-              <h3>Plain Page</h3>
+              <h3>Forms</h3>
             </div>
           </div>
+          <?php 
+            require "./classes/form-class.php";
+            $form = new Form;
+            $form->input("First Name","fname",1);
+            $form->password("Password","fname",0);
+            $form->render();
+          ?>
           <div class="clearfix"></div>
       <?php
       require "./classes/footer-class.php";
@@ -85,6 +97,17 @@
        ?>
       </div>
       <!-- /page content -->
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
   </div>

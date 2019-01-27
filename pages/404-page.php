@@ -56,8 +56,8 @@
 
           <!-- sidebar menu -->
           <?php require "./classes/sidebar-class.php";
-          $sidebar = new Sidebar;
-          $sidebar->echo();
+          #$sidebar = new Sidebar;
+          #$sidebar->echo();
           ?>
           <!-- /sidebar menu -->
         </div>
@@ -75,7 +75,7 @@
         <div class="">
           <div class="page-title">
             <div class="title_left">
-              <h3>Plain Page</h3>
+              <h1>404  Error . Page Not found</h1>
             </div>
           </div>
           <div class="clearfix"></div>
