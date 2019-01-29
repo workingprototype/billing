@@ -1,5 +1,8 @@
 <?php
-class NavTitle
+/**
+ * NavTitle Class
+ */
+class NavTitle   //create a class: NavTitle, and print the HTML elements that you want to display as the Navigation Title of every page.
 {
     public function echo()
     {
@@ -10,7 +13,7 @@ class NavTitle
         <!-- Navbar Title -->
         ";
     }
-    public function __construct() {
+    public function __construct() {  // this constructor can accept parameters, which are passed when the object is created
         $this->echo();
     }
 }
