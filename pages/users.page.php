@@ -132,7 +132,7 @@
                   <div class="clearfix"></div>
 
 <!-- Code -->
-<?php // include './user-management/user.table.php'; ?>
+<?php  include './user-management/user.table.php'; ?>
 <!-- Code -->
 
                 </div>

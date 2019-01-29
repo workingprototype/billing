@@ -185,7 +185,9 @@ function ajaxAction(action) {
 				});
 			}
 
-			$( "#command-add" ).click(function() {
+			
+});
+$( "#command-add" ).click(function() {
 			  $('#add_model').modal('show');
 			});
 			$( "#btn_add" ).click(function() {
@@ -194,5 +196,4 @@ function ajaxAction(action) {
 			$( "#btn_edit" ).click(function() {
 			  ajaxAction('edit');
 			});
-});
 </script>
