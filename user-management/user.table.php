@@ -1,16 +1,10 @@
-<link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css" media="all">
-<link href="bootstrap/jquery.bootgrid.css" rel="stylesheet" />
-<script src="bootstrap/jquery-1.11.1.min.js"></script>
-<script src="bootstrap/bootstrap.min.js"></script>
-<script src="bootstrap/jquery.bootgrid.min.js"></script>
-
 	<div class="container">
       <div class="">
         <div class="col-sm-8">
 
 			<div class="pull-right"><button type="button" class="btn btn-xs btn-primary" id="command-add" data-row-id="0">
 			<span class="glyphicon glyphicon-plus"></span> Add New User</button></div>
-		</br>		</br>
+			<br>		<br>
 		<table id="users_grid" class="table table-striped table-bordered dt-responsive nowrap" width="60%" cellspacing="0" data-toggle="bootgrid">
 			<thead>
 				<tr>

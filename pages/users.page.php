@@ -34,6 +34,10 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
+        <!-- Code -->
+
+
+        <!-- Code -->
 </head>
 
 
@@ -47,21 +51,14 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
 
-          <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"> <span>FMCG Billing</span></a>
-          </div>
+        <?php require './classes/left-top-class.php';
+        $leftnav= new NavTitle;
+        ?>
           <div class="clearfix"></div>
+          <br />
 
           <!-- menu prile quick info -->
-          <div class="profile">
-            <div class="profile_pic">
-              <img src="<?php echo APP_ROOT; ?>assets/images/img.jpg" alt="..." class="img-circle profile_img">
-            </div>
-            <div class="profile_info">
-   <span>Welcome,</span>
-<?php // TODO: SQL firstname+lastname ?> <h2>John Doe</h2>
-            </div>
-          </div>
+
           <!-- /menu prile quick info -->
 
           <br />
@@ -124,8 +121,8 @@
 
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel" style="height:600px;">
-                <div class="x_title">
-                  <h2>All Users</h2>
+
+
                   <ul class="nav navbar-right panel_toolbox">
 
 
@@ -134,8 +131,9 @@
                   </ul>
                   <div class="clearfix"></div>
 
- <?php include_once ("./user-management/user.table.php"); ?>
-
+<!-- Code -->
+<?php // include './user-management/user.table.php'; ?>
+<!-- Code -->
 
                 </div>
               </div>
