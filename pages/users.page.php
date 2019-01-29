@@ -34,10 +34,6 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <!-- Code -->
-
-
-        <!-- Code -->
 </head>
 
 
@@ -51,16 +47,10 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
 
-        <?php require './classes/left-top-class.php';
-        $leftnav= new NavTitle;
-        ?>
+          <?php require './classes/left-top-class.php';
+          $leftnav= new NavTitle;
+          ?>
           <div class="clearfix"></div>
-          <br />
-
-          <!-- menu prile quick info -->
-
-          <!-- /menu prile quick info -->
-
           <br />
 
           <!-- sidebar menu -->
@@ -132,7 +122,7 @@
                   <div class="clearfix"></div>
 
 <!-- Code -->
-<?php  include './user-management/user.table.php'; ?>
+<?php include '../user-management/index.php'; ?>
 <!-- Code -->
 
                 </div>

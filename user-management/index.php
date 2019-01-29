@@ -1,11 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FMCG User Management</title>
+<link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css" media="all">
+<link href="bootstrap/jquery.bootgrid.css" rel="stylesheet" />
+<script src="bootstrap/jquery-1.11.1.min.js"></script>
+<script src="bootstrap/bootstrap.min.js"></script>
+<script src="bootstrap/jquery.bootgrid.min.js"></script>
+</head>
+<body>
 	<div class="container">
       <div class="">
+        <h1>FMCG User Management</h1>
         <div class="col-sm-8">
 
 			<div class="pull-right"><button type="button" class="btn btn-xs btn-primary" id="command-add" data-row-id="0">
 			<span class="glyphicon glyphicon-plus"></span> Add New User</button></div>
 			<br>		<br>
-		<table id="users_grid" class="table table-striped table-bordered dt-responsive nowrap" width="60%" cellspacing="0" data-toggle="bootgrid">
+		<table id="users_grid" class="table table-condensed table-hover table-striped" width="60%" cellspacing="0" data-toggle="bootgrid">
 			<thead>
 				<tr>
 					<th data-column-id="id" data-type="numeric" data-identifier="true">ID</th>
@@ -106,6 +119,8 @@
         </div>
     </div>
 </div>
+</body>
+</html>
 <script type="text/javascript">
 $( document ).ready(function() {
 	var grid = $("#users_grid").bootgrid({
@@ -165,7 +180,7 @@ console.log(g_id);
 										$("#users_grid").bootgrid('reload');
                                 });
 								//$(this).parent('tr').remove();
-								//$("#users_grid").bootgrid('remove', $(this).data("row-id"))
+								//$("#employee_grid").bootgrid('remove', $(this).data("row-id"))
                     }
     });
 });
@@ -185,9 +200,7 @@ function ajaxAction(action) {
 				});
 			}
 
-			
-});
-$( "#command-add" ).click(function() {
+			$( "#command-add" ).click(function() {
 			  $('#add_model').modal('show');
 			});
 			$( "#btn_add" ).click(function() {
@@ -196,4 +209,5 @@ $( "#command-add" ).click(function() {
 			$( "#btn_edit" ).click(function() {
 			  ajaxAction('edit');
 			});
+});
 </script>
