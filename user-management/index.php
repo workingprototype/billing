@@ -1,25 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>FMCG User Management</title>
-<link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css" media="all">
-<link href="bootstrap/jquery.bootgrid.css" rel="stylesheet" />
-<script src="bootstrap/jquery-1.11.1.min.js"></script>
-<script src="bootstrap/bootstrap.min.js"></script>
-<script src="bootstrap/jquery.bootgrid.min.js"></script>
-</head>
-<body>
-	<div class="container">
-      <div class="">
-        <h1>FMCG User Management</h1>
-        <div class="col-sm-8">
 
-			<div class="pull-right"><button type="button" class="btn btn-xs btn-primary" id="command-add" data-row-id="0">
-			<span class="glyphicon glyphicon-plus"></span> Add New User</button></div>
-			<br>		<br>
-		<table id="users_grid" class="table table-condensed table-hover table-striped" width="60%" cellspacing="0" data-toggle="bootgrid">
-			<thead>
+<div class="pull-right"><button type="button" class="btn btn-xs btn-primary" id="command-add" data-row-id="0">
+<span class="glyphicon glyphicon-plus"></span> Add New User</button></div>
+<br>		<br>
+<table id="users_grid" class="table table-condensed table-hover table-striped" width="60%" cellspacing="0" data-toggle="bootgrid">
+<thead>
 				<tr>
 					<th data-column-id="id" data-type="numeric" data-identifier="true">ID</th>
 					<th data-column-id="fullname">Full Name</th>
@@ -28,11 +12,8 @@
 					<th data-column-id="role">Role</th>
 					<th data-column-id="commands" data-formatter="commands" data-sortable="false">Manage Data</th>
 				</tr>
-			</thead>
-		</table>
-    </div>
-      </div>
-    </div>
+</thead>
+</table>
 
 <div id="add_model" class="modal fade">
     <div class="modal-dialog">
@@ -78,7 +59,6 @@
 			</form>
         </div>
     </div>
-</div>
 <div id="edit_model" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -119,8 +99,6 @@
         </div>
     </div>
 </div>
-</body>
-</html>
 <script type="text/javascript">
 $( document ).ready(function() {
 	var grid = $("#users_grid").bootgrid({
@@ -134,7 +112,7 @@ $( document ).ready(function() {
 			};
 		},
 
-		url: "response.php",
+		url: "<?php echo APP_ROOT ;?>user-management/response.php",
 		formatters: {
 		        "commands": function(column, row)
 		        {
@@ -174,7 +152,7 @@ console.log(g_id);
 		var conf = confirm('Delete ' + $(this).data("row-id") + '?');
 					alert(conf);
                     if(conf){
-                                $.post('response.php', { id: $(this).data("row-id"), action:'delete'}
+                                $.post('<?php echo APP_ROOT ;?>user-management/response.php', { id: $(this).data("row-id"), action:'delete'}
                                     , function(){
                                         // when ajax returns (callback),
 										$("#users_grid").bootgrid('reload');
@@ -189,7 +167,7 @@ function ajaxAction(action) {
 				data = $("#frm_"+action).serializeArray();
 				$.ajax({
 				  type: "POST",
-				  url: "response.php",
+				  url: "<?php echo APP_ROOT ;?>user-management/response.php",
 				  data: data,
 				  dataType: "json",
 				  success: function(response)
