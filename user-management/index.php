@@ -1,6 +1,7 @@
 
-<div class="pull-right"><button type="button" class="btn btn-xs btn-primary" id="command-add" data-row-id="0">
-<span class="glyphicon glyphicon-plus"></span> Add New User</button></div>
+<div class="pull-right">
+<button type="button" class="btn btn-xs btn-primary" id="command-add" data-row-id="0">Add New User</button>
+</div>
 <br>		<br>
 <table id="users_grid" class="table table-condensed table-hover table-striped" width="60%" cellspacing="0" data-toggle="bootgrid">
 <thead>
@@ -158,7 +159,6 @@ console.log(g_id);
 										$("#users_grid").bootgrid('reload');
                                 });
 								//$(this).parent('tr').remove();
-								//$("#employee_grid").bootgrid('remove', $(this).data("row-id"))
                     }
     });
 });
