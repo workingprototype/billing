@@ -2,13 +2,13 @@
 /**
  * A Class for creating Forms
  */
-class Form
-{
-    public $formtype = "get";
+class Form    //First we create a class: Form
+{               //Then describe what type of HTTP methods we're going to use.
+    public $formtype = "get";  //GET is used to request data from a resource that we'll specify later
     public $formgroups = "";
-    public function input($label,$name='label',$required=0)
+    public function input($label,$name='label',$required=0) //function to accept input variables with parameters
     {
-        if($name='label'){
+        if($name='label'){  //a bunch of IF statements to satisfy our conditions
             $name=$label;
         }
         if($required==0){
@@ -37,7 +37,7 @@ class Form
         }else{
             $r="*";
             $r2= "required=\"required\"";
-        }
+        }                                                           //reference to the current object below to store the html tags as property of the object
         $this->formgroups .= "<div class=\"form-group col-12\">
         <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" for=\"first-name\">$label <span class=\"required\">$r</span>
         </label>
@@ -66,7 +66,7 @@ class Form
         </div>
       </div>";
     }
-    public function replace_content()
+    public function replace_content() //idkwtfthisis but its supposed to do some kind of string replace and pass it to the form
     {
         $this->render=str_replace("----balsudhfwe----",$this->formtype, $this->render);
         $this->render=str_replace("-----aajshndflkb----",$this->formgroups, $this->render);
@@ -125,7 +125,7 @@ class Form
                   <div class=\"x_content\">
                     <br />
                     <form class=\"form-horizontal form-label-left\">
-  
+
                       <div class=\"form-group\">
                         <label class=\"control-label col-md-3 col-sm-3 col-xs-12\">Default Input</label>
                         <div class=\"col-md-9 col-sm-9 col-xs-12\">
@@ -291,7 +291,7 @@ class Form
                           </select>
                         </div>
                       </div>
-  
+
                       <div class=\"control-group\">
                         <label class=\"control-label col-md-3 col-sm-3 col-xs-12\">Input Tags</label>
                         <div class=\"col-md-9 col-sm-9 col-xs-12\">
@@ -304,7 +304,7 @@ class Form
                           <br>
                           <small class=\"text-navy\">Normal Bootstrap elements</small>
                         </label>
-  
+
                         <div class=\"col-md-9 col-sm-9 col-xs-12\">
                           <div class=\"checkbox\">
                             <label>
@@ -328,13 +328,13 @@ class Form
                           </div>
                         </div>
                       </div>
-  
+
                       <div class=\"form-group\">
                         <label class=\"col-md-3 col-sm-3 col-xs-12 control-label\">Checkboxes and radios
                           <br>
                           <small class=\"text-navy\">Normal Bootstrap elements</small>
                         </label>
-  
+
                         <div class=\"col-md-9 col-sm-9 col-xs-12\">
                           <div class=\"checkbox\">
                             <label>
@@ -403,8 +403,8 @@ class Form
                           </div>
                         </div>
                       </div>
-  
-  
+
+
                       <div class=\"ln_solid\"></div>
                       <div class=\"form-group\">
                         <div class=\"col-md-9 col-sm-9 col-xs-12 col-md-offset-3\">
@@ -412,7 +412,7 @@ class Form
                           <button type=\"submit\" class=\"btn btn-success\">Submit</button>
                         </div>
                       </div>
-  
+
                     </form>
                   </div>
                 </div>
@@ -420,7 +420,7 @@ class Form
           </div>";
         }
     }
-    public function render()
+    public function render() // Rendering a view of the above html part to browser
     {
         $this->replace_content();
         echo $this->render;
