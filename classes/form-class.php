@@ -3,14 +3,6 @@
  * A Class for creating Forms
  */
 
-class Form    //First we create a class: Form
-{               //Then describe what type of HTTP methods we're going to use.
-    public $formtype = "get";  //GET is used to request data from a resource that we'll specify later
-    public $formgroups = "";
-    public function input($label,$name='label',$required=0) //function to accept input variables with parameters
-    {
-        if($name='label'){  //a bunch of IF statements to satisfy our conditions
-          
 class Form
 {
     public $formtype = "post";
@@ -20,7 +12,7 @@ class Form
     {
       $this->formaction=$var;
     }
-    public function select($label,$name='label',$opt)
+    public function select($label,$name='label',$required=0)
     {
         if($name=='label'){
             $name=$label;
@@ -32,6 +24,26 @@ class Form
             $r="*";
             $r2= "required=\"required\"";
         }
+        $this->formgroups .= "<div class=\"form-group col-12\">
+        <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" for=\"first-name\">$label <span class=\"required\">$r</span>
+        </label>
+        <div class=\"col-md-6 col-sm-6 col-xs-12\">
+          <input type=\"text\" id=\"$name\" name=\"$name\" $r2  class=\"form-control col-md-7 col-xs-12\">
+        </div>
+      </div>";
+    }
+    public function input($label,$name='label',$required=0)
+    {
+        if($name=='label'){
+            $name=$label;
+        }
+        if($required==0){
+            $r="";
+            $r2="";
+        }else{
+            $r="*";
+            $r2= "required=\"required\"";
+        }                                                           //reference to the current object below to store the html tags as property of the object
         $this->formgroups .= "<div class=\"form-group col-12\">
         <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" for=\"first-name\">$label <span class=\"required\">$r</span>
         </label>
