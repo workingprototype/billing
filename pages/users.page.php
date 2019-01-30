@@ -24,6 +24,9 @@
 
   <script src="<?php echo APP_ROOT; ?>assets/js/jquery.min.js"></script>
 
+  <script src="<?php echo APP_ROOT?>assets/js/bootgrid/jquery.bootgrid.min.js"></script>
+
+
   <!--[if lt IE 9]>
         <script src="../assets/js/ie8-responsive-file-warning.js"></script>
         <![endif]-->
@@ -47,9 +50,9 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
 
-        <?php require './classes/left-top-class.php';
-        $leftnav= new NavTitle;
-        ?>
+          <?php require './classes/left-top-class.php';
+          $leftnav= new NavTitle;
+          ?>
           <div class="clearfix"></div>
           <br />
 
@@ -59,6 +62,23 @@
           $sidebar->echo();
           ?>
           <!-- /sidebar menu -->
+
+          <!-- /menu footer buttons -->
+          <div class="sidebar-footer hidden-small">
+            <a data-toggle="tooltip" data-placement="top" title="Settings">
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+              <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Lock">
+              <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Logout">
+              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+          </div>
+          <!-- /menu footer buttons -->
         </div>
       </div>
 
@@ -71,55 +91,30 @@
 
       <!-- page content -->
       <div class="right_col" role="main">
-       <h2>Business Registration</h2>
+        <div class="">
+          
+          <div class="clearfix"></div>
 
+          <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+
+<!-- Code -->
+<?php include 'inc/user-management.php'; ?>
+<!-- Code -->
+            </div>
+          </div>
+        </div>
+
+        <!-- footer content -->
       <?php
-      include "./classes/form-class.php";
-      $breg= new Form;
-      $breg->action("function/breg");
-      $breg->input("Account Name","a",1);
-      $breg->select("Group","b",['supplier','customer']);
-      $breg->input("Opening Balance","c",1);
-      $breg->select("Debit/Credit","d",['Debit','Credit']);
-      $breg->input("Address","e",1);
-      $breg->input("City","f",1);
-      $breg->input("State","g",1);
-      $breg->input("Postal Code","h",1);
-      $breg->input("State Code","i",1);
-      $breg->input("Phone","j");
-      $breg->input("Mobile","k");
-      $breg->email("Email","l");
-      $breg->input("VAT Number","m",1);
-      $breg->input("PAN Number","n",1);
-      $breg->input("GSTN","o",1);
-      $breg->input("Aadhar","p",1);
-      $breg->input("Bank Account Number","q",1);
-      $breg->input("IFSC Code of Bank","r",1);
-
-      $breg->render();
+      include('footer.php');
       ?>
 
+        <!-- /footer content -->
 
-
-
-          <div class="clearfix"></div>
-      <?php
-      require "./classes/footer-class.php";
-      #$footer= new Footer;
-       ?>
       </div>
       <!-- /page content -->
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
   </div>

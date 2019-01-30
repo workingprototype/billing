@@ -2,6 +2,15 @@
 /**
  * A Class for creating Forms
  */
+
+class Form    //First we create a class: Form
+{               //Then describe what type of HTTP methods we're going to use.
+    public $formtype = "get";  //GET is used to request data from a resource that we'll specify later
+    public $formgroups = "";
+    public function input($label,$name='label',$required=0) //function to accept input variables with parameters
+    {
+        if($name='label'){  //a bunch of IF statements to satisfy our conditions
+          
 class Form
 {
     public $formtype = "post";
@@ -12,24 +21,6 @@ class Form
       $this->formaction=$var;
     }
     public function select($label,$name='label',$opt)
-    {
-        if($name=='label'){
-            $name=$label;
-        }
-        $this->formgroups .= "<div class=\"form-group col-12\">
-        <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" for=\"first-name\">$label <span class=\"required\"></span>
-        </label>
-        <div class=\"col-md-6 col-sm-6 col-xs-12\">
-          <select id=\"$name\" name=\"$name\" class=\"form-control col-md-7 col-xs-12\">";
-          foreach ($opt as $key => $value) {
-            $this->formgroups.="<option> $value </option>";
-          }
-          $this->formgroups.="
-          </select>
-        </div>
-      </div>";
-    }
-    public function input($label,$name='label',$required=0)
     {
         if($name=='label'){
             $name=$label;
@@ -60,7 +51,7 @@ class Form
         }else{
             $r="*";
             $r2= "required=\"required\"";
-        }
+        }                                                           //reference to the current object below to store the html tags as property of the object
         $this->formgroups .= "<div class=\"form-group col-12\">
         <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" for=\"first-name\">$label <span class=\"required\">$r</span>
         </label>
@@ -89,7 +80,7 @@ class Form
         </div>
       </div>";
     }
-    public function replace_content()
+    public function replace_content() //idkwtfthisis but its supposed to do some kind of string replace and pass it to the form
     {
         $this->render=str_replace("----balsudhfwe----",$this->formtype, $this->render);
         $this->render=str_replace("-----aajshndflkb----",$this->formgroups, $this->render);
@@ -444,7 +435,7 @@ class Form
           </div>";
         }
     }
-    public function render()
+    public function render() // Rendering a view of the above html part to browser
     {
         $this->replace_content();
         echo $this->render;

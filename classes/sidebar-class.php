@@ -2,7 +2,7 @@
 /**
  * Sidebar
  */
-class Sidebar
+class Sidebar    //create a class: Sidebar, and print the HTML elements that you want to display at the sidebar of every page.
 {
     public $content="";
     public $submenu="";
@@ -20,7 +20,7 @@ class Sidebar
         </li>";
         $this->submenu="";
     }
-    public function echo()
+    public function echo()  //
     {
         echo "<div id=\"sidebar-menu\" class=\"main_menu_side hidden-print main_menu\">
                 <div class=\"menu_section\">
@@ -29,7 +29,7 @@ class Sidebar
                         $this->content
                     </ul>
                 </div>
-            </div>";
+            </div>";    //This will display at the left bottom corner
         echo "<!-- /menu footer buttons -->
         <div class=\"sidebar-footer hidden-small\">
           <a data-toggle=\"tooltip\" data-placement=\"top\" title=\"Settings\">
@@ -38,7 +38,7 @@ class Sidebar
           <a data-toggle=\"tooltip\" data-placement=\"top\" title=\"FullScreen\">
           </a>
           <a data-toggle=\"tooltip\" data-placement=\"top\" title=\"Lock\">
-            
+
           </a>
           <a data-toggle=\"tooltip\" data-placement=\"top\" title=\"Logout\">
             <span class=\"glyphicon glyphicon-off\" aria-hidden=\"true\"></span>
@@ -46,10 +46,13 @@ class Sidebar
         </div>
         <!-- /menu footer buttons -->";
     }
-    public function __construct() {
-        $this->submenu("Business Registration","breg");
-        $this->submenu("Blank2","blank");
-        $this->menu("Menu1");
+    public function __construct() {       // this constructor can accept submenus which are passed when the object is created
+        $this->submenu("Business Registration","breg");  //submenu1.1
+        $this->submenu("Blank2","blank"); //submenu1.2
+        $this->menu("Menu1"); //Main Menu1
+        $this->submenu("Users","users"); //submenu2.1
+        $this->submenu("Roles","roles");//submenu2.2
+        $this->menu("User Management");  //Main Menu2
     }
 }
 
