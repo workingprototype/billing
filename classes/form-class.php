@@ -2,6 +2,7 @@
 /**
  * A Class for creating Forms
  */
+
 class Form    //First we create a class: Form
 {               //Then describe what type of HTTP methods we're going to use.
     public $formtype = "get";  //GET is used to request data from a resource that we'll specify later
@@ -9,6 +10,19 @@ class Form    //First we create a class: Form
     public function input($label,$name='label',$required=0) //function to accept input variables with parameters
     {
         if($name='label'){  //a bunch of IF statements to satisfy our conditions
+          
+class Form
+{
+    public $formtype = "post";
+    public $formaction = "";
+    public $formgroups = "";
+    public function action($var)
+    {
+      $this->formaction=$var;
+    }
+    public function select($label,$name='label',$opt)
+    {
+        if($name=='label'){
             $name=$label;
         }
         if($required==0){
@@ -22,13 +36,13 @@ class Form    //First we create a class: Form
         <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" for=\"first-name\">$label <span class=\"required\">$r</span>
         </label>
         <div class=\"col-md-6 col-sm-6 col-xs-12\">
-          <input type=\"text\" id=\"first-name\" name=\"$name\" $r2  class=\"form-control col-md-7 col-xs-12\">
+          <input type=\"text\" id=\"$name\" name=\"$name\" $r2  class=\"form-control col-md-7 col-xs-12\">
         </div>
       </div>";
     }
     public function email($label,$name='label',$required=0)
     {
-        if($name='label'){
+        if($name=='label'){
             $name=$label;
         }
         if($required==0){
@@ -42,13 +56,13 @@ class Form    //First we create a class: Form
         <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" for=\"first-name\">$label <span class=\"required\">$r</span>
         </label>
         <div class=\"col-md-6 col-sm-6 col-xs-12\">
-          <input type=\"email\" id=\"first-name\" name=\"$name\" $r2  class=\"form-control col-md-7 col-xs-12\">
+          <input type=\"email\" id=\"$name\" name=\"$name\" $r2  class=\"form-control col-md-7 col-xs-12\">
         </div>
       </div>";
     }
     public function password($label,$name='label',$required=0)
     {
-        if($name='label'){
+        if($name=='label'){
             $name=$label;
         }
         if($required==0){
@@ -70,6 +84,7 @@ class Form    //First we create a class: Form
     {
         $this->render=str_replace("----balsudhfwe----",$this->formtype, $this->render);
         $this->render=str_replace("-----aajshndflkb----",$this->formgroups, $this->render);
+        $this->render=str_replace("----asdas34dasfef----",APP_ROOT.$this->formaction, $this->render);
     }
     public function __construct($var = 1) {
         if ($var == 1)
@@ -79,7 +94,7 @@ class Form    //First we create a class: Form
               <div class=\"x_panel\">
                 <div class=\"x_content\">
                   <br />
-                  <form id=\"demo-form2\" method=\"----balsudhfwe----\" data-parsley-validate class=\"form-horizontal form-label-left\">
+                  <form id=\"demo-form2\" action=\"----asdas34dasfef----\" method=\"----balsudhfwe----\" data-parsley-validate class=\"form-horizontal form-label-left\">
                     -----aajshndflkb----
                     <div class=\"form-group\">
                       <div class=\"col-md-6 col-sm-6 col-xs-12 col-md-offset-3\">
