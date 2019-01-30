@@ -24,7 +24,7 @@
 
   <script src="<?php echo APP_ROOT; ?>assets/js/jquery.min.js"></script>
 
-  <script src="<?php echo APP_ROOT?>user-management/bootstrap/jquery.bootgrid.min.js"></script>
+  <script src="<?php echo APP_ROOT?>assets/js/bootgrid/jquery.bootgrid.min.js"></script>
 
 
   <!--[if lt IE 9]>
@@ -100,7 +100,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
 
 <!-- Code -->
-<?php include 'user-management/index.php'; ?>
+<?php include 'inc/user-management.php'; ?>
 <!-- Code -->
             </div>
           </div>

@@ -1,11 +1,7 @@
 
 <?php
-	//include connection file
-	include_once("connection.php");
-
-	$db = new dbObj();
-	$connString =  $db->getConnstring();
-
+	include "../config/mysql.config.php";
+	$connString = mysqli_connect(SQL_HOST, SQL_USERNAME, SQL_PASSWORD, SQL_DBN) or die("Connection failed: " . mysqli_connect_error());
 	$params = $_REQUEST;
 
 	$action = isset($params['action']) != '' ? $params['action'] : '';
