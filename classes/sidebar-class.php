@@ -53,6 +53,10 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->submenu("Users","users"); //submenu2.1
         $this->submenu("Roles","roles");//submenu2.2
         $this->menu("User Management");  //Main Menu2
+        $this->submenu("Sales Register","sales");//submenu3.1
+        $this->menu("Sales");  //Main Menu3
+        $this->submenu("Purchase Register","purchase");//submenu3.1
+        $this->menu("Purchase");  //Main Menu3
     }
 }
 
