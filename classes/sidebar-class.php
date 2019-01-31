@@ -11,9 +11,9 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->submenu.="<li><a href=\"".APP_ROOT . $link ."\">$var</a>
         </li>";
     }
-    public function menu($var)
+    public function menu($var,$icon='fa fa-home')
     {
-        $this->content.= "<li><a><i class=\"fa fa-home\"></i> $var <span class=\"fa fa-chevron-down\"></span></a>
+        $this->content.= "<li><a><i class=\" $icon \"></i> $var <span class=\"fa fa-chevron-down\"></span></a>
             <ul class=\"nav child_menu\" style=\"display: none\">
             $this->submenu
             </ul>
@@ -56,7 +56,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->submenu("Sales Register","sales");//submenu3.1
         $this->menu("Sales");  //Main Menu3
         $this->submenu("Purchase Register","purchase");//submenu3.1
-        $this->menu("Purchase");  //Main Menu3
+        $this->menu("Purchase","fa fa-money");  //Main Menu3
     }
 }
 
