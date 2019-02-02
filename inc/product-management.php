@@ -99,46 +99,49 @@ console.log(document.getElementById('pksu').value); //pass the value to the pksu
 							<option value="0"> No </option>
 							</select>
 						</div>
-
-
 							<script>
 							$("#ptaxapplicable").change(function(){
    if($(this).val()=="1")
    {
-       $("div#container").show();
+       $("div#taxshower").show();
    }
     else
     {
-        $("div#container").hide();
+        $("div#taxshower").hide();
     }
 });
 							</script>
 							<div class="form-group">
-								<label for="psku" class="control-label">Tax Type:</label>
-							<select class="form-control" name="ptaxtype" id="ptaxtype">
-						<optgroup label="CGST">
+								<div id="taxshower">
+									<label for="psku" class="control-label">Tax Type:</label>
+								<select class="form-control" name="ptaxtype" id="ptaxtype">
+							<optgroup label="CGST">
+								<option value="5"> 5% </option>
+								<option value="12"> 12% </option>
+								<option value="18"> 18% </option>
+								<option value="28"> 28% </option>
+								<option value="0"> Not Applicable </option>
+									<input type="text" class="form-control" id="ptaxtype" name="ptaxtype"/>
+							</optgroup>
+						<optgroup label="SGST">
 							<option value="5"> 5% </option>
 							<option value="12"> 12% </option>
 							<option value="18"> 18% </option>
 							<option value="28"> 28% </option>
 							<option value="0"> Not Applicable </option>
+								<input type="text" class="form-control" id="ptaxtype" name="ptaxtype"/>
 						</optgroup>
-					<optgroup label="SGST">
-						<option value="5"> 5% </option>
-						<option value="12"> 12% </option>
-						<option value="18"> 18% </option>
-						<option value="28"> 28% </option>
-						<option value="0"> Not Applicable </option>
-					</optgroup>
-					<optgroup label="IGST">
-						<option value="5"> 	5% </option>
-						<option value="12"> 12% </option>
-						<option value="18"> 18% </option>
-						<option value="28"> 28% </option>
-						<option value="0"> Not Applicable </option>
-					</optgroup>
-							</select>
-							<input type="text" class="form-control" id="psku" name="psku"/>
+						<optgroup label="IGST">
+							<option value="5"> 	5% </option>
+							<option value="12"> 12% </option>
+							<option value="18"> 18% </option>
+							<option value="28"> 28% </option>
+							<option value="0"> Not Applicable </option>
+								<input type="text" class="form-control" id="ptaxtype" name="ptaxtype"/>
+						</optgroup>
+								</select>
+								</div>
+
 						</div>
 
 						<div class="form-group">
