@@ -13,7 +13,7 @@ console.log(document.getElementById('pksu').value); //pass the value to the pksu
 
 
 </script>
-
+	<script src="./assets/js/custom-value.js"></script>
 <div class="pull-right">
 <button type="button" class="btn  btn-primary" id="command-add" data-row-id="0">Add New User</button>
 </div>
@@ -111,9 +111,7 @@ console.log(document.getElementById('pksu').value); //pass the value to the pksu
     {
         $("div#taxshower").hide();
     }
-});
-
-							</script>
+});							</script>
 							<div class="form-group">
 								<div id="taxshower">
 									<label for="ptaxtype" class="control-label">Tax Type:</label>
@@ -126,17 +124,7 @@ console.log(document.getElementById('pksu').value); //pass the value to the pksu
 			<option value="5"> 20 </option>
 			<option value="5"> 28 </option>
 			<option value="customOption"> [Enter a custom tax amount] </option></select><input class="form-control" name="cgstbrowser" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
-										<script>
-							function toggleField(hideObj,showObj)
-							{
-							hideObj.disabled=true;
-							hideObj.style.display='none';
-							showObj.disabled=false;
-							showObj.style.display='inline';
-							showObj.focus();
-							}
-										</script>
-						</div>
+			</div>
 
 								</div>
 
