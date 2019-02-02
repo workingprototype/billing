@@ -104,14 +104,7 @@ console.log(document.getElementById('pksu').value); //pass the value to the pksu
    if($(this).val()=="1")
    {
        $("div#taxshower").show();
-			 if (document.getElementById("ptaxtype").value != "custom" )
-			 {
-				   document.getElementById("divpcgst").style.visibility='hidden';
-					 exit();
-			 }
-			 else {
-    			  document.getElementById("divpcgst").style.visibility='visible';
-    }
+			 exit();
    }
 
     else
@@ -123,24 +116,26 @@ console.log(document.getElementById('pksu').value); //pass the value to the pksu
 							</script>
 							<div class="form-group">
 								<div id="taxshower">
-									<label for="psku" class="control-label">Tax Type:</label>
+									<label for="ptaxtype" class="control-label">Tax Type:</label>
 									<div id="divtaxtype">
-								<select class="form-control" name="ptaxtype" id="ptaxtype">
-							<optgroup id="optcgst" label="CGST">
-								<option value="5"> 5% </option>
-								<option value="12"> 12% </option>
-								<option value="18"> 18% </option>
-								<option value="28"> 28% </option>
-								<option id="custom" value="custom"> Custom </option>
-								</select>
-								<div id="divpcgst">
-									<input type="text" class="form-control" id="pcgst" name="pcgst"/>
-								</div>
-
-
-
-							</optgroup>
-
+										<select name="browser" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
+			<option> 5 </option>
+			<option> 10 </option>
+			<option> 12 </option>
+			<option> 18 </option>
+			<option> 20 </option>
+			<option> 28 </option>
+			<option value="customOption"> [Enter a custom tax amount] </option></select><input name="browser" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
+										<script>
+							function toggleField(hideObj,showObj)
+							{
+							hideObj.disabled=true;
+							hideObj.style.display='none';
+							showObj.disabled=false;
+							showObj.style.display='inline';
+							showObj.focus();
+							}
+										</script>
 						</div>
 
 								</div>
