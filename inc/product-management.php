@@ -77,7 +77,7 @@ console.log(document.getElementById('pksu').value); //pass the value to the pksu
 
 							<div class="form-group">
 								<label for="psku" class="control-label">SKU:</label>
-								<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Create Random ID for the product. Leave blank to generate automatically">
+								<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Created a  Random ID for the product. Leave the field with generated ID or add your own">
 								</i>
 								<input type="text" class="form-control" id="psku" name="psku"/>
 							</div>
@@ -100,8 +100,44 @@ console.log(document.getElementById('pksu').value); //pass the value to the pksu
 							</select>
 						</div>
 
-						<div class="form-group">
-							<label for="psku" class="control-label">Tax Type:</label>
+
+							<script>
+							$("#ptaxapplicable").change(function(){
+   if($(this).val()=="1")
+   {
+       $("div#container").show();
+   }
+    else
+    {
+        $("div#container").hide();
+    }
+});
+							</script>
+							<div class="form-group">
+								<label for="psku" class="control-label">Tax Type:</label>
+							<select class="form-control" name="ptaxtype" id="ptaxtype">
+						<optgroup label="CGST">
+							<option value="5"> 5% </option>
+							<option value="12"> 12% </option>
+							<option value="18"> 18% </option>
+							<option value="28"> 28% </option>
+							<option value="0"> Not Applicable </option>
+						</optgroup>
+					<optgroup label="SGST">
+						<option value="5"> 5% </option>
+						<option value="12"> 12% </option>
+						<option value="18"> 18% </option>
+						<option value="28"> 28% </option>
+						<option value="0"> Not Applicable </option>
+					</optgroup>
+					<optgroup label="IGST">
+						<option value="5"> 	5% </option>
+						<option value="12"> 12% </option>
+						<option value="18"> 18% </option>
+						<option value="28"> 28% </option>
+						<option value="0"> Not Applicable </option>
+					</optgroup>
+							</select>
 							<input type="text" class="form-control" id="psku" name="psku"/>
 						</div>
 
