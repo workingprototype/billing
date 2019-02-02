@@ -61,7 +61,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->menu("<i class=\"fa fa-user-plus\" aria-hidden=\"true\"></i>User Management");  //Main Menu3
 
         $this->submenu("Mangage & Display All Products","products"); //submenu4.1
-        $this->submenu("Import Products","import");//submenu4.2
+        $this->submenu("Import Products","pimport");//submenu4.2
         $this->menu("<i class=\"fa fa-cubes\"></i> Products Management");  //Main Menu4
     }
 }
