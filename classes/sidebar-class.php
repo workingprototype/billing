@@ -13,7 +13,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
     }
     public function menu($var)
     {
-        $this->content.= "<li><a><i class=\"fa fa-home\"></i> $var <span class=\"fa fa-chevron-down\"></span></a>
+        $this->content.= "<li><a>$var <span class=\"fa fa-chevron-down\"></span></a>
             <ul class=\"nav child_menu\" style=\"display: none\">
             $this->submenu
             </ul>
@@ -47,12 +47,22 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         <!-- /menu footer buttons -->";
     }
     public function __construct() {       // this constructor can accept submenus which are passed when the object is created
-        $this->submenu("Business Registration","breg");  //submenu1.1
+
+        $this->submenu("Home","home");  //submenu1.1
         $this->submenu("Blank2","blank"); //submenu1.2
-        $this->menu("Menu1"); //Main Menu1
-        $this->submenu("Users","users"); //submenu2.1
-        $this->submenu("Roles","roles");//submenu2.2
-        $this->menu("User Management");  //Main Menu2
+        $this->menu("<i class=\"fa fa-tachometer\"></i>Dashboard"); //Main Menu1
+
+        $this->submenu("Business Registration","breg");  //submenu2.1
+        $this->submenu("Blank2","blank"); //submenu2.2
+        $this->menu("<i class=\"fa fa-users\"></i>Register New Business"); //Main Menu2
+
+        $this->submenu("Users","users"); //submenu3.1
+        $this->submenu("Roles","roles"); //// TODO: Role management not done. Do it with checkboxes
+        $this->menu("<i class=\"fa fa-user-plus\" aria-hidden=\"true\"></i>User Management");  //Main Menu3
+
+        $this->submenu("Mangage & Display All Products","products"); //submenu4.1
+        $this->submenu("Import Products","import");//submenu4.2
+        $this->menu("<i class=\"fa fa-cubes\"></i> Products Management");  //Main Menu4
     }
 }
 
