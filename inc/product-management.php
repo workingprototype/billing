@@ -1,3 +1,18 @@
+<script>
+function RandomNumberForGeneratingSku() {
+var min = 1;
+var max = 9999999999;
+var num = Math.floor(Math.random() * (max - min + 1)) + min;
+var timeNow = new Date().getTime();
+document.getElementById('psku').value = num + '' + timeNow; //our salt to prevent collison is to use time
+}
+window.onload = RandomNumberForGeneratingSku; //A generated value will be added to the form on form load
+setTimeout(function () {
+console.log(document.getElementById('pksu').value); //pass the value to the pksu input on pageload
+}, 500);
+
+
+</script>
 
 <div class="pull-right">
 <button type="button" class="btn  btn-primary" id="command-add" data-row-id="0">Add New User</button>
@@ -62,13 +77,46 @@
 
 							<div class="form-group">
 								<label for="psku" class="control-label">SKU:</label>
-								<i class="fa fa-info-circle text-info hover-q " aria-hidden="true"
-										data-container="body" data-toggle="popover" data-placement="top" data-content="Create Random ID for the product.<br>
-										<br><small class='text-muted'>Leave it blank for generating automatically.
-										</small>" data-html="true" data-trigger="hover"></i>
+								<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Create Random ID for the product. Leave blank to generate automatically">
+								</i>
 								<input type="text" class="form-control" id="psku" name="psku"/>
 							</div>
 
+							<div class="form-group">
+								<label for="psku" class="control-label">Quantity:</label>
+								<input type="text" class="form-control" id="psku" name="psku"/>
+							</div>
+
+							<div class="form-group">
+								<label for="psku" class="control-label">Weight:</label>
+								<input type="text" class="form-control" id="psku" name="psku"/>
+							</div>
+
+						<div class="form-group">
+							<label for="psku" class="control-label">Tax Applicable?</label>
+							<select class="form-control" name="ptaxapplicable" id="ptaxapplicable">
+							<option value="1"> Yes </option>
+							<option value="0"> No </option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label for="psku" class="control-label">Tax Type:</label>
+							<input type="text" class="form-control" id="psku" name="psku"/>
+						</div>
+
+						<div class="form-group">
+							<label for="psku" class="control-label">Profit Margin:</label>
+							<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Profit Margin for your product in %">
+							</i>
+							<input type="text" class="form-control" id="psku" name="psku"/>
+						</div>
+						<div class="form-group">
+							<label for="psku" class="control-label">Final Selling Price:</label>
+							<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="This should be the Total Price including cost and taxes and profit margin included.">
+							</i>
+							<input type="text" class="form-control" id="psku" name="psku"/>
+						</div>
       <?php // TODO: Fetch value from user roles ?>
 			<!--   <select class="form-control select2" id="role" name="role">
 							<option value="supplier">Supplier</option>
