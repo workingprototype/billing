@@ -14,13 +14,12 @@
 					<th data-column-id="psubcategory">Sub-category</th>
 					<th data-column-id="psku">SKU</th>
 					<th data-column-id="pquantity">Quantity</th>
-					<th data-column-id="pimage">Image</th>
 					<th data-column-id="pweight">Weight</th>
-					<th data-column-id="role">Tax Applicable?</th>
-					<th data-column-id="role">Tax Type</th>
-					<th data-column-id="role">Product Type</th>
-					<th data-column-id="role">Profit Margin</th>
-					<th data-column-id="role">Selling Price</th>
+					<th data-column-id="ptaxapplicable">Tax Applicable?</th>
+					<th data-column-id="ptaxtype">Tax Type</th>
+					<th data-column-id="ptype">Product Type</th>
+					<th data-column-id="pmarginamount">Profit Margin</th>
+					<th data-column-id="psellingprice">Selling Price</th>
 					<th data-column-id="commands" data-formatter="commands" data-sortable="false">Manage Products</th>
 				</tr>
 </thead>
@@ -31,31 +30,45 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Add New User</h4>
+                <h4 class="modal-title">Add New Product</h4>
             </div>
             <div class="modal-body">
                 <form method="post" id="frm_add">
 				<input type="hidden" value="add" name="action" id="action">
-                  <div class="form-group">
-                    <label for="fullname" class="control-label">Full Name:</label>
-                    <input type="text" class="form-control" id="fullname" name="fullname" required/>
-                  </div>
-                  <div class="form-group">
-                    <label for="username" class="control-label">Username:</label>
-                    <input type="text" class="form-control" id="username" name="username" required/>
-                  </div>
-									<div class="form-group">
-										<label for="email" class="control-label">Email: </label>
-										<input type="email" class="form-control" id="email" name="email" required/>
-									</div>
-									<div class="form-group">
-										<label for="password" class="control-label">Password: </label>
-										<input type="password" class="form-control" id="password" name="password" required/>
-									</div>
-				  			<div class="form-group">
-                    <label for="role" class="control-label">Role</label>
-										<input type="text" class="form-control" id="role" name="role" required/>
-                  </div>
+		        <div class="form-group">
+		          <label for="pname" class="control-label">Product Name:</label>
+		          <input type="text" class="form-control" id="pname" name="pname" required/>
+		        </div>
+
+						<div class="form-group">
+							<label for="pbrand" class="control-label">Product Brand:</label>
+							<input type="text" class="form-control" id="pbrand" name="pbrand" required/>
+						</div>
+
+							<div class="form-group">
+								<label for="punit" class="control-label">Unit:</label>
+								<input type="text" class="form-control" id="punit" name="punit" value="Pcs" required/>
+							</div>
+
+							<div class="form-group">
+								<label for="pcategory" class="control-label">Product Category:</label>
+								<input type="text" class="form-control" id="pcategory" name="pcategory" required/>
+							</div>
+
+							<div class="form-group">
+								<label for="psubcategory" class="control-label">Product Sub-Category:</label>
+								<input type="text" class="form-control" id="psubcategory" name="psubcategory" required/>
+							</div>
+
+							<div class="form-group">
+								<label for="psku" class="control-label">SKU:</label>
+								<i class="fa fa-info-circle text-info hover-q " aria-hidden="true"
+										data-container="body" data-toggle="popover" data-placement="top" data-content="Create Random ID for the product.<br>
+										<br><small class='text-muted'>Leave it blank for generating automatically.
+										</small>" data-html="true" data-trigger="hover"></i>
+								<input type="text" class="form-control" id="psku" name="psku"/>
+							</div>
+
       <?php // TODO: Fetch value from user roles ?>
 			<!--   <select class="form-control select2" id="role" name="role">
 							<option value="supplier">Supplier</option>
