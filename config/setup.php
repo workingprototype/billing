@@ -69,7 +69,6 @@ $sql = "CREATE TABLE IF NOT EXISTS `products`
   `psubcategory` varchar(200) NOT NULL,
   `psku` varchar(5000) NOT NULL,
   `pquantity` varchar(100) NOT NULL,
-  `pimage` varchar(2083) NOT NULL,
   `pweight` varchar(500) NOT NULL,
   `ptaxapplicable` varchar(500) NOT NULL,
   `ptaxtype` varchar(500) NOT NULL,
