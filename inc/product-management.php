@@ -15,7 +15,7 @@ console.log(document.getElementById('psku').value); //pass the value to the pksu
 </script>
 	<script src="./assets/js/custom-value.js"></script>
 <div class="pull-right">
-<button type="button" class="btn  btn-primary" id="command-add" data-row-id="0">Add New User</button>
+<button type="button" class="btn  btn-primary" id="command-add" data-row-id="0">Add New Product</button>
 </div>
 <br>
 <table id="users_grid" class="table table-condensed table-hover table-striped" width="60%" cellspacing="0" data-toggle="bootgrid">
@@ -257,7 +257,7 @@ $( document ).ready(function() {
 			};
 		},
 
-		url: "<?php echo APP_ROOT ;?>inc/user-management-response.php",
+		url: "<?php echo APP_ROOT ;?>inc/product-management-response.php",
 		formatters: {
 		        "commands": function(column, row)
 		        {
@@ -297,7 +297,7 @@ console.log(g_id);
 		var conf = confirm('Delete ' + $(this).data("row-id") + '?');
 					alert(conf);
                     if(conf){
-                                $.post('<?php echo APP_ROOT ;?>inc/user-management-response.php', { id: $(this).data("row-id"), action:'delete'}
+                                $.post('<?php echo APP_ROOT ;?>inc/product-management-response.php', { id: $(this).data("row-id"), action:'delete'}
                                     , function(){
                                         // when ajax returns (callback),
 										$("#users_grid").bootgrid('reload');
@@ -311,7 +311,7 @@ function ajaxAction(action) {
 				data = $("#frm_"+action).serializeArray();
 				$.ajax({
 				  type: "POST",
-				  url: "<?php echo APP_ROOT ;?>inc/user-management-response.php",
+				  url: "<?php echo APP_ROOT ;?>inc/product-management-response.php",
 				  data: data,
 				  dataType: "json",
 				  success: function(response)
