@@ -8,7 +8,7 @@ document.getElementById('psku').value = num + '' + timeNow; //our salt to preven
 }
 window.onload = RandomNumberForGeneratingSku; //A generated value will be added to the form on form load
 setTimeout(function () {
-console.log(document.getElementById('psku').value); //pass the value to the pksu input on pageload
+console.log(document.getElementById('psku').value); //pass the value to the psku input on pageload
 }, 500);
 
 
@@ -115,11 +115,11 @@ console.log(document.getElementById('psku').value); //pass the value to the pksu
 		<div id="taxshower">
 		<div class="box box-solid">
     <div class="box-body">
-		<label for="ptaxtype" class="control-label">GST Group &nbsp </label><i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title=" Value is in %">
+		<label for="cgstgroup" class="control-label">GST Group &nbsp </label><i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title=" Value is in %">
 		</i><br />
 		<label for="cgstgroup" class="control-label">Select CGST for this product:</label>
 		<div id="divtaxtype">
-	<select class="form-control" name="cgstbrowser" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
+	<select id="cgstgroup" class="form-control" name="cgstbrowser" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
 			<option value="5"> 5 </option>
 			<option value="10"> 10 </option>
 			<option value="12"> 12 </option>
@@ -129,9 +129,9 @@ console.log(document.getElementById('psku').value); //pass the value to the pksu
 			<option value="0"> 0 (None) </option>
 			<option value="customOption"> [Enter a custom tax amount] </option></select><input class="form-control" name="cgstbrowser" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
 </div>
-<label for="ptaxtype" class="control-label">Select SGST for this product:</label>
+<label for="sgstgroup" class="control-label">Select SGST for this product:</label>
 <div id="divtaxtype">
-<select class="form-control" name="cgstbrowser2" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
+<select id="sgstgroup" class="form-control" name="sgstbrowser" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
 	<option value="5"> 5 </option>
 	<option value="10"> 10 </option>
 	<option value="12"> 12 </option>
@@ -139,11 +139,11 @@ console.log(document.getElementById('psku').value); //pass the value to the pksu
 	<option value="20"> 20 </option>
 	<option value="28"> 28 </option>
 	<option value="0"> 0 (None) </option>
-	<option value="customOption"> [Enter a custom tax amount] </option></select><input class="form-control" name="cgstbrowser2" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
+	<option value="customOption"> [Enter a custom tax amount] </option></select><input class="form-control" name="sgstbrowser" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
 </div>
-<label for="ptaxtype" class="control-label">Select IGST for this product:</label>
+<label for="igstgroup" class="control-label">Select IGST for this product:</label>
 <div id="divtaxtype">
-<select class="form-control" name="cgstbrowser2" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
+<select id="igstgroup" class="form-control" name="igstbrowser" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
 	<option value="5"> 5 </option>
 	<option value="10"> 10 </option>
 	<option value="12"> 12 </option>
@@ -151,7 +151,7 @@ console.log(document.getElementById('psku').value); //pass the value to the pksu
 	<option value="20"> 20 </option>
 	<option value="28"> 28 </option>
 	<option value="0"> 0 (None) </option>
-	<option value="customOption"> [Enter a custom tax amount] </option></select><input class="form-control" name="cgstbrowser2" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
+	<option value="customOption"> [Enter a custom tax amount] </option></select><input class="form-control" name="igstbrowser" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
 </div>
 </div>
 </div>

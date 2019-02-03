@@ -38,10 +38,10 @@
 	function insertProduct($params) {
 		$data = array();;
 		//TODO: Just complete this Shit, This is tooooooooooooooooooo much, i have done the half.   :( -> Lol.Thanks bruh!
-		$sql = "INSERT INTO `products` (pname, pbrand, punit, pcategory, psubcategory, pksu, pquantity, pweight, ptaxapplicable, ptaxtype, cgstgroup, sgstgroup, igstgroup,
+		$sql = "INSERT INTO `products` (pname, pbrand, punit, pcategory, psubcategory, psku, pquantity, pweight, ptaxapplicable, cgstgroup, sgstgroup, igstgroup,
 			pamountexcludingtax, pamountincludingtax, pmarginamout, psellingprice)
 		VALUES('" . $params["pname"] . "', '" . $params["pbrand"] . "','" . $params["punit"] . "','" . $params["pcategory"] . "','" . $params["psubcategory"] . "','"
-			 . $params["pksu"] . "','" . $params["pquantity"] . "','" . $params["pweight"] . "','" . $params["ptaxapplicable"] . "','" . $params["cgstgroup"] . "','"
+			 . $params["psku"] . "','" . $params["pquantity"] . "','" . $params["pweight"] . "','" . $params["ptaxapplicable"] . "','" . $params["cgstgroup"] . "','"
 			  . $params["sgstgroup"] . "','" . $params["igstgroup"] . "','" . $params["pamountexcludingtax"] . "','" . $params["pamountincludingtax"] . "','"
 				 . $params["pmarginamout"] . "','" . $params["psellingprice"] . "');  ";
 

@@ -74,7 +74,7 @@ $sql = "CREATE TABLE IF NOT EXISTS `products` (
   `cgstgroup` varchar(5) NOT NULL,
   `sgstgroup` varchar(5) NOT NULL,
   `igstgroup` varchar(5) NOT NULL,
-  `ptype` varchar(500) NOT NULL,
+  -- `ptype` varchar(500) NOT NULL,
   `pamountexcludingtax` varchar(500) NOT NULL,
   `pamountincludingtax` varchar(500) NOT NULL,
   `pmarginamount` varchar(500) NOT NULL,
