@@ -36,7 +36,7 @@
 		echo json_encode($this->data);
 	}
 	function insertProduct($params) {
-		$data = array();;
+		$data = array();
 		$sql = "INSERT INTO `products` (`pid`, `pname`, `pbrand`, `punit`, `pcategory`, `psubcategory`, `psku`, `pquantity`, `pweight`, `ptaxapplicable`, `cgstgroup`, `sgstgroup`, `igstgroup`, `pamountexcludingtax`, `pamountincludingtax`, `pmarginamount`, `psellingprice`, `ptimestamp`)
 		 VALUES ('', 'qweqw', 'qweq', 'qweq', 'qweq', 'qweq', 'qwe', 'qweq', 'qweq', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'CURRENT_TIMESTAMP(6).000000')";
 		echo $result = mysqli_query($this->conn, $sql) or die("error while inserting product data");
