@@ -114,7 +114,20 @@
 	function updateUsers($params) {
 		$data = array();
 		//print_R($_POST);die;
-		$sql = "Update `products` set pid_edit = '" . $params["pname_edit"] . "', username='" . $params["edit_username"]."', email='" . $params["edit_email"] . "', password='" . $params["edit_password"] . "', role='" . $params["edit_role"] . "' WHERE id='".$_POST["edit_id"]."'";
+		$sql = "Update `products` set pname = '" . $params["pname_edit"] . "', pbrand='" . $params["pbrand_edit"]."', punit='"
+		 . $params["punit_edit"] . "', pcategory='" . $params["pcategory_edit"]
+		  . "', psubcategory='" . $params["psubcategory_edit"]."', psku='" . $params["psku_edit"]."',
+			 pquantity='" . $params["pquantity_edit"]."',
+			  pweight='" . $params["pweight_edit"]."',
+				 ptaxapplicable='" . $params["ptaxapplicable_edit"]."',
+ 				 cgstgroup='" . $params["cgstgroup_edit"]."',
+ 				 sgstgroup='" . $params["sgstgroup_edit"]."',
+ 				 igstgroup='" . $params["igstgroup_edit"]."',
+ 				 pamountexcludingtax='" . $params["pamountexcludingtax"]."',
+ 				 pamountincludingtax='" . $params["pamountincludingtax_edit"]."',
+ 				 pmarginamout='" . $params["pmarginamount_edit"]."',
+				  psellingprice='" . $params["psellingprice_edit"]
+			 . "' WHERE pid='".$_POST["pid_edit"]."'";
 
 		echo $result = mysqli_query($this->conn, $sql) or die("error while updating user data");
 	}
@@ -122,9 +135,9 @@
 	function deleteUsers($params) {
 		$data = array();
 		//print_R($_POST);die;
-		$sql = "delete from `products` WHERE id='".$params["id"]."'";
+		$sql = "delete from `products` WHERE pid='".$params["pid"]."'";
 
-		echo $result = mysqli_query($this->conn, $sql) or die("error while deleting user data");
+		echo $result = mysqli_query($this->conn, $sql) or die("error while deleting product data");
 	}
 }
 ?>
