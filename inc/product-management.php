@@ -165,7 +165,7 @@ console.log(document.getElementById('psku').value); //pass the value to the pksu
     OR Variable product: Product with variations such as size, color etc.">
 	</i>
 	<input type="text" class="form-control" id="ptype" name="ptype"/>
-</div> --> <?php // TODO: Have to add multiple variation of products with differntial pricing for each variation ?>
+</div> --> <?php // TODO: Have to add multiple variation of products with differential pricing for each variation ?>
 <div class="form-group">
 	<label for="pamountexcludingtax" class="control-label">Price Excluding Tax:</label>
 	<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Price of the product excluding Tax">
@@ -204,17 +204,23 @@ console.log(document.getElementById('psku').value); //pass the value to the pksu
 			</form>
         </div>
     </div>
+<!-- Edit Product Form -->
+
 <div id="edit_model" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Edit User</h4>
+                <h4 class="modal-title">Edit Product</h4>
             </div>
 
 						<div class="modal-body">
 								<form method="post" id="frm_add">
 					<input type="hidden" value="add" name="action" id="action">
+					<div class="form-group">
+						<label for="pid_edit" class="control-label">Product ID:</label>
+						<input type="text" class="form-control" id="pid_edit" name="pid_edit" required/>
+					</div>
 						<div class="form-group">
 							<label for="pname_edit" class="control-label">Product Name:</label>
 							<input type="text" class="form-control" id="pname_edit" name="pname_edit" required/>
@@ -330,30 +336,30 @@ console.log(document.getElementById('psku').value); //pass the value to the pksu
 					OR Variable product: Product with variations such as size, color etc.">
 					</i>
 					<input type="text" class="form-control" id="ptype" name="ptype"/>
-					</div> --> <?php // TODO: Have to add multiple variation of products with differntial pricing for each variation ?>
+				</div> --> <?php // TODO: Have to add multiple variation of products with differential pricing for each variation ?>
 					<div class="form-group">
-					<label for="pamountexcludingtax" class="control-label">Price Excluding Tax:</label>
+					<label for="pamountexcludingtax_edit" class="control-label">Price Excluding Tax:</label>
 					<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Price of the product excluding Tax">
 					</i>
-					<input type="text" class="form-control" id="pamountexcludingtax" name="pamountexcludingtax"/>
+					<input type="text" class="form-control" id="pamountexcludingtax_edit" name="pamountexcludingtax_edit"/>
 					</div>
 					<div class="form-group">
-					<label for="pamountincludingtax" class="control-label">Price Including Tax:</label>
+					<label for="pamountincludingtax_edit" class="control-label">Price Including Tax:</label>
 					<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Price of the product including Tax">
 					</i>
-					<input type="text" class="form-control" id="pamountincludingtax" name="pamountincludingtax"/>
+					<input type="text" class="form-control" id="pamountincludingtax_edit" name="pamountincludingtax_edit"/>
 					</div>
 					<div class="form-group">
-					<label for="pmarginamount" class="control-label">Profit Margin:</label>
+					<label for="pmarginamount_edit" class="control-label">Profit Margin:</label>
 					<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Profit Margin for your product in %">
 					</i>
-					<input type="text" class="form-control" id="pmarginamount" name="pmarginamount"/>
+					<input type="text" class="form-control" id="pmarginamount_edit" name="pmarginamount_edit"/>
 					</div>
 					<div class="form-group">
-					<label for="psellingprice" class="control-label">Final Selling Price:</label>
+					<label for="psellingprice_edit" class="control-label">Final Selling Price:</label>
 					<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="This should be the Total Price including cost and taxes and profit margin included.">
 					</i>
-					<input type="text" class="form-control" id="psellingprice" name="psellingprice"/>
+					<input type="text" class="form-control" id="psellingprice_edit" name="psellingprice_edit"/>
 					</div>
 
 
@@ -404,12 +410,22 @@ console.log(g_id);
 					if($(this).data("row-id") >0) {
 
                                 // collect the data
-                                $('#edit_id').val(ele.siblings(':first').html()); // in case we're changing the key
-                                $('#edit_fullname').val(ele.siblings(':nth-of-type(2)').html());
-                                $('#edit_username').val(ele.siblings(':nth-of-type(3)').html());
-                                $('#edit_email').val(ele.siblings(':nth-of-type(4)').html());
-                                $('#edit_password').val(ele.siblings(':nth-of-type(5)').html());
-                                $('#edit_role').val(ele.siblings(':nth-of-type(6)').html());
+																$('#pid_edit').val(ele.siblings(':first').html());
+                                $('#pname_edit').val(ele.siblings(':nth-of-type(2)').html()); // in case we're changing the key
+                                $('#pbrand_edit').val(ele.siblings(':nth-of-type(3)').html());
+                                $('#punit_edit').val(ele.siblings(':nth-of-type(4)').html());
+                                $('#pcategory_edit').val(ele.siblings(':nth-of-type(5)').html());
+                                $('#psubcategory_edit').val(ele.siblings(':nth-of-type(6)').html());
+                                $('#pquantity_edit').val(ele.siblings(':nth-of-type(7)').html());
+                                $('#pweight_edit').val(ele.siblings(':nth-of-type(8)').html());
+                                $('#ptaxtype_edit').val(ele.siblings(':nth-of-type(9)').html());
+                                $('#cgstgroup_edit').val(ele.siblings(':nth-of-type(10)').html());
+                                $('#sgstgroup_edit').val(ele.siblings(':nth-of-type(11)').html());
+                                $('#igstgroup_edit').val(ele.siblings(':nth-of-type(12)').html());
+                                $('#pamountexcludingtax_edit').val(ele.siblings(':nth-of-type(13)').html());
+                                $('#pamountincludingtax_edit').val(ele.siblings(':nth-of-type(14)').html());
+                                $('#pmarginamount_edit').val(ele.siblings(':nth-of-type(15)').html());
+                                $('#psellingprice_edit').val(ele.siblings(':nth-of-type(16)').html());
 					} else {
 					 alert('Now row selected! First select row, then click edit button');
 					}
