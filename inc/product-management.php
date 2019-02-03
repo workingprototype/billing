@@ -215,10 +215,7 @@ console.log(document.getElementById('psku').value); //pass the value to the psku
 						<div class="modal-body">
 								<form method="post" id="frm_add">
 					<input type="hidden" value="add" name="action" id="action">
-					<div class="form-group">
-						<label for="pid_edit" class="control-label">Product ID:</label>
-						<input type="text" class="form-control" id="pid_edit" name="pid_edit" required/>
-					</div>
+					
 						<div class="form-group">
 							<label for="pname_edit" class="control-label">Product Name:</label>
 							<input type="text" class="form-control" id="pname_edit" name="pname_edit" required/>
@@ -288,7 +285,7 @@ console.log(document.getElementById('psku').value); //pass the value to the psku
 					<div class="box-body">
 					<label for="ptaxtype_edit" class="control-label">GST Group &nbsp </label><i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title=" Value is in %">
 					</i><br />
-					<label for="cgstgroup_edit" class="control-label">Select CGST for this product:</label>
+					<label for="cgstbrowser_edit" class="control-label">Select CGST for this product:</label>
 					<div id="divtaxtype_edit">
 					<select class="form-control" name="cgstbrowser1_edit" onchange="if(this.options[this.selectedIndex].value=='customOption1_edit'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
 					<option value="5"> 5 </option>
@@ -300,7 +297,7 @@ console.log(document.getElementById('psku').value); //pass the value to the psku
 					<option value="0"> 0 (None) </option>
 					<option value="customOption1_edit"> [Enter a custom tax amount] </option></select><input class="form-control" name="cgstbrowser1_edit" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
 					</div>
-					<label for="sgstgroup_edit" class="control-label">Select SGST for this product:</label>
+					<label for="sgstbrowser_edit" class="control-label">Select SGST for this product:</label>
 					<div id="divtaxtype_edit">
 					<select class="form-control" name="cgstbrowser2_edit" onchange="if(this.options[this.selectedIndex].value=='customOption2_edit'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
 					<option value="5"> 5 </option>
@@ -312,7 +309,7 @@ console.log(document.getElementById('psku').value); //pass the value to the psku
 					<option value="0"> 0 (None) </option>
 					<option value="customOption2_edit"> [Enter a custom tax amount] </option></select><input class="form-control" name="cgstbrowser2_edit" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
 					</div>
-					<label for="igstgroup_edit" class="control-label">Select IGST for this product:</label>
+					<label for="igstbrowser_edit" class="control-label">Select IGST for this product:</label>
 					<div id="divtaxtype_edit">
 					<select class="form-control" name="cgstbrowser3_edit" onchange="if(this.options[this.selectedIndex].value=='customOption3_edit'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
 					<option value="5"> 5 </option>
@@ -387,8 +384,8 @@ $( document ).ready(function() {
 		formatters: {
 		        "commands": function(column, row)
 		        {
-		            return "<button type=\"button\" class=\"btn btn-xs btn-default command-edit\" data-row-id=\"" + row.id + "\"><span class=\"glyphicon glyphicon-edit\"></span></button> " +
-		                "<button type=\"button\" class=\"btn btn-xs btn-default command-delete\" data-row-id=\"" + row.id + "\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
+		            return "<button type=\"button\" class=\"btn btn-xs btn-default command-edit\" data-row-id=\"" + row.pid + "\"><span class=\"glyphicon glyphicon-edit\"></span></button> " +
+		                "<button type=\"button\" class=\"btn btn-xs btn-default command-delete\" data-row-id=\"" + row.pid + "\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
 		        }
 		    }
    }).on("loaded.rs.jquery.bootgrid", function()
@@ -406,9 +403,8 @@ console.log(g_id);
 		//console.log(grid.data());//
 		$('#edit_model').modal('show');
 					if($(this).data("row-id") >0) {
-
                                 // collect the data
-								$('#pid_edit').val(ele.siblings(':first').html());
+								
                                 $('#pname_edit').val(ele.siblings(':nth-of-type(2)').html()); // in case we're changing the key
                                 $('#pbrand_edit').val(ele.siblings(':nth-of-type(3)').html());
                                 $('#punit_edit').val(ele.siblings(':nth-of-type(4)').html());
@@ -416,10 +412,10 @@ console.log(g_id);
                                 $('#psubcategory_edit').val(ele.siblings(':nth-of-type(6)').html());
                                 $('#pquantity_edit').val(ele.siblings(':nth-of-type(7)').html());
                                 $('#pweight_edit').val(ele.siblings(':nth-of-type(8)').html());
-                                $('#ptaxapplicable_edit').val(ele.siblings(':nth-of-type(9)').html());
-                                $('#cgstgroup_edit').val(ele.siblings(':nth-of-type(10)').html());
-                                $('#sgstgroup_edit').val(ele.siblings(':nth-of-type(11)').html());
-                                $('#igstgroup_edit').val(ele.siblings(':nth-of-type(12)').html());
+                                //$('#ptaxapplicable_edit').val(ele.siblings(':nth-of-type(9)').html());
+                                $('#cgstbrowser_edit').val(ele.siblings(':nth-of-type(10)').html());
+                                $('#sgstbrowser_edit').val(ele.siblings(':nth-of-type(11)').html());
+                                $('#igstbrowser_edit').val(ele.siblings(':nth-of-type(12)').html());
                                 $('#pamountexcludingtax_edit').val(ele.siblings(':nth-of-type(13)').html());
                                 $('#pamountincludingtax_edit').val(ele.siblings(':nth-of-type(14)').html());
                                 $('#pmarginamount_edit').val(ele.siblings(':nth-of-type(15)').html());

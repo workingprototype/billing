@@ -11,9 +11,6 @@
 	include "../config/mysql.config.php";
 	$connString = mysqli_connect(SQL_HOST, SQL_USERNAME, SQL_PASSWORD, SQL_DBN) or die("Connection failed: " . mysqli_connect_error());
 	$params = $_REQUEST;
-	foreach($params as $key=>$v){
-		fdebug($key);
-	}
 	$action = isset($params['action']) != '' ? $params['action'] : '';
 	$empCls = new Products($connString);
 
@@ -140,9 +137,7 @@
 
 	function deleteProduct($params) {
 		$data = array();
-		//print_R($_POST);die;
-		$sql = "delete from `products` WHERE pid='".$params["pid"]."'";
-
+		$sql = "DELETE FROM `products` WHERE pid='".$params["id"]."'";
 		echo $result = mysqli_query($this->conn, $sql) or die("error while deleting product data");
 	}
 }
