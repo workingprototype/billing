@@ -37,14 +37,8 @@
 	}
 	function insertProduct($params) {
 		$data = array();;
-		//TODO: Just complete this Shit, This is tooooooooooooooooooo much, i have done the half.   :( -> Lol.Thanks bruh!
-		$sql = "INSERT INTO `products` (pname, pbrand, punit, pcategory, psubcategory, psku, pquantity, pweight, ptaxapplicable, cgstgroup, sgstgroup, igstgroup,
-			pamountexcludingtax, pamountincludingtax, pmarginamout, psellingprice)
-		VALUES('" . $params["pname"] . "', '" . $params["pbrand"] . "','" . $params["punit"] . "','" . $params["pcategory"] . "','" . $params["psubcategory"] . "','"
-			 . $params["psku"] . "','" . $params["pquantity"] . "','" . $params["pweight"] . "','" . $params["ptaxapplicable"] . "','" . $params["cgstgroup"] . "','"
-			  . $params["sgstgroup"] . "','" . $params["igstgroup"] . "','" . $params["pamountexcludingtax"] . "','" . $params["pamountincludingtax"] . "','"
-				 . $params["pmarginamout"] . "','" . $params["psellingprice"] . "');  ";
-
+		$sql = "INSERT INTO `products` (`pid`, `pname`, `pbrand`, `punit`, `pcategory`, `psubcategory`, `psku`, `pquantity`, `pweight`, `ptaxapplicable`, `cgstgroup`, `sgstgroup`, `igstgroup`, `pamountexcludingtax`, `pamountincludingtax`, `pmarginamount`, `psellingprice`, `ptimestamp`)
+		 VALUES ('', 'qweqw', 'qweq', 'qweq', 'qweq', 'qweq', 'qwe', 'qweq', 'qweq', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'CURRENT_TIMESTAMP(6).000000')";
 		echo $result = mysqli_query($this->conn, $sql) or die("error while inserting product data");
 
 	}
@@ -80,8 +74,8 @@
 	   if( !empty($params['sort']) ) {
 			$where .=" ORDER By ".key($params['sort']) .' '.current($params['sort'])." ";
 		}
-	   // getting total number records without any search
-		$sql = "SELECT pid,pname,pbrand,punit,pcategory,psubcategory,psku,pquantity,pweight,ptaxapplicable,pmarginamout,psellingprice FROM `products` ";
+		// getting total number records without any search
+		$sql = "SELECT * FROM `products` ";
 		$sqlTot .= $sql;
 		$sqlRec .= $sql;
 
@@ -111,7 +105,7 @@
 
 		return $json_data;
 	}
-	function updateUsers($params) {
+	function updateProduct($params) {
 		$data = array();
 		//print_R($_POST);die;
 		$sql = "Update `products` set pname = '" . $params["pname_edit"] . "', pbrand='" . $params["pbrand_edit"]."', punit='"
@@ -132,7 +126,7 @@
 		echo $result = mysqli_query($this->conn, $sql) or die("error while updating user data");
 	}
 
-	function deleteUsers($params) {
+	function deleteProduct($params) {
 		$data = array();
 		//print_R($_POST);die;
 		$sql = "delete from `products` WHERE pid='".$params["pid"]."'";
