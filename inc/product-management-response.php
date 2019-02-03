@@ -1,9 +1,19 @@
 
 <?php
+	function fdebug($a)
+	{
+		$myfile = fopen("newfile.txt", "a") or die("Unable to open file!");
+		$txt = "$a\n";
+		fwrite($myfile, $txt);
+		fclose($myfile);
+	}
+	
 	include "../config/mysql.config.php";
 	$connString = mysqli_connect(SQL_HOST, SQL_USERNAME, SQL_PASSWORD, SQL_DBN) or die("Connection failed: " . mysqli_connect_error());
 	$params = $_REQUEST;
-
+	foreach($params as $key=>$v){
+		fdebug($key);
+	}
 	$action = isset($params['action']) != '' ? $params['action'] : '';
 	$empCls = new Products($connString);
 
@@ -37,10 +47,12 @@
 	}
 	function insertProduct($params) {
 		$data = array();
-		$sql = "INSERT INTO `products` (`pid`, `pname`, `pbrand`, `punit`, `pcategory`, `psubcategory`, `psku`, `pquantity`, `pweight`, `ptaxapplicable`, `cgstgroup`, `sgstgroup`, `igstgroup`, `pamountexcludingtax`, `pamountincludingtax`, `pmarginamount`, `psellingprice`, `ptimestamp`)
-		 VALUES ('', 'qweqw', 'qweq', 'qweq', 'qweq', 'qweq', 'qwe', 'qweq', 'qweq', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'CURRENT_TIMESTAMP(6).000000')";
-		echo $result = mysqli_query($this->conn, $sql) or die("error while inserting product data");
+		$sql = "INSERT INTO `products` (pname, pbrand, punit, pcategory, psubcategory,psku, pquantity, pweight, ptaxapplicable, cgstbrowser, sgstbrowser, igstbrowser, pamountexcludingtax, pamountincludingtax, pmarginamount, psellingprice)
+	VALUES('" . $params["pname"] . "', '" . $params["pbrand"] . "','" . $params["punit"] . "',
+	'" . $params["pcategory"] . "','" . $params["psubcategory"] . "','" . $params["psku"] . "','" . $params["pquantity"] . "','" . $params["pweight"] . "','" . $params["ptaxapplicable"] . "','" . $params["cgstbrowser"] . "','". $params["sgstbrowser"] . "','" . $params["igstbrowser"] . "','" . $params["pamountexcludingtax"] . "','" . $params["pamountincludingtax"] . "','". $params["pmarginamount"] . "','" . $params["psellingprice"] . "');  ";
 
+		echo $result = mysqli_query($this->conn, $sql);
+		fdebug($this->conn->error);
 	}
 
 
