@@ -408,7 +408,7 @@ console.log(g_id);
 					if($(this).data("row-id") >0) {
 
                                 // collect the data
-																$('#pid_edit').val(ele.siblings(':first').html());
+								$('#pid_edit').val(ele.siblings(':first').html());
                                 $('#pname_edit').val(ele.siblings(':nth-of-type(2)').html()); // in case we're changing the key
                                 $('#pbrand_edit').val(ele.siblings(':nth-of-type(3)').html());
                                 $('#punit_edit').val(ele.siblings(':nth-of-type(4)').html());
@@ -456,6 +456,7 @@ function ajaxAction(action) {
 					$("#users_grid").bootgrid('reload');
 				  }
 				});
+				
 			}
 
 			$( "#command-add" ).click(function() {
