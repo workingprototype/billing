@@ -115,7 +115,11 @@ console.log(document.getElementById('pksu').value); //pass the value to the pksu
 
 		<div class="form-group">
 		<div id="taxshower">
-		<label for="ptaxtype" class="control-label">Tax Type:</label>
+		<div class="box box-solid">
+    <div class="box-body">
+		<label for="ptaxtype" class="control-label">GST Group &nbsp </label><i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title=" Value is in %">
+		</i><br />
+		<label for="cgstgroup" class="control-label">Select CGST for this product:</label>
 		<div id="divtaxtype">
 	<select class="form-control" name="cgstbrowser" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
 			<option value="5"> 5 </option>
@@ -124,8 +128,38 @@ console.log(document.getElementById('pksu').value); //pass the value to the pksu
 			<option value="18"> 18 </option>
 			<option value="20"> 20 </option>
 			<option value="28"> 28 </option>
+			<option value="0"> 0 (None) </option>
 			<option value="customOption"> [Enter a custom tax amount] </option></select><input class="form-control" name="cgstbrowser" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
 </div>
+<label for="ptaxtype" class="control-label">Select SGST for this product:</label>
+<div id="divtaxtype">
+<select class="form-control" name="cgstbrowser2" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
+	<option value="5"> 5 </option>
+	<option value="10"> 10 </option>
+	<option value="12"> 12 </option>
+	<option value="18"> 18 </option>
+	<option value="20"> 20 </option>
+	<option value="28"> 28 </option>
+	<option value="0"> 0 (None) </option>
+	<option value="customOption"> [Enter a custom tax amount] </option></select><input class="form-control" name="cgstbrowser2" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
+</div>
+<label for="ptaxtype" class="control-label">Select SGST for this product:</label>
+<div id="divtaxtype">
+<select class="form-control" name="cgstbrowser2" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
+	<option value="5"> 5 </option>
+	<option value="10"> 10 </option>
+	<option value="12"> 12 </option>
+	<option value="18"> 18 </option>
+	<option value="20"> 20 </option>
+	<option value="28"> 28 </option>
+	<option value="0"> 0 (None) </option>
+	<option value="customOption"> [Enter a custom tax amount] </option></select><input class="form-control" name="cgstbrowser2" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
+</div>
+</div>
+</div>
+
+
+
 </div>
 </div>
 
