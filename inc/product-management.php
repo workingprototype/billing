@@ -15,7 +15,7 @@ console.log(document.getElementById('pksu').value); //pass the value to the pksu
 </script>
 	<script src="./assets/js/custom-value.js"></script>
 <div class="pull-right">
-<button type="button" class="btn  btn-primary" id="command-add" data-row-id="0">Add New User</button>
+<button type="button" class="btn  btn-primary" id="command-add" data-row-id="0">Add New Product</button>
 </div>
 <br>
 <table id="users_grid" class="table table-condensed table-hover table-striped" width="60%" cellspacing="0" data-toggle="bootgrid">
