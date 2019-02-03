@@ -8,7 +8,7 @@ document.getElementById('psku').value = num + '' + timeNow; //our salt to preven
 }
 window.onload = RandomNumberForGeneratingSku; //A generated value will be added to the form on form load
 setTimeout(function () {
-console.log(document.getElementById('pksu').value); //pass the value to the pksu input on pageload
+console.log(document.getElementById('psku').value); //pass the value to the pksu input on pageload
 }, 500);
 
 
@@ -83,17 +83,17 @@ console.log(document.getElementById('pksu').value); //pass the value to the pksu
 							</div>
 
 							<div class="form-group">
-								<label for="psku" class="control-label">Quantity:</label>
-								<input type="text" class="form-control" id="psku" name="psku"/>
+								<label for="pquantity" class="control-label">Quantity:</label>
+								<input type="text" class="form-control" id="pquantity" name="pquantity"/>
 							</div>
 
 							<div class="form-group">
-								<label for="psku" class="control-label">Weight:</label>
-								<input type="text" class="form-control" id="psku" name="psku"/>
+								<label for="pweight" class="control-label">Weight:</label>
+								<input type="text" class="form-control" id="pweight" name="pweight"/>
 							</div>
 
 						<div class="form-group">
-							<label for="psku" class="control-label">Tax Applicable?</label>
+							<label for="ptaxapplicable" class="control-label">Tax Applicable?</label>
 							<select class="form-control" name="ptaxapplicable" id="ptaxapplicable">
 							<option value="1"> Yes </option>
 							<option value="0"> No </option>
@@ -143,7 +143,7 @@ console.log(document.getElementById('pksu').value); //pass the value to the pksu
 	<option value="0"> 0 (None) </option>
 	<option value="customOption"> [Enter a custom tax amount] </option></select><input class="form-control" name="cgstbrowser2" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
 </div>
-<label for="ptaxtype" class="control-label">Select SGST for this product:</label>
+<label for="ptaxtype" class="control-label">Select IGST for this product:</label>
 <div id="divtaxtype">
 <select class="form-control" name="cgstbrowser2" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
 	<option value="5"> 5 </option>
@@ -157,24 +157,39 @@ console.log(document.getElementById('pksu').value); //pass the value to the pksu
 </div>
 </div>
 </div>
-
-
-
 </div>
 </div>
-
-						<div class="form-group">
-							<label for="psku" class="control-label">Profit Margin:</label>
-							<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Profit Margin for your product in %">
-							</i>
-							<input type="text" class="form-control" id="psku" name="psku"/>
-						</div>
-						<div class="form-group">
-							<label for="psku" class="control-label">Final Selling Price:</label>
-							<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="This should be the Total Price including cost and taxes and profit margin included.">
-							</i>
-							<input type="text" class="form-control" id="psku" name="psku"/>
-						</div>
+<!-- <div class="form-group">
+	<label for="pmarginamount" class="control-label">Product Type:</label>
+	<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Single product: Product with no variations.
+    OR Variable product: Product with variations such as size, color etc.">
+	</i>
+	<input type="text" class="form-control" id="ptype" name="ptype"/>
+</div> --> //<?php // TODO: Have to add multiple variation of products with differntial pricing for each variation ?>
+<div class="form-group">
+	<label for="pamountexcludingtax" class="control-label">Price Excluding Tax:</label>
+	<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Price of the product excluding Tax">
+	</i>
+	<input type="text" class="form-control" id="pamountexcludingtax" name="pamountexcludingtax"/>
+</div>
+	<div class="form-group">
+		<label for="pamountincludingtax" class="control-label">Price Including Tax:</label>
+		<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Price of the product including Tax">
+		</i>
+		<input type="text" class="form-control" id="pamountincludingtax" name="pamountincludingtax"/>
+	</div>
+	<div class="form-group">
+		<label for="pmarginamount" class="control-label">Profit Margin:</label>
+		<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Profit Margin for your product in %">
+		</i>
+		<input type="text" class="form-control" id="pmarginamount" name="pmarginamount"/>
+	</div>
+	<div class="form-group">
+		<label for="psellingprice" class="control-label">Final Selling Price:</label>
+		<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="This should be the Total Price including cost and taxes and profit margin included.">
+		</i>
+		<input type="text" class="form-control" id="psellingprice" name="psellingprice"/>
+	</div>
       <?php // TODO: Fetch value from user roles ?>
 			<!--   <select class="form-control select2" id="role" name="role">
 							<option value="supplier">Supplier</option>
@@ -198,7 +213,7 @@ console.log(document.getElementById('pksu').value); //pass the value to the pksu
             </div>
             <div class="modal-body">
                 <form method="post" id="frm_edit">
-				<input type="hidden" value="edit" name="action" id="action">
+				<input type="hidden" value="edit" name="actionedit" id="actionedit">
 				<input type="hidden" value="0" name="edit_id" id="edit_id">
                   <div class="form-group">
                     <label for="fullname" class="control-label">Full Name:</label>
