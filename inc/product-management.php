@@ -165,7 +165,7 @@ console.log(document.getElementById('psku').value); //pass the value to the pksu
     OR Variable product: Product with variations such as size, color etc.">
 	</i>
 	<input type="text" class="form-control" id="ptype" name="ptype"/>
-</div> --> //<?php // TODO: Have to add multiple variation of products with differntial pricing for each variation ?>
+</div> --> <?php // TODO: Have to add multiple variation of products with differntial pricing for each variation ?>
 <div class="form-group">
 	<label for="pamountexcludingtax" class="control-label">Price Excluding Tax:</label>
 	<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Price of the product excluding Tax">
@@ -211,31 +211,153 @@ console.log(document.getElementById('psku').value); //pass the value to the pksu
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">Edit User</h4>
             </div>
-            <div class="modal-body">
-                <form method="post" id="frm_edit">
-				<input type="hidden" value="edit" name="actionedit" id="actionedit">
-				<input type="hidden" value="0" name="edit_id" id="edit_id">
-                  <div class="form-group">
-                    <label for="fullname" class="control-label">Full Name:</label>
-                    <input type="text" class="form-control" id="edit_fullname" name="edit_fullname"/>
-                  </div>
-                  <div class="form-group">
-                    <label for="username" class="control-label">Username:</label>
-                    <input type="text" class="form-control" id="edit_username" name="edit_username"/>
-                  </div>
-				  <div class="form-group">
-                    <label for="email" class="control-label">Email:</label>
-                    <input type="email" class="form-control" id="edit_email" name="edit_email"/>
-                  </div>
-				  <div class="form-group">
-                    <label for="password" class="control-label">Password:</label>
-                    <input type="password" class="form-control" id="edit_password" name="edit_password"/>
-                  </div>
-									<div class="form-group">
-								 					 <label for="role" class="control-label">Role:</label>
-								 					 <input type="text" class="form-control" id="edit_role" name="edit_role"/>
-								 				 </div>
-            </div>
+
+						<div class="modal-body">
+								<form method="post" id="frm_add">
+					<input type="hidden" value="add" name="action" id="action">
+						<div class="form-group">
+							<label for="pname_edit" class="control-label">Product Name:</label>
+							<input type="text" class="form-control" id="pname_edit" name="pname_edit" required/>
+						</div>
+
+						<div class="form-group">
+							<label for="pbrand_edit" class="control-label">Product Brand:</label>
+							<input type="text" class="form-control" id="pbrand_edit" name="pbrand_edit" required/>
+						</div>
+
+							<div class="form-group">
+								<label for="punit_edit" class="control-label">Unit:</label>
+								<input type="text" class="form-control" id="punit_edit" name="punit_edit" value="Pcs" required/>
+							</div>
+
+							<div class="form-group">
+								<label for="pcategory_edit" class="control-label">Product Category:</label>
+								<input type="text" class="form-control" id="pcategory_edit" name="pcategory_edit" required/>
+							</div>
+
+							<div class="form-group">
+								<label for="psubcategory_edit" class="control-label">Product Sub-Category:</label>
+								<input type="text" class="form-control" id="psubcategory_edit" name="psubcategory_edit" required/>
+							</div>
+
+							<div class="form-group">
+								<label for="psku_edit" class="control-label">SKU:</label>
+								<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Created a  Random ID for the product. Leave the field with generated ID or add your own">
+								</i>
+								<input type="text" class="form-control" id="psku_edit" name="psku_edit"/>
+							</div>
+
+							<div class="form-group">
+								<label for="pquantity_edit" class="control-label">Quantity:</label>
+								<input type="text" class="form-control" id="pquantity_edit" name="pquantity_edit"/>
+							</div>
+
+							<div class="form-group">
+								<label for="pweight_edit" class="control-label">Weight:</label>
+								<input type="text" class="form-control" id="pweight_edit" name="pweight_edit"/>
+							</div>
+
+						<div class="form-group">
+							<label for="ptaxapplicable_edit" class="control-label">Tax Applicable?</label>
+							<select class="form-control" name="ptaxapplicable_edit" id="ptaxapplicable_edit">
+							<option value="1"> Yes </option>
+							<option value="0"> No </option>
+							</select>
+						</div>
+							<script>
+							$("#ptaxapplicable_edit").change(function(){
+					if($(this).val()=="1")
+					{
+					$("div#taxshower").show();
+					exit();
+					}
+
+					else
+					{
+					$("div#taxshower_edit").hide();
+					}
+					});							</script>
+
+					<div class="form-group">
+					<div id="taxshower_edit">
+					<div class="box box-solid">
+					<div class="box-body">
+					<label for="ptaxtype_edit" class="control-label">GST Group &nbsp </label><i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title=" Value is in %">
+					</i><br />
+					<label for="cgstgroup_edit" class="control-label">Select CGST for this product:</label>
+					<div id="divtaxtype_edit">
+					<select class="form-control" name="cgstbrowser1_edit" onchange="if(this.options[this.selectedIndex].value=='customOption1_edit'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
+					<option value="5"> 5 </option>
+					<option value="10"> 10 </option>
+					<option value="12"> 12 </option>
+					<option value="18"> 18 </option>
+					<option value="20"> 20 </option>
+					<option value="28"> 28 </option>
+					<option value="0"> 0 (None) </option>
+					<option value="customOption1_edit"> [Enter a custom tax amount] </option></select><input class="form-control" name="cgstbrowser1_edit" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
+					</div>
+					<label for="sgstgroup_edit" class="control-label">Select SGST for this product:</label>
+					<div id="divtaxtype_edit">
+					<select class="form-control" name="cgstbrowser2_edit" onchange="if(this.options[this.selectedIndex].value=='customOption2_edit'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
+					<option value="5"> 5 </option>
+					<option value="10"> 10 </option>
+					<option value="12"> 12 </option>
+					<option value="18"> 18 </option>
+					<option value="20"> 20 </option>
+					<option value="28"> 28 </option>
+					<option value="0"> 0 (None) </option>
+					<option value="customOption2_edit"> [Enter a custom tax amount] </option></select><input class="form-control" name="cgstbrowser2_edit" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
+					</div>
+					<label for="igstgroup_edit" class="control-label">Select IGST for this product:</label>
+					<div id="divtaxtype_edit">
+					<select class="form-control" name="cgstbrowser3_edit" onchange="if(this.options[this.selectedIndex].value=='customOption3_edit'){toggleField(this,this.nextSibling); this.selectedIndex='0';}">
+					<option value="5"> 5 </option>
+					<option value="10"> 10 </option>
+					<option value="12"> 12 </option>
+					<option value="18"> 18 </option>
+					<option value="20"> 20 </option>
+					<option value="28"> 28 </option>
+					<option value="0"> 0 (None) </option>
+					<option value="customOption3_edit"> [Enter a custom tax amount] </option></select><input class="form-control" name="cgstbrowser3_edit" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
+					</div>
+					</div>
+					</div>
+					</div>
+					</div>
+					<!-- <div class="form-group">
+					<label for="pmarginamount" class="control-label">Product Type:</label>
+					<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Single product: Product with no variations.
+					OR Variable product: Product with variations such as size, color etc.">
+					</i>
+					<input type="text" class="form-control" id="ptype" name="ptype"/>
+					</div> --> <?php // TODO: Have to add multiple variation of products with differntial pricing for each variation ?>
+					<div class="form-group">
+					<label for="pamountexcludingtax" class="control-label">Price Excluding Tax:</label>
+					<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Price of the product excluding Tax">
+					</i>
+					<input type="text" class="form-control" id="pamountexcludingtax" name="pamountexcludingtax"/>
+					</div>
+					<div class="form-group">
+					<label for="pamountincludingtax" class="control-label">Price Including Tax:</label>
+					<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Price of the product including Tax">
+					</i>
+					<input type="text" class="form-control" id="pamountincludingtax" name="pamountincludingtax"/>
+					</div>
+					<div class="form-group">
+					<label for="pmarginamount" class="control-label">Profit Margin:</label>
+					<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="Profit Margin for your product in %">
+					</i>
+					<input type="text" class="form-control" id="pmarginamount" name="pmarginamount"/>
+					</div>
+					<div class="form-group">
+					<label for="psellingprice" class="control-label">Final Selling Price:</label>
+					<i class="fa fa-info-circle text-info hover-q" data-toggle="tooltip" title="This should be the Total Price including cost and taxes and profit margin included.">
+					</i>
+					<input type="text" class="form-control" id="psellingprice" name="psellingprice"/>
+					</div>
+
+
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="button" id="btn_edit" class="btn btn-primary">Save</button>
