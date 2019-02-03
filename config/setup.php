@@ -60,8 +60,8 @@ if ($conn->query($sql) === TRUE) {
 
 
 
-$sql = "CREATE TABLE IF NOT EXISTS `products`
-(  `pid` int(10) NOT NULL AUTO_INCREMENT,
+$sql = "CREATE TABLE IF NOT EXISTS `products` (
+  `pid` int(10) NOT NULL,
   `pname` varchar(500) NOT NULL,
   `pbrand` varchar(100) NOT NULL,
   `punit` varchar(50) NOT NULL,
@@ -71,7 +71,9 @@ $sql = "CREATE TABLE IF NOT EXISTS `products`
   `pquantity` varchar(100) NOT NULL,
   `pweight` varchar(500) NOT NULL,
   `ptaxapplicable` varchar(500) NOT NULL,
-  `ptaxtype` varchar(500) NOT NULL,
+  `CGST` varchar(5) NOT NULL,
+  `SGST` varchar(5) NOT NULL,
+  `IGST` varchar(5) NOT NULL,
   `ptype` varchar(500) NOT NULL,
   `pamountexcludingtax` varchar(500) NOT NULL,
   `pamountincludingtax` varchar(500) NOT NULL,
