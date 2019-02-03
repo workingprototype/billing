@@ -31,8 +31,6 @@ console.log(document.getElementById('psku').value); //pass the value to the pksu
 					<th data-column-id="pquantity">Quantity</th>
 					<th data-column-id="pweight">Weight</th>
 					<th data-column-id="ptaxapplicable">Tax Applicable?</th>
-					<th data-column-id="ptaxtype">Tax Type</th>
-					<th data-column-id="ptype">Product Type</th>
 					<th data-column-id="pmarginamount">Profit Margin</th>
 					<th data-column-id="psellingprice">Selling Price</th>
 					<th data-column-id="commands" data-formatter="commands" data-sortable="false">Manage Products</th>
@@ -418,7 +416,7 @@ console.log(g_id);
                                 $('#psubcategory_edit').val(ele.siblings(':nth-of-type(6)').html());
                                 $('#pquantity_edit').val(ele.siblings(':nth-of-type(7)').html());
                                 $('#pweight_edit').val(ele.siblings(':nth-of-type(8)').html());
-                                $('#ptaxtype_edit').val(ele.siblings(':nth-of-type(9)').html());
+                                $('#ptaxapplicable_edit').val(ele.siblings(':nth-of-type(9)').html());
                                 $('#cgstgroup_edit').val(ele.siblings(':nth-of-type(10)').html());
                                 $('#sgstgroup_edit').val(ele.siblings(':nth-of-type(11)').html());
                                 $('#igstgroup_edit').val(ele.siblings(':nth-of-type(12)').html());

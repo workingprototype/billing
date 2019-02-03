@@ -81,7 +81,7 @@
 			$where .=" ORDER By ".key($params['sort']) .' '.current($params['sort'])." ";
 		}
 	   // getting total number records without any search
-		$sql = "SELECT pid,pname,pbrand,punit,pcategory,psubcategory,psku,pquantity,pweight,pmarginamout,psellingprice FROM `products` ";
+		$sql = "SELECT pid,pname,pbrand,punit,pcategory,psubcategory,psku,pquantity,pweight,ptaxapplicable,pmarginamout,psellingprice FROM `products` ";
 		$sqlTot .= $sql;
 		$sqlRec .= $sql;
 
