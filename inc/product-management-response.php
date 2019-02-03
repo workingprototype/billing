@@ -38,10 +38,14 @@
 	function insertProduct($params) {
 		$data = array();;
 		//TODO: Just complete this Shit, This is tooooooooooooooooooo much, i have done the half.   :( -> Lol.Thanks bruh!
-		$sql = "INSERT INTO `products` (pname, pbrand, punit, pcategory, psubcategory, pksu, pquantity, pweight, ptaxapplicable, ptaxtype, cgstgroup, sgstgroup, igstgroup, pamountexcludingtax, pamountincludingtax, pmarginamout, psellingprice)
-		VALUES('" . $params["pname"] . "', '" . $params["pbrand"] . "','" . $params["punit"] . "','" . $params["pcategory"] . "','" . $params["psubcategory"] . "','" . $params["pksu"] . "','" . $params["pquantity"] . "','" . $params["pweight"] . "','" . $params["ptaxapplicable"] . "','" . $params["cgstgroup"] . "','" . $params["sgstgroup"] . "','" . $params["igstgroup"] . "','" . $params["pamountexcludingtax"] . "','" . $params["pamountincludingtax"] . "','" . $params["pmarginamout"] . "','" . $params["psellingprice"] . "');  ";
+		$sql = "INSERT INTO `products` (pname, pbrand, punit, pcategory, psubcategory, pksu, pquantity, pweight, ptaxapplicable, ptaxtype, cgstgroup, sgstgroup, igstgroup,
+			pamountexcludingtax, pamountincludingtax, pmarginamout, psellingprice)
+		VALUES('" . $params["pname"] . "', '" . $params["pbrand"] . "','" . $params["punit"] . "','" . $params["pcategory"] . "','" . $params["psubcategory"] . "','"
+			 . $params["pksu"] . "','" . $params["pquantity"] . "','" . $params["pweight"] . "','" . $params["ptaxapplicable"] . "','" . $params["cgstgroup"] . "','"
+			  . $params["sgstgroup"] . "','" . $params["igstgroup"] . "','" . $params["pamountexcludingtax"] . "','" . $params["pamountincludingtax"] . "','"
+				 . $params["pmarginamout"] . "','" . $params["psellingprice"] . "');  ";
 
-		echo $result = mysqli_query($this->conn, $sql) or die("error while inserting user data");
+		echo $result = mysqli_query($this->conn, $sql) or die("error while inserting product data");
 
 	}
 
@@ -62,12 +66,22 @@
 			$where .=" OR pcategory LIKE '".$params['searchPhrase']."%' )";
 			$where .=" OR psubcategory LIKE '".$params['searchPhrase']."%' )";
 			$where .=" OR pksu LIKE '".$params['searchPhrase']."%' )";
+			$where .=" OR pquantity LIKE '".$params['searchPhrase']."%' )";
+			$where .=" OR pweight LIKE '".$params['searchPhrase']."%' )";
+			$where .=" OR ptaxtype LIKE '".$params['searchPhrase']."%' )";
+			$where .=" OR cgstgroup LIKE '".$params['searchPhrase']."%' )";
+			$where .=" OR sgstgroup LIKE '".$params['searchPhrase']."%' )";
+			$where .=" OR igstgroup LIKE '".$params['searchPhrase']."%' )";
+			$where .=" OR pamountexcludingtax LIKE '".$params['searchPhrase']."%' )";
+			$where .=" OR pamountincludingtax LIKE '".$params['searchPhrase']."%' )";
+			$where .=" OR pmarginamout LIKE '".$params['searchPhrase']."%' )";
+			$where .=" OR psellingprice LIKE '".$params['searchPhrase']."%' )";
 	   }
 	   if( !empty($params['sort']) ) {
 			$where .=" ORDER By ".key($params['sort']) .' '.current($params['sort'])." ";
 		}
 	   // getting total number records without any search
-		$sql = "SELECT * FROM `products` ";
+		$sql = "SELECT pid,pname,pbrand,punit,pcategory,psubcategory,psku,pquantity,pweight,pmarginamout,psellingprice FROM `products` ";
 		$sqlTot .= $sql;
 		$sqlRec .= $sql;
 
@@ -100,7 +114,7 @@
 	function updateUsers($params) {
 		$data = array();
 		//print_R($_POST);die;
-		$sql = "Update `products` set fullname = '" . $params["edit_fullname"] . "', username='" . $params["edit_username"]."', email='" . $params["edit_email"] . "', password='" . $params["edit_password"] . "', role='" . $params["edit_role"] . "' WHERE id='".$_POST["edit_id"]."'";
+		$sql = "Update `products` set pid_edit = '" . $params["pname_edit"] . "', username='" . $params["edit_username"]."', email='" . $params["edit_email"] . "', password='" . $params["edit_password"] . "', role='" . $params["edit_role"] . "' WHERE id='".$_POST["edit_id"]."'";
 
 		echo $result = mysqli_query($this->conn, $sql) or die("error while updating user data");
 	}
