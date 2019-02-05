@@ -1,0 +1,52 @@
+///THIS FILE CONTAINS THE INFORMATION FOR THE PROJECT, UPDATE THIS USING GIT
+
+//THE BELOW SECTION IS ENTIRELY DEDICATED TO THE DATABASE TABLES AND THEIR STRUCTURES
+
+1 . TABLE NAME - Businesses
+    ID
+    Name
+    Address
+    City
+    State
+    Postal Code
+    State Code
+    Phone
+    Email
+    Mobile
+    Aadhar
+    PAN
+    GSTIN
+    VAT
+    TIMESTAMP
+    ENABLED
+    
+
+2. TABLE NAME - Products
+    ID
+    Name
+    Brand
+    Category
+    Sub-Categery
+    Taxable
+    CGST
+    IGST
+    MRP
+    
+
+
+//THE BELOW SECTION IS FOR THE EXPLANATION OF THE WORKING OF THE SOFTWARE
+
+A.Business Registration
+
+B.Product/Inventory Management
+
+C.Supplier/Retailer Management
+
+D.Purchase Entry
+
+E. Purchase Register
+
+F. Sales Entry
+
+G. Sales Register
+
