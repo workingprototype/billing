@@ -45,7 +45,14 @@ B. Product/Inventory Management
 C. Supplier/Retailer Management
 
 D. Purchase Entry &  Purchase Register
-    Function: add purchases made BY any of the registered companies (dropdown), and add to inventory. allow option: tag: 1)for sale 2) not for sale
+    Function: add purchases made BY any of the registered companies (dropdown)
+    Features:
+    1)add to inventory.
+    2)allow option: tag: a)for sale b) not for sale
+    3) option to enter Invoice ID from physical invoice from different seller.
+    4)Payment methods and add and adjust balances.
+     5) All kinds of Filters for search and data exports and imports with pagination
+    
 E. Sales Entry & Sales Register
     Function: add sales made TO any of the registered companies (dropdown),
      Features: 
@@ -53,7 +60,8 @@ E. Sales Entry & Sales Register
      2)allow option: tag: a)pay now: payment methods. -> Reference numbers 
                           b)Pay later: Drafts and reminders.
      3)discounts: algorithm to calculate the credit worthiness and if the supplier or retailer pays back on time, generate discount. otherwise not.
-     
+     4)Invoice generate and save.
+     5) All kinds of Filters for search and data exports and imports with pagination
 
 // UX - BELOW SECTION SHOWS HOW THE USER MOVES THROGH THE SOFTWARE
 I]Admin
