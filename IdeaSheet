@@ -52,3 +52,13 @@ F. Sales Entry
 
 G. Sales Register
 
+
+// UX - BELOW SECTION SHOWS HOW THE USER MOVES THROGH THE SOFTWARE
+I]Admin
+A. Wants to add a new Business to the list
+    Sidebar --> Business --> Add New Business --> Enter the Details --> Submit
+B. Wants to add a new item to the Inventory
+    Sidebar--> Product Management --> Add new Product --> Enter the details --> Submit
+II] Users
+
+
