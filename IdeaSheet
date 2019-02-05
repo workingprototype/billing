@@ -36,15 +36,15 @@
 
 //THE BELOW SECTION IS FOR THE EXPLANATION OF THE WORKING OF THE SOFTWARE
 
-A.Business Registration
+A. Business Registration
     Function : add new business to the database -Business.
     
-B.Product/Inventory Management
+B. Product/Inventory Management
     Function : add new Item into the Products
     
-C.Supplier/Retailer Management
+C. Supplier/Retailer Management
 
-D.Purchase Entry
+D. Purchase Entry
 
 E. Purchase Register
 
