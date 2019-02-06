@@ -11,7 +11,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->submenu.="<li><a href=\"".APP_ROOT . $link ."\">$var</a>
         </li>";
     }
-    public function menu($var)
+    public function menu($var,$icon='fa fa-home')
     {
         $this->content.= "<li><a>$var <span class=\"fa fa-chevron-down\"></span></a>
             <ul class=\"nav child_menu\" style=\"display: none\">

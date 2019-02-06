@@ -23,9 +23,17 @@ if(isset($_GET['dir'])){
     elseif($request[0]=="breg"){
       include("./pages/b-registration-page.php");
     }
-    elseif($request[0]=="products"){
-      include("./pages/products.page.php");
+
+    elseif($request[0]=="sales"){
+      include("./pages/sales-register-page.php");
     }
+
+
+    elseif($request[0]=="purchase"){
+      include("./pages/purchase-register-page.php");
+    }
+
+
     else{
       include("./pages/404-page.php");
     }
