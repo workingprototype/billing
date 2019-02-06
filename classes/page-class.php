@@ -8,7 +8,7 @@ class Page
     /*Access - Public for Unrestricted
     Acccess, private for Admins,
     Extra can be added */
-    public $var=['sidebar'=>" ", 'footer'=>" ", 'title'=>" ", 'navbar'=>" ", 'content'=>" ", ];
+    public $var=['sidebar'=>" ", 'footer'=>" ", 'title'=>" ", 'navbar'=>" ", 'content'=>" ",'header'=>" " ];
     public function render()
     {
         $this->content=str_replace("#$@#%@#%ssdfsd%@$%&^%", $this->var['sidebar'], $this->content);
@@ -16,6 +16,7 @@ class Page
         $this->content=str_replace("%$#^%@TITLE$#^$@@#$%^", $this->var['title'], $this->content);
         $this->content=str_replace("##$@765#@$@#%", $this->var['navbar'], $this->content);
         $this->content=str_replace("85686482626", $this->var['content'], $this->content);
+        $this->content=str_replace("234567899876543456", $this->var['header'], $this->content);
         echo $this->content;
     }
     public $content="<!DOCTYPE html>
@@ -43,6 +44,7 @@ class Page
     
     
       <script src=\"".APP_ROOT."assets/js/jquery.min.js\"></script>
+      234567899876543456
     
       <!--[if lt IE 9]>
             <script src=\"../assets/js/ie8-responsive-file-warning.js\"></script>
