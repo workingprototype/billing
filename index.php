@@ -1,40 +1,26 @@
 <?php
 require './config/app.config.php';
 require './config/mysql.config.php';
+$end=0;
+function route($link,$location)
+{ 
+  global $end,$request;
+  if($request[0]==$link){
+    include($location);
+    $end=1;
+  }
+}
 if(isset($_GET['dir'])){
   $request=explode("/",$_GET['dir']);
   if($request[0]!=null){
-
-    if($request[0]=="setup"){
-      include("./config/setup.php");
-    }
-
-    elseif($request[0]=="users"){
-      include("./pages/users.page.php");
-    }
-
-    elseif($request[0]=="forms"){
-      include("./pages/forms-page.php");
-    }
-    elseif($request[0]=="function"){
-      include("./pages/functions-all.php");
-    }
-
-    elseif($request[0]=="breg"){
-      include("./pages/b-registration-page.php");
-    }
-
-    elseif($request[0]=="sales"){
-      include("./pages/sales-register-page.php");
-    }
-
-
-    elseif($request[0]=="purchase"){
-      include("./pages/purchase-register-page.php");
-    }
-
-
-    else{
+    route("setup","./config/setup.php");
+    route("users","./pages/users.page.php");
+    route("function","./pages/functions-all.php");
+    route("breg","./pages/b-registration-page.php");
+    route("sales","./pages/sales-register-page.php");
+    route("purchase","./pages/purchase-register-page.php");
+    route("products","./pages/products.page.php");
+    if($end==0){
       include("./pages/404-page.php");
     }
   }
