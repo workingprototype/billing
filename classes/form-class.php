@@ -12,7 +12,7 @@ class Form    //First we create a class: Form
     {
       $this->formaction=$var;
     }
-    public function select($label,$name='label',$opt)
+    public function select($label,$name='label',$required=0)
     {
         if($name=='label'){
             $name=$label;
