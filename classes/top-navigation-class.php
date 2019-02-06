@@ -6,7 +6,7 @@
     {
         public function echo()
         {
-            echo"<div class=\"top_nav\">
+            return "<div class=\"top_nav\">
 
             <div class=\"nav_menu\">
               <nav class=\"\" role=\"navigation\">

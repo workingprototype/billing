@@ -447,10 +447,10 @@ class Form    //First we create a class: Form
           </div>";
         }
     }
-    public function render() // Rendering a view of the above html part to browser
+    public function echo() // Rendering a view of the above html part to browser
     {
         $this->replace_content();
-        echo $this->render;
+        return $this->render;
     }
 }
 

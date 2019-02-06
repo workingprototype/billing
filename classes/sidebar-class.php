@@ -22,15 +22,15 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
     }
     public function echo()  //
     {
-        echo "<div id=\"sidebar-menu\" class=\"main_menu_side hidden-print main_menu\">
+        return "<div id=\"sidebar-menu\" class=\"main_menu_side hidden-print main_menu\">
                 <div class=\"menu_section\">
                     <h3>Shortcuts</h3>
                     <ul class=\"nav side-menu\">
                         $this->content
                     </ul>
                 </div>
-            </div>";    //This will display at the left bottom corner
-        echo "<!-- /menu footer buttons -->
+            </div>
+            <!-- /menu footer buttons -->
         <div class=\"sidebar-footer hidden-small\">
           <a data-toggle=\"tooltip\" data-placement=\"top\" title=\"Settings\">
             <span class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"></span>
