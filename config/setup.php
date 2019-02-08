@@ -34,31 +34,6 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 
-$sql="INSERT INTO `users` (`id`, `fullname`, `username`, `email`, `password`, `role`, `status`) VALUES
-(1, 'Mr. Michale Smith II', 'tbecker', 'margaretta.buckridge@example.net', 'ward', 'Leonardo', '1'),
-(2, 'Melody O\'Keefe', 'ambrose.russel', 'davion97@example.org', 'murphy', 'Vern', '1'),
-(3, 'Dawson Kassulke MD', 'xmiller', 'delpha29@example.org', 'kshlerin', 'Milton', '1'),
-(4, 'Prof. Donnell Bogisich', 'hosea20', 'willow19@example.org', 'tillman', 'Marvin', '1'),
-(5, 'Wilfrid White MD', 'vklein', 'hlang@example.org', 'toy', 'Oscar', '1'),
-(6, 'Kayli Boyer', 'fkohler', 'wwhite@example.org', 'spinkanader', 'Oscar', '1'),
-(7, 'Hershel Zieme', 'courtney56', 'carolanne75@example.com', 'fisherschumm', 'Darwin', '1'),
-(8, 'Christine Rodriguez', 'murray.kraig', 'abernathy.alanna@example.org', 'nitzschecarter', 'Carter', '1'),
-(9, 'Toby Bins DDS', 'dare.abbie', 'bert.corkery@example.net', 'weimannrohan', 'Cortez', '1'),
-(10, 'Dr. Monserrat D\'Amore MD', 'reichel.milford', 'giuseppe22@example.org', 'okuneva', 'Jessie', '1'),
-(11, 'Myrl Jacobi', 'eric27', 'yfisher@example.net', 'kingleannon', 'Aric', '1'),
-(12, 'Therese Moore', 'marquardt.jimmie', 'demarco.wintheiser@example.com', 'walker', 'Jovan', '1'),
-(13, 'Betsy Gleason', 'odietrich', 'bhomenick@example.org', 'yost', 'Jameson', '1'),
-(14, 'Eliseo Zboncak', 'angelo62', 'ndickens@example.com', 'sipes', 'Erik', '1'),
-(15, 'Kole Hammes', 'ctromp', 'brycen53@example.net', 'runolfsdottir', 'Ralph', '1'),
-(16, 'Georgianna Kautzer', 'herzog.asia', 'ybode@example.com', 'towne', 'Wilson', '1'),
-(17, 'Anabelle Hermann', 'roel76', 'trinity20@example.org', 'schummvon', 'Donnie', '1');";
-if ($conn->query($sql) === TRUE) {
-    echo "<br>Data dumped for users successful";
-} else {
-    echo "Error dumping data" . $conn->error;
-}
-
-
 $sql = "CREATE TABLE IF NOT EXISTS `products` (
   `pid` int(10) NOT NULL AUTO_INCREMENT,
   `pname` varchar(500) NOT NULL,

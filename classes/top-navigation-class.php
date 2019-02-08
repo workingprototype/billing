@@ -4,6 +4,7 @@
      */
     class TopNav //create a class: TopNav, and print the HTML elements that you want to display as the Top Hover Down Navigation of every page.
     {
+        public $user = "John D";
         public function echo()
         {
             return "<div class=\"top_nav\">
@@ -17,7 +18,7 @@
                 <ul class=\"nav navbar-nav navbar-right\">
                   <li class=\"\">
                     <a href=\"javascript:;\" class=\"user-profile dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\">
-                      <img src=\"images/img.jpg\" alt=\"\">John Doe
+                      <img src=\"images/img.jpg\" alt=\"\">".$this->user."
                       <span class=\" fa fa-angle-down\"></span>
                     </a>
                     <ul class=\"dropdown-menu dropdown-usermenu animated fadeInDown pull-right\">

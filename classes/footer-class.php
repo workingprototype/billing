@@ -8,6 +8,7 @@ class Footer      //create a class: Footer, and print the HTML elements that you
     public function echo()
     {
         return "<!-- footer content -->
+        <br><br><br><br>
         <footer>
             <div class=\"copyright-info\">
                 <p class=\"pull-right\"> ".APP_NAME."</p>
