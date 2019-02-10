@@ -54,7 +54,12 @@ class Purchase
           var pid = document.getElementById(\"product_id\").value;
           var pquantity = document.getElementById(\"product_q\").value;
           var pcost = document.getElementById(\"product_c\").value;
+          document.getElementById(\"product_name\").value = '';
+          document.getElementById(\"product_id\").value = '';
+          document.getElementById(\"product_q\").value = '';
+          document.getElementById(\"product_c\").value = '';
           add_row(pname,pid,pquantity,pcost);
+
         }
       }
       function add_row(a,b,c,d){
