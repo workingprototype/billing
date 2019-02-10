@@ -18,7 +18,7 @@ class Purchase
     }
 
 // Initializing the Return Property
-    private $ret = "<form>
+    private $ret = "
     <label>Add to Business:</label>
     <select class='form-control lezs'>
     <option> Business A </option>
@@ -34,20 +34,26 @@ class Purchase
     </thead>
     <tbody>
       <tr class='bg-blue'>
-      <td><input id='product_id' class='form-control lezz'></td>        
+      <td><input onkeypress=\"return submit_name(event)\" id='product_id' class='form-control lezz'></td>        
         <td>
       <input id='product_name' class=\"form-control\" onkeypress=\"return submit_name(event)\" placeholder=\"Product Name or Code\">
       </td>
-        <td><input id='product_q' class='form-control lezz'></td>
-        <td><input id='product_c' class='form-control lezz'></td>
+        <td><input onkeypress=\"return submit_name(event)\" id='product_q' class='form-control lezz'></td>
+        <td><input onkeypress=\"return submit_name(event)\" id='product_c' class='form-control lezz'></td>
       </tr>
       <tr id='last_row'>
       </tr>
     </tbody>
   </table>
-  </form>";
+  <button class='btn btn-primary' onclick='submit()'>Submit</button>";
     private $script = "
     <script>
+      var temp =[];
+      var pointer=0;
+      function submit(){
+        pointer=pointer-4;
+        alert(temp[pointer]+' '+temp[pointer+1]+' '+temp[pointer+2]+' '+temp[pointer+3]);
+      }
       function submit_name(e) {
         if (e.keyCode == 13) {
           var pname = document.getElementById(\"product_name\").value;
@@ -63,6 +69,11 @@ class Purchase
         }
       }
       function add_row(a,b,c,d){
+        temp[pointer]=a;
+        temp[pointer+1]=b;
+        temp[pointer+2]=c;
+        temp[pointer+3]=d;
+        pointer=pointer+4;
         var last_row = document.getElementById('last_row');
         last_row.outerHTML =\"<tr id='last_row'>\
         </tr>\
