@@ -45,14 +45,30 @@ class Purchase
       </tr>
     </tbody>
   </table>
-  <button class='btn btn-primary' onclick='submit()'>Submit</button>";
+  <button  class='btn btn-primary' onclick='submit()'>Submit</button>
+  <div id='sub'></div>";
     private $script = "
     <script>
       var temp =[];
       var pointer=0;
+      function edit(point){
+          point=point-4;
+          document.getElementById(\"product_name\").value = temp[point];
+          document.getElementById(\"product_id\").value = temp[point+1];
+          document.getElementById(\"product_q\").value = temp[point+2];
+          document.getElementById(\"product_c\").value = temp[point+3];
+      }
       function submit(){
-        pointer=pointer-4;
-        alert(temp[pointer]+' '+temp[pointer+1]+' '+temp[pointer+2]+' '+temp[pointer+3]);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+          }
+        };
+        var data = JSON.stringify(temp);
+        xhttp.open(\"POST\", \"./function/purchase\", true);
+        xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
+        xhttp.send(\"data=\"+ data); 
       }
       function submit_name(e) {
         if (e.keyCode == 13) {
@@ -77,7 +93,7 @@ class Purchase
         var last_row = document.getElementById('last_row');
         last_row.outerHTML =\"<tr id='last_row'>\
         </tr>\
-        <tr><td>\"+b+\"</td><td>\"+a+\"</td> \
+        <tr style='cursor: pointer;' onclick='edit(\"+ pointer +\")'><td>\"+b+\"</td><td>\"+a+\"</td> \
           <td>\"+c+\"</td>\
           <td>\"+d+\"</td></tr>\";
       }

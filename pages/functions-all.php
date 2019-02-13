@@ -14,4 +14,8 @@ if($request[1]=="breg")
         echo 0;
     }
 }
+elseif($request[1]=="purchase")
+{
+    echo $_POST['data'];
+}
 ?>
