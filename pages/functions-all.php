@@ -18,4 +18,10 @@ elseif($request[1]=="purchase")
 {
     echo $_POST['data'];
 }
+
+elseif($request[1]=="add_product")
+{
+    echo $_POST['data'];
+}
+
 ?>
