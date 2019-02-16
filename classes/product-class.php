@@ -27,7 +27,10 @@ class ProductMan
             </div>
             <div class='form-groups'>
                 <label>Units</label>
-                <input class='form-control' onkeyup='display()' id='unit' value='Pcs'>
+                <select class='form-control' onchange='display()' id='unit'>
+                <option>Pcs</option>
+                <option>Boxes</option>
+                </select>
             </div>
             <div class='form-groups'>
                 <label>Product Category</label>
@@ -38,13 +41,13 @@ class ProductMan
                 <input class='form-control' onkeyup='display()' id='sub-category'>
             </div>
             <div class='form-groups'>
-                <label>Cost (Per Unit)</label>
-                <input class='form-control' id='cost'>
+                <label>Buying Cost (Per Unit)</label>
+                <input onkeyup='display()' class='form-control' id='cost'>
             </div>
-           <div class='form-groups'>
-            <label>Profit Margin (%)</label>
-            <input class='form-control' id='pmargin'>
-        </div>
+            <div class='form-groups'>
+            <label>Profit Margin </label>
+            <input onkeyup='changeProfit()' class='form-control' id='profit'>
+            </div>
         </div>
         <div class=' col-md-4  rows'>
         <h4>Tax Details</h4>
@@ -71,9 +74,10 @@ class ProductMan
                     <option value='0'>Price Exclusive of Tax</option>
                 </select>
             </div>
-             <div class='form-groups'>
-            <label>Selling Price (Per Unit)</label>
-            <input class='form-control' id='sellingprice'>
+            <div class='form-groups'>
+                <label>Selling Price</label>
+                <input onkeyup='changePrice()' class='form-control' id='price'>
+            </div>
         </div>
         </div>
         <div class='col-md-4' >
@@ -92,17 +96,36 @@ class ProductMan
             var incex;
             var pinfo = document.getElementById('pinfo');
             var productinfo=[];
+            function changeProfit(){
+                productinfo[7] = document.getElementById('profit').value;
+                productinfo[5] = document.getElementById('cost').value;
+                document.getElementById('price').value = (Number(productinfo[5])*Number(productinfo[7])/100)+Number(productinfo[5]);
+                display();
+            }
+            function changePrice(){
+                productinfo[6] = document.getElementById('price').value;
+                productinfo[5] = document.getElementById('cost').value;
+                document.getElementById('profit').value = ((Number(productinfo[6])-Number(productinfo[5]))*100)/Number(productinfo[5]);
+                display();
+            }
             function display(){
                 productinfo[0] = document.getElementById('product_name').value;
                 productinfo[1] = document.getElementById('brand').value;
                 productinfo[2] = document.getElementById('unit').value;
                 productinfo[3] = document.getElementById('category').value;
                 productinfo[4] = document.getElementById('sub-category').value;
+                productinfo[5] = document.getElementById('cost').value;
+                productinfo[6] = document.getElementById('price').value;
+                productinfo[7] = document.getElementById('profit').value;
+
                 pinfo.innerHTML= \"<p>\"+productinfo[0]+\"</p> \
                 <p>Brand :  \"+productinfo[1]+\"</p>\
                 <p>Units :  \"+productinfo[2]+\"</p>\
                 <p>Category :  \"+productinfo[3]+\"</p>\
                 <p>Sub-Category :  \"+productinfo[4]+\"</p>\
+                <p>Cost :  \"+productinfo[5]+\"</p>\
+                <p>Price :  \"+productinfo[6]+\"</p>\
+                <p>Profit Margin :  \"+productinfo[7]+\"</p>\
                 \"
             }
         </script>
