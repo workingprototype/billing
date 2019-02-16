@@ -27,7 +27,7 @@ class ProductMan
             </div>
             <div class='form-groups'>
                 <label>Units</label>
-                <input class='form-control' onkeyup='display()' id='unit'>
+                <input class='form-control' onkeyup='display()' id='unit' value='Pcs'>
             </div>
             <div class='form-groups'>
                 <label>Product Category</label>
@@ -38,12 +38,12 @@ class ProductMan
                 <input class='form-control' onkeyup='display()' id='sub-category'>
             </div>
             <div class='form-groups'>
-                <label>Buying Cost (Per Unit)</label>
+                <label>Cost (Per Unit)</label>
                 <input class='form-control' id='cost'>
             </div>
-            <div class='form-groups'>
-            <label>Selling Price (Per Unit)</label>
-            <input class='form-control' id='price'>
+           <div class='form-groups'>
+            <label>Profit Margin (%)</label>
+            <input class='form-control' id='pmargin'>
         </div>
         </div>
         <div class=' col-md-4  rows'>
@@ -71,6 +71,10 @@ class ProductMan
                     <option value='0'>Price Exclusive of Tax</option>
                 </select>
             </div>
+             <div class='form-groups'>
+            <label>Selling Price (Per Unit)</label>
+            <input class='form-control' id='sellingprice'>
+        </div>
         </div>
         <div class='col-md-4' >
             <h4>Product Info</h4>
