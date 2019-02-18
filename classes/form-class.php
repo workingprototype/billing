@@ -5,7 +5,7 @@
 
 class Form    //First we create a class: Form
 {               //Then describe what type of HTTP methods we're going to use.
-    public $formtype = "get";  //GET is used to request data from a resource that we'll specify later
+    public $formtype = "POST";  //GET is used to request data from a resource that we'll specify later
     public $formgroups = "";
     public $formaction = "";
     public function action($var)

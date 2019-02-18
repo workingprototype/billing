@@ -63,6 +63,10 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->submenu("Mangage & Display All Products","products"); //submenu4.1
         $this->submenu("Import Products","pimport");//submenu4.2
         $this->menu("<i class=\"fa fa-cubes\"></i> Products Management");  //Main Menu4
+
+        $this->submenu("Add New Purchase","purchase"); //submenu4.1
+        $this->menu("<i class=\"fa fa-cubes\"></i> Purchases");  //Main Menu4
+
     }
 }
 
