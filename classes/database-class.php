@@ -2,15 +2,14 @@
 /**
  *  Custom Mysql object to be used for easy mqsql access
  */
-$conn = mysqli_connect(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+
 class Mysqlc
 {
   /**
   *Custom for table objects
   */
-  protected function insert($table, $col, $val)
+  public function insert($table, $col, $val,$conn)
   {
-    global $conn;
     $sql="INSERT INTO ".$table." (";
     foreach ($col as $key => $value) {
       $sql .=$value;
@@ -26,8 +25,8 @@ class Mysqlc
       }
     }
     $sql .=")";
-    if (mysqli_query($conn, $sql)) {
-      
+    if ($conn->query($sql)) {
+      return True;
     } else {
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
@@ -35,11 +34,10 @@ class Mysqlc
   }
 
 
-  protected function select($table)
+  public function select($table,$conn)
   {
-    global $conn;
     $sql="SELECT * FROM ".$table;
-    $result = mysqli_query($conn, $sql);
+    $result = $conn->query($sql);
     return $result;
     $result->free();
   }
