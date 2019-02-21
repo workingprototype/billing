@@ -21,6 +21,7 @@ if(isset($_GET['dir'])){
     route("sales","./pages/sales-register-page.php");
     route("purchase","./pages/purchase-register-page.php");
     route("products","./pages/products.page.php");
+    route("products-list","./pages/productsl.page.php");
     route("login","./pages/login.page.php");
     if($end==0){
       include("./pages/404-page.php");

@@ -42,8 +42,21 @@ elseif($request[1]=="add_product")
       }
     }
     $sql .=")";
-    $db->query($sql);
-    print_r($data);
+    if ($db->query($sql) === TRUE) {
+      echo "TRUE";
+  } else {
+      echo "Error: " . $sql . "<br>" . $db->error;
+      echo $data;
+  }
+}
+elseif($request[1]=="list_product")
+{
+    $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+    $table="products";
+    $sql="SELECT * FROM ".$table." LIMIT 50;";
+    $result = $db->query($sql);
+    $x=json_encode($result->fetch_all());
+    echo $x;
 }
 
 ?>

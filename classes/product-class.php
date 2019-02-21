@@ -9,6 +9,65 @@ class ProductMan
     protected $taxes = ["CGST", "IGST", "SGST", "VAT"];
     protected $props = [];
     protected $return='';
+    public function list()
+    {
+        return "
+         <table id='pro' class='table table-bordered'>
+            <thead class='thead-dark'><tr>
+                <th>Product Name</th>
+                <th>Brand</th>
+                <th>Unit</th>
+                <th>Category</th>
+                <th>Sub-Category</th>
+                <th>Edit/Delete</th>
+            </tr></thead>
+         </table>
+         <script>
+         refresh(1);
+         var data = '';
+         function insert(obj){
+             var start = '<thead class=\'thead-dark\'><tr>\
+             <th>ID</th>\
+             <th>Product Name</th>\
+             <th>Brand</th>\
+             <th>Unit</th>\
+             <th>Category</th>\
+             <th>Sub-Category</th>\
+             <th>Edit/Delete</th>\
+         </tr></thead>';
+             obj.forEach(
+                 function (item,index){
+                    data = data + '<tr>';
+                    data = data + '<td>'+item[0]+'</td>';
+                    data = data + '<td>'+item[1]+'</td>';
+                    data = data + '<td>'+item[2]+'</td>';
+                    data = data + '<td>'+item[3]+'</td>';
+                    data = data + '<td>'+item[4]+'</td>';
+                    data = data + '<td>'+item[5]+'</td>';
+                    data = data + '<td><button class=\'btn btn-danger\' id=\'row_'+item[1]+'\'>Delete</button></td>';
+                    data = data + '</tr>';
+                 }
+             );
+             var pro= document.getElementById('pro');
+             pro.innerHTML= start + data;
+         }
+         function refresh(x){
+            var xhttp = new XMLHttpRequest();
+            var obj;
+                xhttp.onreadystatechange = function() {
+                  if (this.readyState == 4 && this.status == 200) {
+                    obj = JSON.parse(this.responseText);
+                    insert(obj); 
+                    console.log(this.responseText);
+                  }
+                };
+                xhttp.open(\"POST\", \"./function/list_product\", true);
+                xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
+                xhttp.send(\"page=\"+ x);
+         }
+         </script>
+        ";
+    }
     public function form()
     {
         $this->return .= "
