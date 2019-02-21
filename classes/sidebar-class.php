@@ -52,21 +52,23 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->submenu("Blank2","blank"); //submenu1.2
         $this->menu("<i class=\"fa fa-tachometer\"></i>Dashboard"); //Main Menu1
 
-        $this->submenu("Business Registration","breg");  //submenu2.1
-        $this->submenu("Blank2","blank"); //submenu2.2
-        $this->menu("<i class=\"fa fa-users\"></i>Register New Business"); //Main Menu2
-
-        $this->submenu("Users","users"); //submenu3.1
-        $this->submenu("Roles","roles"); //// TODO: Role management not done. Do it with checkboxes
-        $this->menu("<i class=\"fa fa-user-plus\" aria-hidden=\"true\"></i>User Management");  //Main Menu3
+        //
+        // $this->submenu("Users","users"); //submenu3.1
+        // $this->submenu("Roles","roles"); //// TODO: Role management not done. Do it with checkboxes
+        // $this->menu("<i class=\"fa fa-user-plus\" aria-hidden=\"true\"></i>User Management");  //Main Menu3
 
         $this->submenu("Mangage & Display All Products","products"); //submenu4.1
-        $this->submenu("Import Products","pimport");//submenu4.2
+        // $this->submenu("Import Products","pimport");//submenu4.2
         $this->menu("<i class=\"fa fa-cubes\"></i> Products Management");  //Main Menu4
 
         $this->submenu("Add New Purchase","purchase"); //submenu4.1
+        // $this->submenu("Manage Invoices","manageinvoice"); //submenu4.2
+        // $this->submenu("List Invoices","listinvoice"); //submenu4.3
         $this->menu("<i class=\"fa fa-cubes\"></i> Purchases");  //Main Menu4
 
+
+        $this->submenu("Business Registration","breg");  //submenu2.1
+        $this->menu("<i class=\"fa fa-users\"></i>Business Settings"); //Main Menu2
     }
 }
 
