@@ -3,7 +3,7 @@ require './config/app.config.php';
 require './config/mysql.config.php';
 $end=0;
 function route($link,$location)
-{ 
+{
   global $end,$request;
   if($request[0]==$link){
     include($location);
@@ -16,6 +16,15 @@ if(isset($_GET['dir'])){
     route("setup","./config/setup.php");
     route("test","./pages/test-page.php");
     route("users","./pages/users.page.php");
+//below not done yet
+    route("todaysorders","./pages/todays-orders.php");
+    route("productcategory","./pages/product-category.php");
+    route("editproductcategory","./pages/edit-product-category.php");
+    route("insertproducts","./pages/insert-products.php");
+    route("manageproducts","./pages/manage-products.php");
+    route("pendingorders","./pages/pending-orders.php");
+    route("deliveredorders","./pages/delivered-orders.php");
+//above not done yet
     route("function","./pages/functions-all.php");
     route("breg","./pages/b-registration-page.php");
     route("sales","./pages/sales-register-page.php");
