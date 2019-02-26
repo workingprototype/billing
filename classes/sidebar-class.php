@@ -57,14 +57,14 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         // $this->submenu("Roles","roles"); //// TODO: Role management not done. Do it with checkboxes
         // $this->menu("<i class=\"fa fa-user-plus\" aria-hidden=\"true\"></i>User Management");  //Main Menu3
 
-        $this->submenu("Create Product Category","productcategory"); //submenu4.1
-        $this->submenu("Edit Product Category","editproductcategory"); //submenu4.1
-        $this->submenu("Create Sub Category","subcategory"); //submenu4.1
-        $this->submenu("Edit Sub Category","editsubcategory"); //submenu4.1
-        $this->submenu("Insert Products","products");
-        $this->submenu("Manage & Display Products","manageproducts");
+        $this->submenu("Create Product Category","createmaincategory"); //submenu4.1
+        $this->submenu("Edit Product Category","editmaincategory"); //submenu4.1
+        // $this->submenu("Create Sub Category","createsubcategory"); //submenu4.1
+        // $this->submenu("Edit Sub Category","editsubcategory"); //submenu4.1
+        // $this->submenu("Insert Products","insertproducts");
+        // $this->submenu("Manage & Display Products","manageproducts");
         // $this->submenu("Import Products","pimport");//submenu4.2
-        
+
 
         $this->submenu("Mangage & Display All Products","products"); //submenu4.1
         // $this->submenu("Import Products","pimport");//submenu4.2
