@@ -19,7 +19,7 @@ $mysqli->query('SET foreign_key_checks = 1');
 
 //imports the sql file
 if ($mysqli->multi_query($sql)) {
-    echo "success";
+    echo "success! Imported the .sql file successfully!";
 } else {
    echo "error";
 }
