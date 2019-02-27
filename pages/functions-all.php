@@ -20,7 +20,24 @@ elseif($request[1]=="purchase")
 {
     echo $_POST['data'];
 }
-
+elseif($request[1]=="search")
+{
+  $term=$_POST['data'];
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $sql = "SELECT * FROM products
+      WHERE productName LIKE '%$term%'
+      OR productCompany LIKE '%$term%'
+      OR id LIKE '%$term%' LIMIT 10";
+  $result = $db->query($sql);
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"5\",\"1\")' class='searchitem'> ".$row['productName']." </div>";
+    }
+} else {
+    echo "0 results";
+}
+}
 elseif($request[1]=="add_product")
 {
     $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);

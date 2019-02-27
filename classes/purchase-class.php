@@ -29,10 +29,10 @@ class Purchase
     ";
     $this->r .="
     <script>
-      var disp =['<tr><th>Product Name</th><th>Cost</th><th>Tax</th><th>Remove</th></tr>'];
+      var disp =['<tr><th>Product Name</th><th>Cost</th><th>Tax</th><th>Quantity</th><th>Total Amount</th><th>Batch No</th><th>Remove</th></tr>'];
       var i = 1; 
-      function clicked(a,b,c){
-        disp[i] = '<tr><td>'+a+'</td><td><input value=\"'+b+'\"></td><td><input value=\"'+c+'\"></td><td><button class=\'btn btn-danger\'>Remove</button></td></tr>';
+      function clicked(a,b,c,d,e){
+        disp[i] = '<tr><td>'+a+'</td><td><input style=\"width:80px\" value=\"'+b+'\"></td><td><input style=\"width:80px\" value=\"'+c+'\"></td><td><input style=\"width:80px\" value=\"'+d+'\"></td><td><input style=\"width:80px\" value=\"'+e+'\"></td><td><input placeholder=\'Batch No\'></td><td><button class=\'btn btn-danger\'>Remove</button></td></tr>';
         i++;
         var dis='';
         disp.forEach(
@@ -44,16 +44,15 @@ class Purchase
         document.getElementById('idrop').innerHTML='';
       }
       function isearch(term){
-        var render='';
-        var result = [['Britania','1234'],['Sunfeast','1211'],['Pepsi','12455'],['Coca-cola','151'],['Thumbs up','5442']];
-        result.forEach(iterate);
-        function iterate(item, index) {
-          if(item!='break'){
-          render += '<div onclick=\'clicked(\"'+item[0]+'\",\"'+item[1]+'\",\"2342\")\' class=\'searchitem\'>' + item[0] + '</div>';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('idrop').innerHTML=this.responseText;
           }
-        }
-        document.getElementById('idrop').innerHTML=render;
-
+        };
+        xhttp.open(\"POST\", \"function/search \", true);
+        xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
+        xhttp.send('data='+term);
       }
     </script>
     ";
