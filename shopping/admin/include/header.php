@@ -5,7 +5,7 @@
 					<i class="icon-reorder shaded"></i>
 				</a>
 
-			  	<a class="brand" href="index.html">
+			  	<a class="brand" href="../../../billing/breg">
 			  		FMCG Shop | Admin
 			  	</a>
 
