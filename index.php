@@ -16,6 +16,9 @@ if(isset($_GET['dir'])){
     route("setup","./config/setup.php");
     route("test","./pages/test-page.php");
     route("users","./pages/users.page.php");
+    route("shopping","./shopping");
+    route("shopping/admin","./shopping/admin/index.php");
+
 //below not done yet
     // route("todaysorders","./pages/todays-orders.php");
     route("createmaincategory","./pages/create-main-category.php");
