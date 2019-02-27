@@ -30,9 +30,12 @@ class Purchase
     $this->r .="
     <script>
       var disp =['<tr><th>Product Name</th><th>Cost</th><th>Tax</th><th>Quantity</th><th>Total Amount</th><th>Batch No</th><th>Remove</th></tr>'];
-      var i = 1; 
-      function clicked(a,b,c,d,e){
-        disp[i] = '<tr><td>'+a+'</td><td><input style=\"width:80px\" value=\"'+b+'\"></td><td><input style=\"width:80px\" value=\"'+c+'\"></td><td><input style=\"width:80px\" value=\"'+d+'\"></td><td><input style=\"width:80px\" value=\"'+e+'\"></td><td><input placeholder=\'Batch No\'></td><td><button class=\'btn btn-danger\'>Remove</button></td></tr>';
+      var i = 1;
+      puts=[]
+      boxes=0; 
+      function clicked(a,b,c,d,e,f){
+        puts[boxes]=f;
+        disp[i] = '<tr><td>'+a+'</td><td><input id=\"cost'+f+'\" style=\"width:80px\" value=\"'+b+'\"></td><td><input id=\"tax'+f+'\" style=\"width:80px\" value=\"'+c+'\"></td><td><input id=\"quantity'+f+'\" style=\"width:80px\" value=\"'+d+'\"></td><td><input id=\"total'+f+'\" style=\"width:80px\" value=\"'+e+'\"></td><td><input id=\"batch'+f+'\" placeholder=\'Batch No\'></td><td><button class=\'btn btn-danger\'>Remove</button></td></tr>';
         i++;
         var dis='';
         disp.forEach(
@@ -42,6 +45,8 @@ class Purchase
         );
         document.getElementById('table1').innerHTML=dis;
         document.getElementById('idrop').innerHTML='';
+        alert(boxes+': '+puts[boxes]);
+        boxes++;
       }
       function isearch(term){
         var xhttp = new XMLHttpRequest();
