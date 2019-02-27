@@ -22,8 +22,8 @@ if(isset($_GET['dir'])){
 
 //below not done yet
     // route("todaysorders","./pages/todays-orders.php");
-    route("createmaincategory","./pages/create-main-category.php");
-    route("editmaincategory","./pages/edit-main-category.php");
+    // route("createmaincategory","./pages/create-main-category.php");
+    // route("editmaincategory","./pages/edit-main-category.php");
     // route("insertproducts","./pages/insert-products.php");
     // route("manageproducts","./pages/manage-products.php");
     // route("pendingorders","./pages/pending-orders.php");
