@@ -2,7 +2,7 @@
 /**
  * Purchase Entry class
  */
-class Purchase
+class Sales
 {
   #properties
   private $r = " "; //Return Variable
@@ -29,7 +29,7 @@ class Purchase
     ";
     $this->r .="
     <script>
-      var disp =['<tr><th>Product Name</th><th>Cost</th><th>Tax</th><th>Remove</th></tr>'];
+      var disp =['<tr><th>Product Name</th><th>Category</th><th>Quantity</th><th>Amount</th><th>Taxes</th><th>Amount (Including Tax)</th><th>Remove</th></tr>'];
       var i = 1; 
       function clicked(a,b,c){
         disp[i] = '<tr><td>'+a+'</td><td><input value=\"'+b+'\"></td><td><input value=\"'+c+'\"></td><td><button class=\'btn btn-danger\'>Remove</button></td></tr>';
@@ -74,9 +74,9 @@ class Purchase
       <table class='table table-bordered' id='table1'>
         
       </table>
-      <label>Purchase Remarks</label><br>
+      <label>Sales Remarks</label><br>
       <textarea class='form-control' placeholder='Remarks'></textarea><br>
-      <button class='btn btn-success' >Add Purchase</button>
+      <button class='btn btn-success' >Generate Invoice</button>
     <div>";
   }
 }

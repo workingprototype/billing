@@ -29,32 +29,6 @@ class Purchase
     ";
     $this->r .="
     <script>
-      var disp =['<tr><th>Product Name</th><th>Cost</th><th>Tax</th><th>Remove</th></tr>'];
-      var i = 1; 
-      function clicked(a,b,c){
-        disp[i] = '<tr><td>'+a+'</td><td><input value=\"'+b+'\"></td><td><input value=\"'+c+'\"></td><td><button class=\'btn btn-danger\'>Remove</button></td></tr>';
-        i++;
-        var dis='';
-        disp.forEach(
-          function(item,index){
-            dis += item;
-          }
-        );
-        document.getElementById('table1').innerHTML=dis;
-        document.getElementById('idrop').innerHTML='';
-      }
-      function isearch(term){
-        var render='';
-        var result = [['Britania','1234'],['Sunfeast','1211'],['Pepsi','12455'],['Coca-cola','151'],['Thumbs up','5442']];
-        result.forEach(iterate);
-        function iterate(item, index) {
-          if(item!='break'){
-          render += '<div onclick=\'clicked(\"'+item[0]+'\",\"'+item[1]+'\",\"2342\")\' class=\'searchitem\'>' + item[0] + '</div>';
-          }
-        }
-        document.getElementById('idrop').innerHTML=render;
-
-      }
     </script>
     ";
     $this->r .="<div class='row'><div class='col-md-4'><label>Add Purchase Into :</label><select class='form-control'><option>Business A</option></select></div></div>";
@@ -71,9 +45,6 @@ class Purchase
         </div>
         <button class='btn btn-primary'><i class='glyphicon glyphicon-plus '></i> Add</button>
       </div>
-      <table class='table table-bordered' id='table1'>
-        
-      </table>
       <label>Purchase Remarks</label><br>
       <textarea class='form-control' placeholder='Remarks'></textarea><br>
       <button class='btn btn-success' >Add Purchase</button>
