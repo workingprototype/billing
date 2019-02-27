@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2019 at 03:04 AM
+-- Generation Time: Feb 27, 2019 at 11:45 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -207,8 +207,8 @@ INSERT INTO `subcategory` (`id`, `categoryid`, `subcategory`, `creationDate`, `u
 (19, 16, 'Strip Lights', '2019-02-26 23:05:11', NULL),
 (20, 16, 'Fairy Lights', '2019-02-26 23:05:16', NULL),
 (21, 17, 'Home Speakers', '2019-02-26 23:05:20', NULL),
-(22, 17, 'Business Speakers', '2019-02-26 23:05:24', NULL),
-(23, 17, 'Bullshit', '2019-02-26 23:45:35', NULL);
+(22, 17, 'phone Speakers', '2019-02-26 23:05:24', NULL),
+(23, 17, 'battery', '2019-02-26 23:45:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -239,7 +239,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `password`, `shippingAddress`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `regDate`, `updationDate`) VALUES
-(4, 'bullshit', 'bullshit@bullshit.com', 123435, 'd2aefeac9dc661bc98eebd6cc12f0b82', 'Thrissur', 'Kerala', 'Thrissur', 234234, 'Thrissur', 'Kerala', 'Thrissur', 234234, '2019-02-22 15:05:21', NULL);
+(4, 'test', 'test@test.com', 123435, 'f925916e2754e5e03f75dd58a5733251', 'Thrissur', 'Kerala', 'Thrissur', 234234, 'Thrissur', 'Kerala', 'Thrissur', 234234, '2019-02-22 15:05:21', NULL);
 
 --
 -- Indexes for dumped tables
