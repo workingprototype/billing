@@ -215,7 +215,8 @@ while($row=mysqli_fetch_array($query))
     border-color: #4cae4c;">Insert</button>
 											</div>
 										</div>
-									</form>
+                    </form>
+                    <button onclick="location.href = './purchase';"> Return to Billing </button>
 							</div>
 						</div>
 
