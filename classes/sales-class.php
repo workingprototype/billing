@@ -97,13 +97,13 @@ class Sales
   if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      $users.="<option value='".$row['id']."'>Retailer ID: ".$row['id'].",  Name: ".$row['name']."</option>";
+      $users.="<option value='".$row['id']."'>Retailer ID: ".$row['id']." ,  Name: ".$row['name']."</option>";
     }
   } else {
-    echo "0 results";
+    echo "0 results"; // No retailer registered.
   }
     $this->r .="<div class='row'><div class='col-md-4'></br><label>Add Sales For :</label><select id='business' class='form-control'><option>Business A</option></select></div></div>";
-    $this->r .="<div class='row'><div class='col-md-4'><label>From Retailer: </label><select id='customer' class='form-control'>".$users."</select></div></div>";
+    $this->r .="<div class='row'><div class='col-md-4'><label><br/>From Retailer: </label><select id='customer' class='form-control'>".$users."</select></div></div>";
     $this->r .="
     <div class='content'>
       <br>

@@ -33,6 +33,7 @@ class Purchase
       {
         data=[]
         business_name = document.getElementById('business').value;
+        supplier = document.getElementById('supplier').value;
         invoice = document.getElementById('invoice').value;
         remarks = document.getElementById('remarks').value;
         puts.forEach(function (item,index)
@@ -55,7 +56,7 @@ class Purchase
         var dat = JSON.stringify(data);
         xhttp.open(\"POST\", \"function/purchase \", true);
         xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
-        xhttp.send('invoice='+invoice+'remarks='+remarks+'&business='+business_name+'&data='+dat);
+        xhttp.send('supplier='+supplier+'&invoice='+invoice+'remarks='+remarks+'&business='+business_name+'&data='+dat);
 
       }
       var disp =['<tr><th>Product Name</th><th>Cost</th><th>Tax</th><th>Quantity</th><th>Total Amount</th><th>Batch No</th><th>Remove</th></tr>'];
@@ -89,7 +90,20 @@ class Purchase
       }
     </script>
     ";
+    $users='';
+    $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $sql = "SELECT * FROM supplier";
+  $result = $db->query($sql);
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      $users.="<option value='".$row['id']."'>Supplier ID: ".$row['id']." , Name: ".$row['name']."</option>";
+    }
+  } else {
+    echo "0 results"; // No supplier registered.
+  }
     $this->r .="<div class='row'><div class='col-md-4'></br><label>Add Purchase Into :</label><select id='business' class='form-control'><option>Business A</option></select></div></div>";
+    $this->r .="<div class='row'><div class='col-md-4'><label><br/> From Supplier: </label><select id='supplier' class='form-control'>".$users."</select></div></div>";
     $this->r .="
     <div class='content'>
       <br>

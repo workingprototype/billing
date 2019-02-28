@@ -70,12 +70,12 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         // // $this->submenu("Import Products","pimport");//submenu4.2
         // $this->menu("<i class=\"fa fa-cubes\"></i> Products Management");  //Main Menu4
 
-        $this->submenu("Add New Purchase","purchase"); //submenu4.1
+        $this->submenu("Record New Purchase","purchase"); //submenu4.1
         // $this->submenu("Manage Invoices","manageinvoice"); //submenu4.2
         // $this->submenu("List Invoices","listinvoice"); //submenu4.3
         $this->menu("<i class=\"fa fa-cubes\"></i> Purchases");  //Main Menu4
 
-        $this->submenu("Add New","sales");  //submenu2.1
+        $this->submenu("Record New Sale","sales");  //submenu2.1
         $this->menu("<i class=\"fa fa-users\"></i>Sales"); //Main Menu2
 
         // $this->submenu("Today's Orders","todaysorders"); //submenu4.1
