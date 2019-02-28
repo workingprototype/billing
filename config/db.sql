@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 28, 2019 at 04:33 PM
+-- Generation Time: Feb 28, 2019 at 06:07 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -202,18 +202,29 @@ CREATE TABLE `purchase` (
   `productcost` int(11) NOT NULL,
   `producttax` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `totalcost` int(11) NOT NULL
+  `totalcost` int(11) NOT NULL,
+  `invoice` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `purchase`
+-- Table structure for table `sales`
 --
 
-INSERT INTO `purchase` (`id`, `business`, `remarks`, `batch`, `timestamp`, `productid`, `productname`, `productcost`, `producttax`, `quantity`, `totalcost`) VALUES
-(1, 'Business A', 'Hey Uo', '\"', 0, 0, '', 0, 3, 0, 0),
-(2, 'Business A', 'Hey Uo', '\"', 0, 0, '', 0, 3, 0, 0),
-(3, 'Business A', 'Hey Uo', '234', 1551313732, 2, '', 345345, 5, 1, 362612),
-(4, 'Business A', 'Hey Uo', '234', 1551313732, 2, '', 345345, 5, 1, 362612);
+CREATE TABLE `sales` (
+  `id` int(11) NOT NULL,
+  `productid` int(11) NOT NULL,
+  `timestamp` int(11) NOT NULL,
+  `batch` varchar(100) NOT NULL,
+  `price` int(11) NOT NULL,
+  `tax` int(11) NOT NULL,
+  `discount` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `business` int(11) NOT NULL,
+  `customer` int(11) NOT NULL,
+  `remarks` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -318,6 +329,12 @@ ALTER TABLE `purchase`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sales`
+--
+ALTER TABLE `sales`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `subcategory`
 --
 ALTER TABLE `subcategory`
@@ -373,7 +390,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `sales`
+--
+ALTER TABLE `sales`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `subcategory`

@@ -21,6 +21,7 @@ elseif($request[1]=="purchase")
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $data = json_decode($_POST['data']);
   $timestamp=time();
+  $invoice = $_POST['invoice'];
   $business = $_POST['business'];
   $remarks=$_POST['remarks'];
   foreach ($data as $k => $v) {
@@ -30,9 +31,51 @@ elseif($request[1]=="purchase")
     $quantity=$v[3];
     $producttax=$v[2];
     $totalcost=$v[4];
-    $val= [$business, $remarks, $batch,$timestamp, $productid, $productcost, $producttax, $quantity, $totalcost];
+    $val= [$invoice, $business, $remarks, $batch,$timestamp, $productid, $productcost, $producttax, $quantity, $totalcost];
     $table="purchase";
-    $col= ['business'	,'remarks', 	'batch', 	'timestamp', 	'productid', 	'productcost', 	'producttax', 	'quantity', 	'totalcost'];
+    $col= ['invoice','business'	,'remarks', 	'batch', 	'timestamp', 	'productid', 	'productcost', 	'producttax', 	'quantity', 	'totalcost'];
+    $sql="INSERT INTO ".$table." (";
+    foreach ($col as $key => $value) {
+      $sql .=$value;
+      if($key!=(count($col)-1)){
+        $sql .=",";
+      }
+    }
+    $sql .=") VALUES (";
+    foreach ($val as $key => $value) {
+     $sql .="'".$value."'";
+      if($key!=(count($col)-1)){
+        $sql .=",";
+      }
+    }
+    $sql .=")";
+    if ($db->query($sql) === TRUE) {
+      echo "TRUE";
+    } else {
+      echo "Error: " . $sql . "<br>" . $db->error;
+      echo $data;
+    }
+  }
+}
+elseif($request[1]=="sales")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $data = json_decode($_POST['data']);
+  $timestamp=time();
+  $business = $_POST['business'];
+  $customer = $_POST['customer'];
+  $remarks=$_POST['remarks'];
+  foreach ($data as $k => $v) {
+    $batch=$v[6];
+    $discount=$v[5];
+    $productid=$v[0];
+    $productcost=$v[1];
+    $quantity=$v[3];
+    $producttax=$v[2];
+    $totalcost=$v[4];
+    $val=[$productid,$timestamp,$batch,$productcost,$producttax,$discount,$quantity,$business,$customer,$remarks];
+    $table="sales";
+    $col= ['productid', 	'timestamp', 	'batch', 	'price', 	'tax', 	'discount' ,	'quantity' ,	'business' ,	'customer' ,	'remarks' ];
     $sql="INSERT INTO ".$table." (";
     foreach ($col as $key => $value) {
       $sql .=$value;

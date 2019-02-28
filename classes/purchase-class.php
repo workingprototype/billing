@@ -33,6 +33,7 @@ class Purchase
       {
         data=[]
         business_name = document.getElementById('business').value;
+        invoice = document.getElementById('invoice').value;
         remarks = document.getElementById('remarks').value;
         puts.forEach(function (item,index)
         {
@@ -43,7 +44,7 @@ class Purchase
           x[3]=document.getElementById('quantity'+item).value;
           x[4]=document.getElementById('total'+item).value;
           x[5]=document.getElementById('batch'+item).value;
-          data[index]=x
+          data[index]=x;
         });
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -54,7 +55,7 @@ class Purchase
         var dat = JSON.stringify(data);
         xhttp.open(\"POST\", \"function/purchase \", true);
         xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
-        xhttp.send('remarks='+remarks+'&business='+business_name+'&data='+dat);
+        xhttp.send('invoice='+invoice+'remarks='+remarks+'&business='+business_name+'&data='+dat);
 
       }
       var disp =['<tr><th>Product Name</th><th>Cost</th><th>Tax</th><th>Quantity</th><th>Total Amount</th><th>Batch No</th><th>Remove</th></tr>'];
@@ -105,6 +106,8 @@ class Purchase
       <table class='table table-bordered' id='table1'>
         
       </table>
+      <label>Invoice Number:</label><br>
+      <input id='invoice' placeholder='Invoice Number' class='form-control'>
       <label>Purchase Remarks</label><br>
       <textarea id='remarks' class='form-control' placeholder='Remarks'></textarea><br>
       <button class='btn btn-success' onclick='submitty()'>Add Purchase</button>
