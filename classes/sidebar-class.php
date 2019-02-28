@@ -61,14 +61,14 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         // $this->submenu("Edit Product Category","editmaincategory"); //submenu4.1
         // $this->submenu("Create Sub Category","createsubcategory"); //submenu4.1
         // $this->submenu("Edit Sub Category","editsubcategory"); //submenu4.1
-        // $this->submenu("Insert Products","insertproducts");
+        $this->submenu("Insert Products","insertproducts");
         // $this->submenu("Manage & Display Products","manageproducts");
         // $this->submenu("Import Products","pimport");//submenu4.2
 
 
         // $this->submenu("Mangage & Display All Products","products"); //submenu4.1
         // // $this->submenu("Import Products","pimport");//submenu4.2
-        // $this->menu("<i class=\"fa fa-cubes\"></i> Products Management");  //Main Menu4
+        $this->menu("<i class=\"fa fa-cubes\"></i> Products Management");  //Main Menu4
 
         $this->submenu("Record New Purchase","purchase"); //submenu4.1
         // $this->submenu("Manage Invoices","manageinvoice"); //submenu4.2
