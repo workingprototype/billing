@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 27, 2019 at 11:45 AM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Host: localhost
+-- Generation Time: Feb 28, 2019 at 04:33 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -188,6 +188,36 @@ INSERT INTO `products` (`id`, `category`, `subCategory`, `productName`, `product
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `purchase`
+--
+
+CREATE TABLE `purchase` (
+  `id` int(11) NOT NULL,
+  `business` varchar(50) NOT NULL,
+  `remarks` text NOT NULL,
+  `batch` varchar(50) NOT NULL,
+  `timestamp` int(11) NOT NULL,
+  `productid` int(11) NOT NULL,
+  `productname` varchar(200) NOT NULL,
+  `productcost` int(11) NOT NULL,
+  `producttax` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `totalcost` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `purchase`
+--
+
+INSERT INTO `purchase` (`id`, `business`, `remarks`, `batch`, `timestamp`, `productid`, `productname`, `productcost`, `producttax`, `quantity`, `totalcost`) VALUES
+(1, 'Business A', 'Hey Uo', '\"', 0, 0, '', 0, 3, 0, 0),
+(2, 'Business A', 'Hey Uo', '\"', 0, 0, '', 0, 3, 0, 0),
+(3, 'Business A', 'Hey Uo', '234', 1551313732, 2, '', 345345, 5, 1, 362612),
+(4, 'Business A', 'Hey Uo', '234', 1551313732, 2, '', 345345, 5, 1, 362612);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subcategory`
 --
 
@@ -282,6 +312,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `purchase`
+--
+ALTER TABLE `purchase`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `subcategory`
 --
 ALTER TABLE `subcategory`
@@ -332,6 +368,12 @@ ALTER TABLE `ordertrackhistory`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `purchase`
+--
+ALTER TABLE `purchase`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
