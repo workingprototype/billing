@@ -48,17 +48,17 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
     }
     public function __construct() {       // this constructor can accept submenus which are passed when the object is created
 
-        $this->submenu("Home","home");  //submenu1.1
-        $this->submenu("Blank2","blank"); //submenu1.2
-        $this->menu("<i class=\"fa fa-tachometer\"></i>Dashboard"); //Main Menu1
+        // $this->submenu("Home","home");  //submenu1.1
+        // $this->submenu("Blank2","blank"); //submenu1.2
+        // $this->menu("<i class=\"fa fa-tachometer\"></i>Dashboard"); //Main Menu1
 
         //
         // $this->submenu("Users","users"); //submenu3.1
         // $this->submenu("Roles","roles"); //// TODO: Role management not done. Do it with checkboxes
         // $this->menu("<i class=\"fa fa-user-plus\" aria-hidden=\"true\"></i>User Management");  //Main Menu3
 
-        $this->submenu("Create Product Category","createmaincategory"); //submenu4.1
-        $this->submenu("Edit Product Category","editmaincategory"); //submenu4.1
+        // $this->submenu("Create Product Category","createmaincategory"); //submenu4.1
+        // $this->submenu("Edit Product Category","editmaincategory"); //submenu4.1
         // $this->submenu("Create Sub Category","createsubcategory"); //submenu4.1
         // $this->submenu("Edit Sub Category","editsubcategory"); //submenu4.1
         // $this->submenu("Insert Products","insertproducts");
@@ -66,19 +66,22 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         // $this->submenu("Import Products","pimport");//submenu4.2
 
 
-        $this->submenu("Mangage & Display All Products","products"); //submenu4.1
-        // $this->submenu("Import Products","pimport");//submenu4.2
-        $this->menu("<i class=\"fa fa-cubes\"></i> Products Management");  //Main Menu4
+        // $this->submenu("Mangage & Display All Products","products"); //submenu4.1
+        // // $this->submenu("Import Products","pimport");//submenu4.2
+        // $this->menu("<i class=\"fa fa-cubes\"></i> Products Management");  //Main Menu4
 
         $this->submenu("Add New Purchase","purchase"); //submenu4.1
         // $this->submenu("Manage Invoices","manageinvoice"); //submenu4.2
         // $this->submenu("List Invoices","listinvoice"); //submenu4.3
         $this->menu("<i class=\"fa fa-cubes\"></i> Purchases");  //Main Menu4
 
-        $this->submenu("Today's Orders","todaysorders"); //submenu4.1
-        $this->submenu("Pending Orders","pendingorders"); //submenu4.2
-        $this->submenu("Delivered Orders","deliveredorders"); //submenu4.3
-        $this->menu("<i class=\"fa fa-line-chart\"> </i> Order Management");  //Main Menu4
+        $this->submenu("Add New","sales");  //submenu2.1
+        $this->menu("<i class=\"fa fa-users\"></i>Sales"); //Main Menu2
+
+        // $this->submenu("Today's Orders","todaysorders"); //submenu4.1
+        // $this->submenu("Pending Orders","pendingorders"); //submenu4.2
+        // $this->submenu("Delivered Orders","deliveredorders"); //submenu4.3
+        // $this->menu("<i class=\"fa fa-line-chart\"> </i> Order Management");  //Main Menu4
 
         $this->submenu("Goto Store","shopping"); //submenu4.3
         $this->submenu("Goto Store Admin","shopping/admin"); //submenu4.3
@@ -89,8 +92,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->submenu("Retailer Registration","retailerreg");  //submenu2.1
         $this->menu("<i class=\"fa fa-users\"></i>Business Settings"); //Main Menu2
 
-        $this->submenu("Add New","sales");  //submenu2.1
-        $this->menu("<i class=\"fa fa-users\"></i>Sales"); //Main Menu2
+
     }
 }
 

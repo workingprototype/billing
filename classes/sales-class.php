@@ -92,18 +92,18 @@ class Sales
     ";
     $users='';
     $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
-  $sql = "SELECT * FROM retailer";
+  $sql = "SELECT * FROM users";
   $result = $db->query($sql);
   if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      $users.="<option value='".$row['id']."'>ID : ".$row['id']." Name: ".$row['name']."</option>";
+      $users.="<option value='".$row['id']."'>Retailer ID: ".$row['id'].",  Name: ".$row['name']."</option>";
     }
   } else {
     echo "0 results";
   }
-    $this->r .="<div class='row'><div class='col-md-4'><label>Add Sales Into :</label><select id='business' class='form-control'><option>Business A</option></select></div></div>";
-    $this->r .="<div class='row'><div class='col-md-4'><label>Customer :</label><select id='customer' class='form-control'>".$users."</select></div></div>";
+    $this->r .="<div class='row'><div class='col-md-4'></br><label>Add Sales For :</label><select id='business' class='form-control'><option>Business A</option></select></div></div>";
+    $this->r .="<div class='row'><div class='col-md-4'><label>From Retailer: </label><select id='customer' class='form-control'>".$users."</select></div></div>";
     $this->r .="
     <div class='content'>
       <br>
@@ -122,7 +122,7 @@ class Sales
       </table>
       <label>Purchase Remarks</label><br>
       <textarea id='remarks' class='form-control' placeholder='Remarks'></textarea><br>
-      <button class='btn btn-success' onclick='submitty()'>Add Purchase</button>
+      <button class='btn btn-success' onclick='submitty()'>Record Sale</button>
     <div>";
   }
 }

@@ -61,7 +61,7 @@ class Purchase
       var disp =['<tr><th>Product Name</th><th>Cost</th><th>Tax</th><th>Quantity</th><th>Total Amount</th><th>Batch No</th><th>Remove</th></tr>'];
       var i = 1;
       var puts=[]
-      var boxes=0; 
+      var boxes=0;
       function clicked(a,b,c,d,e,f){
         puts[boxes]=f;
         disp[i] = '<tr><td>'+a+'</td><td><input id=\"cost'+f+'\" style=\"width:80px\" value=\"'+b+'\"></td><td><input id=\"tax'+f+'\" style=\"width:80px\" value=\"'+c+'\"></td><td><input id=\"quantity'+f+'\" style=\"width:80px\" value=\"'+d+'\"></td><td><input id=\"total'+f+'\" style=\"width:80px\" value=\"'+e+'\"></td><td><input id=\"batch'+f+'\" placeholder=\'Batch No\'></td><td><button class=\'btn btn-danger\'>Remove</button></td></tr>';
@@ -89,7 +89,7 @@ class Purchase
       }
     </script>
     ";
-    $this->r .="<div class='row'><div class='col-md-4'><label>Add Purchase Into :</label><select id='business' class='form-control'><option>Business A</option></select></div></div>";
+    $this->r .="<div class='row'><div class='col-md-4'></br><label>Add Purchase Into :</label><select id='business' class='form-control'><option>Business A</option></select></div></div>";
     $this->r .="
     <div class='content'>
       <br>
@@ -104,13 +104,13 @@ class Purchase
         <button class='btn btn-primary'><i class='glyphicon glyphicon-plus '></i> Add</button>
       </div>
       <table class='table table-bordered' id='table1'>
-        
+
       </table>
       <label>Invoice Number:</label><br>
       <input id='invoice' placeholder='Invoice Number' class='form-control'>
       <label>Purchase Remarks</label><br>
       <textarea id='remarks' class='form-control' placeholder='Remarks'></textarea><br>
-      <button class='btn btn-success' onclick='submitty()'>Add Purchase</button>
+      <button class='btn btn-success' onclick='submitty()'>Record Purchase</button>
     <div>";
   }
 }

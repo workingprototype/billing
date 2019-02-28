@@ -9,7 +9,6 @@ $footer = new Footer;
 $navbar = new TopNav;
 $page->var['navbar']=$navbar->echo();
 $page->var['sidebar']=$sidebar->echo();
-$page->var['footer']=$footer->echo();
 $page->var['title']="Create New Supplier Account";
 
 session_start();
@@ -22,10 +21,9 @@ $name=$_POST['fullname'];
 $email=$_POST['emailid'];
 $contactno=$_POST['contactno'];
 $altcontactno=$_POST['altcontactno'];
-$password=md5($_POST['password']);
 $shippingAddress=$_POST['shippingAddress'];
 $billingAddress=$_POST['billingAddress'];
-$query=mysqli_query($con,"insert into supplier(name,email,contactno,altcontactno,password,shippingAddress,billingAddress) values('$name','$email','$contactno','$altcontactno','$password','$shippingAddress','$billingAddress')");
+$query=mysqli_query($con,"insert into supplier(name,email,contactno,altcontactno,shippingAddress,billingAddress) values('$name','$email','$contactno','$altcontactno','$shippingAddress','$billingAddress')");
 if($query)
 {
 	echo "<script>alert('Supplier successfully registered');</script>";
@@ -36,18 +34,6 @@ echo "<script>alert('Not registered. Something went wrong.');</script>";
 }
 $page->var['content']='
 
-<script type="text/javascript">
-function valid()
-{
- if(document.register.password.value!= document.register.confirmpassword.value)
-{
-alert("Password and Confirm Password Field do not match  !!");
-document.register.confirmpassword.focus();
-return false;
-}
-return true;
-}
-</script>
 <script>
 function userAvailability() {
 $("#loaderIcon").show();
@@ -89,15 +75,6 @@ error:function (){}
       	    	<input type="text" class="form-control unicase-form-control text-input" id="altcontactno" name="altcontactno" maxlength="10" required >
 </div>
 
-<div class="form-group">
-	    	<label class="info-title" for="password">Password. <span>*</span></label>
-	    	<input type="password" class="form-control unicase-form-control text-input" id="password" name="password"  required >
-</div>
-
-<div class="form-group">
-	    	<label class="info-title" for="confirmpassword">Confirm Password. <span>*</span></label>
-	    	<input type="password" class="form-control unicase-form-control text-input" id="confirmpassword" name="confirmpassword" required >
-</div>
 <div class="form-group">
 				    	<label class="info-title" for="shippingAddress">Shipping Address <span>*</span></label>
 				    	<textarea class="form-control unicase-form-control text-input" id="shippingAddress" name="shippingAddress" maxlength="300" required >
