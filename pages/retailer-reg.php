@@ -112,13 +112,13 @@ error:function (){}
 	  	</div>
 <div class="form-group">
 				    	<label class="info-title" for="shippingAddress">Shipping Address <span>*</span></label>
-				    	<input class="form-control unicase-form-control text-input" id="shippingAddress" name="shippingAddress" maxlength="300" required >
-
+				    	<textarea class="form-control unicase-form-control text-input" id="shippingAddress" name="shippingAddress" maxlength="300" required >
+							</textarea>
 </div>
 <div class="form-group">
 				    	<label class="info-title" for="billingAddress">Contact/Billing Address <span>*</span></label>
-				    	<input class="form-control unicase-form-control text-input" id="billingAddress" name="billingAddress" maxlength="300" required >
-
+				    	<textarea class="form-control unicase-form-control text-input" id="billingAddress" name="billingAddress" maxlength="300" required >
+							</textarea>
 </div>
 	  	<button type="submit" name="submit" class="btn-upper btn btn-primary checkout-page-button" id="submit">Register Retailer</button>
 	</form>

@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 28, 2019 at 06:07 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.11
+-- Host: 127.0.0.1
+-- Generation Time: Feb 28, 2019 at 08:14 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -206,6 +206,57 @@ CREATE TABLE `purchase` (
   `invoice` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `purchase`
+--
+
+INSERT INTO `purchase` (`id`, `business`, `remarks`, `batch`, `timestamp`, `productid`, `productname`, `productcost`, `producttax`, `quantity`, `totalcost`, `invoice`) VALUES
+(6, 'Business A', '', '', 1551377322, 1, '', 120, 5, 1, 126, '44534remarks=dsf'),
+(7, 'Business A', '', '', 1551377322, 3, '', 345345, 5, 1, 362612, '44534remarks=dsf'),
+(8, 'Business A', '', '', 1551377325, 1, '', 120, 5, 1, 126, '44534remarks=dsf'),
+(9, 'Business A', '', '', 1551377325, 3, '', 345345, 5, 1, 362612, '44534remarks=dsf'),
+(10, 'Business A', '', '', 1551377364, 1, '', 120, 5, 1, 126, '4qwdasca5443564534remarks=5'),
+(11, 'Business A', '', '', 1551377364, 3, '', 345345, 5, 1, 362612, '4qwdasca5443564534remarks=5'),
+(12, 'Business A', '', '', 1551377364, 6, '', 0, 5, 1, 0, '4qwdasca5443564534remarks=5'),
+(13, 'Business A', '', '', 1551377365, 1, '', 120, 5, 1, 126, '4qwdasca5443564534remarks=5'),
+(14, 'Business A', '', '', 1551377365, 3, '', 345345, 5, 1, 362612, '4qwdasca5443564534remarks=5'),
+(15, 'Business A', '', '', 1551377365, 6, '', 0, 5, 1, 0, '4qwdasca5443564534remarks=5');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `retailer`
+--
+
+CREATE TABLE `retailer` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `contactno` bigint(11) DEFAULT NULL,
+  `altcontactno` bigint(11) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `shippingAddress` longtext,
+  `shippingState` varchar(255) DEFAULT NULL,
+  `shippingCity` varchar(255) DEFAULT NULL,
+  `shippingPincode` int(11) DEFAULT NULL,
+  `billingAddress` longtext,
+  `billingState` varchar(255) DEFAULT NULL,
+  `billingCity` varchar(255) DEFAULT NULL,
+  `billingPincode` int(11) DEFAULT NULL,
+  `regDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updationDate` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `retailer`
+--
+
+INSERT INTO `retailer` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `regDate`, `updationDate`) VALUES
+(5, 'Adarsh C', 'adarshcool97@gmail.com', 9400503664, 23423, '289dff07669d7a23de0ef88d2f7129e7', '1/B,Kaizen Gayatri Apartments,Keeramkulangara,East Fort, Thrissur', NULL, NULL, NULL, '1/B,Kaizen Gayatri Apartments,Keeramkulangara,East Fort, Thrissur', NULL, NULL, NULL, '2019-02-28 19:06:23', NULL),
+(6, 'Adarsh C', 'adarshcool97@gmail.com', 9400503664, 23423, '202cb962ac59075b964b07152d234b70', '1/B,Kaizen Gayatri Apartments,Keeramkulangara,East Fort, Thrissur', NULL, NULL, NULL, '1/B,Kaizen Gayatri Apartments,Keeramkulangara,East Fort, Thrissur', NULL, NULL, NULL, '2019-02-28 19:06:55', NULL),
+(7, 'Adarsh C', 'adarshcool97@gmail.com', 9400503664, 23423, '202cb962ac59075b964b07152d234b70', '1/B,Kaizen Gayatri Apartments,Keeramkulangara,East Fort, Thrissur', NULL, NULL, NULL, '1/B,Kaizen Gayatri Apartments,Keeramkulangara,East Fort, Thrissur', NULL, NULL, NULL, '2019-02-28 19:08:28', NULL),
+(8, 'Adarsh C', 'adarshcool97@gmail.com', 7008163289, 9400503664, '79c318bf85ee49ec7d43630eea149bfb', 'Door No.601,6th Floor, 1&2, opposite Anand Krishna Residency, 12th Cross Road, Maruthi Nagar, BTM 1st Stage', NULL, NULL, NULL, 'Door No.601,6th Floor, 1&2, opposite Anand Krishna Residency, 12th Cross Road, Maruthi Nagar, BTM 1st Stage', NULL, NULL, NULL, '2019-02-28 19:08:48', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -250,6 +301,38 @@ INSERT INTO `subcategory` (`id`, `categoryid`, `subcategory`, `creationDate`, `u
 (21, 17, 'Home Speakers', '2019-02-26 23:05:20', NULL),
 (22, 17, 'phone Speakers', '2019-02-26 23:05:24', NULL),
 (23, 17, 'battery', '2019-02-26 23:45:35', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supplier`
+--
+
+CREATE TABLE `supplier` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `contactno` bigint(11) DEFAULT NULL,
+  `altcontactno` bigint(11) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `shippingAddress` longtext,
+  `shippingState` varchar(255) DEFAULT NULL,
+  `shippingCity` varchar(255) DEFAULT NULL,
+  `shippingPincode` int(11) DEFAULT NULL,
+  `billingAddress` longtext,
+  `billingState` varchar(255) DEFAULT NULL,
+  `billingCity` varchar(255) DEFAULT NULL,
+  `billingPincode` int(11) DEFAULT NULL,
+  `regDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updationDate` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `supplier`
+--
+
+INSERT INTO `supplier` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `regDate`, `updationDate`) VALUES
+(5, 'Adarsh C', 'adarshcool97@gmail.com', 9400503664, 9400503664, '202cb962ac59075b964b07152d234b70', '1/B,Kaizen Gayatri Apartments,Keeramkulangara,East Fort, Thrissur', NULL, NULL, NULL, '1/B,Kaizen Gayatri Apartments,Keeramkulangara,East Fort, Thrissur', NULL, NULL, NULL, '2019-02-28 19:13:26', NULL);
 
 -- --------------------------------------------------------
 
@@ -329,6 +412,12 @@ ALTER TABLE `purchase`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `retailer`
+--
+ALTER TABLE `retailer`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sales`
 --
 ALTER TABLE `sales`
@@ -338,6 +427,12 @@ ALTER TABLE `sales`
 -- Indexes for table `subcategory`
 --
 ALTER TABLE `subcategory`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `supplier`
+--
+ALTER TABLE `supplier`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -390,7 +485,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `retailer`
+--
+ALTER TABLE `retailer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `sales`
@@ -403,6 +504,12 @@ ALTER TABLE `sales`
 --
 ALTER TABLE `subcategory`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `supplier`
+--
+ALTER TABLE `supplier`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`

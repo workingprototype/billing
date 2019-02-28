@@ -8,8 +8,11 @@ if(isset($_POST['submit']))
 $name=$_POST['fullname'];
 $email=$_POST['emailid'];
 $contactno=$_POST['contactno'];
+$altcontactno=$_POST['altcontactno'];
 $password=md5($_POST['password']);
-$query=mysqli_query($con,"insert into supplier(name,email,contactno,password) values('$name','$email','$contactno','$password')");
+$shippingAddress=$_POST['shippingAddress'];
+$billingAddress=$_POST['billingAddress'];
+$query=mysqli_query($con,"insert into supplier(name,email,contactno,altcontactno,password,shippingAddress,billingAddress) values('$name','$email','$contactno','$altcontactno','$password','$shippingAddress','$billingAddress')");
 if($query)
 {
 	echo "<script>alert('Supplier successfully registered');</script>";
@@ -95,6 +98,10 @@ error:function (){}
 	    	<label class="info-title" for="contactno">Contact No. <span>*</span></label>
 	    	<input type="text" class="form-control unicase-form-control text-input" id="contactno" name="contactno" maxlength="10" required >
 	  	</div>
+<div class="form-group">
+      	    	<label class="info-title" for="altcontactno">Alternative Contact No. <span>*</span></label>
+      	    	<input type="text" class="form-control unicase-form-control text-input" id="altcontactno" name="altcontactno" maxlength="10" required >
+      </div>
 
 <div class="form-group">
 	    	<label class="info-title" for="password">Password. <span>*</span></label>
@@ -104,8 +111,17 @@ error:function (){}
 <div class="form-group">
 	    	<label class="info-title" for="confirmpassword">Confirm Password. <span>*</span></label>
 	    	<input type="password" class="form-control unicase-form-control text-input" id="confirmpassword" name="confirmpassword" required >
-	  	</div>
-
+</div>
+<div class="form-group">
+				    	<label class="info-title" for="shippingAddress">Shipping Address <span>*</span></label>
+				    	<textarea class="form-control unicase-form-control text-input" id="shippingAddress" name="shippingAddress" maxlength="300" required >
+							</textarea>
+</div>
+<div class="form-group">
+				    	<label class="info-title" for="billingAddress">Contact/Billing Address <span>*</span></label>
+				    	<textarea class="form-control unicase-form-control text-input" id="billingAddress" name="billingAddress" maxlength="300" required >
+							</textarea>
+</div>
 
 	  	<button type="submit" name="submit" class="btn-upper btn btn-primary checkout-page-button" id="submit">Register Supplier</button>
 	</form>
