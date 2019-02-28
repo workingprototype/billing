@@ -85,6 +85,8 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->menu("<i class=\"fa fa-line-chart\"> </i> Shopping");  //Main Menu4
 
         $this->submenu("Business Registration","breg");  //submenu2.1
+        $this->submenu("Supplier Registration","supplierreg");  //submenu2.1
+        $this->submenu("Retailer Registration","retailerreg");  //submenu2.1
         $this->menu("<i class=\"fa fa-users\"></i>Business Settings"); //Main Menu2
 
         $this->submenu("Add New","sales");  //submenu2.1

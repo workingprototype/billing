@@ -35,6 +35,8 @@ if(isset($_GET['dir'])){
     route("purchase","./pages/purchase-register-page.php");
     route("products","./pages/products.page.php");
     route("products-list","./pages/productsl.page.php");
+    route("retailerreg","./pages/retailer-reg.php");
+    route("supplierreg","./pages/supplier-reg.php");
     route("login","./pages/login.page.php");
     if($end==0){
       include("./pages/404-page.php");
