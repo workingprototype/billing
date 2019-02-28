@@ -122,7 +122,7 @@ class Sales
       <table class='table table-bordered' id='table1'>
 
       </table>
-      <label>Purchase Remarks</label><br>
+      <label>Sales Remarks</label><br>
       <textarea id='remarks' class='form-control' placeholder='Remarks'></textarea><br>
       <button class='btn btn-success' onclick='submitty()'>Record Sale</button>
     <div>";
