@@ -29,10 +29,38 @@ class Purchase
     ";
     $this->r .="
     <script>
+      function submitty()
+      {
+        data=[]
+        business_name = document.getElementById('business').value;
+        remarks = document.getElementById('remarks').value;
+        puts.forEach(function (item,index)
+        {
+          x=[]
+          x[0]=item;
+          x[1]=document.getElementById('cost'+item).value;
+          x[2]=document.getElementById('tax'+item).value;
+          x[3]=document.getElementById('quantity'+item).value;
+          x[4]=document.getElementById('total'+item).value;
+          x[5]=document.getElementById('batch'+item).value;
+          data[index]=x
+        });
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+          }
+        };
+        var dat = JSON.stringify(data);
+        xhttp.open(\"POST\", \"function/purchase \", true);
+        xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
+        xhttp.send('remarks='+remarks+'&business='+business_name+'&data='+dat);
+
+      }
       var disp =['<tr><th>Product Name</th><th>Cost</th><th>Tax</th><th>Quantity</th><th>Total Amount</th><th>Batch No</th><th>Remove</th></tr>'];
       var i = 1;
-      puts=[]
-      boxes=0; 
+      var puts=[]
+      var boxes=0; 
       function clicked(a,b,c,d,e,f){
         puts[boxes]=f;
         disp[i] = '<tr><td>'+a+'</td><td><input id=\"cost'+f+'\" style=\"width:80px\" value=\"'+b+'\"></td><td><input id=\"tax'+f+'\" style=\"width:80px\" value=\"'+c+'\"></td><td><input id=\"quantity'+f+'\" style=\"width:80px\" value=\"'+d+'\"></td><td><input id=\"total'+f+'\" style=\"width:80px\" value=\"'+e+'\"></td><td><input id=\"batch'+f+'\" placeholder=\'Batch No\'></td><td><button class=\'btn btn-danger\'>Remove</button></td></tr>';
@@ -45,7 +73,6 @@ class Purchase
         );
         document.getElementById('table1').innerHTML=dis;
         document.getElementById('idrop').innerHTML='';
-        alert(boxes+': '+puts[boxes]);
         boxes++;
       }
       function isearch(term){
@@ -61,7 +88,7 @@ class Purchase
       }
     </script>
     ";
-    $this->r .="<div class='row'><div class='col-md-4'><label>Add Purchase Into :</label><select class='form-control'><option>Business A</option></select></div></div>";
+    $this->r .="<div class='row'><div class='col-md-4'><label>Add Purchase Into :</label><select id='business' class='form-control'><option>Business A</option></select></div></div>";
     $this->r .="
     <div class='content'>
       <br>
@@ -79,8 +106,8 @@ class Purchase
         
       </table>
       <label>Purchase Remarks</label><br>
-      <textarea class='form-control' placeholder='Remarks'></textarea><br>
-      <button class='btn btn-success' >Add Purchase</button>
+      <textarea id='remarks' class='form-control' placeholder='Remarks'></textarea><br>
+      <button class='btn btn-success' onclick='submitty()'>Add Purchase</button>
     <div>";
   }
 }

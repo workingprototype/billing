@@ -18,7 +18,43 @@ if($request[1]=="breg")
 }
 elseif($request[1]=="purchase")
 {
-    echo $_POST['data'];
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $data = json_decode($_POST['data']);
+  $timestamp=time();
+  $business = $_POST['business'];
+  $remarks=$_POST['remarks'];
+  foreach ($data as $k => $v) {
+    $batch=$v[5];
+    $productid=$v[0];
+    $productcost=$v[1];
+    $quantity=$v[3];
+    $producttax=$v[2];
+    $totalcost=$v[4];
+    $val= [$business, $remarks, $batch,$timestamp, $productid, $productcost, $producttax, $quantity, $totalcost];
+    $table="purchase";
+    $col= ['business'	,'remarks', 	'batch', 	'timestamp', 	'productid', 	'productcost', 	'producttax', 	'quantity', 	'totalcost'];
+    $sql="INSERT INTO ".$table." (";
+    foreach ($col as $key => $value) {
+      $sql .=$value;
+      if($key!=(count($col)-1)){
+        $sql .=",";
+      }
+    }
+    $sql .=") VALUES (";
+    foreach ($val as $key => $value) {
+     $sql .="'".$value."'";
+      if($key!=(count($col)-1)){
+        $sql .=",";
+      }
+    }
+    $sql .=")";
+    if ($db->query($sql) === TRUE) {
+      echo "TRUE";
+    } else {
+      echo "Error: " . $sql . "<br>" . $db->error;
+      echo $data;
+    }
+  }
 }
 elseif($request[1]=="search")
 {
