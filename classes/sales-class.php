@@ -62,7 +62,7 @@ class Sales
       var disp =['<tr><th>Product Name</th><th>Price (Excluding Tax)</th><th>Tax</th><th>Quantity</th><th>Discount</th><th>Total Amount</th><th>Batch No</th><th>Remove</th></tr>'];
       var i = 1;
       var puts=[]
-      var boxes=0; 
+      var boxes=0;
       function clicked(a,b,c,d,e,f){
         puts[boxes]=f;
         disp[i] = '<tr><td>'+a+'</td><td><input id=\"cost'+f+'\" style=\"width:80px\" value=\"'+b+'\"></td><td><input id=\"tax'+f+'\" style=\"width:80px\" value=\"'+c+'\"></td><td><input id=\"quantity'+f+'\" style=\"width:80px\" value=\"'+d+'\"></td><td><input id=\"discount'+f+'\" style=\"width:80px\" value=\"0\"></td><td><input id=\"total'+f+'\" style=\"width:80px\" value=\"'+e+'\"></td><td><input id=\"batch'+f+'\" placeholder=\'Batch No\'></td><td><button class=\'btn btn-danger\'>Remove</button></td></tr>';
@@ -92,7 +92,7 @@ class Sales
     ";
     $users='';
     $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
-  $sql = "SELECT * FROM users";
+  $sql = "SELECT * FROM retailer";
   $result = $db->query($sql);
   if ($result->num_rows > 0) {
     // output data of each row
@@ -118,7 +118,7 @@ class Sales
         <button class='btn btn-primary'><i class='glyphicon glyphicon-plus '></i> Add</button>
       </div>
       <table class='table table-bordered' id='table1'>
-        
+
       </table>
       <label>Purchase Remarks</label><br>
       <textarea id='remarks' class='form-control' placeholder='Remarks'></textarea><br>
