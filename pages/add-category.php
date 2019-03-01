@@ -2,11 +2,7 @@
 <?php
 session_start();
 include('./config/config.php');
-if(strlen($_SESSION['alogin'])==0)
-	{
-header('location:index.php');
-}
-else{
+{
 date_default_timezone_set('Asia/Kolkata');// change according timezone
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 
@@ -95,7 +91,7 @@ if(isset($_GET['del']))
 											<div class="controls">
 												<button type="submit" name="submit" class="btn"style="border-radius: 3px;color: #fff;
     background-color: #5cb85c;
-    border-color: #4cae4c;">Create</button> 
+    border-color: #4cae4c;">Create</button>
 												  <button onclick="location.href = './purchase';"> Return to Billing </button>
 											</div>
 										</div>
