@@ -38,7 +38,7 @@ $page->var['content']='
 function userAvailability() {
 $("#loaderIcon").show();
 jQuery.ajax({
-url: "check_availability.php",
+url: "./shopping/check_availability.php",
 data:\'email=\'+$("#email").val(),
 type: "POST",
 success:function(data){
@@ -72,7 +72,7 @@ error:function (){}
 </div>
 <div class="form-group">
       	    	<label class="info-title" for="altcontactno">Alternative Contact No. <span>*</span></label>
-      	    	<input type="text" class="form-control unicase-form-control text-input" id="altcontactno" name="altcontactno" maxlength="10" required >
+      	    	<input type="text" class="form-control unicase-form-control text-input" id="altcontactno" name="altcontactno" maxlength="10">
 </div>
 
 <div class="form-group">
