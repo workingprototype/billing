@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2019 at 08:14 PM
+-- Generation Time: Mar 01, 2019 at 01:09 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -72,6 +72,13 @@ CREATE TABLE `business` (
   `timestamp` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `business`
+--
+
+INSERT INTO `business` (`id`, `account_name`, `type`, `op_bal`, `dbcr`, `address`, `city`, `state`, `postal_code`, `state_code`, `phone`, `mobile`, `email`, `vat`, `pan`, `gstin`, `aadhar`, `bank_account`, `ifsc_code`, `timestamp`) VALUES
+(1, 'asd124124123213123123123123213', '234', 345, '435', '345', '34', 'Kerala', '680005', '345', '435', '435', '234@as.vb', '345', '345', '435435', 435, '435', '435', 1551387055);
+
 -- --------------------------------------------------------
 
 --
@@ -92,7 +99,8 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`id`, `categoryName`, `categoryDescription`, `creationDate`, `updationDate`) VALUES
 (16, 'Lights', '', '2019-02-26 22:37:10', NULL),
-(17, 'Speaker', '', '2019-02-26 22:37:31', NULL);
+(17, 'Speaker', '', '2019-02-26 22:37:31', NULL),
+(18, 'Phone', 'Phones of All types', '2019-02-28 23:30:51', NULL);
 
 -- --------------------------------------------------------
 
@@ -110,18 +118,6 @@ CREATE TABLE `orders` (
   `orderStatus` varchar(55) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `userId`, `productId`, `quantity`, `orderDate`, `paymentMethod`, `orderStatus`) VALUES
-(1, 4, '3', 1, '2019-02-27 00:03:13', 'COD', 'Delivered'),
-(2, 4, '6', 1, '2019-02-27 00:03:13', 'COD', NULL),
-(3, 4, '1', 1, '2019-02-27 00:03:58', 'COD', NULL),
-(4, 4, '2', 1, '2019-02-27 00:03:58', 'COD', NULL),
-(5, 4, '3', 1, '2019-02-27 00:03:58', 'COD', NULL),
-(6, 4, '6', 1, '2019-02-27 00:03:58', 'COD', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -135,14 +131,6 @@ CREATE TABLE `ordertrackhistory` (
   `remark` mediumtext,
   `postingDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `ordertrackhistory`
---
-
-INSERT INTO `ordertrackhistory` (`id`, `orderId`, `status`, `remark`, `postingDate`) VALUES
-(1, 1, 'in Process', 'as', '2019-02-27 00:38:46'),
-(2, 1, 'Delivered', 'fone', '2019-02-27 00:41:09');
 
 -- --------------------------------------------------------
 
@@ -173,17 +161,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category`, `subCategory`, `productName`, `productCompany`, `productPrice`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `postingDate`, `updationDate`) VALUES
-(1, 16, 19, '123 Lights', 'Edison', 120, 234, '<h3>123123</h3>', '1.jpeg', '2.jpeg', '45.jpg', 2, 'In Stock', '2019-02-26 23:32:29', NULL),
-(2, 17, 23, '123 Lights', '636435', 345345, 345345, '5345345', '64.jpg', '234.jpg', 'SndLinkC2Bk-large.jpg', 345, 'In Stock', '2019-02-26 23:45:55', NULL),
-(3, 16, 19, '123 Lights', '636435', 345345, 345345, '5345345', 'download.jpg', '5.jpg', '1.jpeg', 345, 'In Stock', '2019-02-26 23:46:11', NULL),
-(4, 17, 21, '123 Lights', '636435', 345345, 345345, '5345345', 'download.jpg', '5.jpg', '1.jpeg', 345, 'In Stock', '2019-02-26 23:50:44', NULL),
-(5, 16, 20, '8567567', '345', 345345, 7345, '3457', 'download.jpg', '5.jpg', '1.jpeg', 234234, 'Out of Stock', '2019-02-26 23:50:59', NULL),
-(6, 17, 23, 'fsdfsddfffd385627563247', '345sdf', 0, 0, '3457', 'download.jpg', '5.jpg', '1.jpeg', 234234, 'Out of Stock', '2019-02-26 23:51:16', NULL),
-(7, 16, 19, '13', '32423', 534, 423, '<br>', '6.jpg', '5.jpg', '1.jpeg', 435, 'Out of Stock', '2019-02-27 01:05:57', NULL),
-(8, 17, 21, '13', '32423', 534, 423, '<br>', '6.jpg', '5.jpg', '1.jpeg', 435, 'Out of Stock', '2019-02-27 01:06:08', NULL),
-(9, 16, 19, '13', '32423', 534, 423, '<br>', '6.jpg', '5.jpg', '1.jpeg', 435, 'Out of Stock', '2019-02-27 01:06:15', NULL),
-(10, 17, 22, '25234', '32423', 534, 423, '<br>', '6.jpg', '5.jpg', '1.jpeg', 435, 'Out of Stock', '2019-02-27 01:06:24', NULL),
-(11, 16, 20, 'sdf2', 'sdff', 534, 423, 'sdf', '6.jpg', '5.jpg', '1.jpeg', 435, 'In Stock', '2019-02-27 01:06:37', NULL);
+(55, 16, 20, 'Hello Lights', 'Lights Infotech', 150, 200, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '1.jpeg', '2.jpeg', '45.jpg', 10, 'In Stock', '2019-02-28 23:49:43', NULL),
+(56, 16, 20, 'Wow Lights', 'Lights Infotech', 350, 400, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">This new light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '4.jpg', '5.jpg', '6.jpg', 60, 'In Stock', '2019-02-28 23:50:29', NULL),
+(57, 17, 21, 'Bose Speakers', 'Bose Electronics', 49000, 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Bose Corporation is a privately held American corporation, based in Framingham, Massachusetts, that designs, develops and sells audio equipment. Founded in 1964 by Amar Bose, the company sells its products throughout the world.</span><br>', '234.jpg', 'SndLinkC2Bk-large.jpg', '3.jpg', 1500, 'In Stock', '2019-02-28 23:51:17', NULL),
+(58, 17, 23, 'Tesla battery', 'Tesla Electronics', 45000, 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', '2019-02-28 23:52:52', NULL),
+(59, 17, 23, 'Tesla battery', 'Tesla Electronics', 45000, 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', '2019-02-28 23:54:20', NULL);
 
 -- --------------------------------------------------------
 
@@ -194,6 +176,7 @@ INSERT INTO `products` (`id`, `category`, `subCategory`, `productName`, `product
 CREATE TABLE `purchase` (
   `id` int(11) NOT NULL,
   `business` varchar(50) NOT NULL,
+  `supplier` int(11) NOT NULL,
   `remarks` text NOT NULL,
   `batch` varchar(50) NOT NULL,
   `timestamp` int(11) NOT NULL,
@@ -210,52 +193,29 @@ CREATE TABLE `purchase` (
 -- Dumping data for table `purchase`
 --
 
-INSERT INTO `purchase` (`id`, `business`, `remarks`, `batch`, `timestamp`, `productid`, `productname`, `productcost`, `producttax`, `quantity`, `totalcost`, `invoice`) VALUES
-(6, 'Business A', '', '', 1551377322, 1, '', 120, 5, 1, 126, '44534remarks=dsf'),
-(7, 'Business A', '', '', 1551377322, 3, '', 345345, 5, 1, 362612, '44534remarks=dsf'),
-(8, 'Business A', '', '', 1551377325, 1, '', 120, 5, 1, 126, '44534remarks=dsf'),
-(9, 'Business A', '', '', 1551377325, 3, '', 345345, 5, 1, 362612, '44534remarks=dsf'),
-(10, 'Business A', '', '', 1551377364, 1, '', 120, 5, 1, 126, '4qwdasca5443564534remarks=5'),
-(11, 'Business A', '', '', 1551377364, 3, '', 345345, 5, 1, 362612, '4qwdasca5443564534remarks=5'),
-(12, 'Business A', '', '', 1551377364, 6, '', 0, 5, 1, 0, '4qwdasca5443564534remarks=5'),
-(13, 'Business A', '', '', 1551377365, 1, '', 120, 5, 1, 126, '4qwdasca5443564534remarks=5'),
-(14, 'Business A', '', '', 1551377365, 3, '', 345345, 5, 1, 362612, '4qwdasca5443564534remarks=5'),
-(15, 'Business A', '', '', 1551377365, 6, '', 0, 5, 1, 0, '4qwdasca5443564534remarks=5');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `retailer`
---
-
-CREATE TABLE `retailer` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `contactno` bigint(11) DEFAULT NULL,
-  `altcontactno` bigint(11) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `shippingAddress` longtext,
-  `shippingState` varchar(255) DEFAULT NULL,
-  `shippingCity` varchar(255) DEFAULT NULL,
-  `shippingPincode` int(11) DEFAULT NULL,
-  `billingAddress` longtext,
-  `billingState` varchar(255) DEFAULT NULL,
-  `billingCity` varchar(255) DEFAULT NULL,
-  `billingPincode` int(11) DEFAULT NULL,
-  `regDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updationDate` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `retailer`
---
-
-INSERT INTO `retailer` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `regDate`, `updationDate`) VALUES
-(5, 'Adarsh C', 'adarshcool97@gmail.com', 9400503664, 23423, '289dff07669d7a23de0ef88d2f7129e7', '1/B,Kaizen Gayatri Apartments,Keeramkulangara,East Fort, Thrissur', NULL, NULL, NULL, '1/B,Kaizen Gayatri Apartments,Keeramkulangara,East Fort, Thrissur', NULL, NULL, NULL, '2019-02-28 19:06:23', NULL),
-(6, 'Adarsh C', 'adarshcool97@gmail.com', 9400503664, 23423, '202cb962ac59075b964b07152d234b70', '1/B,Kaizen Gayatri Apartments,Keeramkulangara,East Fort, Thrissur', NULL, NULL, NULL, '1/B,Kaizen Gayatri Apartments,Keeramkulangara,East Fort, Thrissur', NULL, NULL, NULL, '2019-02-28 19:06:55', NULL),
-(7, 'Adarsh C', 'adarshcool97@gmail.com', 9400503664, 23423, '202cb962ac59075b964b07152d234b70', '1/B,Kaizen Gayatri Apartments,Keeramkulangara,East Fort, Thrissur', NULL, NULL, NULL, '1/B,Kaizen Gayatri Apartments,Keeramkulangara,East Fort, Thrissur', NULL, NULL, NULL, '2019-02-28 19:08:28', NULL),
-(8, 'Adarsh C', 'adarshcool97@gmail.com', 7008163289, 9400503664, '79c318bf85ee49ec7d43630eea149bfb', 'Door No.601,6th Floor, 1&2, opposite Anand Krishna Residency, 12th Cross Road, Maruthi Nagar, BTM 1st Stage', NULL, NULL, NULL, 'Door No.601,6th Floor, 1&2, opposite Anand Krishna Residency, 12th Cross Road, Maruthi Nagar, BTM 1st Stage', NULL, NULL, NULL, '2019-02-28 19:08:48', NULL);
+INSERT INTO `purchase` (`id`, `business`, `supplier`, `remarks`, `batch`, `timestamp`, `productid`, `productname`, `productcost`, `producttax`, `quantity`, `totalcost`, `invoice`) VALUES
+(6, 'Business A', 0, '', '', 1551377322, 1, '', 120, 5, 1, 126, '44534remarks=dsf'),
+(7, 'Business A', 0, '', '', 1551377322, 3, '', 345345, 5, 1, 362612, '44534remarks=dsf'),
+(8, 'Business A', 0, '', '', 1551377325, 1, '', 120, 5, 1, 126, '44534remarks=dsf'),
+(9, 'Business A', 0, '', '', 1551377325, 3, '', 345345, 5, 1, 362612, '44534remarks=dsf'),
+(10, 'Business A', 0, '', '', 1551377364, 1, '', 120, 5, 1, 126, '4qwdasca5443564534remarks=5'),
+(11, 'Business A', 0, '', '', 1551377364, 3, '', 345345, 5, 1, 362612, '4qwdasca5443564534remarks=5'),
+(12, 'Business A', 0, '', '', 1551377364, 6, '', 0, 5, 1, 0, '4qwdasca5443564534remarks=5'),
+(13, 'Business A', 0, '', '', 1551377365, 1, '', 120, 5, 1, 126, '4qwdasca5443564534remarks=5'),
+(14, 'Business A', 0, '', '', 1551377365, 3, '', 345345, 5, 1, 362612, '4qwdasca5443564534remarks=5'),
+(15, 'Business A', 0, '', '', 1551377365, 6, '', 0, 5, 1, 0, '4qwdasca5443564534remarks=5'),
+(16, 'Business A', 0, '', '', 1551387022, 5, '', 345345, 5, 1, 362612, '4523remarks=234'),
+(17, 'Business A', 0, '', '', 1551387306, 1, '', 120, 5, 1, 126, '245remarks=234'),
+(18, 'Business A', 0, '', '', 1551391265, 1, '', 120, 5, 1, 126, '234234remarks=ASd'),
+(19, 'Business A', 0, '', '', 1551391378, 1, '', 120, 5, 1, 126, '234234remarks=ASd'),
+(20, 'Business A', 0, '', '', 1551391379, 1, '', 120, 5, 1, 126, '234234remarks=ASd'),
+(21, 'Business A', 0, '', '', 1551391400, 1, '', 120, 5, 1, 126, '234234remarks=New Purchase'),
+(22, 'Business A', 0, '', '', 1551391400, 6, '', 0, 5, 1, 0, '234234remarks=New Purchase'),
+(23, 'Business A', 0, '', '', 1551392054, 2, '', 345345, 5, 1, 362612, '3423remarks=233sadf'),
+(24, 'Business A', 0, '', '', 1551392097, 6, '', 0, 5, 1, 0, '67remarks=fgh'),
+(25, 'Business A', 0, '', '', 1551392128, 6, '', 0, 5, 1, 0, '67remarks=fgh'),
+(26, 'Business A', 0, '', '', 1551392136, 3, '', 345345, 5, 1, 362612, 'sadremarks=a'),
+(27, 'Business A', 0, '', '', 1551392174, 2, '', 345345, 5, 1, 362612, 'remarks=aaaaaaaaaaaaaaaaaaaaa');
 
 -- --------------------------------------------------------
 
@@ -276,6 +236,41 @@ CREATE TABLE `sales` (
   `customer` int(11) NOT NULL,
   `remarks` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sales`
+--
+
+INSERT INTO `sales` (`id`, `productid`, `timestamp`, `batch`, `price`, `tax`, `discount`, `quantity`, `business`, `customer`, `remarks`) VALUES
+(3, 3, 1551383329, '', 345345, 5, 0, 1, 0, 7, ''),
+(4, 1, 1551383644, '3', 120, 5, 0, 1, 0, 7, ''),
+(5, 1, 1551385029, '', 120, 5, 0, 1, 0, 7, ''),
+(6, 1, 1551385046, '', 120, 5, 0, 1, 0, 6, ''),
+(7, 3, 1551385046, '', 345345, 5, 0, 1, 0, 6, ''),
+(8, 6, 1551385046, '', 0, 5, 0, 1, 0, 6, ''),
+(9, 1, 1551385049, '', 120, 5, 0, 1, 0, 6, ''),
+(10, 3, 1551385049, '', 345345, 5, 0, 1, 0, 6, ''),
+(11, 6, 1551385049, '', 0, 5, 0, 1, 0, 6, ''),
+(12, 1, 1551385049, '', 120, 5, 0, 1, 0, 6, ''),
+(13, 3, 1551385049, '', 345345, 5, 0, 1, 0, 6, ''),
+(14, 6, 1551385049, '', 0, 5, 0, 1, 0, 6, ''),
+(15, 1, 1551385083, '', 120, 5, 0, 1, 0, 7, ''),
+(16, 3, 1551385083, '', 345345, 5, 0, 1, 0, 7, ''),
+(17, 6, 1551385083, '', 0, 5, 0, 1, 0, 7, ''),
+(18, 9, 1551385083, '', 534, 5, 0, 1, 0, 7, ''),
+(19, 1, 1551385904, '', 120, 5, 0, 1, 0, 7, ''),
+(20, 3, 1551385904, '', 345345, 5, 0, 1, 0, 7, ''),
+(21, 6, 1551385904, '', 0, 5, 0, 1, 0, 7, ''),
+(22, 9, 1551385904, '', 534, 5, 0, 1, 0, 7, ''),
+(23, 1, 1551386999, '', 120, 5, 0, 1, 0, 9, 'sd'),
+(24, 10, 1551390317, '', 534, 5, 0, 1, 0, 10, ''),
+(25, 4, 1551391702, '', 345345, 5, 0, 1, 0, 11, '345'),
+(26, 1, 1551391948, '', 120, 5, 0, 1, 0, 11, '234'),
+(27, 1, 1551391999, '', 120, 5, 0, 1, 0, 10, 'asd'),
+(28, 5, 1551392005, '', 345345, 5, 0, 1, 0, 11, 'asd'),
+(29, 5, 1551392330, '', 345345, 5, 0, 1, 0, 11, 'assssssssssssssssssssssssssssssssssss'),
+(30, 1, 1551392503, '', 120, 5, 0, 6, 0, 10, 'sdf'),
+(31, 6, 1551392503, '', 0, 5, 0, 7, 0, 10, 'sdf');
 
 -- --------------------------------------------------------
 
@@ -300,7 +295,8 @@ INSERT INTO `subcategory` (`id`, `categoryid`, `subcategory`, `creationDate`, `u
 (20, 16, 'Fairy Lights', '2019-02-26 23:05:16', NULL),
 (21, 17, 'Home Speakers', '2019-02-26 23:05:20', NULL),
 (22, 17, 'phone Speakers', '2019-02-26 23:05:24', NULL),
-(23, 17, 'battery', '2019-02-26 23:45:35', NULL);
+(23, 17, 'battery', '2019-02-26 23:45:35', NULL),
+(24, 18, 'iPhone', '2019-02-28 23:46:54', NULL);
 
 -- --------------------------------------------------------
 
@@ -332,7 +328,7 @@ CREATE TABLE `supplier` (
 --
 
 INSERT INTO `supplier` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `regDate`, `updationDate`) VALUES
-(5, 'Adarsh C', 'adarshcool97@gmail.com', 9400503664, 9400503664, '202cb962ac59075b964b07152d234b70', '1/B,Kaizen Gayatri Apartments,Keeramkulangara,East Fort, Thrissur', NULL, NULL, NULL, '1/B,Kaizen Gayatri Apartments,Keeramkulangara,East Fort, Thrissur', NULL, NULL, NULL, '2019-02-28 19:13:26', NULL);
+(10, 'Test Supplier', 'test@test.com', 1234567890, 23423, NULL, 'Bengaluru', NULL, NULL, NULL, 'Bengaluru', NULL, NULL, NULL, '2019-03-01 00:02:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -345,6 +341,7 @@ CREATE TABLE `users` (
   `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `contactno` bigint(11) DEFAULT NULL,
+  `altcontactno` bigint(11) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `shippingAddress` longtext,
   `shippingState` varchar(255) DEFAULT NULL,
@@ -362,8 +359,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `password`, `shippingAddress`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `regDate`, `updationDate`) VALUES
-(4, 'test', 'test@test.com', 123435, 'f925916e2754e5e03f75dd58a5733251', 'Thrissur', 'Kerala', 'Thrissur', 234234, 'Thrissur', 'Kerala', 'Thrissur', 234234, '2019-02-22 15:05:21', NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `regDate`, `updationDate`) VALUES
+(12, 'Test Retailer', 'test@test.com', 8838564345, 8798564345, 'f925916e2754e5e03f75dd58a5733251', 'Delhi', NULL, NULL, NULL, 'Delhi							', NULL, NULL, NULL, '2019-03-01 00:06:33', NULL);
 
 --
 -- Indexes for dumped tables
@@ -412,12 +409,6 @@ ALTER TABLE `purchase`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `retailer`
---
-ALTER TABLE `retailer`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `sales`
 --
 ALTER TABLE `sales`
@@ -455,67 +446,61 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `business`
 --
 ALTER TABLE `business`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `ordertrackhistory`
 --
 ALTER TABLE `ordertrackhistory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT for table `retailer`
---
-ALTER TABLE `retailer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
 --
 ALTER TABLE `subcategory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
