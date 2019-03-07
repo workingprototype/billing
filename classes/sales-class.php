@@ -29,6 +29,10 @@ class Sales
     ";
     $this->r .="
     <script>
+      function remove(no){
+        document.getElementById(\"row_\"+no+\"\").outerHTML= '';
+        puts[no]='lol';
+      }
       function submitty()
       {
         data=[]
@@ -37,15 +41,17 @@ class Sales
         remarks = document.getElementById('remarks').value;
         puts.forEach(function (item,index)
         {
-          x=[]
-          x[0]=item;
-          x[1]=document.getElementById('cost'+item).value;
-          x[2]=document.getElementById('tax'+item).value;
-          x[3]=document.getElementById('quantity'+item).value;
-          x[4]=document.getElementById('total'+item).value;
-          x[5]=document.getElementById('discount'+item).value;
-          x[6]=document.getElementById('batch'+item).value;
-          data[index]=x;
+          if(item!='lol'){
+            x=[]
+            x[0]=item;
+            x[1]=document.getElementById('cost'+item).value;
+            x[2]=document.getElementById('tax'+item).value;
+            x[3]=document.getElementById('quantity'+item).value;
+            x[4]=document.getElementById('total'+item).value;
+            x[5]=document.getElementById('discount'+item).value;
+            x[6]=document.getElementById('batch'+item).value;
+            data[index]=x;
+          }
         });
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -67,7 +73,7 @@ class Sales
       var boxes=0;
       function clicked(a,b,c,d,e,f){
         puts[boxes]=f;
-        disp[i] = '<tr><td>'+a+'</td><td><input id=\"cost'+f+'\" style=\"width:80px\" value=\"'+b+'\"></td><td><input id=\"tax'+f+'\" style=\"width:80px\" value=\"'+c+'\"></td><td><input id=\"quantity'+f+'\" style=\"width:80px\" value=\"'+d+'\"></td><td><input id=\"discount'+f+'\" style=\"width:80px\" value=\"0\"></td><td><input id=\"total'+f+'\" style=\"width:80px\" value=\"'+e+'\"></td><td><input id=\"batch'+f+'\" placeholder=\'Batch No\'></td><td><button class=\'btn btn-danger\'>Remove</button></td></tr>';
+        disp[i] = '<tr><td>'+a+'</td><td><input id=\"cost'+f+'\" style=\"width:80px\" value=\"'+b+'\"></td><td><input id=\"tax'+f+'\" style=\"width:80px\" value=\"'+c+'\"></td><td><input id=\"quantity'+f+'\" style=\"width:80px\" value=\"'+d+'\"></td><td><input id=\"discount'+f+'\" style=\"width:80px\" value=\"0\"></td><td><input id=\"total'+f+'\" style=\"width:80px\" value=\"'+e+'\"></td><td><input id=\"batch'+f+'\" placeholder=\'Batch No\'></td><td><button onclick=\'remove('+boxes+')\' class=\'btn btn-danger\'>Remove</button></td></tr>';
         i++;
         var dis='';
         disp.forEach(
