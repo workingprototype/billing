@@ -31,6 +31,7 @@ class Purchase
     <script>
       function remove(no){
         document.getElementById(\"row_\"+no+\"\").outerHTML= '';
+        disp[no+1]='';
         puts[no]='lol';
       }
       function submitty()

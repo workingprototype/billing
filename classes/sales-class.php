@@ -32,6 +32,8 @@ class Sales
       function remove(no){
         document.getElementById(\"row_\"+no+\"\").outerHTML= '';
         puts[no]='lol';
+        disp[no+1]='';
+
       }
       function submitty()
       {
