@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2019 at 10:26 PM
+-- Generation Time: Mar 10, 2019 at 12:41 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -305,6 +305,29 @@ INSERT INTO `subcategory` (`id`, `categoryid`, `subcategory`, `creationDate`, `u
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `subuom`
+--
+
+CREATE TABLE `subuom` (
+  `id` int(11) NOT NULL,
+  `uomid` int(11) DEFAULT NULL,
+  `subuom` varchar(255) DEFAULT NULL,
+  `qtyinsubuom` varchar(255) DEFAULT NULL,
+  `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updationDate` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subuom`
+--
+
+INSERT INTO `subuom` (`id`, `uomid`, `subuom`, `qtyinsubuom`, `creationDate`, `updationDate`) VALUES
+(25, 19, 'Covers', '34', '2019-03-09 23:35:37', NULL),
+(26, 20, 'Chota Boxes', '70', '2019-03-09 23:41:01', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `supplier`
 --
 
@@ -348,6 +371,27 @@ CREATE TABLE `supplier` (
 INSERT INTO `supplier` (`id`, `productcompany`, `firmname`, `email`, `name`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `district`, `billingState`, `billingCity`, `billingPincode`, `gstin`, `fssai`, `pan`, `aadharno`, `execname`, `execmobile`, `bankname`, `bankcity`, `accountname`, `accountnumber`, `ifsccode`, `regDate`, `updationDate`) VALUES
 (10, '', '', 'test@test.com', 'Test Supplier', 1234567890, 23423, NULL, 'Bengaluru', NULL, NULL, NULL, 'Bengaluru', '', NULL, NULL, NULL, '', '', '', '', '', 0, '', '', '', '', '', '2019-03-01 00:02:07', NULL),
 (11, 'My Play Studios', 'Bullseye', 'adarshcool97@gmail.com', 'Adarsh C', 9400503664, 2342345345, NULL, 'Curry Road', NULL, NULL, NULL, 'Curry Road', 'Lays', 'Kerala', NULL, 680005, '12334556756756', '67456345RF345', '3423645436456546', '3554623457546456', 'Bill Gates', 1233454645234, 'Bullseye', 'Gotham', 'Nigga', '12334598', '34958457943', '2019-03-09 21:24:58', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `uom`
+--
+
+CREATE TABLE `uom` (
+  `id` int(11) NOT NULL,
+  `uom` varchar(255) DEFAULT NULL,
+  `creationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updationDate` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `uom`
+--
+
+INSERT INTO `uom` (`id`, `uom`, `creationDate`, `updationDate`) VALUES
+(19, 'Cases', '2019-03-09 23:28:39', NULL),
+(20, 'Boxes', '2019-03-09 23:40:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -440,9 +484,21 @@ ALTER TABLE `subcategory`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `subuom`
+--
+ALTER TABLE `subuom`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `supplier`
 --
 ALTER TABLE `supplier`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `uom`
+--
+ALTER TABLE `uom`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -510,10 +566,22 @@ ALTER TABLE `subcategory`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
+-- AUTO_INCREMENT for table `subuom`
+--
+ALTER TABLE `subuom`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `uom`
+--
+ALTER TABLE `uom`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users`
