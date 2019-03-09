@@ -105,9 +105,10 @@ class Page
                   <h3>%$#^%@TITLE$#^$@@#$%^</h3>
                 </div>\n
               </div>\n
-              <div class=\"clearfix\"></div>\n
+              <div class=\"clearfix\">
+              <br><br><br>
               85686482626
-    
+              </div>\n  
               
           
           ^%^&^%$&^%$86865^%$*%*%
