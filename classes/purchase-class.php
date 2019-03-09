@@ -68,13 +68,46 @@ class Purchase
         xhttp.send('supplier='+supplier+'&invoice='+invoice+'remarks='+remarks+'&business='+business_name+'&data='+dat);
 
       }
-      var disp =['<tr><th>Product Name</th><th>Cost</th><th>Tax</th><th>Quantity</th><th>Total Amount</th><th>Batch No</th><th>Remove</th></tr>'];
+
+      var disp =['<tr><th>Batch Code</th>\
+      <th>Product Name</th>\
+      <th>MRP</th>\
+      <th>Qty (cases)</th>\
+      <th>Qty(units)</th>\
+      <th>UOM Base Rate(Case) </th>\
+      <th>Base Rate (UOM)  </th>\
+      <th>Disc % </th>\
+      <th>Disc Amount  </th>\
+      <th>Net Amt </th>\
+      <th>CGST % </th>\
+      <th>SGST % </th>\
+      <th>CGST Amt  </th>\
+      <th>SGST Amt  </th>\
+      <th>CESS  </th>\
+      <th>Total Amount  </th>\
+      <th>UOM SP  (Unit of measurement) </th>\
+      <th>Display Price </th>\
+      <th>Display Discount  </th>\
+      <th>Remove</th>\
+      </tr>'];
+
       var i = 1;
+      var s=1;
       var puts=[]
       var boxes=0;
       function clicked(a,b,c,d,e,f){
-        puts[boxes]=f;
-        disp[i] = '<tr id=\'row_'+boxes+'\'><td>'+a+'</td><td><input id=\"cost'+f+'\" style=\"width:80px\" value=\"'+b+'\"></td><td><input id=\"tax'+f+'\" style=\"width:80px\" value=\"'+c+'\"></td><td><input id=\"quantity'+f+'\" style=\"width:80px\" value=\"'+d+'\"></td><td><input id=\"total'+f+'\" style=\"width:80px\" value=\"'+e+'\"></td><td><input id=\"batch'+f+'\" placeholder=\'Batch No\'></td><td><button onclick=\'remove('+boxes+')\' class=\'btn btn-danger\'>Remove</button></td></tr>';
+        r=s++;
+        puts[boxes]=r+'_'+f;
+
+        disp[i] = '<tr id=\'row_'+boxes+'\'><td>'+a+'</td>\
+        <td><input id=\"cost'+r+'_'+f+'\" style=\"width:80px\" value=\"'+b+'\"></td>\
+        <td><input id=\"tax'+r+'_'+f+'\" style=\"width:80px\" value=\"'+c+'\"></td>\
+        <td><input id=\"quantity'+r+'_'+f+'\" style=\"width:80px\" value=\"'+d+'\"></td>\
+        <td><input id=\"total'+r+'_'+f+'\" style=\"width:80px\" value=\"'+e+'\"></td>\
+        <td><input id=\"batch'+r+'_'+f+'\" placeholder=\'Batch No\'></td>\
+        <td><button onclick=\'remove('+boxes+')\' class=\'btn btn-danger\'>Remove</button></td>\
+        </tr>';
+
         i++;
         var dis='';
         disp.forEach(
@@ -111,10 +144,10 @@ class Purchase
   } else {
     echo "0 results"; // No supplier registered.
   }
-    $this->r .="<div class='row'><div class='col-md-4'></br><label>Add Purchase Into :</label><select id='business' class='form-control'><option>Business A</option></select></div></div>";
-    $this->r .="<div class='row'><div class='col-md-4'><label><br/> From Supplier: </label><select id='supplier' class='form-control'>".$users."</select></div></div>";
+    $this->r .="<div class='row'><div class='col-md-4'></br><label>Firm Name :</label><select id='business' class='form-control'><option>Business A</option></select></div></div>";
+    $this->r .="<div class='row'><div class='col-md-4'><label><br/> Supplier Name: </label><select id='supplier' class='form-control'>".$users."</select></div></div>";
     $this->r .="
-    <div class='content'>
+    <div class='content' stylr='overflow-x:scroll'>
       <br>
       <div class='row'>
         <div class='col-md-10'>
@@ -126,11 +159,29 @@ class Purchase
         </div>
         <button class='btn btn-primary'><i class='glyphicon glyphicon-plus '></i> Add</button>
       </div>
-      <table class='table table-bordered' id='table1'>
+      <div style='overflow-x:scroll'><table class='table table-bordered' id='table1'>
 
-      </table>
+      </table></div>
+      <h4>Total : <input class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
+      
       <label>Invoice Number:</label><br>
       <input id='invoice' placeholder='Invoice Number' class='form-control'>
+      
+      <label>Invoice date:</label><br>
+      <input id='invoicedate' placeholder='Invoice date' type='date' class='form-control' style='width:200px'>
+      
+      <label>Transport:</label><br>
+      <input id='transport' placeholder='Transort' class='form-control' style='width:400px'>
+      
+      <label>Recieved Date:</label><br>
+      <input id='recieveddate' type='date' class='form-control' style='width:200px'>
+      
+      <label>Vehicle Number:</label><br>
+      <input id='vehiclenum' placeholder='Vehicle Number'  class='form-control' style='width:400px'>
+      
+      <label>Delivered Person Contact:</label><br>
+      <input id='deliveredperson' placeholder='Delivered Person Constact' class='form-control' style='width:400px'>
+      
       <label>Purchase Remarks</label><br>
       <textarea id='remarks' class='form-control' placeholder='Remarks'></textarea><br>
       <button class='btn btn-success' onclick='submitty()'>Record Purchase</button>
