@@ -40,7 +40,7 @@ $accountname=$_POST['accountname'];
 $accountnumber=$_POST['accountnumber'];
 $ifsccode=$_POST['ifsccode'];
 $query=mysqli_query($con,"insert into supplier(productcompany,firmname,email,name,contactno,altcontactno,shippingAddress,billingAddress,
-district,billingState,billingPincode,gstin,fssai,pan,aadharno,execname,execmobile,bankname,bankcity,accountname,accountnumber,ifsccode,)
+district,billingState,billingPincode,gstin,fssai,pan,aadharno,execname,execmobile,bankname,bankcity,accountname,accountnumber,ifsccode)
  values('$productcompany','$firmname','$email','$name','$contactno','$altcontactno','$shippingAddress','$billingAddress'
  ,'$district','$state','$pincode','$gstin','$fssai','$pan','$aadharno'
  ,'$execname','$execmobile','$bankname','$bankcity','$accountname','$accountnumber','$ifsccode')");

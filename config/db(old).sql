@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2019 at 10:26 PM
+-- Generation Time: Mar 01, 2019 at 01:09 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -215,11 +215,7 @@ INSERT INTO `purchase` (`id`, `business`, `supplier`, `remarks`, `batch`, `times
 (24, 'Business A', 0, '', '', 1551392097, 6, '', 0, 5, 1, 0, '67remarks=fgh'),
 (25, 'Business A', 0, '', '', 1551392128, 6, '', 0, 5, 1, 0, '67remarks=fgh'),
 (26, 'Business A', 0, '', '', 1551392136, 3, '', 345345, 5, 1, 362612, 'sadremarks=a'),
-(27, 'Business A', 0, '', '', 1551392174, 2, '', 345345, 5, 1, 362612, 'remarks=aaaaaaaaaaaaaaaaaaaaa'),
-(28, 'Business A', 0, '', '', 1551966466, 55, '', 150, 5, 1, 158, 'remarks='),
-(29, 'Business A', 0, '', '', 1551966466, 0, '', 0, 0, 0, 0, 'remarks='),
-(30, 'Business A', 0, '', '', 1551966466, 57, '', 49000, 5, 1, 51450, 'remarks='),
-(31, 'Business A', 0, '', '', 1551966466, 58, '', 45000, 5, 1, 47250, 'remarks=');
+(27, 'Business A', 0, '', '', 1551392174, 2, '', 345345, 5, 1, 362612, 'remarks=aaaaaaaaaaaaaaaaaaaaa');
 
 -- --------------------------------------------------------
 
@@ -310,10 +306,8 @@ INSERT INTO `subcategory` (`id`, `categoryid`, `subcategory`, `creationDate`, `u
 
 CREATE TABLE `supplier` (
   `id` int(11) NOT NULL,
-  `productcompany` varchar(100) NOT NULL,
-  `firmname` varchar(255) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `contactno` bigint(11) DEFAULT NULL,
   `altcontactno` bigint(11) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
@@ -322,21 +316,9 @@ CREATE TABLE `supplier` (
   `shippingCity` varchar(255) DEFAULT NULL,
   `shippingPincode` int(11) DEFAULT NULL,
   `billingAddress` longtext,
-  `district` varchar(50) NOT NULL,
   `billingState` varchar(255) DEFAULT NULL,
   `billingCity` varchar(255) DEFAULT NULL,
   `billingPincode` int(11) DEFAULT NULL,
-  `gstin` varchar(255) NOT NULL,
-  `fssai` varchar(255) NOT NULL,
-  `pan` varchar(255) NOT NULL,
-  `aadharno` varchar(255) NOT NULL,
-  `execname` varchar(255) NOT NULL,
-  `execmobile` bigint(11) NOT NULL,
-  `bankname` varchar(255) NOT NULL,
-  `bankcity` varchar(255) NOT NULL,
-  `accountname` varchar(255) NOT NULL,
-  `accountnumber` varchar(255) NOT NULL,
-  `ifsccode` varchar(255) NOT NULL,
   `regDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updationDate` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -345,9 +327,8 @@ CREATE TABLE `supplier` (
 -- Dumping data for table `supplier`
 --
 
-INSERT INTO `supplier` (`id`, `productcompany`, `firmname`, `email`, `name`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `district`, `billingState`, `billingCity`, `billingPincode`, `gstin`, `fssai`, `pan`, `aadharno`, `execname`, `execmobile`, `bankname`, `bankcity`, `accountname`, `accountnumber`, `ifsccode`, `regDate`, `updationDate`) VALUES
-(10, '', '', 'test@test.com', 'Test Supplier', 1234567890, 23423, NULL, 'Bengaluru', NULL, NULL, NULL, 'Bengaluru', '', NULL, NULL, NULL, '', '', '', '', '', 0, '', '', '', '', '', '2019-03-01 00:02:07', NULL),
-(11, 'My Play Studios', 'Bullseye', 'adarshcool97@gmail.com', 'Adarsh C', 9400503664, 2342345345, NULL, 'Curry Road', NULL, NULL, NULL, 'Curry Road', 'Lays', 'Kerala', NULL, 680005, '12334556756756', '67456345RF345', '3423645436456546', '3554623457546456', 'Bill Gates', 1233454645234, 'Bullseye', 'Gotham', 'Nigga', '12334598', '34958457943', '2019-03-09 21:24:58', NULL);
+INSERT INTO `supplier` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `regDate`, `updationDate`) VALUES
+(10, 'Test Supplier', 'test@test.com', 1234567890, 23423, NULL, 'Bengaluru', NULL, NULL, NULL, 'Bengaluru', NULL, NULL, NULL, '2019-03-01 00:02:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -477,13 +458,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `ordertrackhistory`
 --
 ALTER TABLE `ordertrackhistory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -495,7 +476,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `sales`
@@ -513,7 +494,7 @@ ALTER TABLE `subcategory`
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
