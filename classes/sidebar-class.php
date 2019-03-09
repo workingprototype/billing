@@ -60,6 +60,8 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
        $this->submenu("Create Product Category","addcategory"); //submenu4.1
        // $this->submenu("Edit Product Category","editcategory"); //submenu4.1
        $this->submenu("Create Sub Category","addsubcategory"); //submenu4.1
+       $this->submenu("Create Unit of Measurement","adduom"); //submenu4.1
+       $this->submenu("Create Sub Unit & Qty","addsubuom"); //submenu4.1
         // $this->submenu("Edit Sub Category","editsubcategory"); //submenu4.1
         $this->submenu("Insert Products","insertproducts");
         // $this->submenu("Manage & Display Products","manageproducts");

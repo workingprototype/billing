@@ -23,6 +23,8 @@ if(isset($_GET['dir'])){
     // route("todaysorders","./pages/todays-orders.php");
    route("addcategory","./pages/add-category.php");
     route("addsubcategory","./pages/add-sub-category.php");
+   route("adduom","./pages/add-unit.php");
+    route("addsubuom","./pages/add-sub-unit.php");
      // route("editcategory","./pages/edit-category.php");
     route("insertproducts","./pages/insert-products.php");
     // route("manageproducts","./pages/manage-products.php");
