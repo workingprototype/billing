@@ -40,17 +40,35 @@ class Purchase
         business_name = document.getElementById('business').value;
         supplier = document.getElementById('supplier').value;
         invoice = document.getElementById('invoice').value;
-        remarks = document.getElementById('remarks').value;
+        invoicedate = document.getElementById('invoicedate').value;
+        transport = document.getElementById('transport').value;
+        receivedate = document.getElementById('receivedate').value;
+        vehicleno = document.getElementById('vehicle').value;
+        delcontact = document.getElementById('delcontact').value;
         puts.forEach(function (item,index)
         {
           if(item!='lol'){
             x=[]
             x[0]=item;
-            x[1]=document.getElementById('cost'+item).value;
-            x[2]=document.getElementById('tax'+item).value;
-            x[3]=document.getElementById('quantity'+item).value;
-            x[4]=document.getElementById('total'+item).value;
-            x[5]=document.getElementById('batch'+item).value;
+            x[1]=document.getElementById('mrp'+item).value;
+            x[2]=document.getElementById('batch'+item).value;
+            x[3]=document.getElementById('qty'+item).value;
+            x[4]=document.getElementById('qtyu'+item).value;
+            x[5]=document.getElementById('uombase'+item).value;
+            x[6]=document.getElementById('base'+item).value;
+            x[8]=document.getElementById('disc'+item).value;
+            x[9]=document.getElementById('disca'+item).value;
+            x[10]=document.getElementById('neta'+item).value;
+            x[11]=document.getElementById('cgst'+item).value;
+            x[12]=document.getElementById('sgst'+item).value;
+            x[13]=document.getElementById('cgsta'+item).value;
+            x[14]=document.getElementById('sgsta'+item).value;
+            x[15]=document.getElementById('cess'+item).value;
+            x[16]=document.getElementById('totala'+item).value;
+            x[17]=document.getElementById('uomsp'+item).value;
+            x[7]=document.getElementById('margin'+item).value;
+            x[18]=document.getElementById('dispp'+item).value;
+            x[19]=document.getElementById('dispd'+item).value;
             data[index]=x;
           }
         });
@@ -58,14 +76,13 @@ class Purchase
         xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
             alert('Purchase Entry Sucessful!');
-             location.reload();
             console.log(this.responseText);
           }
         };
         var dat = JSON.stringify(data);
         xhttp.open(\"POST\", \"function/purchase \", true);
         xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
-        xhttp.send('supplier='+supplier+'&invoice='+invoice+'remarks='+remarks+'&business='+business_name+'&data='+dat);
+        xhttp.send('supplier='+supplier+'&invoice='+invoice+'&invoicedate='+invoicedate+'&receivedate='+receivedate+'&transport='+transport+'&delcontact='+delcontact+'&vehicleno='+vehicleno+'&business='+business_name+'&data='+dat);
 
       }
 
@@ -85,6 +102,7 @@ class Purchase
       <th>SGST Amt  </th>\
       <th>CESS  </th>\
       <th>Total Amount  </th>\
+      <th>Margin  </th>\
       <th>UOM SP  (Unit of measurement) </th>\
       <th>Display Price </th>\
       <th>Display Discount  </th>\
@@ -116,6 +134,7 @@ class Purchase
         <td><input id=\"cess'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"totala'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"uomsp'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"margin'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"dispp'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"dispd'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><button onclick=\'remove('+boxes+')\' class=\'btn btn-danger\'>Remove</button></td>\
@@ -186,17 +205,15 @@ class Purchase
       <label>Transport:</label><br>
       <input id='transport' placeholder='Transort' class='form-control' style='width:400px'>
       
-      <label>Recieved Date:</label><br>
-      <input id='recieveddate' type='date' class='form-control' style='width:200px'>
+      <label>Received Date:</label><br>
+      <input id='receivedate' type='date' class='form-control' style='width:200px'>
       
       <label>Vehicle Number:</label><br>
-      <input id='vehiclenum' placeholder='Vehicle Number'  class='form-control' style='width:400px'>
+      <input id='vehicle' placeholder='Vehicle Number'  class='form-control' style='width:400px'>
       
       <label>Delivered Person Contact:</label><br>
-      <input id='deliveredperson' placeholder='Delivered Person Constact' class='form-control' style='width:400px'>
+      <input id='delcontact' placeholder='Delivered Person Constact' class='form-control' style='width:400px'>
       
-      <label>Purchase Remarks</label><br>
-      <textarea id='remarks' class='form-control' placeholder='Remarks'></textarea><br>
       <button class='btn btn-success' onclick='submitty()'>Record Purchase</button>
     <div>";
   }
