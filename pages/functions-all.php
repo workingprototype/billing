@@ -23,17 +23,63 @@ elseif($request[1]=="purchase")
   $timestamp=time();
   $invoice = $_POST['invoice'];
   $business = $_POST['business'];
-  $remarks=$_POST['remarks'];
+  $vehicle=$_POST['vehicleno'];
+  $supplier=$_POST['supplier'];
+  $invoicedate=$_POST['invoicedate'];
+  $receivedate=$_POST['receivedate'];
+  $transport=$_POST['transport'];
+  $delcontact=$_POST['delcontact'];
   foreach ($data as $k => $v) {
-    $batch=$v[5];
-    $productid=$v[0];
-    $productcost=$v[1];
-    $quantity=$v[3];
-    $producttax=$v[2];
-    $totalcost=$v[4];
-    $val= [$invoice, $business, $remarks, $batch,$timestamp, $productid, $productcost, $producttax, $quantity, $totalcost];
+    $val= [$business, $supplier, $invoicedate, $invoice,$vehicle, $delcontact,$transport, $receivedate,
+    $v[2],
+    $v[0],
+    $v[1],
+    $v[3],
+    $v[4],
+    $v[5],
+    $v[6],
+    $v[8],
+    $v[9],
+    $v[10],
+    $v[11],
+    $v[12],
+    $v[13],
+    $v[14],
+    $v[15],
+    $v[16],
+    $v[7],
+    $v[17],
+    $v[18],
+    $v[19],
+    0,
+    0,
+    0,
+    ];
     $table="purchase";
-    $col= ['invoice','business'	,'remarks', 	'batch', 	'timestamp', 	'productid', 	'productcost', 	'producttax', 	'quantity', 	'totalcost'];
+    $col= ['business', 	'supplier', 	'invoicedate', 	'invoicenumber', 'vehiclenumber', 	'deliveredcontact',	'transport', 	'receiveddate',
+    'batch',
+    'product',
+    'mrp', 	
+    'qtycase', 	
+    'qtyuom', 	
+    'baseratecase', 	
+    'baserateuom', 	
+    'disc', 	
+    'disca', 	
+    'neta', 	
+    'cgst' ,	
+    'sgst', 	
+    'cgsta', 	
+    'sgsta', 	
+    'cess' ,	
+    'totalamount', 	
+    'margin',	
+    'uomsp', 	
+    'dispp', 	
+    'dispd', 	
+    'totalwhole', 	
+    'creditnote', 
+    'logistic' ];
     $sql="INSERT INTO ".$table." (";
     foreach ($col as $key => $value) {
       $sql .=$value;
