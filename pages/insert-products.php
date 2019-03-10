@@ -11,6 +11,7 @@ if(isset($_POST['submit']))
 	$productname=$_POST['productName'];
 	$productcompany=$_POST['productCompany'];
 	$productprice=$_POST['productprice'];
+	$hsnno=$_POST['hsnno'];
 	$productpricebd=$_POST['productpricebd'];
 	$productdescription=$_POST['productDescription'];
 	$productscharge=$_POST['productShippingcharge'];
@@ -27,7 +28,7 @@ $query=mysqli_query($con,"select max(id) as pid from products");
 	move_uploaded_file($_FILES["productimage1"]["tmp_name"],"./shopping/admin/productimages/$productid/".$_FILES["productimage1"]["name"]);
 	move_uploaded_file($_FILES["productimage2"]["tmp_name"],"./shopping/admin/productimages/$productid/".$_FILES["productimage2"]["name"]);
 	move_uploaded_file($_FILES["productimage3"]["tmp_name"],"./shopping/admin/productimages/$productid/".$_FILES["productimage3"]["name"]);
-$sql=mysqli_query($con,"insert into products(category,subCategory,productName,productCompany,productPrice,productDescription,shippingCharge,productAvailability,productImage1,productImage2,productImage3,productPriceBeforeDiscount) values('$category','$subcat','$productname','$productcompany','$productprice','$productdescription','$productscharge','$productavailability','$productimage1','$productimage2','$productimage3','$productpricebd')");
+$sql=mysqli_query($con,"insert into products(category,subCategory,productName,productCompany,productPrice,hsnno,productDescription,shippingCharge,productAvailability,productImage1,productImage2,productImage3,productPriceBeforeDiscount) values('$category','$subcat','$productname','$productcompany','$productprice','$hsnno','$productdescription','$productscharge','$productavailability','$productimage1','$productimage2','$productimage3','$productpricebd')");
 $_SESSION['msg']="Product Inserted Successfully !!";
 
 }
@@ -135,9 +136,16 @@ while($row=mysqli_fetch_array($query))
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Company</label>
 <div class="controls">
-<input type="text"    name="productCompany"  placeholder="Enter Product Comapny Name" class="span8 tip" required>
+<input type="text"    name="productCompany"  placeholder="Enter Product Company Name" class="span8 tip" required>
 </div>
 </div>
+<div class="control-group">
+<label class="control-label" for="basicinput">HSN Number:</label>
+<div class="controls">
+<input type="text"    name="hsnno"  placeholder="Enter HSN Number" class="span8 tip" required>
+</div>
+</div>
+
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Price Before Discount</label>
 <div class="controls">

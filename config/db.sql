@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2019 at 01:10 AM
+-- Generation Time: Mar 10, 2019 at 02:34 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -165,6 +165,7 @@ CREATE TABLE `products` (
   `productName` varchar(255) DEFAULT NULL,
   `productCompany` varchar(255) DEFAULT NULL,
   `productPrice` int(11) DEFAULT NULL,
+  `hsnno` varchar(255) NOT NULL,
   `productPriceBeforeDiscount` int(11) DEFAULT NULL,
   `productDescription` longtext,
   `productImage1` varchar(255) DEFAULT NULL,
@@ -172,6 +173,7 @@ CREATE TABLE `products` (
   `productImage3` varchar(255) DEFAULT NULL,
   `shippingCharge` int(11) DEFAULT NULL,
   `productAvailability` varchar(255) DEFAULT NULL,
+  `quantityleft` int(50) DEFAULT NULL,
   `postingDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updationDate` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -180,12 +182,13 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `category`, `subCategory`, `productName`, `productCompany`, `productPrice`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `postingDate`, `updationDate`) VALUES
-(55, 16, 20, 'Hello Lights', 'Lights Infotech', 150, 200, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '1.jpeg', '2.jpeg', '45.jpg', 10, 'In Stock', '2019-02-28 23:49:43', NULL),
-(56, 16, 20, 'Wow Lights', 'Lights Infotech', 350, 400, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">This new light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '4.jpg', '5.jpg', '6.jpg', 60, 'In Stock', '2019-02-28 23:50:29', NULL),
-(57, 17, 21, 'Bose Speakers', 'Bose Electronics', 49000, 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Bose Corporation is a privately held American corporation, based in Framingham, Massachusetts, that designs, develops and sells audio equipment. Founded in 1964 by Amar Bose, the company sells its products throughout the world.</span><br>', '234.jpg', 'SndLinkC2Bk-large.jpg', '3.jpg', 1500, 'In Stock', '2019-02-28 23:51:17', NULL),
-(58, 17, 23, 'Tesla battery', 'Tesla Electronics', 45000, 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', '2019-02-28 23:52:52', NULL),
-(59, 17, 23, 'Tesla battery', 'Tesla Electronics', 45000, 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', '2019-02-28 23:54:20', NULL);
+INSERT INTO `products` (`id`, `category`, `subCategory`, `productName`, `productCompany`, `productPrice`, `hsnno`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `quantityleft`, `postingDate`, `updationDate`) VALUES
+(55, 16, 20, 'Hello Lights', 'Lights Infotech', 150, '', 200, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '1.jpeg', '2.jpeg', '45.jpg', 10, 'In Stock', NULL, '2019-02-28 23:49:43', NULL),
+(56, 16, 20, 'Wow Lights', 'Lights Infotech', 350, '', 400, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">This new light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '4.jpg', '5.jpg', '6.jpg', 60, 'In Stock', NULL, '2019-02-28 23:50:29', NULL),
+(57, 17, 21, 'Bose Speakers', 'Bose Electronics', 49000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Bose Corporation is a privately held American corporation, based in Framingham, Massachusetts, that designs, develops and sells audio equipment. Founded in 1964 by Amar Bose, the company sells its products throughout the world.</span><br>', '234.jpg', 'SndLinkC2Bk-large.jpg', '3.jpg', 1500, 'In Stock', NULL, '2019-02-28 23:51:17', NULL),
+(58, 17, 23, 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', NULL, '2019-02-28 23:52:52', NULL),
+(59, 17, 23, 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', NULL, '2019-02-28 23:54:20', NULL),
+(60, 18, 24, 'iPhone X', '34234', 234234, '23423423', 2342, '234234', 'city.jpg', 'city.jpg', 'city.jpg', 234, 'In Stock', 45, '2019-03-10 00:44:47', NULL);
 
 -- --------------------------------------------------------
 
@@ -432,6 +435,7 @@ CREATE TABLE `users` (
   `altcontactno` bigint(11) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `shippingAddress` longtext,
+  `district` varchar(255) DEFAULT NULL,
   `shippingState` varchar(255) DEFAULT NULL,
   `shippingCity` varchar(255) DEFAULT NULL,
   `shippingPincode` int(11) DEFAULT NULL,
@@ -439,6 +443,11 @@ CREATE TABLE `users` (
   `billingState` varchar(255) DEFAULT NULL,
   `billingCity` varchar(255) DEFAULT NULL,
   `billingPincode` int(11) DEFAULT NULL,
+  `gstin` varchar(255) DEFAULT NULL,
+  `fssai` varchar(255) DEFAULT NULL,
+  `pan` varchar(255) DEFAULT NULL,
+  `aadharno` varchar(255) DEFAULT NULL,
+  `birthdate` date DEFAULT NULL,
   `regDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updationDate` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -447,8 +456,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `regDate`, `updationDate`) VALUES
-(12, 'Test Retailer', 'test@test.com', 8838564345, 8798564345, 'f925916e2754e5e03f75dd58a5733251', 'Delhi', NULL, NULL, NULL, 'Delhi							', NULL, NULL, NULL, '2019-03-01 00:06:33', NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `district`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `gstin`, `fssai`, `pan`, `aadharno`, `birthdate`, `regDate`, `updationDate`) VALUES
+(12, 'Test Retailer', 'test@test.com', 8838564345, 8798564345, 'f925916e2754e5e03f75dd58a5733251', 'Delhi', NULL, NULL, NULL, NULL, 'Delhi							', NULL, NULL, NULL, '', '', '', '', '0000-00-00', '2019-03-01 00:06:33', NULL),
+(16, 'Adarsh', 'adarshcool97@gmail.com', 9400503664, 757332423, 'a3dcb4d229de6fde0db5686dee47145d', 'Jerry Road, Thrissurcurry', 'Lays', NULL, NULL, NULL, 'Jerry Road, Thrissurcurry', 'Kerala', NULL, NULL, '23423423423', '42342323423', '232342344234232342323423', '52444234232342323423', '2019-03-05', '2019-03-10 00:31:28', NULL);
 
 --
 -- Indexes for dumped tables
@@ -582,7 +592,7 @@ ALTER TABLE `ordertrackhistory`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `purchase`
@@ -624,7 +634,7 @@ ALTER TABLE `uom`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
