@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2019 at 01:10 AM
+-- Generation Time: Mar 10, 2019 at 01:32 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -432,6 +432,7 @@ CREATE TABLE `users` (
   `altcontactno` bigint(11) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `shippingAddress` longtext,
+  `district` varchar(255) DEFAULT NULL,
   `shippingState` varchar(255) DEFAULT NULL,
   `shippingCity` varchar(255) DEFAULT NULL,
   `shippingPincode` int(11) DEFAULT NULL,
@@ -439,6 +440,11 @@ CREATE TABLE `users` (
   `billingState` varchar(255) DEFAULT NULL,
   `billingCity` varchar(255) DEFAULT NULL,
   `billingPincode` int(11) DEFAULT NULL,
+  `gstin` varchar(255) DEFAULT NULL,
+  `fssai` varchar(255) DEFAULT NULL,
+  `pan` varchar(255) DEFAULT NULL,
+  `aadharno` varchar(255) DEFAULT NULL,
+  `birthdate` date DEFAULT NULL,
   `regDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updationDate` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -447,8 +453,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `regDate`, `updationDate`) VALUES
-(12, 'Test Retailer', 'test@test.com', 8838564345, 8798564345, 'f925916e2754e5e03f75dd58a5733251', 'Delhi', NULL, NULL, NULL, 'Delhi							', NULL, NULL, NULL, '2019-03-01 00:06:33', NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `district`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `gstin`, `fssai`, `pan`, `aadharno`, `birthdate`, `regDate`, `updationDate`) VALUES
+(12, 'Test Retailer', 'test@test.com', 8838564345, 8798564345, 'f925916e2754e5e03f75dd58a5733251', 'Delhi', NULL, NULL, NULL, NULL, 'Delhi							', NULL, NULL, NULL, '', '', '', '', '0000-00-00', '2019-03-01 00:06:33', NULL),
+(16, 'Adarsh', 'adarshcool97@gmail.com', 9400503664, 757332423, 'a3dcb4d229de6fde0db5686dee47145d', 'Jerry Road, Thrissurcurry', 'Lays', NULL, NULL, NULL, 'Jerry Road, Thrissurcurry', 'Kerala', NULL, NULL, '23423423423', '42342323423', '232342344234232342323423', '52444234232342323423', '2019-03-05', '2019-03-10 00:31:28', NULL);
 
 --
 -- Indexes for dumped tables
@@ -624,7 +631,7 @@ ALTER TABLE `uom`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
