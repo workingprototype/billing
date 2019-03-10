@@ -30,6 +30,7 @@ elseif($request[1]=="purchase")
   $transport=$_POST['transport'];
   $delcontact=$_POST['delcontact'];
   foreach ($data as $k => $v) {
+    $v[0]=explode("_",$v[0])[1];
     $val= [$business, $supplier, $invoicedate, $invoice,$vehicle, $delcontact,$transport, $receivedate,
     $v[2],
     $v[0],
@@ -97,6 +98,20 @@ elseif($request[1]=="purchase")
     }
     $sql .=")";
     if ($db->query($sql) === TRUE) {
+      
+      $id=$v[0];
+      $sql = "SELECT * FROM products
+        WHERE id='$id'";
+      $result = $db->query($sql);
+      if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $quant = $row['quantityleft'];
+        $quant += $v[3];
+        $sql = "UPDATE products SET quantityleft='$quant' WHERE id=$id";
+        $db->query($sql);
+      } else {
+        echo "0 results";
+      }
       echo "TRUE";
     } else {
       echo "Error: " . $sql . "<br>" . $db->error;
