@@ -106,7 +106,7 @@ class Purchase
         <td><input id=\"qtyu'+r+'_'+f+'\" style=\"width:80px\" value=\"\"></td>\
         <td><input id=\"uombase'+r+'_'+f+'\" placeholder=\'UOM Base Rate\'></td>\
         <td><input id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'Base Rate\'></td>\
-        <td><input id=\"disc'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'Case Base Rate\'></td>\
+        <td><input id=\"disc'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"disca'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"neta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"cgst'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
