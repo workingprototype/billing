@@ -19,19 +19,19 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 	}
 }
 $pid=intval($_GET['pid']);
-if(isset($_GET['pid']) && $_GET['action']=="wishlist" ){
-	if(strlen($_SESSION['login'])==0)
-    {
-header('location:login.php');
-}
-else
-{
-mysqli_query($con,"insert into wishlist(userId,productId) values('".$_SESSION['id']."','$pid')");
-echo "<script>alert('Product aaded in wishlist');</script>";
-header('location:my-wishlist.php');
-
-}
-}
+// if(isset($_GET['pid']) && $_GET['action']=="wishlist" ){
+// 	if(strlen($_SESSION['login'])==0)
+//     {
+// header('location:login.php');
+// }
+// else
+// {
+// mysqli_query($con,"insert into wishlist(userId,productId) values('".$_SESSION['id']."','$pid')");
+// echo "<script>alert('Product aaded in wishlist');</script>";
+// header('location:my-wishlist.php');
+//
+// }
+// }
 if(isset($_POST['submit']))
 {
 	$qty=$_POST['quality'];
@@ -39,8 +39,8 @@ if(isset($_POST['submit']))
 	$value=$_POST['value'];
 	$name=$_POST['name'];
 	$summary=$_POST['summary'];
-	$review=$_POST['review'];
-	mysqli_query($con,"insert into productreviews(productId,quality,price,value,name,summary,review) values('$pid','$qty','$price','$value','$name','$summary','$review')");
+	// $review=$_POST['review'];
+	// mysqli_query($con,"insert into productreviews(productId,quality,price,value,name,summary,review) values('$pid','$qty','$price','$value','$name','$summary','$review')");
 }
 
 
@@ -68,10 +68,6 @@ if(isset($_POST['submit']))
 		<link rel="stylesheet" href="assets/css/config.css">
 
 		<link href="assets/css/green.css" rel="alternate stylesheet" title="Green color">
-		<link href="assets/css/blue.css" rel="alternate stylesheet" title="Blue color">
-		<link href="assets/css/red.css" rel="alternate stylesheet" title="Red color">
-		<link href="assets/css/orange.css" rel="alternate stylesheet" title="Orange color">
-		<link href="assets/css/dark-green.css" rel="alternate stylesheet" title="Darkgreen color">
 		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
         <!-- Fonts -->
@@ -281,6 +277,28 @@ while($row=mysqli_fetch_array($ret))
 									</div>
 								</div><!-- /.row -->
 							</div>
+
+
+							<div class="stock-container info-container m-t-10">
+															<div class="row">
+																<div class="col-sm-3">
+																	<div class="stock-box">
+																		<span class="label">HSN Number :</span>
+																	</div>
+																</div>
+																<div class="col-sm-9">
+																	<div class="stock-box">
+																		<span class="value"><?php
+																		{
+																			echo htmlentities($row['hsnno']);
+																		}
+
+																		?></span>
+																	</div>
+																</div>
+															</div><!-- /.row -->
+														</div>
+
 
 
 <div class="stock-container info-container m-t-10">
