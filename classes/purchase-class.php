@@ -99,12 +99,25 @@ class Purchase
         r=s++;
         puts[boxes]=r+'_'+f;
 
-        disp[i] = '<tr id=\'row_'+boxes+'\'><td>'+a+'</td>\
-        <td><input id=\"cost'+r+'_'+f+'\" style=\"width:80px\" value=\"'+b+'\"></td>\
-        <td><input id=\"tax'+r+'_'+f+'\" style=\"width:80px\" value=\"'+c+'\"></td>\
-        <td><input id=\"quantity'+r+'_'+f+'\" style=\"width:80px\" value=\"'+d+'\"></td>\
-        <td><input id=\"total'+r+'_'+f+'\" style=\"width:80px\" value=\"'+e+'\"></td>\
-        <td><input id=\"batch'+r+'_'+f+'\" placeholder=\'Batch No\'></td>\
+        disp[i] = '<tr id=\'row_'+boxes+'\'><td><input id=\"batch'+r+'_'+f+'\" style=\"width:80px\"></td>\
+        <td>'+a+'</td>\
+        <td><input id=\"mrp'+r+'_'+f+'\" style=\"width:80px\" value=\"'+b+'\"></td>\
+        <td><input id=\"qty'+r+'_'+f+'\" style=\"width:80px\" value=\"\"></td>\
+        <td><input id=\"qtyu'+r+'_'+f+'\" style=\"width:80px\" value=\"\"></td>\
+        <td><input id=\"uombase'+r+'_'+f+'\" placeholder=\'UOM Base Rate\'></td>\
+        <td><input id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'Base Rate\'></td>\
+        <td><input id=\"disc'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'Case Base Rate\'></td>\
+        <td><input id=\"disca'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"neta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"cgst'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"sgst'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"cgsta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"sgsta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"cess'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"totala'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"uomsp'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"dispp'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"dispd'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><button onclick=\'remove('+boxes+')\' class=\'btn btn-danger\'>Remove</button></td>\
         </tr>';
 
