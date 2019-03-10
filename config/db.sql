@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2019 at 12:41 AM
+-- Generation Time: Mar 10, 2019 at 01:10 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -42,6 +42,26 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `username`, `password`, `creationDate`, `updationDate`) VALUES
 (1, 'admin', 'f925916e2754e5e03f75dd58a5733251', '2017-01-24 16:21:18', '21-06-2018 08:27:55 PM');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `beat`
+--
+
+CREATE TABLE `beat` (
+  `id` int(11) NOT NULL,
+  `beat` varchar(255) DEFAULT NULL,
+  `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updationDate` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `beat`
+--
+
+INSERT INTO `beat` (`id`, `beat`, `creationDate`, `updationDate`) VALUES
+(25, 'sdf', '2019-03-10 00:08:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -219,7 +239,10 @@ INSERT INTO `purchase` (`id`, `business`, `supplier`, `remarks`, `batch`, `times
 (28, 'Business A', 0, '', '', 1551966466, 55, '', 150, 5, 1, 158, 'remarks='),
 (29, 'Business A', 0, '', '', 1551966466, 0, '', 0, 0, 0, 0, 'remarks='),
 (30, 'Business A', 0, '', '', 1551966466, 57, '', 49000, 5, 1, 51450, 'remarks='),
-(31, 'Business A', 0, '', '', 1551966466, 58, '', 45000, 5, 1, 47250, 'remarks=');
+(31, 'Business A', 0, '', '', 1551966466, 58, '', 45000, 5, 1, 47250, 'remarks='),
+(32, 'Business A', 0, '', '', 1552175330, 1, '', 45000, 5, 1, 47250, '3423remarks=4324'),
+(33, 'Business A', 0, '', '', 1552175330, 0, '', 0, 0, 0, 0, '3423remarks=4324'),
+(34, 'Business A', 0, '', '', 1552175330, 3, '', 350, 5, 1, 368, '3423remarks=4324');
 
 -- --------------------------------------------------------
 
@@ -323,7 +346,9 @@ CREATE TABLE `subuom` (
 
 INSERT INTO `subuom` (`id`, `uomid`, `subuom`, `qtyinsubuom`, `creationDate`, `updationDate`) VALUES
 (25, 19, 'Covers', '34', '2019-03-09 23:35:37', NULL),
-(26, 20, 'Chota Boxes', '70', '2019-03-09 23:41:01', NULL);
+(26, 20, 'Chota Boxes', '70', '2019-03-09 23:41:01', NULL),
+(27, 20, 'Chota Boxes', '70', '2019-03-09 23:45:30', NULL),
+(28, 20, 'jakaas', '500', '2019-03-09 23:45:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -436,6 +461,12 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `beat`
+--
+ALTER TABLE `beat`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `business`
 --
 ALTER TABLE `business`
@@ -518,6 +549,12 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `beat`
+--
+ALTER TABLE `beat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
 -- AUTO_INCREMENT for table `business`
 --
 ALTER TABLE `business`
@@ -551,7 +588,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `sales`
@@ -569,7 +606,7 @@ ALTER TABLE `subcategory`
 -- AUTO_INCREMENT for table `subuom`
 --
 ALTER TABLE `subuom`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `supplier`
