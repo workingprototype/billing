@@ -304,7 +304,7 @@ while($row=mysqli_fetch_array($ret))
 															<div class="row">
 																<div class="col-sm-3">
 																	<div class="stock-box">
-																		<span class="label">Total Stock Available :</span>
+																		<span class="label">Stock Available :</span>
 																	</div>
 																</div>
 																<div class="col-sm-9">
