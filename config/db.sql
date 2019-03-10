@@ -198,54 +198,59 @@ INSERT INTO `products` (`id`, `category`, `subCategory`, `productName`, `product
 
 CREATE TABLE `purchase` (
   `id` int(11) NOT NULL,
-  `business` varchar(50) NOT NULL,
-  `supplier` int(11) NOT NULL,
-  `remarks` text NOT NULL,
-  `batch` varchar(50) NOT NULL,
-  `timestamp` int(11) NOT NULL,
-  `productid` int(11) NOT NULL,
-  `productname` varchar(200) NOT NULL,
-  `productcost` int(11) NOT NULL,
-  `producttax` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `totalcost` int(11) NOT NULL,
-  `invoice` varchar(100) NOT NULL
+  `business` varchar(200) NOT NULL,
+  `supplier` varchar(200) NOT NULL,
+  `invoicedate` varchar(100) NOT NULL,
+  `invoicenumber` varchar(100) NOT NULL,
+  `vehiclenumber` varchar(100) NOT NULL,
+  `deliveredcontact` varchar(100) NOT NULL,
+  `transport` varchar(100) NOT NULL,
+  `receiveddate` varchar(100) NOT NULL,
+  `batch` varchar(100) NOT NULL,
+  `product` varchar(100) NOT NULL,
+  `mrp` int(11) NOT NULL,
+  `qtycase` int(11) NOT NULL,
+  `qtyuom` int(11) NOT NULL,
+  `baseratecase` int(11) NOT NULL,
+  `baserateuom` int(11) NOT NULL,
+  `disc` int(11) NOT NULL,
+  `disca` int(11) NOT NULL,
+  `neta` int(11) NOT NULL,
+  `cgst` int(11) NOT NULL,
+  `sgst` int(11) NOT NULL,
+  `cgsta` int(11) NOT NULL,
+  `sgsta` int(11) NOT NULL,
+  `cess` int(11) NOT NULL,
+  `totalamount` int(11) NOT NULL,
+  `margin` int(11) NOT NULL,
+  `uomsp` int(11) NOT NULL,
+  `dispp` int(11) NOT NULL,
+  `dispd` int(11) NOT NULL,
+  `totalwhole` int(11) NOT NULL,
+  `creditnote` int(11) NOT NULL,
+  `logistic` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `purchase`
 --
 
-INSERT INTO `purchase` (`id`, `business`, `supplier`, `remarks`, `batch`, `timestamp`, `productid`, `productname`, `productcost`, `producttax`, `quantity`, `totalcost`, `invoice`) VALUES
-(6, 'Business A', 0, '', '', 1551377322, 1, '', 120, 5, 1, 126, '44534remarks=dsf'),
-(7, 'Business A', 0, '', '', 1551377322, 3, '', 345345, 5, 1, 362612, '44534remarks=dsf'),
-(8, 'Business A', 0, '', '', 1551377325, 1, '', 120, 5, 1, 126, '44534remarks=dsf'),
-(9, 'Business A', 0, '', '', 1551377325, 3, '', 345345, 5, 1, 362612, '44534remarks=dsf'),
-(10, 'Business A', 0, '', '', 1551377364, 1, '', 120, 5, 1, 126, '4qwdasca5443564534remarks=5'),
-(11, 'Business A', 0, '', '', 1551377364, 3, '', 345345, 5, 1, 362612, '4qwdasca5443564534remarks=5'),
-(12, 'Business A', 0, '', '', 1551377364, 6, '', 0, 5, 1, 0, '4qwdasca5443564534remarks=5'),
-(13, 'Business A', 0, '', '', 1551377365, 1, '', 120, 5, 1, 126, '4qwdasca5443564534remarks=5'),
-(14, 'Business A', 0, '', '', 1551377365, 3, '', 345345, 5, 1, 362612, '4qwdasca5443564534remarks=5'),
-(15, 'Business A', 0, '', '', 1551377365, 6, '', 0, 5, 1, 0, '4qwdasca5443564534remarks=5'),
-(16, 'Business A', 0, '', '', 1551387022, 5, '', 345345, 5, 1, 362612, '4523remarks=234'),
-(17, 'Business A', 0, '', '', 1551387306, 1, '', 120, 5, 1, 126, '245remarks=234'),
-(18, 'Business A', 0, '', '', 1551391265, 1, '', 120, 5, 1, 126, '234234remarks=ASd'),
-(19, 'Business A', 0, '', '', 1551391378, 1, '', 120, 5, 1, 126, '234234remarks=ASd'),
-(20, 'Business A', 0, '', '', 1551391379, 1, '', 120, 5, 1, 126, '234234remarks=ASd'),
-(21, 'Business A', 0, '', '', 1551391400, 1, '', 120, 5, 1, 126, '234234remarks=New Purchase'),
-(22, 'Business A', 0, '', '', 1551391400, 6, '', 0, 5, 1, 0, '234234remarks=New Purchase'),
-(23, 'Business A', 0, '', '', 1551392054, 2, '', 345345, 5, 1, 362612, '3423remarks=233sadf'),
-(24, 'Business A', 0, '', '', 1551392097, 6, '', 0, 5, 1, 0, '67remarks=fgh'),
-(25, 'Business A', 0, '', '', 1551392128, 6, '', 0, 5, 1, 0, '67remarks=fgh'),
-(26, 'Business A', 0, '', '', 1551392136, 3, '', 345345, 5, 1, 362612, 'sadremarks=a'),
-(27, 'Business A', 0, '', '', 1551392174, 2, '', 345345, 5, 1, 362612, 'remarks=aaaaaaaaaaaaaaaaaaaaa'),
-(28, 'Business A', 0, '', '', 1551966466, 55, '', 150, 5, 1, 158, 'remarks='),
-(29, 'Business A', 0, '', '', 1551966466, 0, '', 0, 0, 0, 0, 'remarks='),
-(30, 'Business A', 0, '', '', 1551966466, 57, '', 49000, 5, 1, 51450, 'remarks='),
-(31, 'Business A', 0, '', '', 1551966466, 58, '', 45000, 5, 1, 47250, 'remarks='),
-(32, 'Business A', 0, '', '', 1552175330, 1, '', 45000, 5, 1, 47250, '3423remarks=4324'),
-(33, 'Business A', 0, '', '', 1552175330, 0, '', 0, 0, 0, 0, '3423remarks=4324'),
-(34, 'Business A', 0, '', '', 1552175330, 3, '', 350, 5, 1, 368, '3423remarks=4324');
+INSERT INTO `purchase` (`id`, `business`, `supplier`, `invoicedate`, `invoicenumber`, `vehiclenumber`, `deliveredcontact`, `transport`, `receiveddate`, `batch`, `product`, `mrp`, `qtycase`, `qtyuom`, `baseratecase`, `baserateuom`, `disc`, `disca`, `neta`, `cgst`, `sgst`, `cgsta`, `sgsta`, `cess`, `totalamount`, `margin`, `uomsp`, `dispp`, `dispd`, `totalwhole`, `creditnote`, `logistic`) VALUES
+(1, 'Business A', '10', '2019-03-05', '875', '234A224', '234235', 'Truck', '2019-03-20', '234', '1_58', 586, 58765, 86, 865, 865, 765, 876, 586, 58, 658, 658, 65, 865, 8756, 8658, 8765, 58, 65, 0, 0, 0);
+
+--
+-- Indexes for dumped tables
+--
+
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 -- --------------------------------------------------------
 
@@ -512,6 +517,7 @@ ALTER TABLE `products`
 ALTER TABLE `purchase`
   ADD PRIMARY KEY (`id`);
 
+
 --
 -- Indexes for table `sales`
 --
@@ -598,7 +604,9 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 
 --
 -- AUTO_INCREMENT for table `sales`
