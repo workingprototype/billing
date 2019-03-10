@@ -85,7 +85,6 @@ class Purchase
         xhttp.send('supplier='+supplier+'&invoice='+invoice+'&invoicedate='+invoicedate+'&receivedate='+receivedate+'&transport='+transport+'&delcontact='+delcontact+'&vehicleno='+vehicleno+'&business='+business_name+'&data='+dat);
 
       }
-
       var disp =['<tr><th>Batch Code</th>\
       <th>Product Name</th>\
       <th>MRP</th>\
@@ -107,7 +106,7 @@ class Purchase
       <th>Display Price </th>\
       <th>Display Discount  </th>\
       <th>Remove</th>\
-      </tr>'];
+      </tr><tr id=\'tail\'></tr>'];
 
       var i = 1;
       var s=1;
@@ -138,18 +137,17 @@ class Purchase
         <td><input id=\"dispp'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"dispd'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><button onclick=\'remove('+boxes+')\' class=\'btn btn-danger\'>Remove</button></td>\
-        </tr>';
-
-        i++;
+        </tr><tr id=\'tail\'></tr>';
         var dis='';
         disp.forEach(
           function(item,index){
             dis += item;
           }
         );
-        document.getElementById('table1').innerHTML=dis;
+        document.getElementById('tail').outerHTML=disp[i];
         document.getElementById('idrop').innerHTML='';
         boxes++;
+        i++
       }
       function isearch(term){
         var xhttp = new XMLHttpRequest();
@@ -192,7 +190,28 @@ class Purchase
         <button class='btn btn-primary'><i class='glyphicon glyphicon-plus '></i> Add</button>
       </div>
       <div style='overflow-x:scroll'><table class='table table-bordered' id='table1'>
-
+      <tr><th>Batch Code</th>
+      <th>Product Name</th>
+      <th>MRP</th>
+      <th>Qty (cases)</th>
+      <th>Qty(units)</th>
+      <th>UOM Base Rate(Case) </th>
+      <th>Base Rate (UOM)  </th>
+      <th>Disc % </th>
+      <th>Disc Amount  </th>
+      <th>Net Amt </th>
+      <th>CGST % </th>
+      <th>SGST % </th>
+      <th>CGST Amt  </th>
+      <th>SGST Amt  </th>
+      <th>CESS  </th>
+      <th>Total Amount  </th>
+      <th>Margin  </th>
+      <th>UOM SP  (Unit of measurement) </th>
+      <th>Display Price </th>
+      <th>Display Discount  </th>
+      <th>Remove</th>
+      </tr><tr id='tail'></tr>
       </table></div>
       <h4>Total : <input class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
       
