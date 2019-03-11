@@ -48,9 +48,9 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
     }
     public function __construct() {       // this constructor can accept submenus which are passed when the object is created
 
-        // $this->submenu("Home","home");  //submenu1.1
+       $this->submenu("Home","dashboard");  //submenu1.1
         // $this->submenu("Blank2","blank"); //submenu1.2
-        // $this->menu("<i class=\"fa fa-tachometer\"></i>Dashboard"); //Main Menu1
+      $this->menu("<i class=\"fa fa-tachometer\"></i>Dashboard"); //Main Menu1
 
         //
         // $this->submenu("Users","users"); //submenu3.1
