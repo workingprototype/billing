@@ -137,7 +137,23 @@ elseif($request[1]=="sales")
     $totalcost=$v[4];
     $val=[$productid,$timestamp,$batch,$productcost,$producttax,$discount,$quantity,$business,$customer,$remarks];
     $table="sales";
-    $col= ['productid', 	'timestamp', 	'batch', 	'price', 	'tax', 	'discount' ,	'quantity' ,	'business' ,	'customer' ,	'remarks' ];
+    $col= ['product',
+      'hsn',
+      'utc',
+      'qty', 	
+      'mrp',
+      'baserate', 	
+      'amount',
+      'dis',
+      'gst',
+      'gstamount',
+      'total',
+      'finalrate',
+      'invoice' 	,
+      'business' 	,
+      'timestamp' 	,
+      'remarks' 	,  
+      'customer'];
     $sql="INSERT INTO ".$table." (";
     foreach ($col as $key => $value) {
       $sql .=$value;

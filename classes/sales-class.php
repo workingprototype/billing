@@ -1,6 +1,6 @@
 <?php
 /**
- * Purchase Entry class
+ * Sales Entry class
  */
 class Sales
 {
@@ -31,61 +31,117 @@ class Sales
     <script>
       function remove(no){
         document.getElementById(\"row_\"+no+\"\").outerHTML= '';
-        puts[no]='lol';
         disp[no+1]='';
-
+        puts[no]='lol';
       }
       function submitty()
       {
         data=[]
         business_name = document.getElementById('business').value;
-        customer = document.getElementById('customer').value;
-        remarks = document.getElementById('remarks').value;
+        supplier = document.getElementById('supplier').value;
+        invoice = document.getElementById('invoice').value;
+        invoicedate = document.getElementById('invoicedate').value;
+        transport = document.getElementById('transport').value;
+        receivedate = document.getElementById('receivedate').value;
+        vehicleno = document.getElementById('vehicle').value;
+        delcontact = document.getElementById('delcontact').value;
         puts.forEach(function (item,index)
         {
           if(item!='lol'){
             x=[]
             x[0]=item;
-            x[1]=document.getElementById('cost'+item).value;
-            x[2]=document.getElementById('tax'+item).value;
-            x[3]=document.getElementById('quantity'+item).value;
-            x[4]=document.getElementById('total'+item).value;
-            x[5]=document.getElementById('discount'+item).value;
-            x[6]=document.getElementById('batch'+item).value;
+            x[1]=document.getElementById('mrp'+item).value;
+            x[2]=document.getElementById('batch'+item).value;
+            x[3]=document.getElementById('qty'+item).value;
+            x[4]=document.getElementById('qtyu'+item).value;
+            x[5]=document.getElementById('uombase'+item).value;
+            x[6]=document.getElementById('base'+item).value;
+            x[8]=document.getElementById('disc'+item).value;
+            x[9]=document.getElementById('disca'+item).value;
+            x[10]=document.getElementById('neta'+item).value;
+            x[11]=document.getElementById('cgst'+item).value;
+            x[12]=document.getElementById('sgst'+item).value;
+            x[13]=document.getElementById('cgsta'+item).value;
+            x[14]=document.getElementById('sgsta'+item).value;
+            x[15]=document.getElementById('cess'+item).value;
+            x[16]=document.getElementById('totala'+item).value;
+            x[17]=document.getElementById('uomsp'+item).value;
+            x[7]=document.getElementById('margin'+item).value;
+            x[18]=document.getElementById('dispp'+item).value;
+            x[19]=document.getElementById('dispd'+item).value;
             data[index]=x;
           }
         });
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
-            alert('Sales Entry Sucessful!');
-             location.reload();
+            alert('Purchase Entry Sucessful!');
             console.log(this.responseText);
           }
         };
         var dat = JSON.stringify(data);
-        xhttp.open(\"POST\", \"function/sales \", true);
+        xhttp.open(\"POST\", \"function/purchase \", true);
         xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
-        xhttp.send('customer='+customer+'&remarks='+remarks+'&business='+business_name+'&data='+dat);
+        //xhttp.send('supplier='+supplier+'&invoice='+invoice+'&invoicedate='+invoicedate+'&receivedate='+receivedate+'&transport='+transport+'&delcontact='+delcontact+'&vehicleno='+vehicleno+'&business='+business_name+'&data='+dat);
 
       }
-      var disp =['<tr><th>Product Name</th><th>Price (Excluding Tax)</th><th>Tax</th><th>Quantity</th><th>Discount</th><th>Total Amount</th><th>Batch No</th><th>Remove</th></tr>'];
+      var disp =['<tr><th>Batch Code</th>\
+      <th>Product Name</th>\
+      <th>MRP</th>\
+      <th>Qty (cases)</th>\
+      <th>Qty(units)</th>\
+      <th>UOM Base Rate(Case) </th>\
+      <th>Base Rate (UOM)  </th>\
+      <th>Disc % </th>\
+      <th>Disc Amount  </th>\
+      <th>Net Amt </th>\
+      <th>CGST % </th>\
+      <th>SGST % </th>\
+      <th>CGST Amt  </th>\
+      <th>SGST Amt  </th>\
+      <th>CESS  </th>\
+      <th>Total Amount  </th>\
+      <th>Margin  </th>\
+      <th>UOM SP  (Unit of measurement) </th>\
+      <th>Display Price </th>\
+      <th>Display Discount  </th>\
+      <th>Remove</th>\
+      </tr><tr id=\'tail\'></tr>'];
+
       var i = 1;
+      var s=1;
       var puts=[]
       var boxes=0;
       function clicked(a,b,c,d,e,f){
-        puts[boxes]=f;
-        disp[i] = '<tr><td>'+a+'</td><td><input id=\"cost'+f+'\" style=\"width:80px\" value=\"'+b+'\"></td><td><input id=\"tax'+f+'\" style=\"width:80px\" value=\"'+c+'\"></td><td><input id=\"quantity'+f+'\" style=\"width:80px\" value=\"'+d+'\"></td><td><input id=\"discount'+f+'\" style=\"width:80px\" value=\"0\"></td><td><input id=\"total'+f+'\" style=\"width:80px\" value=\"'+e+'\"></td><td><input id=\"batch'+f+'\" placeholder=\'Batch No\'></td><td><button onclick=\'remove('+boxes+')\' class=\'btn btn-danger\'>Remove</button></td></tr>';
-        i++;
+        r=s++;
+        puts[boxes]=r+'_'+f;
+
+        disp[i] = '<tr id=\'row_'+boxes+'\'><td><select id=\"batch'+r+'_'+f+'\" style=\"width:80px\"></select></td>\
+        <td><select id=\"mrp'+r+'_'+f+'\" style=\"width:80px\"></select></td>\
+        <td>'+a+'</td>\
+        <td><input disabled=\'true\' id=\"hsn'+r+'_'+f+'\" style=\"width:80px\" value=\"\"></td>\
+        <td><input id=\"utc'+r+'_'+f+'\" style=\"width:80px\" value=\"\"></td>\
+        <td><input id=\"mrp'+r+'_'+f+'\" ></td>\
+        <td><input id=\"qty'+r+'_'+f+'\" style=\"width:150px\" ></td>\
+        <td><input id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"amount'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"disc'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"gst'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"gsta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"total'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"finalrate'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><button onclick=\'remove('+boxes+')\' class=\'btn btn-danger\'>Remove</button></td>\
+        </tr><tr id=\'tail\'></tr>';
         var dis='';
         disp.forEach(
           function(item,index){
             dis += item;
           }
         );
-        document.getElementById('table1').innerHTML=dis;
+        document.getElementById('tail').outerHTML=disp[i];
         document.getElementById('idrop').innerHTML='';
         boxes++;
+        i++
       }
       function isearch(term){
         var xhttp = new XMLHttpRequest();
@@ -102,20 +158,19 @@ class Sales
     ";
     $users='';
     $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
-  $sql = "SELECT * FROM users";
+  $sql = "SELECT * FROM supplier";
   $result = $db->query($sql);
   if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      $users.="<option value='".$row['id']."'>Retailer ID: ".$row['id']." ,  Name: ".$row['name']."</option>";
+      $users.="<option value='".$row['id']."'>Supplier ID: ".$row['id']." , Name: ".$row['name']."</option>";
     }
   } else {
-    echo "0 results"; // No retailer registered.
+    echo "0 results"; // No supplier registered.
   }
-    $this->r .="<div class='row'><div class='col-md-4'></br><label>Add Sales For :</label><select id='business' class='form-control'><option>Business A</option></select></div></div>";
-    $this->r .="<div class='row'><div class='col-md-4'><label><br/>From Retailer: </label><select id='customer' class='form-control'>".$users."</select></div></div>";
+    $this->r .="<div class='row'><div class='col-md-4'><label><br/> Customer : </label><select id='customer' class='form-control'>".$users."</select></div></div>";
     $this->r .="
-    <div class='content'>
+    <div class='content' stylr='overflow-x:scroll'>
       <br>
       <div class='row'>
         <div class='col-md-10'>
@@ -127,12 +182,30 @@ class Sales
         </div>
         <button class='btn btn-primary'><i class='glyphicon glyphicon-plus '></i> Add</button>
       </div>
-      <table class='table table-bordered' id='table1'>
-
-      </table>
-      <label>Sales Remarks</label><br>
-      <textarea id='remarks' class='form-control' placeholder='Remarks'></textarea><br>
-      <button class='btn btn-success' onclick='submitty()'>Record Sale</button>
+      <div style='overflow-x:scroll'><table class='table table-bordered' id='table1'>
+      <tr><th>Batch Code</th>
+      <th>Firm Name</th>
+      <th>Product Name</th>
+      <th>HSN Code</th>
+      <th>UTC</th>
+      <th>MRP</th>
+      <th>Qty (cases)</th>
+      <th>Base Rate</th>
+      <th>Amount</th>
+      <th>Discount %</th>
+      <th>GST % </th>
+      <th>GST Amt  </th>
+      <th>Total Amount </th>
+      <th>Final Rate </th>
+      <th>Remove</th>
+      </tr><tr id='tail'></tr>
+      </table></div>
+      <h4>Total : <input class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
+      
+      <label>Bill Type:</label><br>
+      <select style='width:300px' class='form-control'><option>Cash</option><option>Credit</option></select>
+      <br>
+      <button class='btn btn-success' onclick='submitty()'>Submit And Generate Invoice</button>
     <div>";
   }
 }
