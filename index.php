@@ -48,6 +48,6 @@ if(isset($_GET['dir'])){
   }
 }
 else{
-  include("./pages/blank-page.php");
+  include("./pages/dashboard-page.php");
 }
 ?>
