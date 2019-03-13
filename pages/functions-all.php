@@ -124,20 +124,15 @@ elseif($request[1]=="sales")
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $data = json_decode($_POST['data']);
   $timestamp=time();
-  $business = $_POST['business'];
   $customer = $_POST['customer'];
-  $remarks=$_POST['remarks'];
+  $invoice = (time()*100)+34;
   foreach ($data as $k => $v) {
-    $batch=$v[6];
-    $discount=$v[5];
-    $productid=$v[0];
-    $productcost=$v[1];
-    $quantity=$v[3];
-    $producttax=$v[2];
-    $totalcost=$v[4];
-    $val=[$productid,$timestamp,$batch,$productcost,$producttax,$discount,$quantity,$business,$customer,$remarks];
+
+    $val=[$v[1],$v[0],$v[3],$v[4],$v[6],$v[5],$v[8],$v[9],$v[10],$v[11],$v[12],$v[13],$v[14],$invoice,$v[2],$timestamp,$customer];
     $table="sales";
-    $col= ['product',
+    $col= [
+      'batch',
+      'product',
       'hsn',
       'utc',
       'qty', 	
@@ -152,7 +147,6 @@ elseif($request[1]=="sales")
       'invoice' 	,
       'business' 	,
       'timestamp' 	,
-      'remarks' 	,  
       'customer'];
     $sql="INSERT INTO ".$table." (";
     foreach ($col as $key => $value) {

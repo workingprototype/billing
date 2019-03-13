@@ -36,53 +36,41 @@ class Sales
       }
       function submitty()
       {
-        data=[]
-        business_name = document.getElementById('business').value;
-        supplier = document.getElementById('supplier').value;
-        invoice = document.getElementById('invoice').value;
-        invoicedate = document.getElementById('invoicedate').value;
-        transport = document.getElementById('transport').value;
-        receivedate = document.getElementById('receivedate').value;
-        vehicleno = document.getElementById('vehicle').value;
-        delcontact = document.getElementById('delcontact').value;
+        data=[];
+        customer = document.getElementById('customer').value;
+        billtype = document.getElementById('bill').value;
         puts.forEach(function (item,index)
         {
           if(item!='lol'){
             x=[]
             x[0]=item;
-            x[1]=document.getElementById('mrp'+item).value;
-            x[2]=document.getElementById('batch'+item).value;
-            x[3]=document.getElementById('qty'+item).value;
-            x[4]=document.getElementById('qtyu'+item).value;
-            x[5]=document.getElementById('uombase'+item).value;
-            x[6]=document.getElementById('base'+item).value;
-            x[8]=document.getElementById('disc'+item).value;
-            x[9]=document.getElementById('disca'+item).value;
-            x[10]=document.getElementById('neta'+item).value;
-            x[11]=document.getElementById('cgst'+item).value;
-            x[12]=document.getElementById('sgst'+item).value;
-            x[13]=document.getElementById('cgsta'+item).value;
-            x[14]=document.getElementById('sgsta'+item).value;
-            x[15]=document.getElementById('cess'+item).value;
-            x[16]=document.getElementById('totala'+item).value;
-            x[17]=document.getElementById('uomsp'+item).value;
-            x[7]=document.getElementById('margin'+item).value;
-            x[18]=document.getElementById('dispp'+item).value;
-            x[19]=document.getElementById('dispd'+item).value;
+            x[1]=document.getElementById('batch'+item).value;
+            x[2]=document.getElementById('firm'+item).value;
+            x[3]=document.getElementById('hsn'+item).value;
+            x[4]=document.getElementById('utc'+item).value;
+            x[5]=document.getElementById('mrp'+item).value;
+            x[6]=document.getElementById('qty'+item).value;
+            x[8]=document.getElementById('base'+item).value;
+            x[9]=document.getElementById('amount'+item).value;
+            x[10]=document.getElementById('disc'+item).value;
+            x[11]=document.getElementById('gst'+item).value;
+            x[12]=document.getElementById('gsta'+item).value;
+            x[13]=document.getElementById('total'+item).value;
+            x[14]=document.getElementById('finalrate'+item).value;
             data[index]=x;
           }
         });
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
-            alert('Purchase Entry Sucessful!');
+            alert('Sales Entry Sucessful!');
             console.log(this.responseText);
           }
         };
         var dat = JSON.stringify(data);
-        xhttp.open(\"POST\", \"function/purchase \", true);
+        xhttp.open(\"POST\", \"function/sales \", true);
         xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
-        //xhttp.send('supplier='+supplier+'&invoice='+invoice+'&invoicedate='+invoicedate+'&receivedate='+receivedate+'&transport='+transport+'&delcontact='+delcontact+'&vehicleno='+vehicleno+'&business='+business_name+'&data='+dat);
+        xhttp.send('customer='+customer+'&bill='+billtype+' &data='+dat);
 
       }
       var disp =['<tr><th>Batch Code</th>\
@@ -116,13 +104,13 @@ class Sales
         r=s++;
         puts[boxes]=r+'_'+f;
 
-        disp[i] = '<tr id=\'row_'+boxes+'\'><td><select id=\"batch'+r+'_'+f+'\" style=\"width:80px\"></select></td>\
-        <td><select id=\"mrp'+r+'_'+f+'\" style=\"width:80px\"></select></td>\
+        disp[i] = '<tr id=\'row_'+boxes+'\'><td><select id=\"batch'+r+'_'+f+'\" style=\"width:80px\"><option>134</option></select></td>\
+        <td><select id=\"firm'+r+'_'+f+'\" style=\"width:80px\"><option>134</option></select></td>\
         <td>'+a+'</td>\
-        <td><input disabled=\'true\' id=\"hsn'+r+'_'+f+'\" style=\"width:80px\" value=\"\"></td>\
-        <td><input id=\"utc'+r+'_'+f+'\" style=\"width:80px\" value=\"\"></td>\
+        <td><input disabled=\'true\' id=\"hsn'+r+'_'+f+'\" style=\"width:80px\" value=\"35\"></td>\
+        <td><input id=\"utc'+r+'_'+f+'\" style=\"width:80px\" value=\"35\"></td>\
         <td><input id=\"mrp'+r+'_'+f+'\" ></td>\
-        <td><input id=\"qty'+r+'_'+f+'\" style=\"width:150px\" ></td>\
+        <td><input id=\"qty'+r+'_'+f+'\" style=\"width:150px\"  ></td>\
         <td><input id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"amount'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"disc'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
@@ -203,7 +191,7 @@ class Sales
       <h4>Total : <input class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
       
       <label>Bill Type:</label><br>
-      <select style='width:300px' class='form-control'><option>Cash</option><option>Credit</option></select>
+      <select style='width:300px' id='bill' class='form-control'><option>Cash</option><option>Credit</option></select>
       <br>
       <button class='btn btn-success' onclick='submitty()'>Submit And Generate Invoice</button>
     <div>";
