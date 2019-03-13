@@ -33,14 +33,14 @@ if(isset($_GET['del']))
 							<div class="module-head">
 								<h3>Sales List</h3>
 							</div>
-							<div class="module-body table">
+							<div class="module-body table" style="width: 1500px; height: 100%; overflow: scroll">
 								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
 									<thead>
 										<tr>
 											<th>#</th>
 											<th width="1%">Business</th>
-											<th width="5%">Customer</th>
-											<th width="10%">Product</th>
+											<th width="1%">Customer</th>
+											<th width="1%">Product</th>
 											<th width="5%">HSN</th>
 											<th width="5%">UTC</th>
 											<th width="5%">Quantity</th>
@@ -89,7 +89,7 @@ while($row=mysqli_fetch_array($query))
 										<?php $cnt=$cnt+1; } ?>
 
 								</table>
-							</div>
+							</div>	<button onclick="location.href = './purchase';"> Return to Billing </button>
 						</div>
 
 
