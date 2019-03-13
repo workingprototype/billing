@@ -164,6 +164,19 @@ elseif($request[1]=="sales")
     }
     $sql .=")";
     if ($db->query($sql) === TRUE) {
+      $id=$v[0];
+      $sql = "SELECT * FROM products
+        WHERE id='$id'";
+      $result = $db->query($sql);
+      if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $quant = $row['quantityleft'];
+        $quant -= $v[6];
+        $sql = "UPDATE products SET quantityleft='$quant' WHERE id=$id";
+        $db->query($sql);
+      } else {
+        echo "0 results";
+      }
       echo "TRUE";
     } else {
       echo "Error: " . $sql . "<br>" . $db->error;
@@ -185,6 +198,24 @@ elseif($request[1]=="search")
     while($row = $result->fetch_assoc()) {
       $total = $row['productPrice']+($row['productPrice']*5/100);
       echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"5\",\"1\",\"".$total."\",\"".$row['id']."\")' class='searchitem'> ".$row['productName']." </div>";
+    }
+} else {
+    echo "0 results";
+}
+}
+elseif($request[1]=="searchi")
+{
+  $term=$_POST['data'];
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $sql = "SELECT * FROM products
+      WHERE productName LIKE '%$term%'
+      OR productCompany LIKE '%$term%'
+      OR id LIKE '%$term%' LIMIT 10";
+  $result = $db->query($sql);
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"".$row['hsnno']."\",\"1\",\"".$row['id']."\",\"".$row['id']."\")' class='searchitem'> ".$row['productName']." </div>";
     }
 } else {
     echo "0 results";

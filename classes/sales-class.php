@@ -27,12 +27,26 @@ class Sales
       }
     </style>
     ";
+
     $this->r .="
     <script>
+
+      function total(){
+        xox=0;
+        puts.forEach(function (item,index)
+        {
+          if(item!='lol'){
+            xox+=Number(document.getElementById('finalrate'+item).value);
+          }
+        });
+        document.getElementById('tot').value = xox;
+      }
+
       function remove(no){
         document.getElementById(\"row_\"+no+\"\").outerHTML= '';
         disp[no+1]='';
         puts[no]='lol';
+        total();
       }
       function submitty()
       {
@@ -103,11 +117,10 @@ class Sales
       function clicked(a,b,c,d,e,f){
         r=s++;
         puts[boxes]=r+'_'+f;
-
         disp[i] = '<tr id=\'row_'+boxes+'\'><td><select id=\"batch'+r+'_'+f+'\" style=\"width:80px\"><option>134</option></select></td>\
         <td><select id=\"firm'+r+'_'+f+'\" style=\"width:80px\"><option>134</option></select></td>\
         <td>'+a+'</td>\
-        <td><input disabled=\'true\' id=\"hsn'+r+'_'+f+'\" style=\"width:80px\" value=\"35\"></td>\
+        <td><input disabled=\'true\' id=\"hsn'+r+'_'+f+'\" style=\"width:80px\" value=\"'+c+'\"></td>\
         <td><input id=\"utc'+r+'_'+f+'\" style=\"width:80px\" value=\"35\"></td>\
         <td><input id=\"mrp'+r+'_'+f+'\" ></td>\
         <td><input id=\"qty'+r+'_'+f+'\" style=\"width:150px\"  ></td>\
@@ -117,7 +130,7 @@ class Sales
         <td><input id=\"gst'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"gsta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"total'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"finalrate'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"finalrate'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\'total()\' placeholder=\'\'></td>\
         <td><button onclick=\'remove('+boxes+')\' class=\'btn btn-danger\'>Remove</button></td>\
         </tr><tr id=\'tail\'></tr>';
         var dis='';
@@ -138,7 +151,7 @@ class Sales
             document.getElementById('idrop').innerHTML=this.responseText;
           }
         };
-        xhttp.open(\"POST\", \"function/search \", true);
+        xhttp.open(\"POST\", \"function/searchi \", true);
         xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
         xhttp.send('data='+term);
       }
@@ -146,12 +159,12 @@ class Sales
     ";
     $users='';
     $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
-  $sql = "SELECT * FROM supplier";
+  $sql = "SELECT * FROM users";
   $result = $db->query($sql);
   if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      $users.="<option value='".$row['id']."'>Supplier ID: ".$row['id']." , Name: ".$row['name']."</option>";
+      $users.="<option value='".$row['id']."'>Retailer ID: ".$row['id']." , Name: ".$row['name']."</option>";
     }
   } else {
     echo "0 results"; // No supplier registered.
@@ -188,7 +201,7 @@ class Sales
       <th>Remove</th>
       </tr><tr id='tail'></tr>
       </table></div>
-      <h4>Total : <input class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
+      <h4>Total : <input id='tot' class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
       
       <label>Bill Type:</label><br>
       <select style='width:300px' id='bill' class='form-control'><option>Cash</option><option>Credit</option></select>
