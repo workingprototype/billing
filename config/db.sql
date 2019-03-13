@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 10, 2019 at 06:32 PM
+-- Generation Time: Mar 13, 2019 at 08:33 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -185,7 +185,7 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `category`, `subCategory`, `productName`, `productCompany`, `productPrice`, `hsnno`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `quantityleft`, `postingDate`, `updationDate`) VALUES
 (55, 16, 20, 'Hello Lights', 'Lights Infotech', 150, '', 200, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '1.jpeg', '2.jpeg', '45.jpg', 10, 'In Stock', 0, '2019-02-28 23:49:43', NULL),
 (56, 16, 20, 'Wow Lights', 'Lights Infotech', 350, '', 400, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">This new light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '4.jpg', '5.jpg', '6.jpg', 60, 'In Stock', 10, '2019-02-28 23:50:29', NULL),
-(57, 17, 21, 'Bose Speakers', 'Bose Electronics', 49000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Bose Corporation is a privately held American corporation, based in Framingham, Massachusetts, that designs, develops and sells audio equipment. Founded in 1964 by Amar Bose, the company sells its products throughout the world.</span><br>', '234.jpg', 'SndLinkC2Bk-large.jpg', '3.jpg', 1500, 'In Stock', 0, '2019-02-28 23:51:17', NULL),
+(57, 17, 21, 'Bose Speakers', 'Bose Electronics', 49000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Bose Corporation is a privately held American corporation, based in Framingham, Massachusetts, that designs, develops and sells audio equipment. Founded in 1964 by Amar Bose, the company sells its products throughout the world.</span><br>', '234.jpg', 'SndLinkC2Bk-large.jpg', '3.jpg', 1500, 'In Stock', 35, '2019-02-28 23:51:17', NULL),
 (58, 17, 23, 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 0, '2019-02-28 23:52:52', NULL),
 (59, 17, 23, 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 0, '2019-02-28 23:54:20', NULL),
 (60, 18, 24, 'iPhone X', '34234', 234234, '23423423', 2342, '234234', 'city.jpg', 'city.jpg', 'city.jpg', 234, 'In Stock', 0, '2019-03-10 00:44:47', NULL);
@@ -240,7 +240,8 @@ INSERT INTO `purchase` (`id`, `business`, `supplier`, `invoicedate`, `invoicenum
 (1, 'Business A', '10', '2019-03-05', '875', '234A224', '234235', 'Truck', '2019-03-20', '234', '1_58', 586, 58765, 86, 865, 865, 765, 876, 586, 58, 658, 658, 65, 865, 8756, 8658, 8765, 58, 65, 0, 0, 0, 0),
 (2, 'Business A', '11', '2019-03-01', '151351353', '356262', '23525', 'Train', '2019-03-04', '34', '56', 455, 10, 100, 41, 124, 12, 12, 234, 23, 23, 23, 23, 23, 2325, 24, 3, 2323, 23, 0, 0, 0, 1552238353),
 (3, 'Business A', '11', '2019-03-01', '151351353', '356262', '23525', 'Train', '2019-03-04', '34', '56', 455, 10, 100, 41, 124, 12, 12, 234, 23, 23, 23, 23, 23, 2325, 24, 3, 2323, 23, 0, 0, 0, 1552238531),
-(4, 'Business A', '11', '2019-03-01', '151351353', '356262', '23525', 'Train', '2019-03-04', '34', '56', 455, 10, 100, 41, 124, 12, 12, 234, 23, 23, 23, 23, 23, 2325, 24, 3, 2323, 23, 0, 0, 0, 1552239094);
+(4, 'Business A', '11', '2019-03-01', '151351353', '356262', '23525', 'Train', '2019-03-04', '34', '56', 455, 10, 100, 41, 124, 12, 12, 234, 23, 23, 23, 23, 23, 2325, 24, 3, 2323, 23, 0, 0, 0, 1552239094),
+(5, '', '', '', '', '', '', '', '', '134', '57', 134, 35, 35, 6757, 87568, 756, 8568, 765, 865, 865, 856, 845, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1552504797);
 
 -- --------------------------------------------------------
 
@@ -250,52 +251,34 @@ INSERT INTO `purchase` (`id`, `business`, `supplier`, `invoicedate`, `invoicenum
 
 CREATE TABLE `sales` (
   `id` int(11) NOT NULL,
-  `productid` int(11) NOT NULL,
-  `timestamp` int(11) NOT NULL,
-  `batch` varchar(100) NOT NULL,
-  `price` int(11) NOT NULL,
-  `tax` int(11) NOT NULL,
-  `discount` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
+  `product` int(11) NOT NULL,
+  `hsn` varchar(30) NOT NULL,
+  `utc` varchar(100) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `mrp` decimal(10,5) NOT NULL,
+  `baserate` decimal(10,5) NOT NULL,
+  `amount` decimal(10,5) NOT NULL,
+  `dis` decimal(10,5) NOT NULL,
+  `gst` decimal(10,5) NOT NULL,
+  `gstamount` decimal(10,5) NOT NULL,
+  `total` decimal(10,5) NOT NULL,
+  `finalrate` decimal(10,5) NOT NULL,
+  `invoice` int(11) NOT NULL,
   `business` int(11) NOT NULL,
+  `timestamp` int(11) NOT NULL,
+  `remarks` text NOT NULL,
   `customer` int(11) NOT NULL,
-  `remarks` text NOT NULL
+  `batch` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sales`
 --
 
-INSERT INTO `sales` (`id`, `productid`, `timestamp`, `batch`, `price`, `tax`, `discount`, `quantity`, `business`, `customer`, `remarks`) VALUES
-(3, 3, 1551383329, '', 345345, 5, 0, 1, 0, 7, ''),
-(4, 1, 1551383644, '3', 120, 5, 0, 1, 0, 7, ''),
-(5, 1, 1551385029, '', 120, 5, 0, 1, 0, 7, ''),
-(6, 1, 1551385046, '', 120, 5, 0, 1, 0, 6, ''),
-(7, 3, 1551385046, '', 345345, 5, 0, 1, 0, 6, ''),
-(8, 6, 1551385046, '', 0, 5, 0, 1, 0, 6, ''),
-(9, 1, 1551385049, '', 120, 5, 0, 1, 0, 6, ''),
-(10, 3, 1551385049, '', 345345, 5, 0, 1, 0, 6, ''),
-(11, 6, 1551385049, '', 0, 5, 0, 1, 0, 6, ''),
-(12, 1, 1551385049, '', 120, 5, 0, 1, 0, 6, ''),
-(13, 3, 1551385049, '', 345345, 5, 0, 1, 0, 6, ''),
-(14, 6, 1551385049, '', 0, 5, 0, 1, 0, 6, ''),
-(15, 1, 1551385083, '', 120, 5, 0, 1, 0, 7, ''),
-(16, 3, 1551385083, '', 345345, 5, 0, 1, 0, 7, ''),
-(17, 6, 1551385083, '', 0, 5, 0, 1, 0, 7, ''),
-(18, 9, 1551385083, '', 534, 5, 0, 1, 0, 7, ''),
-(19, 1, 1551385904, '', 120, 5, 0, 1, 0, 7, ''),
-(20, 3, 1551385904, '', 345345, 5, 0, 1, 0, 7, ''),
-(21, 6, 1551385904, '', 0, 5, 0, 1, 0, 7, ''),
-(22, 9, 1551385904, '', 534, 5, 0, 1, 0, 7, ''),
-(23, 1, 1551386999, '', 120, 5, 0, 1, 0, 9, 'sd'),
-(24, 10, 1551390317, '', 534, 5, 0, 1, 0, 10, ''),
-(25, 4, 1551391702, '', 345345, 5, 0, 1, 0, 11, '345'),
-(26, 1, 1551391948, '', 120, 5, 0, 1, 0, 11, '234'),
-(27, 1, 1551391999, '', 120, 5, 0, 1, 0, 10, 'asd'),
-(28, 5, 1551392005, '', 345345, 5, 0, 1, 0, 11, 'asd'),
-(29, 5, 1551392330, '', 345345, 5, 0, 1, 0, 11, 'assssssssssssssssssssssssssssssssssss'),
-(30, 1, 1551392503, '', 120, 5, 0, 6, 0, 10, 'sdf'),
-(31, 6, 1551392503, '', 0, 5, 0, 7, 0, 10, 'sdf');
+INSERT INTO `sales` (`id`, `product`, `hsn`, `utc`, `qty`, `mrp`, `baserate`, `amount`, `dis`, `gst`, `gstamount`, `total`, `finalrate`, `invoice`, `business`, `timestamp`, `remarks`, `customer`, `batch`) VALUES
+(1, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '5.00000', '99999.99999', 0, 134, 1552505135, '', 10, '134'),
+(2, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '5.00000', '99999.99999', 2147483647, 134, 1552505264, '', 10, '134'),
+(3, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '5.00000', '99999.99999', 2147483647, 134, 1552505313, '', 10, '134');
 
 -- --------------------------------------------------------
 
@@ -593,13 +576,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
