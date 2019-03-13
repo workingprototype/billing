@@ -25,15 +25,15 @@ if(isset($_GET['del']))
 <body>
 
 
-	<div class="wrapper">
-		<div class="container">
-			<div class="row">
+	<div class="wrapper" style="width: 3200px;">
+		<div class="container" style="width: 2900px;">
+			<div class="row" style="width: 3000px; overflow-x:auto; overflow-y:hidden;" >
 
 
 							<div class="module-head">
 								<h3>Sales List</h3>
 							</div>
-							<div class="module-body table" style="width: 1500px; height: 100%; overflow: scroll">
+							<div class="module-body table">
 								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
 									<thead>
 										<tr>
