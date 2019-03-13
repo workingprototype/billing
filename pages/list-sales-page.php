@@ -28,8 +28,6 @@ if(isset($_GET['del']))
 	<div class="wrapper" style="width: 3200px;">
 		<div class="container" style="width: 2900px;">
 			<div class="row" style="width: 3000px; overflow-x:auto; overflow-y:hidden;" >
-
-
 							<div class="module-head">
 								<h3>Sales List</h3>
 							</div>
@@ -37,7 +35,7 @@ if(isset($_GET['del']))
 								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
 									<thead>
 										<tr>
-											<th>#</th>
+											<th width="1%">#</th>
 											<th width="1%">Business</th>
 											<th width="1%">Customer</th>
 											<th width="1%">Product</th>
@@ -54,7 +52,7 @@ if(isset($_GET['del']))
 											<th width="5%">Final Rate</th>
 											<th width="5%">Invoice</th>
 											<th width="5%">Batch</th>
-											<th>Action</th>
+											<th width="5%"> Action</th>
 										</tr>
 									</thead>
 									<tbody>
