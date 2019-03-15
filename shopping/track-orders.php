@@ -36,7 +36,7 @@ include('includes/config.php');
 		<link rel="shortcut icon" href="assets/images/favicon.ico">
 	</head>
     <body class="cnt-home">
-	
+
 <header class="header-style-1">
 
 	<!-- ============================================== TOP MENU ============================================== -->
@@ -66,7 +66,7 @@ include('includes/config.php');
 			<div class="row">
 				<div class="col-md-12">
 	<h2>Track your Order</h2>
-	<span class="title-tag inner-top-vs">Please enter your Order ID in the box below and press Enter. This was given to you on your receipt and in the confirmation email you should have received. </span>
+	<span class="title-tag inner-top-vs">Please enter your Order ID in the box below and press Enter. This was given to you on your receipt. </span>
 	<form class="register-form outer-top-xs" role="form" method="post" action="order-details.php">
 		<div class="form-group">
 		    <label class="info-title" for="exampleOrderId1">Order ID</label>
@@ -77,23 +77,23 @@ include('includes/config.php');
 		    <input type="email" class="form-control unicase-form-control text-input" name="email" id="exampleBillingEmail1" >
 		</div>
 	  	<button type="submit" name="submit" class="btn-upper btn btn-primary checkout-page-button">Track</button>
-	</form>	
+	</form>
 </div>			</div><!-- /.row -->
 		</div><!-- /.sigin-in-->
 		<!-- ============================================== BRANDS CAROUSEL ============================================== -->
-<div 
+<div
 
 <?php echo include('includes/brands-slider.php');?>
 </div>
 </div>
 <?php include('includes/footer.php');?>
 	<script src="assets/js/jquery-1.11.1.min.js"></script>
-	
+
 	<script src="assets/js/bootstrap.min.js"></script>
-	
+
 	<script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
 	<script src="assets/js/owl.carousel.min.js"></script>
-	
+
 	<script src="assets/js/echo.min.js"></script>
 	<script src="assets/js/jquery.easing-1.3.min.js"></script>
 	<script src="assets/js/bootstrap-slider.min.js"></script>
@@ -103,26 +103,7 @@ include('includes/config.php');
     <script src="assets/js/wow.min.js"></script>
 	<script src="assets/js/scripts.js"></script>
 
-	<!-- For demo purposes – can be removed on production -->
-	
-	<script src="switchstylesheet/switchstylesheet.js"></script>
-	
-	<script>
-		$(document).ready(function(){ 
-			$(".changecolor").switchstylesheet( { seperator:"color"} );
-			$('.show-theme-options').click(function(){
-				$(this).parent().toggleClass('open');
-				return false;
-			});
-		});
 
-		$(window).bind("load", function() {
-		   $('.show-theme-options').delay(2000).trigger('click');
-		});
-	</script>
-	<!-- For demo purposes – can be removed on production : End -->
-
-	
 
 </body>
 </html>
