@@ -257,6 +257,31 @@ elseif($request[1]=="list_product")
     $result = $db->query($sql);
     $x=json_encode($result->fetch_all());
     echo $x;
+}//TODO : CHECK WHERE ALL THE ABOVE FUNCTION LIST PRODUCT IS USED AND  AND FIX THE LIMIT ISSUE
+elseif($request[1]=="purchase_report")
+{
+    $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+    $table="purchase";
+    $gap= $_POST['gap'];
+    $page= $_POST['page']-1;
+    $lowerlim=($page*$gap);
+    $upperlim = $lowerlim + $gap;
+    $sql="SELECT * FROM ".$table." LIMIT $lowerlim,$upperlim;";
+    $result = $db->query($sql);
+    #$x=json_encode($result->fetch_all());
+    $x=$result->fetch_all();
+    foreach ($result as $key => $value){
+      $product=$value['product'];
+      $sq="SELECT * FROM products WHERE id=$product;";
+      $rs = $db->query($sq);
+      $rs=$rs->fetch_assoc();
+      $sup=$value['supplier'];
+      $sq="SELECT * FROM supplier WHERE id=$sup;";
+      $res = $db->query($sq);
+      $res=$res->fetch_assoc();
+      echo "<tr><td>".$rs['productName']."</td><td>".$res['name']."</td><td>".$value['invoicenumber']."</td><td>".$value['invoicedate']."</td><td>".$value['qtycase']."</td><td>".$value['cgst']."</td><td>".$value['sgst']."</td><td>".$value['totalamount']."</td></tr>";
+    }
+    
 }
 
 ?>

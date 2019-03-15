@@ -40,6 +40,7 @@ if(isset($_GET['dir'])){
     route("listpurchase","./pages/list-purchase-page.php");
     route("purchase","./pages/purchase-register-page.php");
     route("products","./pages/products.page.php");
+    route("purchase_report","./pages/purchase_report.php");
     route("products-list","./pages/productsl.page.php");
     route("retailerreg","./pages/retailer-reg.php");
     route("supplierreg","./pages/supplier-reg.php");
