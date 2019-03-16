@@ -215,7 +215,18 @@ elseif($request[1]=="searchi")
   if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"".$row['hsnno']."\",\"1\",\"".$row['id']."\",\"".$row['id']."\")' class='searchitem'> ".$row['productName']." </div>";
+      $batchcode='';
+      $proid=$row['id'];
+      $sql = "SELECT * FROM purchase WHERE product=$proid";
+      $res = $db->query($sql);
+      $bat='';
+      while($ro = $res->fetch_assoc()){
+        if($ro['batch']!=$bat){
+        $batchcode .="<option>".$ro['batch']."</option>";
+        $bat =$ro['batch'];
+        }
+      }
+      echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"".$row['hsnno']."\",\"".$batchcode."\",\"<option>355</option>\",\"".$row['id']."\")' class='searchitem'> ".$row['productName']." </div>";
     }
 } else {
     echo "0 results";

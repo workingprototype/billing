@@ -27,7 +27,18 @@ class Sales
       }
     </style>
     ";
-
+    $supps='';
+    $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+    $sql = "SELECT * FROM business";
+    $result = $db->query($sql);
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+        $supps.="<option value=\'".$row['id']."\'>".$row['account_name']."</option>";
+      }
+    } else {
+      echo "0 results"; // No supplier registered.
+    }
     $this->r .="
     <script>
 
@@ -117,8 +128,8 @@ class Sales
       function clicked(a,b,c,d,e,f){
         r=s++;
         puts[boxes]=r+'_'+f;
-        disp[i] = '<tr id=\'row_'+boxes+'\'><td><select id=\"batch'+r+'_'+f+'\" style=\"width:80px\"><option>134</option></select></td>\
-        <td><select id=\"firm'+r+'_'+f+'\" style=\"width:80px\"><option>134</option></select></td>\
+        disp[i] = '<tr id=\'row_'+boxes+'\'><td><select id=\"batch'+r+'_'+f+'\" style=\"width:80px\">'+d+'</select></td>\
+        <td><select id=\"firm'+r+'_'+f+'\" style=\"width:80px\">".$supps."</select></td>\
         <td>'+a+'</td>\
         <td><input disabled=\'true\' id=\"hsn'+r+'_'+f+'\" style=\"width:80px\" value=\"'+c+'\"></td>\
         <td><input id=\"utc'+r+'_'+f+'\" style=\"width:80px\" value=\"35\"></td>\
@@ -167,8 +178,9 @@ class Sales
       $users.="<option value='".$row['id']."'>Retailer ID: ".$row['id']." , Name: ".$row['name']."</option>";
     }
   } else {
-    echo "0 results"; // No supplier registered.
+    echo "0 results"; // No retailer registered.
   }
+  
     $this->r .="<div class='row'><div class='col-md-4'><label><br/> Customer : </label><select id='customer' class='form-control'>".$users."</select></div></div>";
     $this->r .="
     <div class='content' stylr='overflow-x:scroll'>
