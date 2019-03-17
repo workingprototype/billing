@@ -27,8 +27,57 @@ class Purchase
       }
     </style>
     ";
+    $buiss='';
+    $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+    $sql = "SELECT * FROM business";
+    $result = $db->query($sql);
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+        $buiss.="<option value=\'".$row['id']."\'>".$row['account_name']."</option>";
+      }
+    } else {
+      echo "0 results"; // No supplier registered.
+    }
     $this->r .="
     <script>
+    function total(){
+      xox=0;
+      puts.forEach(function (item,index)
+      {
+        if(item!='lol'){
+          xox+=Number(document.getElementById('dispp'+item).value);
+        }
+      });
+      document.getElementById('tot').value = xox;
+    }
+    function qtyu(a){
+      fx=document.getElementById('qtyu'+a).value;
+      fy=document.getElementById('uombase'+a).value;
+      fz= fy/fx;
+      document.getElementById('base'+a).value=fz;
+      disc(a);
+    }
+    function uombase(a){
+      qtyu(a);
+    }
+    function disc(a){
+      fx=document.getElementById('disc'+a).value;
+      fy=document.getElementById('qty'+a).value;
+      fz=document.getElementById('uombase'+a).value;
+      fx= fx/100;
+      fa= fx*fy*fz;
+      fb= (1-fx)*fy*fz;
+      document.getElementById('disca'+a).value=fa;
+      document.getElementById('neta'+a).value=fb;
+
+      fx=document.getElementById('cgst'+a).value;
+      fy=document.getElementById('sgst'+a).value;
+      fx=fx/100;
+      fy=fy/100;
+      document.getElementById('cgsta'+a).value=(fb*fx);
+      document.getElementById('sgsta'+a).value=(fb*fy);
+    }
       function remove(no){
         document.getElementById(\"row_\"+no+\"\").outerHTML= '';
         disp[no+1]='';
@@ -90,7 +139,7 @@ class Purchase
       <th>MRP</th>\
       <th>Qty (cases)</th>\
       <th>Qty(units)</th>\
-      <th>UOM Base Rate(Case) </th>\
+      <th>Base Rate(Case) </th>\
       <th>Base Rate (UOM)  </th>\
       <th>Disc % </th>\
       <th>Disc Amount  </th>\
@@ -120,22 +169,22 @@ class Purchase
         <td>'+a+'</td>\
         <td><input id=\"mrp'+r+'_'+f+'\" style=\"width:80px\" value=\"'+b+'\"></td>\
         <td><input id=\"qty'+r+'_'+f+'\" style=\"width:80px\" value=\"\"></td>\
-        <td><input id=\"qtyu'+r+'_'+f+'\" style=\"width:80px\" value=\"\"></td>\
-        <td><input id=\"uombase'+r+'_'+f+'\" placeholder=\'UOM Base Rate\'></td>\
+        <td><input id=\"qtyu'+r+'_'+f+'\" style=\"width:80px\" onkeyup=\"qtyu(\''+r+'_'+f+'\')\" value=\"\"></td>\
+        <td><input id=\"uombase'+r+'_'+f+'\" placeholder=\'UOM Base Rate\' onkeyup=\"uombase(\''+r+'_'+f+'\')\" ></td>\
         <td><input id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'Base Rate\'></td>\
-        <td><input id=\"disc'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"disc'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"disca'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"neta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"cgst'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"sgst'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"cgst'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
+        <td><input id=\"sgst'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"cgsta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"sgsta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"cess'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"totala'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"uomsp'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"margin'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"dispp'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"dispd'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"dispp'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"total()\" placeholder=\'\'></td>\
+        <td><input id=\"dispd'+r+'_'+f+'\" style=\"width:150px\"  placeholder=\'\'></td>\
         <td><button onclick=\'remove('+boxes+')\' class=\'btn btn-danger\'>Remove</button></td>\
         </tr><tr id=\'tail\'></tr>';
         var dis='';
@@ -174,7 +223,7 @@ class Purchase
   } else {
     echo "0 results"; // No supplier registered.
   }
-    $this->r .="<div class='row'><div class='col-md-4'></br><label>Firm Name :</label><select id='business' class='form-control'><option>Business A</option></select></div></div>";
+    $this->r .="<div class='row'><div class='col-md-4'></br><label>Firm Name :</label><select id='business' class='form-control'>".$buiss."</select></div></div>";
     $this->r .="<div class='row'><div class='col-md-4'><label><br/> Supplier Name: </label><select id='supplier' class='form-control'>".$users."</select></div></div>";
     $this->r .="
     <div class='content' stylr='overflow-x:scroll'>
@@ -213,7 +262,7 @@ class Purchase
       <th>Remove</th>
       </tr><tr id='tail'></tr>
       </table></div>
-      <h4>Total : <input class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
+      <h4>Total : <input id='tot' class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
       
       <label>Invoice Number:</label><br>
       <input id='invoice' placeholder='Invoice Number' class='form-control'>
