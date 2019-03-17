@@ -263,25 +263,25 @@ class Purchase
       </tr><tr id='tail'></tr>
       </table></div>
       <h4>Total : <input id='tot' class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
-      
+
       <label>Invoice Number:</label><br>
       <input id='invoice' placeholder='Invoice Number' class='form-control'>
-      
+
       <label>Invoice date:</label><br>
       <input id='invoicedate' placeholder='Invoice date' type='date' class='form-control' style='width:200px'>
-      
+
       <label>Transport:</label><br>
-      <input id='transport' placeholder='Transort' class='form-control' style='width:400px'>
-      
+      <input id='transport' placeholder='Transport' class='form-control' style='width:400px'>
+
       <label>Received Date:</label><br>
       <input id='receivedate' type='date' class='form-control' style='width:200px'>
-      
+
       <label>Vehicle Number:</label><br>
       <input id='vehicle' placeholder='Vehicle Number'  class='form-control' style='width:400px'>
-      
-      <label>Delivered Person Contact:</label><br>
-      <input id='delcontact' placeholder='Delivered Person Constact' class='form-control' style='width:400px'>
-      
+
+      <label>Delivery Person's Contact:</label><br>
+      <input id='delcontact' placeholder='Delivery Contact' class='form-control' style='width:400px'>
+
       <button class='btn btn-success' onclick='submitty()'>Record Purchase</button>
     <div>";
   }
