@@ -1,37 +1,41 @@
 <?php
-require_once "./classes/page-class.php";
-require_once "./classes/sidebar-class.php";
-require_once "./classes/top-navigation-class.php";
-require_once "./classes/footer-class.php";
-
-$page = new Page;
-
-$sidebar = new Sidebar;
-$footer = new Footer;
-$navbar = new TopNav;
-$page->var['navbar']=$navbar->echo();
-$page->var['sidebar']=$sidebar->echo();
-$page->var['footer']=$footer->echo();
-$page->var['content']='    <div class="row tile_count">
+include('./config/config.php');
+?>
+ <div class="row tile_count">
       <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
         <div class="left"></div>
         <div class="right">
-          <span class="count_top"><i class="fa fa-user"></i> Total Retailers</span>
-          <div class="count">2500</div>
+          <span class="count_top"><i class="fa fa-user"></i> Total Products</span>
+          <div class="count">  <?php
+            $result = mysqli_query($con, "SELECT COUNT(id) AS `count` FROM `products`");
+            $row = mysqli_fetch_array($result);
+            $count = $row['count'];
+            echo $count;
+            ?></div>
         </div>
       </div>
       <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
         <div class="left"></div>
         <div class="right">
           <span class="count_top"><i class="fa fa-shopping-cart"></i> Total Orders: Ecommerce</span>
-          <div class="count">1230</div>
+          <div class="count">  <?php
+            $result = mysqli_query($con, "SELECT COUNT(DISTINCT `orderDate`) as total FROM `orders`");
+            $row = mysqli_fetch_array($result);
+            $count = $row['total'];
+            echo $count;
+            ?></div>
         </div>
       </div>
       <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
         <div class="left"></div>
         <div class="right">
-          <span class="count_top"><i class="fa fa-arrow-up"></i> Total Sales</span>
-          <div class="count green">2,500</div>
+          <span class="count_top"><i class="fa fa-arrow-up"></i> Total Sales Value</span>
+          <div class="count green">  <?php
+            $result = mysqli_query($con, "SELECT SUM(finalrate) as total FROM `sales`");
+            $row = mysqli_fetch_array($result);
+            $count = $row['total'];
+            echo $count;
+            ?></div>
         </div>
       </div>
       <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
@@ -56,8 +60,4 @@ $page->var['content']='    <div class="row tile_count">
         </div>
       </div>
 
-    </div>';
-$page->var['title']="Dashboard";
-$page->render();
-
-?>
+    </div>
