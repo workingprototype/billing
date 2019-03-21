@@ -83,14 +83,18 @@ class Purchase
         disp[no+1]='';
         puts[no]='lol';
       }
-      function batchch(a,b){
+      function batchch(a,b,c){
         if(a=='new'){
           document.getElementById(b).style.visibility='visible';
           document.getElementById(b).style.position='';
+          document.getElementById(c).disabled=false;
         }else{
+          var a = JSON.parse(a);
           document.getElementById(b).style.visibility='hidden';
           document.getElementById(b).style.position='absolute';
-          document.getElementById(b).value=a;
+          document.getElementById(b).value=a[0];
+          document.getElementById(c).value=a[1];
+          document.getElementById(c).disabled=true;
           
         }
       }
@@ -176,12 +180,12 @@ class Purchase
         r=s++;
         puts[boxes]=r+'_'+f;
 
-        disp[i] = '<tr id=\'row_'+boxes+'\'><td><select id=\"batchbox'+r+'_'+f+'\" onchange=\"batchch(this.value,\'batch'+r+'_'+f+'\')\"><option value=\"new\">New Batch</option></select><input id=\"batch'+r+'_'+f+'\" style=\"width:80px\"></td>\
+        disp[i] = '<tr id=\'row_'+boxes+'\'><td><select id=\"batchbox'+r+'_'+f+'\" onchange=\"batchch(this.value,\'batch'+r+'_'+f+'\',\'uombase'+r+'_'+f+'\')\"><option value=\"new\">New Batch</option></select><input id=\"batch'+r+'_'+f+'\" style=\"width:80px\"></td>\
         <td>'+a+'</td>\
         <td><input id=\"mrp'+r+'_'+f+'\" style=\"width:80px\" value=\"'+b+'\"></td>\
         <td><input id=\"qty'+r+'_'+f+'\" style=\"width:80px\" value=\"\"></td>\
         <td><input id=\"qtyu'+r+'_'+f+'\" style=\"width:80px\" onkeyup=\"qtyu(\''+r+'_'+f+'\')\" value=\"\"></td>\
-        <td><input id=\"uombase'+r+'_'+f+'\" placeholder=\'UOM Base Rate\' onkeyup=\"uombase(\''+r+'_'+f+'\')\" ></td>\
+        <td><input id=\"uombase'+r+'_'+f+'\" placeholder=\'Base Rate\' onkeyup=\"uombase(\''+r+'_'+f+'\')\" ></td>\
         <td><input id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'Base Rate\'></td>\
         <td><input id=\"disc'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"disca'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\

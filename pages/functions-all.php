@@ -314,7 +314,9 @@ elseif($request[1]=="batchbox")
       if($ax==0){
         $batches[$ki]=$row['batch'];
         $ki++;
-        $x.="<option>".$row['batch']."</option>";
+        $array = [$row['batch'],$row['baseratecase']];
+        $array = json_encode($array);
+        $x.="<option value=".$array.">".$row['batch']."</option>";
       }else{
         $ax=0;
       }
