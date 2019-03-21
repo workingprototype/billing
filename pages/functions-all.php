@@ -294,5 +294,31 @@ elseif($request[1]=="purchase_report")
     }
     
 }
-
+elseif($request[1]=="batchbox")
+{
+    $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+    $table="purchase";
+    $id=$_POST['id'];
+    $sql="SELECT * FROM ".$table." WHERE product=$id;";
+    $result = $db->query($sql);
+    $x="<option value=\"new\">New Batch</option>";
+    $ki=0;
+    $batches[0]="zzzz";
+    $ax=0;
+    while($row=$result->fetch_assoc()){
+      foreach($batches as $key=>$value){
+        if($value==$row['batch']){
+          $ax=1;
+        }
+      }
+      if($ax==0){
+        $batches[$ki]=$row['batch'];
+        $ki++;
+        $x.="<option>".$row['batch']."</option>";
+      }else{
+        $ax=0;
+      }
+    }
+    echo $x;
+}
 ?>
