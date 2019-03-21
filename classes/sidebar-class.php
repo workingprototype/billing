@@ -80,17 +80,18 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->submenu("List Sales Invoices","listsales");
         $this->menu("<i class=\"fa fa-users\"></i>Sales"); //Main Menu2
 
-        $this->submenu("View Payment Dues","payments");
-        $this->menu("<i class=\"fa fa-calculator\"></i>Accounts"); //Main Menu2
-        // $this->submenu("Today's Orders","todaysorders"); //submenu4.1
-        // $this->submenu("Pending Orders","pendingorders"); //submenu4.2
-        // $this->submenu("Delivered Orders","deliveredorders"); //submenu4.3
-        // $this->menu("<i class=\"fa fa-line-chart\"> </i> Order Management");  //Main Menu4
+        // $this->submenu("View Payment Dues","payments");
+        // $this->menu("<i class=\"fa fa-calculator\"></i>Accounts"); //Main Menu2
+         $this->submenu("Today's Orders","todaysorders"); //submenu4.1
+         $this->submenu("Pending Orders","pendingorders"); //submenu4.2
+        $this->submenu("Delivered Orders","deliveredorders"); //submenu4.3
+        $this->menu("<i class=\"fa fa-line-chart\"> </i> Order Management");  //Main Menu4
 
         $this->submenu("Goto Store","shopping"); //submenu4.3
-        $this->submenu("Goto Store Admin","shopping/admin"); //submenu4.3
+        // $this->submenu("Goto Store Admin","shopping/admin"); //submenu4.3
         $this->menu("<i class=\"fa fa-shopping-cart\"> </i> Shopping");  //Main Menu4
 
+        $this->submenu("Purchase Report","purchase_report"); //submenu4.3
         $this->menu("<i class=\"fa fa-line-chart\"> </i> Reports");  //Main Menu4
 
 

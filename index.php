@@ -21,7 +21,7 @@ if(isset($_GET['dir'])){
     route("shopping/admin","./shopping/admin/index.php");
 
 //below not done yet
-    // route("todaysorders","./pages/todays-orders.php");
+   route("todaysorders","./pages/todays-orders.php");
    route("addcategory","./pages/add-category.php");
     route("addsubcategory","./pages/add-sub-category.php");
    route("adduom","./pages/add-unit.php");
@@ -29,8 +29,8 @@ if(isset($_GET['dir'])){
      // route("editcategory","./pages/edit-category.php");
     route("insertproducts","./pages/insert-products.php");
     // route("manageproducts","./pages/manage-products.php");
-    // route("pendingorders","./pages/pending-orders.php");
-    // route("deliveredorders","./pages/delivered-orders.php");
+   route("pendingorders","./pages/pending-orders.php");
+   route("deliveredorders","./pages/delivered-orders.php");
 //above not done yet
     route("function","./pages/functions-all.php");
     route("breg","./pages/b-registration-page.php");
