@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2019 at 02:45 PM
+-- Generation Time: Mar 21, 2019 at 10:36 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -403,6 +403,28 @@ INSERT INTO `supplier` (`id`, `productcompany`, `firmname`, `email`, `name`, `co
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `taxinfo`
+--
+
+CREATE TABLE `taxinfo` (
+  `taxid` int(50) NOT NULL,
+  `taxname` varchar(50) NOT NULL,
+  `cgst` varchar(50) NOT NULL,
+  `sgst` varchar(50) NOT NULL,
+  `igst` varchar(50) NOT NULL,
+  `cess` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `taxinfo`
+--
+
+INSERT INTO `taxinfo` (`taxid`, `taxname`, `cgst`, `sgst`, `igst`, `cess`) VALUES
+(6, '23', '3', '3', '4', '5');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `uom`
 --
 
@@ -537,6 +559,12 @@ ALTER TABLE `supplier`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `taxinfo`
+--
+ALTER TABLE `taxinfo`
+  ADD UNIQUE KEY `taxid` (`taxid`);
+
+--
 -- Indexes for table `uom`
 --
 ALTER TABLE `uom`
@@ -623,6 +651,12 @@ ALTER TABLE `subuom`
 --
 ALTER TABLE `supplier`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `taxinfo`
+--
+ALTER TABLE `taxinfo`
+  MODIFY `taxid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `uom`
