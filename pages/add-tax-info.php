@@ -21,8 +21,8 @@ $_SESSION['msg']="Tax Group Added!";
 
 if(isset($_GET['del']))
 		  {
-		          mysqli_query($con,"delete from beat where id = '".$_GET['id']."'");
-                  $_SESSION['delmsg']="Beat deleted !!";
+		          mysqli_query($con,"delete from taxinfo where id = '".$_GET['id']."'");
+                  $_SESSION['delmsg']="Tax deleted !!";
 		  }
 
 ?>
