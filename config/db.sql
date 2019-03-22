@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2019 at 10:36 PM
+-- Generation Time: Mar 22, 2019 at 08:28 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -285,6 +285,8 @@ CREATE TABLE `sales` (
   `gstamount` decimal(10,5) NOT NULL,
   `total` decimal(10,5) NOT NULL,
   `finalrate` decimal(10,5) NOT NULL,
+  `paymentdue` decimal(10,5) NOT NULL,
+  `totalpaid` decimal(10,5) NOT NULL,
   `invoice` int(11) NOT NULL,
   `business` int(11) NOT NULL,
   `timestamp` int(11) NOT NULL,
@@ -297,10 +299,10 @@ CREATE TABLE `sales` (
 -- Dumping data for table `sales`
 --
 
-INSERT INTO `sales` (`id`, `product`, `hsn`, `utc`, `qty`, `mrp`, `baserate`, `amount`, `dis`, `gst`, `gstamount`, `total`, `finalrate`, `invoice`, `business`, `timestamp`, `remarks`, `customer`, `batch`) VALUES
-(1, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '5.00000', '99999.99999', 0, 134, 1552505135, '', 10, '134'),
-(2, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '5.00000', '99999.99999', 2147483647, 134, 1552505264, '', 10, '134'),
-(3, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '5.00000', '99999.99999', 2147483647, 134, 1552505313, '', 10, '134');
+INSERT INTO `sales` (`id`, `product`, `hsn`, `utc`, `qty`, `mrp`, `baserate`, `amount`, `dis`, `gst`, `gstamount`, `total`, `finalrate`, `paymentdue`, `totalpaid`, `invoice`, `business`, `timestamp`, `remarks`, `customer`, `batch`) VALUES
+(1, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '500.00000', '99999.99999', '500.00000', '0.00000', 0, 134, 1552505135, '', 10, '134'),
+(2, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '700.00000', '99999.99999', '600.00000', '0.00000', 2147483647, 134, 1552505264, '', 11, '134'),
+(3, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '300.00000', '99999.99999', '0.00000', '0.00000', 2147483647, 134, 1552505313, '', 12, '134');
 
 -- --------------------------------------------------------
 
@@ -479,8 +481,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `district`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `gstin`, `fssai`, `pan`, `aadharno`, `birthdate`, `regDate`, `updationDate`) VALUES
-(12, 'Test Retailer', 'test@test.com', 8838564345, 8798564345, 'f925916e2754e5e03f75dd58a5733251', 'Delhi', NULL, NULL, NULL, NULL, 'Delhi							', NULL, NULL, NULL, '', '', '', '', '0000-00-00', '2019-03-01 00:06:33', NULL),
-(16, 'Adarsh', 'adarshcool97@gmail.com', 9400503664, 757332423, 'a3dcb4d229de6fde0db5686dee47145d', 'Jerry Road, Thrissurcurry', 'Lays', NULL, NULL, NULL, 'Jerry Road, Thrissurcurry', 'Kerala', NULL, NULL, '23423423423', '42342323423', '232342344234232342323423', '52444234232342323423', '2019-03-05', '2019-03-10 00:31:28', NULL);
+(10, 'Adarsh', 'adarshcool97@gmail.com', 9400503664, 757332423, 'a3dcb4d229de6fde0db5686dee47145d', 'Jerry Road, Thrissurcurry', 'Lays', NULL, NULL, NULL, 'Jerry Road, Thrissurcurry', 'Kerala', NULL, NULL, '23423423423', '42342323423', '232342344234232342323423', '52444234232342323423', '2019-03-05', '2019-03-10 00:31:28', NULL),
+(12, 'Test Retailer', 'test@test.com', 8838564345, 8798564345, 'f925916e2754e5e03f75dd58a5733251', 'Delhi', NULL, NULL, NULL, NULL, 'Delhi							', NULL, NULL, NULL, '', '', '', '', '0000-00-00', '2019-03-01 00:06:33', NULL);
 
 --
 -- Indexes for dumped tables
@@ -632,7 +634,7 @@ ALTER TABLE `purchase`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
