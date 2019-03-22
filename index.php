@@ -26,7 +26,8 @@ if(isset($_GET['dir'])){
     route("addsubcategory","./pages/add-sub-category.php");
    route("adduom","./pages/add-unit.php");
     route("addsubuom","./pages/add-sub-unit.php");
-     route("addtax","./pages/add-tax-info.php");
+    route("addtax","./pages/add-tax-info.php");
+    route("addpayments","./pages/add-payments.php");
      // route("editcategory","./pages/edit-category.php");
     route("insertproducts","./pages/insert-products.php");
     // route("manageproducts","./pages/manage-products.php");

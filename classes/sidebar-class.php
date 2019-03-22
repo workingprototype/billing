@@ -78,10 +78,9 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
 
         $this->submenu("Record New Sale","sales");  //submenu2.1
         $this->submenu("List Sales Invoices","listsales");
+        $this->submenu("View Payments","addpayments");
         $this->menu("<i class=\"fa fa-users\"></i>Sales"); //Main Menu2
 
-        // $this->submenu("View Payment Dues","payments");
-        // $this->menu("<i class=\"fa fa-calculator\"></i>Accounts"); //Main Menu2
          $this->submenu("Today's Orders","todaysorders"); //submenu4.1
          $this->submenu("Pending Orders","pendingorders"); //submenu4.2
         $this->submenu("Delivered Orders","deliveredorders"); //submenu4.3
