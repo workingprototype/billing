@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 23, 2019 at 01:30 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.11
+-- Host: 127.0.0.1
+-- Generation Time: Mar 23, 2019 at 01:52 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -193,7 +193,7 @@ CREATE TABLE `paymentdue` (
 --
 
 INSERT INTO `paymentdue` (`id`, `customer`, `salesinvoice`, `dueamount`, `timestamp`) VALUES
-(1, '10', '65764', '50.5', '1552505135'),
+(1, '10', '65764', '0.49', '1552505135'),
 (2, '10', '23526', '350', '235252');
 
 -- --------------------------------------------------------
@@ -219,6 +219,7 @@ CREATE TABLE `products` (
   `shippingCharge` int(11) DEFAULT NULL,
   `productAvailability` varchar(255) DEFAULT NULL,
   `quantityleft` int(11) DEFAULT '0',
+  `rewardsapplicable` varchar(255) NOT NULL,
   `postingDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updationDate` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -227,13 +228,16 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `category`, `subCategory`, `uom`, `productName`, `productCompany`, `productPrice`, `hsnno`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `quantityleft`, `postingDate`, `updationDate`) VALUES
-(55, 16, 20, '', 'Hello Lights', 'Lights Infotech', 150, '235', 200, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '1.jpeg', '2.jpeg', '45.jpg', 10, 'In Stock', 0, '2019-02-28 23:49:43', NULL),
-(56, 16, 20, '', 'Wow Lights', 'Lights Infotech', 350, '', 400, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">This new light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '4.jpg', '5.jpg', '6.jpg', 60, 'In Stock', 10, '2019-02-28 23:50:29', NULL),
-(57, 17, 21, '', 'Bose Speakers', 'Bose Electronics', 49000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Bose Corporation is a privately held American corporation, based in Framingham, Massachusetts, that designs, develops and sells audio equipment. Founded in 1964 by Amar Bose, the company sells its products throughout the world.</span><br>', '234.jpg', 'SndLinkC2Bk-large.jpg', '3.jpg', 1500, 'In Stock', 35, '2019-02-28 23:51:17', NULL),
-(58, 17, 23, '', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 0, '2019-02-28 23:52:52', NULL),
-(59, 17, 23, '', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 0, '2019-02-28 23:54:20', NULL),
-(60, 18, 24, '', 'iPhone X', '34234', 234234, '23423423', 2342, '234234', 'city.jpg', 'city.jpg', 'city.jpg', 234, 'In Stock', 0, '2019-03-10 00:44:47', NULL);
+INSERT INTO `products` (`id`, `category`, `subCategory`, `uom`, `productName`, `productCompany`, `productPrice`, `hsnno`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `quantityleft`, `rewardsapplicable`, `postingDate`, `updationDate`) VALUES
+(55, 16, 20, '', 'Hello Lights', 'Lights Infotech', 150, '235', 200, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '1.jpeg', '2.jpeg', '45.jpg', 10, 'In Stock', 0, '', '2019-02-28 23:49:43', NULL),
+(56, 16, 20, '', 'Wow Lights', 'Lights Infotech', 350, '', 400, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">This new light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '4.jpg', '5.jpg', '6.jpg', 60, 'In Stock', 10, '', '2019-02-28 23:50:29', NULL),
+(57, 17, 21, '', 'Bose Speakers', 'Bose Electronics', 49000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Bose Corporation is a privately held American corporation, based in Framingham, Massachusetts, that designs, develops and sells audio equipment. Founded in 1964 by Amar Bose, the company sells its products throughout the world.</span><br>', '234.jpg', 'SndLinkC2Bk-large.jpg', '3.jpg', 1500, 'In Stock', 35, '', '2019-02-28 23:51:17', NULL),
+(58, 17, 23, '', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 0, '', '2019-02-28 23:52:52', NULL),
+(59, 17, 23, '', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 0, '', '2019-02-28 23:54:20', NULL),
+(60, 18, 24, '', 'iPhone X', '34234', 234234, '23423423', 2342, '234234', 'city.jpg', 'city.jpg', 'city.jpg', 234, 'In Stock', 0, '', '2019-03-10 00:44:47', NULL),
+(64, 17, 23, 'Cases', '3', '4', 324, '23423423', 234, '345', 'com.smart_id.png', 'image002.png', 'WXS92H3.jpg', 345, 'In Stock', 0, '\r\n', '2019-03-23 12:50:38', NULL),
+(65, 17, 23, 'Cases', '3', '4', 324, '23423423', 234, '345', 'com.smart_id.png', 'image002.png', 'WXS92H3.jpg', 345, 'In Stock', 0, '\r\n', '2019-03-23 12:51:22', NULL),
+(66, 17, 22, 'Cases', '34', '345sdf345', 435, '435', 345, '5435', 'WXS92H3.jpg', 'image002.png', 'image002.png', 345, 'In Stock', 0, '1\r\n', '2019-03-23 12:51:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -657,7 +661,7 @@ ALTER TABLE `paymentdue`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `purchase`

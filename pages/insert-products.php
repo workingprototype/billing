@@ -17,6 +17,7 @@ if(isset($_POST['submit']))
 	$productdescription=$_POST['productDescription'];
 	$productscharge=$_POST['productShippingcharge'];
 	$productavailability=$_POST['productAvailability'];
+	$rewardsapplicable=$_POST['rewardsapplicable'];
 	$productimage1=$_FILES["productimage1"]["name"];
 	$productimage2=$_FILES["productimage2"]["name"];
 	$productimage3=$_FILES["productimage3"]["name"];
@@ -29,7 +30,9 @@ $query=mysqli_query($con,"select max(id) as pid from products");
 	move_uploaded_file($_FILES["productimage1"]["tmp_name"],"./shopping/admin/productimages/$productid/".$_FILES["productimage1"]["name"]);
 	move_uploaded_file($_FILES["productimage2"]["tmp_name"],"./shopping/admin/productimages/$productid/".$_FILES["productimage2"]["name"]);
 	move_uploaded_file($_FILES["productimage3"]["tmp_name"],"./shopping/admin/productimages/$productid/".$_FILES["productimage3"]["name"]);
-$sql=mysqli_query($con,"insert into products(category,subCategory,uom,productName,productCompany,productPrice,hsnno,productDescription,shippingCharge,productAvailability,productImage1,productImage2,productImage3,productPriceBeforeDiscount) values('$category','$subcat','$uom','$productname','$productcompany','$productprice','$hsnno','$productdescription','$productscharge','$productavailability','$productimage1','$productimage2','$productimage3','$productpricebd')");
+$sql=mysqli_query($con,"insert into products(category,subCategory,uom,productName,productCompany,productPrice,hsnno,productDescription,shippingCharge,productAvailability,rewardsapplicable,
+productImage1,productImage2,productImage3,productPriceBeforeDiscount) values('$category','$subcat','$uom','$productname','$productcompany','$productprice','$hsnno','$productdescription','$productscharge','$productavailability','$rewardsapplicable
+','$productimage1','$productimage2','$productimage3','$productpricebd')");
 $_SESSION['msg']="Product Inserted Successfully !!";
 
 }
@@ -200,8 +203,13 @@ while($row=mysqli_fetch_array($query))
 </select>
 </div>
 </div>
-
-
+<div class="control-group">
+<label class="control-label" for="basicinput">Rewards Applicable?</label>
+<div class="controls">
+<input type="radio" name="rewardsapplicable" value="0" checked> No<br>
+<input type="radio" name="rewardsapplicable" value="1"> Yes<br>
+</div>
+</div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Image1</label>
