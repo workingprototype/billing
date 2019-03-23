@@ -327,10 +327,47 @@ elseif($request[1]=="duelist")
 {
     $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
     $id=$_POST['id'];
-    $sql="SELECT * FROM sales where customer=$id";
+    $sql="SELECT * FROM paymentdue where customer=$id";
     $result = $db->query($sql);
     while($row=$result->fetch_assoc()){
-      echo "<option value=\"".$rcustomer['id']."\">".$row['paymentdue']."</option>";
+      echo "<option value=\"".$row['id']."\">".$row['salesinvoice']."</option>";
     }
+}
+elseif($request[1]=="duelist2")
+{
+    $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+    $id=$_POST['id'];
+    $sql="SELECT * FROM paymentdue where customer=$id";
+    $result = $db->query($sql);
+    $tot=0;
+    $num=1;
+    echo "<h4>Due History</h4>
+    <table class='table'><tr><th>Sales Invoice Number</th><th>Due Amount</th></tr>";
+    while($row=$result->fetch_assoc()){
+      echo "<tr><td>".$num++."</td><td>".$row['salesinvoice']."</td><td>".$row['dueamount']."</td></tr>";
+      $tot += (float)$row['dueamount'];
+    }
+    echo "<table>";
+    echo "<br><p>Total Due : $tot</p><br>";
+}
+elseif($request[1]=="record_payment")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $id=$_POST['invoice'];
+  $sql="SELECT * FROM paymentdue where id=$id";
+  $result = $db->query($sql)->fetch_assoc();
+  $dueremaining=(float)$result['dueamount'] - (float)$_POST['amountpaying'];
+  $inv=$result['salesinvoice'];
+  if($dueremaining>= 0){
+    $sql="UPDATE paymentdue SET dueamount ='$dueremaining' WHERE id='$id'";
+
+    if ($db->query($sql) === TRUE) {
+       echo "Payment Updated Successfully";
+    } else {
+      echo "Error updating record: " . $db->error;
+    }
+  }else{
+    echo "Amount Entered is Greater than the Existig Due for the Sales Record with Invoice Number $inv";
+  }
 }
 ?>

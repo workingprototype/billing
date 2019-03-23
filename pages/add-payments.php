@@ -42,6 +42,19 @@ function duelist(a){
     xhttp.open("POST", "function/duelist ", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("id="+a);
+	duelist2(a);
+}
+function duelist2(a){
+	var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    	if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+			document.getElementById("dueshow").innerHTML=this.responseText;
+        }
+    };
+    xhttp.open("POST", "function/duelist2", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("id="+a);
 }
 </script>
 </head>
@@ -81,7 +94,7 @@ function duelist(a){
 									<br />
 
 
-			<form class="form-horizontal row-fluid" name="subcategory" method="post" >
+			<form class="form-horizontal row-fluid" action="./function/record_payment" name="subcategory" method="post" >
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Payments</label>
@@ -100,10 +113,17 @@ while($row=mysqli_fetch_array($query))
 
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Due Amount</label>
 <div class="controls">
 
-<select id='due'>
+<div id='dueshow'>
+</div>
+</div>
+
+</div><div class="control-group">
+<label class="control-label" for="basicinput">Invoice Number: </label>
+<div class="controls">
+
+<select name='invoice' id='due'>
 </select>
 </div>
 </div>
