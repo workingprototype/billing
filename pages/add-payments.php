@@ -105,17 +105,6 @@ while($row=mysqli_fetch_array($query))
 
 <select id='due'>
 </select>
-<select name="paymentdue"  id="paymentdue" class="span8 tip" required>
-	<option value="">Select Due</option>
-	<?php
-	 $userid=intval($_POST['customer']);
-	 $query=mysqli_query($con,"SELECT paymentdue FROM sales where paymentdue>0");
-	while($row=mysqli_fetch_array($query))
-	{?>
-
-	<option value="<?php echo $row['customer'];?>"><?php echo $row['paymentdue'];?></option>
-	<?php } ?>
-</select>
 </div>
 </div>
 
