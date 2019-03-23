@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 22, 2019 at 08:28 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Host: localhost
+-- Generation Time: Mar 23, 2019 at 01:30 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -177,6 +177,28 @@ INSERT INTO `ordertrackhistory` (`id`, `orderId`, `status`, `remark`, `postingDa
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `paymentdue`
+--
+
+CREATE TABLE `paymentdue` (
+  `id` int(11) NOT NULL,
+  `customer` varchar(100) NOT NULL,
+  `salesinvoice` varchar(100) NOT NULL,
+  `dueamount` varchar(100) NOT NULL,
+  `timestamp` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `paymentdue`
+--
+
+INSERT INTO `paymentdue` (`id`, `customer`, `salesinvoice`, `dueamount`, `timestamp`) VALUES
+(1, '10', '65764', '50.5', '1552505135'),
+(2, '10', '23526', '350', '235252');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -300,9 +322,9 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`id`, `product`, `hsn`, `utc`, `qty`, `mrp`, `baserate`, `amount`, `dis`, `gst`, `gstamount`, `total`, `finalrate`, `paymentdue`, `totalpaid`, `invoice`, `business`, `timestamp`, `remarks`, `customer`, `batch`) VALUES
-(1, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '500.00000', '99999.99999', '500.00000', '0.00000', 0, 134, 1552505135, '', 10, '134'),
-(2, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '700.00000', '99999.99999', '600.00000', '0.00000', 2147483647, 134, 1552505264, '', 11, '134'),
-(3, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '300.00000', '99999.99999', '0.00000', '0.00000', 2147483647, 134, 1552505313, '', 12, '134');
+(1, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '500.00000', '99999.99999', '500.00000', '0.00000', 65764, 134, 1552505135, '', 10, '134'),
+(2, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '700.00000', '99999.99999', '600.00000', '0.00000', 2147483647, 134, 1552505264, '', 10, '134'),
+(3, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '300.00000', '99999.99999', '0.00000', '0.00000', 7542752, 134, 1552505313, '', 12, '134');
 
 -- --------------------------------------------------------
 
@@ -525,6 +547,13 @@ ALTER TABLE `ordertrackhistory`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `paymentdue`
+--
+ALTER TABLE `paymentdue`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `salesinvoice` (`salesinvoice`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -617,6 +646,12 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `ordertrackhistory`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `paymentdue`
+--
+ALTER TABLE `paymentdue`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `products`
