@@ -30,6 +30,20 @@ include('./config/config.php');
 	<link type="text/css" href="./shopping/admin/css/theme.css" rel="stylesheet">
 	<link type="text/css" href="./shopping/admin/images/icons/css/font-awesome.css" rel="stylesheet">
 	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
+	<script>
+function duelist(a){
+	var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    	if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+			document.getElementById("due").innerHTML=this.responseText;
+        }
+    };
+    xhttp.open("POST", "function/duelist ", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("id="+a);
+}
+</script>
 </head>
 <body>
 
@@ -72,9 +86,9 @@ include('./config/config.php');
 <div class="control-group">
 <label class="control-label" for="basicinput">Payments</label>
 <div class="controls">
-<select name="category" class="span8 tip" required>
+<select  onchange="return duelist(this.value)" name="category" class="span8 tip" required>
 <option value="">Select Debtor</option>
-<?php $query=mysqli_query($con,"SELECT name FROM users INNER JOIN sales ON users.id = sales.customer where sales.paymentdue>0");
+<?php $query=mysqli_query($con,"SELECT * FROM users ");
 while($row=mysqli_fetch_array($query))
 {?>
 
@@ -88,6 +102,9 @@ while($row=mysqli_fetch_array($query))
 <div class="control-group">
 <label class="control-label" for="basicinput">Due Amount</label>
 <div class="controls">
+
+<select id='due'>
+</select>
 <select name="paymentdue"  id="paymentdue" class="span8 tip" required>
 	<option value="">Select Due</option>
 	<?php
