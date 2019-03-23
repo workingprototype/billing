@@ -77,6 +77,10 @@ class Purchase
       fy=fy/100;
       document.getElementById('cgsta'+a).value=(fb*fx);
       document.getElementById('sgsta'+a).value=(fb*fy);
+      
+      cess= document.getElementById('cess'+a).value;
+      ex=document.getElementById('totala'+a);
+      ex.value=(parseInt((fb*fx))+parseInt((fb*fy))+parseInt((cess))+fb);
     }
       function remove(no){
         document.getElementById(\"row_\"+no+\"\").outerHTML= '';
@@ -194,7 +198,7 @@ class Purchase
         <td><input id=\"sgst'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"cgsta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"sgsta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"cess'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"cess'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"totala'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"uomsp'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"margin'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
@@ -271,7 +275,7 @@ class Purchase
       <th>MRP</th>
       <th>Qty (cases)</th>
       <th>Qty(units)</th>
-      <th>UOM Base Rate(Case) </th>
+      <th>Base Rate(Case) </th>
       <th>Base Rate (UOM)  </th>
       <th>Disc % </th>
       <th>Disc Amount  </th>
