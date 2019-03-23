@@ -34,6 +34,8 @@ $sql=mysqli_query($con,"insert into products(category,subCategory,uom,productNam
 productImage1,productImage2,productImage3,productPriceBeforeDiscount) values('$category','$subcat','$uom','$productname','$productcompany','$productprice','$hsnno','$productdescription','$productscharge','$productavailability','$rewardsapplicable
 ','$productimage1','$productimage2','$productimage3','$productpricebd')");
 $_SESSION['msg']="Product Inserted Successfully !!";
+logify("New Product Added");
+
 
 }
 

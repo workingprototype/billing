@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 23, 2019 at 01:52 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Host: localhost
+-- Generation Time: Mar 23, 2019 at 05:01 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -126,6 +126,26 @@ INSERT INTO `category` (`id`, `categoryName`, `categoryDescription`, `creationDa
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` int(11) NOT NULL,
+  `timestamp` varchar(100) NOT NULL,
+  `data` text NOT NULL,
+  `type` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notifications`
+--
+
+INSERT INTO `notifications` (`id`, `timestamp`, `data`, `type`) VALUES
+(1, '1553356728', '[\"New Product Added\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko/20100101 Firefox/65.0\",\"127.0.0.1\"]', '2');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `orders`
 --
 
@@ -237,7 +257,8 @@ INSERT INTO `products` (`id`, `category`, `subCategory`, `uom`, `productName`, `
 (60, 18, 24, '', 'iPhone X', '34234', 234234, '23423423', 2342, '234234', 'city.jpg', 'city.jpg', 'city.jpg', 234, 'In Stock', 0, '', '2019-03-10 00:44:47', NULL),
 (64, 17, 23, 'Cases', '3', '4', 324, '23423423', 234, '345', 'com.smart_id.png', 'image002.png', 'WXS92H3.jpg', 345, 'In Stock', 0, '\r\n', '2019-03-23 12:50:38', NULL),
 (65, 17, 23, 'Cases', '3', '4', 324, '23423423', 234, '345', 'com.smart_id.png', 'image002.png', 'WXS92H3.jpg', 345, 'In Stock', 0, '\r\n', '2019-03-23 12:51:22', NULL),
-(66, 17, 22, 'Cases', '34', '345sdf345', 435, '435', 345, '5435', 'WXS92H3.jpg', 'image002.png', 'image002.png', 345, 'In Stock', 0, '1\r\n', '2019-03-23 12:51:48', NULL);
+(66, 17, 22, 'Cases', '34', '345sdf345', 435, '435', 345, '5435', 'WXS92H3.jpg', 'image002.png', 'image002.png', 345, 'In Stock', 0, '1\r\n', '2019-03-23 12:51:48', NULL),
+(71, 18, 24, 'Boxes', 'OnePlusX', 'OnePlus', 20000, '846636', 20000, 'One Plus X is the Best OnePlus Phone ever created<br>', 'Insanely Elegant.png', 'octocat.png', '', 200, 'In Stock', 0, '1\r\n', '2019-03-23 15:58:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -539,6 +560,12 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -640,6 +667,12 @@ ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
@@ -661,7 +694,7 @@ ALTER TABLE `paymentdue`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `purchase`

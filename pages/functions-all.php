@@ -118,6 +118,7 @@ elseif($request[1]=="purchase")
       echo $data;
     }
   }
+  logify("New Purchase Added");
 }
 elseif($request[1]=="sales")
 {
@@ -183,6 +184,7 @@ elseif($request[1]=="sales")
       echo $data;
     }
   }
+  logify("New Sales Added");
 }
 elseif($request[1]=="search")
 {
@@ -362,7 +364,8 @@ elseif($request[1]=="record_payment")
     $sql="UPDATE paymentdue SET dueamount ='$dueremaining' WHERE id='$id'";
 
     if ($db->query($sql) === TRUE) {
-       echo "Payment Updated Successfully";
+      echo "Payment Updated Successfully";
+      logify("Payment added for Invoice No : ".$inv);
     } else {
       echo "Error updating record: " . $db->error;
     }

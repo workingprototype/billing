@@ -1,6 +1,7 @@
 <?php
 require './config/app.config.php';
 require './config/mysql.config.php';
+require './classes/notifications.php';
 $end=0;
 function route($link,$location)
 {
