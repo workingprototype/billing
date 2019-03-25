@@ -373,4 +373,19 @@ elseif($request[1]=="record_payment")
     echo "Amount Entered is Greater than the Existig Due for the Sales Record with Invoice Number $inv";
   }
 }
+elseif($request[1]=="rewardsettings")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $data=json_decode($_POST['data']);
+  $dx='';
+  foreach ($data as $key => $value) {
+    $dx.="$value::";
+  }
+  $sql="UPDATE rewardsettings SET settings='$dx' WHERE id=1";
+  if($db->query($sql)== TRUE){
+    echo "Reward Settings Updated";
+    logify("Reward Settings Changed to : ".$dx);
+  }
+
+}
 ?>
