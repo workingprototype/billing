@@ -13,6 +13,7 @@ $page->var['footer']=$footer->echo();
 $page->var['content']="
 <script>
 function update(){
+  var data =[];
   data[1]=document.getElementById(\"aday\").value;
   data[2]=document.getElementById(\"aper\").value;
   data[3]=document.getElementById(\"bday\").value;
