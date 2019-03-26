@@ -1,5 +1,56 @@
 <?php
 include_once "./classes/database-class.php";
+function addrewards($invoice){
+  //select the sales with the invoice number $invoice;
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $sql = "SELECT * FROM sales WHERE invoice='$invoice' ";
+  $result = $db->query($sql);
+  $row = $result->fetch_assoc();
+  //get the customer id from the sales
+  $customer=$row['customer'];
+  //get the rewardeligible amount from the sales
+  $rewardeligible=$row['rewardeligible'];
+  //get the timestamp of the sales
+  $timestampsales= $row['timestamp'];
+  //get the current timestamp and calculate the day gap between payment and sales
+  $time= time()-(int)$timestampsales;
+  $daygap= $time/86400;
+  //select the reward settings and find the reward percentage for the days found out
+  $sql = "SELECT * FROM rewardsettings WHERE id=1";
+  $result = $db->query($sql);
+  $row2 = $result->fetch_assoc();
+  $row2=$row2['settings'];
+  $row2=explode('::',$row2);
+  //calculate the percentage of reward eligible amount to be added to rewards to the customer
+  if($row2[1]>$daygap){
+    $percent = $row2[2];
+  }elseif($row[3]>$daygap){
+    $percent = $row2[4];
+  }elseif($row[5]>$daygap){
+    $percent = $row2[6];
+  }elseif($row[7]>$daygap){
+    $percent = $row2[8];
+  }elseif($row[9]>$daygap){
+    $percent = $row2[0];
+  }
+  $rewardamount=(float)$rewardeligible*(float)$percent/100;
+  //select the reward cell of the customer
+  $sql = "SELECT * FROM users WHERE id='$customer'";
+  $result = $db->query($sql);
+  $row3 = $result->fetch_assoc();
+  $reward=$row3['rewards'];
+  //add the reward amount into the existing reward amount
+  $reward += $rewardamount;
+  //update the reward amount of the customer
+  $sql="UPDATE customer SET rewards ='$reward' WHERE id='$customer'";
+
+  if ($db->query($sql) === TRUE) {
+    logify("Reward added for Invoice No : ".$inv);
+    return true;
+  } else {
+    echo "Error updating record: " . $db->error;
+  }
+}
 if($request[1]=="breg")
 {
     include_once "./classes/business-class.php";
@@ -361,6 +412,9 @@ elseif($request[1]=="record_payment")
   $dueremaining=(float)$result['dueamount'] - (float)$_POST['amountpaying'];
   $inv=$result['salesinvoice'];
   if($dueremaining>= 0){
+    if($dueremaining==0){
+      addrewards($id);
+    }
     $sql="UPDATE paymentdue SET dueamount ='$dueremaining' WHERE id='$id'";
 
     if ($db->query($sql) === TRUE) {
