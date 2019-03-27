@@ -35,7 +35,7 @@ if(isset($_GET['dir'])){
     // route("manageproducts","./pages/manage-products.php");
    route("pendingorders","./pages/pending-orders.php");
    route("deliveredorders","./pages/delivered-orders.php");
-//above not done yet
+
     route("function","./pages/functions-all.php");
     route("breg","./pages/b-registration-page.php");
     route("sales","./pages/sales-register-page.php");
@@ -45,7 +45,8 @@ if(isset($_GET['dir'])){
     route("listpurchase","./pages/list-purchase-page.php");
     route("purchase","./pages/purchase-register-page.php");
     route("products","./pages/products.page.php");
-    route("purchase_report","./pages/purchase_report.php");
+    route("salesreport","./pages/sales_report.php");
+    route("purchasereport","./pages/purchase_report.php");
     route("products-list","./pages/productsl.page.php");
     route("retailerreg","./pages/retailer-reg.php");
     route("supplierreg","./pages/supplier-reg.php");
