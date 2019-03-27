@@ -51,6 +51,27 @@ function addrewards($invoice){
     echo "Error updating record: " . $db->error;
   }
 }
+
+
+function updaterewards($customer,$usedreward){
+  //select the reward for the customer
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $sql = "SELECT * FROM users WHERE id='$customer' ";
+  $result = $db->query($sql);
+  $row = $result->fetch_assoc();
+  $reward=$row['rewards'];
+  //subtract the used rewards from the rewards
+  $reward=$reward-$usedreward; 
+  //update the remaining rewards into the usertable for the customer 
+  $sql="UPDATE customer SET rewards ='$reward' WHERE id='$customer'";
+
+  if ($db->query($sql) === TRUE) {
+    logify("Reward updated for Invoice No : ".$inv);
+    return true;
+  } else {
+    echo "Error updating record: " . $db->error;
+  }
+}
 if($request[1]=="breg")
 {
     include_once "./classes/business-class.php";
