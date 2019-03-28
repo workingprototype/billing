@@ -51,6 +51,7 @@ class Sales
           }
         });
         document.getElementById('tot').value = xox;
+        discountx();
       }
 
       function remove(no){
@@ -162,11 +163,17 @@ class Sales
           if (this.readyState == 4 && this.status == 200) {
             rewardx=this.responseText;
             document.getElementById(\"rewardsx\").value=rewardx;
+            discountx(rewardx);
           }
         };
         xhttp.open(\"POST\", \"function/customer \", true);
         xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
         xhttp.send('data='+id);
+      }
+      function discountx(){
+        val=document.getElementById('rewardsx').value;
+        dex=document.getElementById('tot').value; 
+        document.getElementById('final').value=dex-val;
       }
       function isearch(term){
         var xhttp = new XMLHttpRequest();
@@ -226,9 +233,10 @@ class Sales
       <th>Remove</th>
       </tr><tr id='tail'></tr>
       </table></div>
-      <h4>Total : <input id='tot' class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
-      <h4>Discount : <input id='rewardsx' class='form-control'  type='text'  style='width: 300px' ></h4>
+      <h4>Discount :<input id='rewardsx' onkeyup=\"discountx()\" class='form-control'  type='text'  style='width: 300px' ></h4>
       
+      <h4>Total : <input id='tot' class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
+      <h4>Final Amount : <input id='final' class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
       <label>Bill Type:</label><br>
       <select style='width:300px' id='bill' class='form-control'><option>Cash</option><option>Credit</option></select>
       <br>

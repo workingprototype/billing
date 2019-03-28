@@ -1,6 +1,7 @@
 <?php
 include_once "./classes/database-class.php";
 function addrewards($invoice){
+  echo $invoice;
   //select the sales with the invoice number $invoice;
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $sql = "SELECT * FROM sales WHERE invoice='$invoice' ";
@@ -9,18 +10,22 @@ function addrewards($invoice){
   //get the customer id from the sales
   $customer=$row['customer'];
   //get the rewardeligible amount from the sales
-  $rewardeligible=$row['rewardeligible'];
+  $rewardeligible=$row['finalrate'];
   //get the timestamp of the sales
   $timestampsales= $row['timestamp'];
   //get the current timestamp and calculate the day gap between payment and sales
-  $time= time()-(int)$timestampsales;
+  $time= time();
+  var_dump($row);
+  echo "Time: $time";
+  $time-=$timestampsales;
+  echo "Timestampsales: $timestampsales Time: $time";
   $daygap= $time/86400;
   //select the reward settings and find the reward percentage for the days found out
   $sql = "SELECT * FROM rewardsettings WHERE id=1";
   $result = $db->query($sql);
   $row2 = $result->fetch_assoc();
   $row2=$row2['settings'];
-  $row2=explode('::',$row2);
+  $row2=explode(':',$row2);
   //calculate the percentage of reward eligible amount to be added to rewards to the customer
   if($row2[1]>$daygap){
     $percent = $row2[2];
@@ -32,7 +37,10 @@ function addrewards($invoice){
     $percent = $row2[8];
   }elseif($row[9]>$daygap){
     $percent = $row2[0];
+  }else{
+    $percent=100;
   }
+  echo $daygap."s".$timestampsales;
   $rewardamount=(float)$rewardeligible*(float)$percent/100;
   //select the reward cell of the customer
   $sql = "SELECT * FROM users WHERE id='$customer'";
@@ -42,10 +50,10 @@ function addrewards($invoice){
   //add the reward amount into the existing reward amount
   $reward += $rewardamount;
   //update the reward amount of the customer
-  $sql="UPDATE customer SET rewards ='$reward' WHERE id='$customer'";
+  $sql="UPDATE users SET rewards ='$reward' WHERE id='$customer'";
 
   if ($db->query($sql) === TRUE) {
-    logify("Reward added for Invoice No : ".$inv);
+    logify("Reward added for Invoice No : ".$invoice);
     return true;
   } else {
     echo "Error updating record: " . $db->error;
@@ -199,9 +207,11 @@ elseif($request[1]=="sales")
   $timestamp=time();
   $customer = $_POST['customer'];
   $invoice = (time()*100)+34;
+  $due=0;
   foreach ($data as $k => $v) {
     $v[0]=explode("_",$v[0])[1];
-    $val=[$v[1],$v[0],$v[3],$v[4],$v[6],$v[5],$v[8],$v[9],$v[10],$v[11],$v[12],$v[13],$v[14],$invoice,$v[2],$timestamp,$customer];
+    $due+=$v[14];
+    $val=[$v[1],$v[0],$v[3],$v[4],$v[6],$v[5],$v[8],$v[9],$v[10],$v[11],$v[12],$v[13],$v[14],$invoice,$v[2],$timestamp,$customer,$v[14]];
     $table="sales";
     $col= [
       'batch',
@@ -220,7 +230,8 @@ elseif($request[1]=="sales")
       'invoice' 	,
       'business' 	,
       'timestamp' 	,
-      'customer'];
+      'customer',
+      'paymentdue'];
     $sql="INSERT INTO ".$table." (";
     foreach ($col as $key => $value) {
       $sql .=$value;
@@ -257,6 +268,12 @@ elseif($request[1]=="sales")
     }
   }
   logify("New Sales Added");
+  $sq="INSERT INTO paymentdue (customer, salesinvoice,dueamount,timestamp)
+   VALUES('$customer','$invoice','$due','$timestamp')";
+   if($db->query($sq)){
+     echo("Payment Due Added");
+
+   }
 }
 elseif($request[1]=="search")
 {
@@ -404,7 +421,9 @@ elseif($request[1]=="duelist")
     $sql="SELECT * FROM paymentdue where customer=$id";
     $result = $db->query($sql);
     while($row=$result->fetch_assoc()){
+      if ($row['dueamount']>0){
       echo "<option value=\"".$row['id']."\">".$row['salesinvoice']."</option>";
+      }
     }
 }
 elseif($request[1]=="duelist2")
@@ -416,10 +435,12 @@ elseif($request[1]=="duelist2")
     $tot=0;
     $num=1;
     echo "<h4>Due History</h4>
-    <table class='table'><tr><th>Sales Invoice Number</th><th>Due Amount</th></tr>";
+    <table class='table'><tr><th>Sl No.</th><th>Sales Invoice Number</th><th>Due Amount</th></tr>";
     while($row=$result->fetch_assoc()){
-      echo "<tr><td>".$num++."</td><td>".$row['salesinvoice']."</td><td>".$row['dueamount']."</td></tr>";
-      $tot += (float)$row['dueamount'];
+      if($row['dueamount']>0){
+        echo "<tr><td>".$num++."</td><td>".$row['salesinvoice']."</td><td>".$row['dueamount']."</td></tr>";
+        $tot += (float)$row['dueamount'];
+      }
     }
     echo "<table>";
     echo "<br><p>Total Due : $tot</p><br>";
@@ -431,10 +452,10 @@ elseif($request[1]=="record_payment")
   $sql="SELECT * FROM paymentdue where id=$id";
   $result = $db->query($sql)->fetch_assoc();
   $dueremaining=(float)$result['dueamount'] - (float)$_POST['amountpaying'];
-  $inv=$result['salesinvoice'];
+  $inv=$result['salesinvoice']; 
   if($dueremaining>= 0){
     if($dueremaining==0){
-      addrewards($id);
+      addrewards($inv);
     }
     $sql="UPDATE paymentdue SET dueamount ='$dueremaining' WHERE id='$id'";
 
@@ -454,7 +475,7 @@ elseif($request[1]=="rewardsettings")
   $data=json_decode($_POST['data']);
   $dx='';
   foreach ($data as $key => $value) {
-    $dx.="$value::";
+    $dx.="$value:";
   }
   $sql="UPDATE rewardsettings SET settings='$dx' WHERE id=1";
   if($db->query($sql)== TRUE){
