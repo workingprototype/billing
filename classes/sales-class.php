@@ -155,6 +155,19 @@ class Sales
         boxes++;
         i++
       }
+      var rewardx=0;
+      function customer(id){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            rewardx=this.responseText;
+            document.getElementById(\"rewardsx\").value=rewardx;
+          }
+        };
+        xhttp.open(\"POST\", \"function/customer \", true);
+        xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
+        xhttp.send('data='+id);
+      }
       function isearch(term){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -181,7 +194,7 @@ class Sales
     echo "0 results"; // No retailer registered.
   }
   
-    $this->r .="<div class='row'><div class='col-md-4'><label><br/> Customer : </label><select id='customer' class='form-control'>".$users."</select></div></div>";
+    $this->r .="<div class='row'><div class='col-md-4'><label><br/> Customer : </label><select onchange='customer(this.value)' id='customer' class='form-control'><option>.....</option>".$users."</select></div></div>";
     $this->r .="
     <div class='content' stylr='overflow-x:scroll'>
       <br>
@@ -214,6 +227,7 @@ class Sales
       </tr><tr id='tail'></tr>
       </table></div>
       <h4>Total : <input id='tot' class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
+      <h4>Discount : <input id='rewardsx' class='form-control'  type='text'  style='width: 300px' ></h4>
       
       <label>Bill Type:</label><br>
       <select style='width:300px' id='bill' class='form-control'><option>Cash</option><option>Credit</option></select>

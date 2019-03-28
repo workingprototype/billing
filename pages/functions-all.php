@@ -462,5 +462,13 @@ elseif($request[1]=="rewardsettings")
     logify("Reward Settings Changed to : ".$dx);
   }
 
+}elseif($request[1]=="customer")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $id=$_POST['data'];
+  $sql="SELECT * FROM users  WHERE id='$id'";
+  $customer = $db->query($sql)->fetch_assoc();
+  echo $customer['rewards'];
+
 }
 ?>
