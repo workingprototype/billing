@@ -63,8 +63,11 @@ include('config/config.php');
       </tr>
   </thead>
 <tbody>
-    <?php $query=mysqli_query($con,"select business.account_name as businessname, users.name as customername,products.productName as pname,hsn,utc,qty,mrp,baserate,amount,dis,gst,gstamount,total,finalrate,invoice,batch from sales INNER JOIN business ON sales.business = business.id INNER JOIN users ON sales.customer = users.id INNER JOIN products ON sales.product = products.id ;");
-    $cnt=1; 
+    <?php $query=mysqli_query($con,"select business.account_name as businessname, users.name as customername
+    ,products.productName as pname,hsn,utc,qty,mrp,baserate,amount,dis,gst,gstamount,total,finalrate,invoice
+    ,batch from sales INNER JOIN business ON sales.business = business.id INNER JOIN users ON
+    sales.customer = users.id INNER JOIN products ON sales.product = products.id ;");
+    $cnt=1;
     while($row=mysqli_fetch_array($query))
     {
     ?>
