@@ -16,7 +16,7 @@ if(isset($_GET['dir'])){
   if($request[0]!=null){
     route("setup","./config/setup.php");
     route("sql","./config/sql.php");
-    route("dashboard","./pages/b-registration-page.php"); // // TODO: Restore this later to dashboard page
+    route("dashboard","./pages/dashboard-page.php"); // // TODO: Restore this later to dashboard page
     route("changepassword","./pages/change-password.php");
     // route("users","./pages/users.page.php");
     route("shopping","./shopping");
