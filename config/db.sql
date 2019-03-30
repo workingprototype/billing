@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 26, 2019 at 04:23 PM
+-- Generation Time: Mar 30, 2019 at 04:27 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -142,7 +142,45 @@ CREATE TABLE `notifications` (
 
 INSERT INTO `notifications` (`id`, `timestamp`, `data`, `type`) VALUES
 (1, '1553356728', '[\"New Product Added\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko/20100101 Firefox/65.0\",\"127.0.0.1\"]', '2'),
-(2, '1553613135', '[\"Reward Settings Changed to : 1::20::5::40::4::50::3::60::2::90::\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2');
+(2, '1553613135', '[\"Reward Settings Changed to : 1::20::5::40::4::50::3::60::2::90::\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(3, '1553615000', '[\"New Sales Added\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(4, '1553615064', '[\"New Sales Added\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(5, '1553714444', '[\"New Sales Added\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(6, '1553779502', '[\"New Purchase Added\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(7, '1553811289', '[\"Reward Settings Changed to : 1:21:5:32:4:43:3:54:2:80:\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(8, '1553811378', '[\"Payment added for Invoice No : 65764\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(9, '1553811588', '[\"New Sales Added\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(10, '1553811890', '[\"New Sales Added\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(11, '1553812539', '[\"New Sales Added\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(12, '1553812959', '[\"New Sales Added\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(13, '1553813043', '[\"Payment added for Invoice No : 155381295834\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(14, '1553813367', '[\"Payment added for Invoice No : 155381295834\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(15, '1553813440', '[\"Reward added for Invoice No : \",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(16, '1553813440', '[\"Payment added for Invoice No : 155381295834\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(17, '1553813643', '[\"Reward added for Invoice No : 3\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(18, '1553813643', '[\"Payment added for Invoice No : 155381295834\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(19, '1553813870', '[\"Reward added for Invoice No : 3\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(20, '1553813870', '[\"Payment added for Invoice No : 155381295834\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(21, '1553813931', '[\"Reward added for Invoice No : 3\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(22, '1553813932', '[\"Payment added for Invoice No : 155381295834\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(23, '1553814076', '[\"Payment added for Invoice No : 155381295834\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(24, '1553814081', '[\"Reward added for Invoice No : 3\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(25, '1553814081', '[\"Payment added for Invoice No : 155381295834\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(26, '1553814279', '[\"New Sales Added\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(27, '1553814428', '[\"Reward added for Invoice No : 4\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(28, '1553814428', '[\"Payment added for Invoice No : 155381427934\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(29, '1553814779', '[\"Reward added for Invoice No : 4\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(30, '1553814780', '[\"Payment added for Invoice No : 155381427934\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(31, '1553814943', '[\"Reward added for Invoice No : 4\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(32, '1553814943', '[\"Payment added for Invoice No : 155381427934\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(33, '1553815083', '[\"Reward added for Invoice No : 155381427934\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(34, '1553815084', '[\"Payment added for Invoice No : 155381427934\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(35, '1553815168', '[\"Reward added for Invoice No : 155381427934\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(36, '1553815169', '[\"Payment added for Invoice No : 155381427934\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(37, '1553815215', '[\"Reward added for Invoice No : 155381427934\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(38, '1553815215', '[\"Payment added for Invoice No : 155381427934\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(39, '1553815525', '[\"Reward added for Invoice No : 155381427934\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(40, '1553815525', '[\"Payment added for Invoice No : 155381427934\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2');
 
 -- --------------------------------------------------------
 
@@ -214,8 +252,8 @@ CREATE TABLE `paymentdue` (
 --
 
 INSERT INTO `paymentdue` (`id`, `customer`, `salesinvoice`, `dueamount`, `timestamp`) VALUES
-(1, '10', '65764', '0.49', '1552505135'),
-(2, '10', '23526', '350', '235252');
+(3, '12', '155381295834', '0', '1553812958'),
+(4, '12', '155381427934', '0', '1553814279');
 
 -- --------------------------------------------------------
 
@@ -250,12 +288,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category`, `subCategory`, `uom`, `productName`, `productCompany`, `productPrice`, `hsnno`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `quantityleft`, `rewardsapplicable`, `postingDate`, `updationDate`) VALUES
-(55, 16, 20, '', 'Hello Lights', 'Lights Infotech', 150, '235', 200, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '1.jpeg', '2.jpeg', '45.jpg', 10, 'In Stock', 0, '', '2019-02-28 23:49:43', NULL),
-(56, 16, 20, '', 'Wow Lights', 'Lights Infotech', 350, '', 400, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">This new light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '4.jpg', '5.jpg', '6.jpg', 60, 'In Stock', 10, '', '2019-02-28 23:50:29', NULL),
+(55, 16, 20, '', 'Hello Lights', 'Lights Infotech', 150, '235', 200, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '1.jpeg', '2.jpeg', '45.jpg', 10, 'In Stock', -1, '', '2019-02-28 23:49:43', NULL),
+(56, 16, 20, '', 'Wow Lights', 'Lights Infotech', 350, '', 400, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">This new light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '4.jpg', '5.jpg', '6.jpg', 60, 'In Stock', -58, '', '2019-02-28 23:50:29', NULL),
 (57, 17, 21, '', 'Bose Speakers', 'Bose Electronics', 49000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Bose Corporation is a privately held American corporation, based in Framingham, Massachusetts, that designs, develops and sells audio equipment. Founded in 1964 by Amar Bose, the company sells its products throughout the world.</span><br>', '234.jpg', 'SndLinkC2Bk-large.jpg', '3.jpg', 1500, 'In Stock', 35, '', '2019-02-28 23:51:17', NULL),
-(58, 17, 23, '', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 0, '', '2019-02-28 23:52:52', NULL),
-(59, 17, 23, '', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 0, '', '2019-02-28 23:54:20', NULL),
-(60, 18, 24, '', 'iPhone X', '34234', 234234, '23423423', 2342, '234234', 'city.jpg', 'city.jpg', 'city.jpg', 234, 'In Stock', 0, '', '2019-03-10 00:44:47', NULL),
+(58, 17, 23, '', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 23, '', '2019-02-28 23:52:52', NULL),
+(59, 17, 23, '', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 654, '', '2019-02-28 23:54:20', NULL),
+(60, 18, 24, '', 'iPhone X', '34234', 234234, '23423423', 2342, '234234', 'city.jpg', 'city.jpg', 'city.jpg', 234, 'In Stock', -1, '', '2019-03-10 00:44:47', NULL),
 (64, 17, 23, 'Cases', '3', '4', 324, '23423423', 234, '345', 'com.smart_id.png', 'image002.png', 'WXS92H3.jpg', 345, 'In Stock', 0, '\r\n', '2019-03-23 12:50:38', NULL),
 (65, 17, 23, 'Cases', '3', '4', 324, '23423423', 234, '345', 'com.smart_id.png', 'image002.png', 'WXS92H3.jpg', 345, 'In Stock', 0, '\r\n', '2019-03-23 12:51:22', NULL),
 (66, 17, 22, 'Cases', '34', '345sdf345', 435, '435', 345, '5435', 'WXS92H3.jpg', 'image002.png', 'image002.png', 345, 'In Stock', 0, '1\r\n', '2019-03-23 12:51:48', NULL),
@@ -311,7 +349,9 @@ INSERT INTO `purchase` (`id`, `business`, `supplier`, `invoicedate`, `invoicenum
 (1, 'Business A', '10', '2019-03-05', '875', '234A224', '234235', 'Truck', '2019-03-20', '234', '58', 586, 58765, 86, 865, 865, 765, 876, 586, 58, 658, 658, 65, 865, 8756, 8658, 8765, 58, 65, 0, 0, 0, 0),
 (2, 'Business A', '11', '2019-03-01', '151351353', '356262', '23525', 'Train', '2019-03-04', '34', '56', 455, 10, 100, 41, 124, 12, 12, 234, 23, 23, 23, 23, 23, 2325, 24, 3, 2323, 23, 0, 0, 0, 1552238353),
 (3, 'Business A', '11', '2019-03-01', '151351353', '356262', '23525', 'Train', '2019-03-04', '34', '56', 455, 10, 100, 41, 124, 12, 12, 234, 23, 23, 23, 23, 23, 2325, 24, 3, 2323, 23, 0, 0, 0, 1552238531),
-(4, 'Business A', '11', '2019-03-01', '151351353', '356262', '23525', 'Train', '2019-03-04', '34', '56', 455, 10, 100, 41, 124, 12, 12, 234, 23, 23, 23, 23, 23, 2325, 24, 3, 2323, 23, 0, 0, 0, 1552239094);
+(4, 'Business A', '11', '2019-03-01', '151351353', '356262', '23525', 'Train', '2019-03-04', '34', '56', 455, 10, 100, 41, 124, 12, 12, 234, 23, 23, 23, 23, 23, 2325, 24, 3, 2323, 23, 0, 0, 0, 1552239094),
+(5, '\'1\'', '10', '2019-03-28', '0876234235', 'KA24B2344', '23523525', 'Truck', '2019-03-28', '234', '58', 45000, 24, 24, 865, 36, 2, 415, 20345, 2, 2, 407, 407, 2, 21159, 234, 43, 2342, 43, 0, 0, 0, 1553779501),
+(6, '\'1\'', '10', '2019-03-28', '0876234235', 'KA24B2344', '23523525', 'Truck', '2019-03-28', '433', '59', 45000, 654, 654, 65400, 100, 2, 855432, 41916168, 2, 2, 838323, 838323, 2, 43592816, 234, 43, 2342, 43, 0, 0, 0, 1553779501);
 
 -- --------------------------------------------------------
 
@@ -330,7 +370,7 @@ CREATE TABLE `rewardsettings` (
 --
 
 INSERT INTO `rewardsettings` (`id`, `settings`, `timestamp`) VALUES
-(1, '1::20::5::40::4::50::3::60::2::90::', '');
+(1, '1:21:5:32:4:43:3:54:2:80:', '');
 
 -- --------------------------------------------------------
 
@@ -354,9 +394,9 @@ CREATE TABLE `sales` (
   `finalrate` decimal(10,5) NOT NULL,
   `paymentdue` decimal(10,5) NOT NULL,
   `totalpaid` decimal(10,5) NOT NULL,
-  `invoice` int(11) NOT NULL,
+  `invoice` varchar(100) NOT NULL,
   `business` int(11) NOT NULL,
-  `timestamp` int(11) NOT NULL,
+  `timestamp` varchar(100) NOT NULL,
   `remarks` text NOT NULL,
   `customer` int(11) NOT NULL,
   `batch` varchar(100) NOT NULL
@@ -367,9 +407,13 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`id`, `product`, `hsn`, `utc`, `qty`, `mrp`, `baserate`, `amount`, `dis`, `gst`, `gstamount`, `total`, `finalrate`, `paymentdue`, `totalpaid`, `invoice`, `business`, `timestamp`, `remarks`, `customer`, `batch`) VALUES
-(1, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '500.00000', '99999.99999', '500.00000', '0.00000', 65764, 134, 1552505135, '', 10, '134'),
-(2, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '700.00000', '99999.99999', '600.00000', '0.00000', 2147483647, 134, 1552505264, '', 10, '134'),
-(3, 1, '35', '35', 5, '6.00000', '65.00000', '65.00000', '865.00000', '65.00000', '856.00000', '300.00000', '99999.99999', '0.00000', '0.00000', 7542752, 134, 1552505313, '', 12, '134');
+(8, 55, '235', '35', 1, '2234.00000', '1234.00000', '1234.00000', '0.00000', '0.00000', '0.00000', '1234.00000', '1234.00000', '1234.00000', '0.00000', '2147483647', 1, '1553811889', '', 12, ''),
+(9, 60, '23423423', '35', 1, '2234.00000', '1234.00000', '1234.00000', '0.00000', '0.00000', '0.00000', '1234.00000', '1234.00000', '1234.00000', '0.00000', '2147483647', 1, '1553811889', '', 12, ''),
+(10, 0, '', '', 0, '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '2147483647', 0, '1553812538', '', 12, ''),
+(11, 58, '', '35', 1, '123.00000', '123.00000', '123.00000', '0.00000', '0.00000', '0.00000', '123.00000', '123.00000', '123.00000', '0.00000', '2147483647', 1, '1553812538', '', 12, '234'),
+(12, 0, '', '', 0, '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '2147483647', 0, '1553812958', '', 12, ''),
+(13, 56, '', '35', 1, '234.00000', '234.00000', '234.00000', '0.00000', '0.00000', '0.00000', '234.00000', '234.00000', '234.00000', '0.00000', '2147483647', 1, '1553812958', '', 12, '34'),
+(14, 56, '', '35', 1, '123.00000', '123.00000', '123.00000', '0.00000', '0.00000', '0.00000', '123.00000', '123.00000', '123.00000', '0.00000', '155381427934', 1, '1553814279', '', 12, '34');
 
 -- --------------------------------------------------------
 
@@ -549,8 +593,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `district`, `rewards`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `gstin`, `fssai`, `pan`, `aadharno`, `birthdate`, `regDate`, `updationDate`) VALUES
-(10, 'Adarsh', 'adarshcool97@gmail.com', 9400503664, 757332423, 'a3dcb4d229de6fde0db5686dee47145d', 'Jerry Road, Thrissurcurry', 'Lays', '0', NULL, NULL, NULL, 'Jerry Road, Thrissurcurry', 'Kerala', NULL, NULL, '23423423423', '42342323423', '232342344234232342323423', '52444234232342323423', '2019-03-05', '2019-03-10 00:31:28', NULL),
-(12, 'Test Retailer', 'test@test.com', 8838564345, 8798564345, 'f925916e2754e5e03f75dd58a5733251', 'Delhi', NULL, '0', NULL, NULL, NULL, 'Delhi							', NULL, NULL, NULL, '', '', '', '', '0000-00-00', '2019-03-01 00:06:33', NULL);
+(10, 'Adarsh', 'adarshcool97@gmail.com', 9400503664, 757332423, 'a3dcb4d229de6fde0db5686dee47145d', 'Jerry Road, Thrissurcurry', 'Lays', '400', NULL, NULL, NULL, 'Jerry Road, Thrissurcurry', 'Kerala', NULL, NULL, '23423423423', '42342323423', '232342344234232342323423', '52444234232342323423', '2019-03-05', '2019-03-10 00:31:28', NULL),
+(12, 'Test Retailer', 'test@test.com', 8838564345, 8798564345, 'f925916e2754e5e03f75dd58a5733251', 'Delhi', NULL, '6006.15', NULL, NULL, NULL, 'Delhi							', NULL, NULL, NULL, '', '', '', '', '0000-00-00', '2019-03-01 00:06:33', NULL);
 
 --
 -- Indexes for dumped tables
@@ -691,7 +735,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -709,7 +753,7 @@ ALTER TABLE `ordertrackhistory`
 -- AUTO_INCREMENT for table `paymentdue`
 --
 ALTER TABLE `paymentdue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -721,13 +765,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
