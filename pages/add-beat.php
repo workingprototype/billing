@@ -1,8 +1,12 @@
 
 <?php
 session_start();
-include('./config/config.php');
-{
+include('config/config.php');
+if(strlen($_SESSION['alogin'])==0)
+	{
+header('location:login');
+}
+else{  
 date_default_timezone_set('Asia/Kolkata');// change according timezone
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 

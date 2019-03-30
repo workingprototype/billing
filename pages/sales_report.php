@@ -1,5 +1,11 @@
 <?php
+session_start();
 include('config/config.php');
+if(strlen($_SESSION['alogin'])==0)
+	{
+header('location:login');
+}
+else{
  ?>
 <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
 
@@ -165,3 +171,4 @@ include('config/config.php');
   });
   TableManageButtons.init();
 </script>
+<?php } ?>

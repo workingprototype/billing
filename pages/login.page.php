@@ -37,9 +37,8 @@ exit();
 $page->var['content']="
 <div align='center' style='position:absolute; top:50%; left:50%; background:#ccc; padding: 30px; border-radius:5px; width: 350px; height:180px; margin-left:-175px; margin-top:-90px'>
 	<form class='form-vertical' method='post'>
-    <label>Username: </label>
+		<span style='color:red;' >".htmlentities($_SESSION['errmsg']).htmlentities($_SESSION['errmsg']="")." </span>
     <input type='text' id='inputEmail' name='username' placeholder='Username'><br><br>
-    <label>Password: </label>
     <input type='password' id='inputPassword' name='password' placeholder='Password'><br><br>
     <button type='submit' name='submit' class='btn btn-primary'>Login</button>
 		</form>

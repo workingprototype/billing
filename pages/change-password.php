@@ -2,11 +2,11 @@
 <?php
 session_start();
 include('config/config.php');
-// if(strlen($_SESSION['alogin'])==0)
-// 	{
-// header('location:index.php');
-// }
-// else{  //// TODO: remove comments later after the login page is over
+if(strlen($_SESSION['alogin'])==0)
+	{
+header('location:login');
+}
+else{  
 date_default_timezone_set('Asia/Kolkata');// change according timezone
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 
@@ -138,4 +138,4 @@ return true;
 	<script src="./shopping/admin/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="./shopping/admin/scripts/flot/jquery.flot.js" type="text/javascript"></script>
 </body>
-<?php// } ?>
+<?php } ?>

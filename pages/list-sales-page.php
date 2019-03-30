@@ -1,8 +1,12 @@
 
 <?php
 session_start();
-include('./config/config.php');
-{
+include('config/config.php');
+if(strlen($_SESSION['alogin'])==0)
+	{
+header('location:login');
+}
+else{  
 if(isset($_GET['del']))
 		  {
 		          mysqli_query($con,"delete from sales where id = '".$_GET['id']."'");

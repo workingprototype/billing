@@ -16,7 +16,7 @@ if(isset($_GET['dir'])){
   if($request[0]!=null){
     route("setup","./config/setup.php");
     route("sql","./config/sql.php");
-    route("dashboard","./pages/dashboard-page.php");
+    route("dashboard","./pages/b-registration-page.php"); // // TODO: Restore this later to dashboard page
     route("changepassword","./pages/change-password.php");
     // route("users","./pages/users.page.php");
     route("shopping","./shopping");
@@ -52,6 +52,7 @@ if(isset($_GET['dir'])){
     route("retailerreg","./pages/retailer-reg.php");
     route("supplierreg","./pages/supplier-reg.php");
     route("login","./pages/login.page.php");
+    route("logout","./pages/logout.page.php");
     if($end==0){
       include("./pages/404-page.php");
     }
