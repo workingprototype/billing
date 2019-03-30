@@ -90,7 +90,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         // $this->submenu("Goto Store Admin","shopping/admin"); //submenu4.3
         $this->menu("<i class=\"fa fa-shopping-cart\"> </i> Shopping");  //Main Menu4
 
-        $this->submenu("Sales Report","salesreport"); 
+        $this->submenu("Sales Report","salesreport");
         $this->submenu("Purchase Report","purchasereport"); //submenu4.3
         $this->menu("<i class=\"fa fa-line-chart\"> </i> Reports");  //Main Menu4
 
@@ -101,7 +101,8 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->submenu("Beat Entry","beat");  //submenu2.1
         $this->submenu("Tax Settings","addtax");  //submenu2.1
         $this->menu("<i class=\"fa fa-users\"></i>Business Settings"); //Main Menu2
-
+        $this->submenu("Change Password","changepassword");
+        $this->menu("<i class=\"fa fa-key\"></i>Account Settings");
 
     }
 }

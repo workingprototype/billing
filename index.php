@@ -17,6 +17,7 @@ if(isset($_GET['dir'])){
     route("setup","./config/setup.php");
     route("sql","./config/sql.php");
     route("dashboard","./pages/dashboard-page.php");
+    route("changepassword","./pages/change-password.php");
     // route("users","./pages/users.page.php");
     route("shopping","./shopping");
     route("shopping/admin","./shopping/admin/index.php");
