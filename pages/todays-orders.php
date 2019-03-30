@@ -2,6 +2,11 @@
 <?php
 session_start();
 include('config/config.php');
+if(strlen($_SESSION['alogin'])==0)
+	{
+header('location:login');
+}
+else{
 date_default_timezone_set('Asia/Kolkata');
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 
@@ -129,3 +134,4 @@ while($row=mysqli_fetch_array($query))
 		} );
 	</script>
 </body>
+<?php } ?>

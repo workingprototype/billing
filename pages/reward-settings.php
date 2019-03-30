@@ -1,4 +1,11 @@
 <?php
+session_start();
+include('config/config.php');
+if(strlen($_SESSION['alogin'])==0)
+	{
+header('location:login');
+}
+else{
 require_once "./classes/page-class.php";
 require_once "./classes/sidebar-class.php";
 require_once "./classes/top-navigation-class.php";
@@ -47,5 +54,5 @@ function update(){
 ";
 $page->var['title']="Reward Settings";
 $page->render();
-
+}
 ?>

@@ -1,5 +1,11 @@
 <?php
-include('./config/config.php');
+session_start();
+include('config/config.php');
+if(strlen($_SESSION['alogin'])==0)
+	{
+header('location:login');
+}
+else{
 ?>
  <div class="row tile_count">
       <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
@@ -61,3 +67,4 @@ include('./config/config.php');
       </div>
 
     </div>
+<?php } ?>

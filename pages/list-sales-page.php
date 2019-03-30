@@ -1,8 +1,12 @@
 
 <?php
 session_start();
-include('./config/config.php');
-{
+include('config/config.php');
+if(strlen($_SESSION['alogin'])==0)
+	{
+header('location:login');
+}
+else{  
 if(isset($_GET['del']))
 		  {
 		          mysqli_query($con,"delete from sales where id = '".$_GET['id']."'");
@@ -57,16 +61,16 @@ if(isset($_GET['del']))
 									</thead>
 									<tbody>
 
-<?php $query=mysqli_query($con,"select business,customer,product,hsn,utc,qty,mrp,baserate,amount,dis,gst,gstamount,total,finalrate,invoice,batch from sales;");
+	<?php $query=mysqli_query($con,"select business.account_name as businessname, users.name as customername,products.productName as pname,hsn,utc,qty,mrp,baserate,amount,dis,gst,gstamount,total,finalrate,invoice,batch from sales INNER JOIN business ON sales.business = business.id INNER JOIN users ON sales.customer = users.id INNER JOIN products ON sales.product = products.id ;");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
 ?>
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($row['business']);?></td>
-											<td><?php echo htmlentities($row['customer']);?></td>
-											<td> <?php echo htmlentities($row['product']);?></td>
+											<td><?php echo htmlentities($row['businessname']);?></td>
+											<td><?php echo htmlentities($row['customername']);?></td>
+											<td><?php echo htmlentities($row['pname']);?></td>
 											<td><?php echo htmlentities($row['hsn']);?></td>
 											<td> <?php echo htmlentities($row['utc']);?></td>
 											<td><?php echo htmlentities($row['qty']);?></td>
