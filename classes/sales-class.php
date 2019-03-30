@@ -93,10 +93,11 @@ class Sales
             console.log(this.responseText);
           }
         };
+        var rewardsz = document.getElementById('rewardsx').value;
         var dat = JSON.stringify(data);
         xhttp.open(\"POST\", \"function/sales \", true);
         xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
-        xhttp.send('customer='+customer+'&bill='+billtype+' &data='+dat);
+        xhttp.send('customer='+customer+'&bill='+billtype+' &data='+dat +'&discount='+rewardsz );
 
       }
       var disp =['<tr><th>Batch Code</th>\
