@@ -4,15 +4,50 @@ if($request[1]=='sales'){
     $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
     $sql = "SELECT * FROM sales WHERE invoice='$invoice'";
     $result = $db->query($sql);
+    $rows='';
+    $sno=1;
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
         $customer = $row['customer'];
+        $productname=$row['product'];
+        $sqz="SELECT * FROM products WHERE id='$productname'";
+        $res=$db->query($sqz);
+        $product=$res->fetch_assoc();
+        $productname=$product['productName'];
+        $hsn=$product['hsnno'];
+        $utc=$row['utc'];
+        $qty=$row['qty'];
+        $mrp=$row['mrp'];
+        $base=$row['baserate'];
+        $am=$row['amount'];
+        $gst=$row['gst'];
+        $gsta=$row['gstamount'];
+        $tot=$row['total'];
+        $fr=$row['finalrate'];
+        $invoice_date = date("d-M-Y", $row['timestamp']);
+        $rows.="<tr>
+        <td>".$sno++."</td>
+        <td>$productname</td>
+        <td>$hsn</td>
+        <td>$utc</td>
+        <td>$qty</td>
+        <td>$mrp</td>
+        <td>$base</td>
+        <td>$am</td>
+        <td>$gst</td>
+        <td>$gsta</td>
+        <td>$tot</td>
+        <td>$fr</td>
+        </tr>";
       }
       $sql = "SELECT * FROM users WHERE id='$customer'";
       $res = $db->query($sql);
       if ($res->num_rows > 0) {
         while($row = $res->fetch_assoc()) {
             $customer_name=$row['name'];
+            $customer_contact=$row['contactno'];
+            $customer_address=$row['billingAddress'];
+            $state=$row['billingState'];
         } 
       } 
       $table= "<table class='table table-bordered'>
@@ -66,6 +101,7 @@ if($request[1]=='sales'){
       <th>Total</th>
       <th>Final Rate</th>
       </tr>
+      $rows
       </table>
       ";
     } else {
