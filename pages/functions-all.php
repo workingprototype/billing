@@ -208,6 +208,7 @@ elseif($request[1]=="sales")
   $customer = $_POST['customer'];
   $invoice = (time()*100)+34;
   $due=0;
+  $discount=$_POST['discount'];
   foreach ($data as $k => $v) {
     $v[0]=explode("_",$v[0])[1];
     $due+=$v[14];
@@ -261,7 +262,7 @@ elseif($request[1]=="sales")
       } else {
         echo "0 results";
       }
-      echo "TRUE";
+      $datax[1]=$invoice;
     } else {
       echo "Error: " . $sql . "<br>" . $db->error;
       echo $data;
@@ -271,8 +272,18 @@ elseif($request[1]=="sales")
   $sq="INSERT INTO paymentdue (customer, salesinvoice,dueamount,timestamp)
    VALUES('$customer','$invoice','$due','$timestamp')";
    if($db->query($sq)){
-     echo("Payment Due Added");
+     $datax[0]="Payment Due Added";
+     $sel="SELECT * FROM users WHERE id='$customer'";
+     $resel=$db->query($sel);
+     $row=$resel->fetch_assoc();
+     $reward=$row['rewards']-$discount;
+     $upsql="UPDATE users SET rewards='$reward'WHERE id='$customer'";
+     if($db->query($upsql)){
+     echo json_encode($datax);
 
+     }else{
+       echo "ERROR";
+     }
    }
 }
 elseif($request[1]=="search")
