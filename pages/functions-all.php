@@ -211,7 +211,7 @@ elseif($request[1]=="sales")
   foreach ($data as $k => $v) {
     $v[0]=explode("_",$v[0])[1];
     $due+=$v[14];
-    $val=[$v[1],$v[0],$v[3],$v[4],$v[6],$v[5],$v[8],$v[9],$v[10],$v[11],$v[12],$v[13],$v[14],$invoice,$v[2],$timestamp,$customer,$v[14]];
+  $val=[$v[1],$v[0],$v[3],$v[4],$v[6],$v[5],$v[8],$v[9],$v[10],$v[11],$v[12],$v[13],$v[14],$invoice,$v[2],$timestamp,$customer,$v[14]];
     $table="sales";
     $col= [
       'batch',
@@ -317,7 +317,8 @@ elseif($request[1]=="searchi")
         $bat =$ro['batch'];
         }
       }
-      echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"".$row['hsnno']."\",\"".$batchcode."\",\"<option>355</option>\",\"".$row['id']."\")' class='searchitem'> ".$row['productName']." </div>";
+      $gst=0;
+      echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"".$row['hsnno']."\",\"".$batchcode."\",\"".$gst."\",\"".$row['id']."\")' class='searchitem'> ".$row['productName']." </div>";
     }
 } else {
     echo "0 results";
@@ -491,5 +492,20 @@ elseif($request[1]=="rewardsettings")
   $customer = $db->query($sql)->fetch_assoc();
   echo $customer['rewards'];
 
+}elseif($request[1]=="batchch")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $id=$_POST['id'];
+  $sql="SELECT * FROM purchase  WHERE product='$id'";
+  $result = $db->query($sql);
+  $output[0]=0;
+  $output[1]=0;
+  while($row=$result->fetch_assoc()){
+    if($row['batch']==$_POST['batch']){
+      $output[0]=$row['baserateuom'];
+      $output[1]=$row['qtycase'];
+    }
+  }
+  echo json_encode($output);
 }
 ?>

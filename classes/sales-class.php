@@ -47,7 +47,7 @@ class Sales
         puts.forEach(function (item,index)
         {
           if(item!='lol'){
-            xox+=Number(document.getElementById('finalrate'+item).value);
+            xox+=Number(document.getElementById('total'+item).value);
           }
         });
         document.getElementById('tot').value = xox;
@@ -58,6 +58,33 @@ class Sales
         document.getElementById(\"row_\"+no+\"\").outerHTML= '';
         disp[no+1]='';
         puts[no]='lol';
+        total();
+      }
+      function batchch(a,b){
+        batch=document.getElementById('batch'+a).value;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            data=JSON.parse(this.responseText);
+            document.getElementById('base'+a).value=data[0];
+            document.getElementById('utc'+a).value=data[1];
+          }
+        };
+        xhttp.open(\"POST\", \"function/batchch \", true);
+        xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
+        xhttp.send('batch='+batch+'&id='+b); 
+      }
+      function qtych(a){
+        qtyz=document.getElementById('qty'+a).value;
+        basez=document.getElementById('base'+a).value;
+        document.getElementById('amount'+a).value=qtyz*basez;
+        discz=document.getElementById('disc'+a).value;
+        discaz=((discz/100)*qtyz*basez);
+        gstz=document.getElementById('gst'+a).value;
+        document.getElementById('gsta'+a).value=(gstz/100)*qtyz*basez;
+        document.getElementById('total'+a).value=(((gstz/100)+1)*qtyz*basez)-discaz;
+        document.getElementById('finalrate'+a).value=((((gstz/100)+1)*qtyz*basez)-discaz)/qtyz;
         total();
       }
       function submitty()
@@ -130,20 +157,20 @@ class Sales
       function clicked(a,b,c,d,e,f){
         r=s++;
         puts[boxes]=r+'_'+f;
-        disp[i] = '<tr id=\'row_'+boxes+'\'><td><select id=\"batch'+r+'_'+f+'\" style=\"width:80px\">'+d+'</select></td>\
+        disp[i] = '<tr id=\'row_'+boxes+'\'><td><select onchange=\"batchch(\''+r+'_'+f+'\','+f+')\" id=\"batch'+r+'_'+f+'\" style=\"width:80px\"><option></option>'+d+'</select></td>\
         <td><select id=\"firm'+r+'_'+f+'\" style=\"width:80px\">".$supps."</select></td>\
         <td>'+a+'</td>\
         <td><input disabled=\'true\' id=\"hsn'+r+'_'+f+'\" style=\"width:80px\" value=\"'+c+'\"></td>\
-        <td><input id=\"utc'+r+'_'+f+'\" style=\"width:80px\" value=\"35\"></td>\
-        <td><input id=\"mrp'+r+'_'+f+'\" ></td>\
-        <td><input id=\"qty'+r+'_'+f+'\" style=\"width:150px\"  ></td>\
-        <td><input id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input onkeyup=\"utc()\" id=\"utc'+r+'_'+f+'\" style=\"width:80px\"></td>\
+        <td><input id=\"mrp'+r+'_'+f+'\" value=\"'+b+'\" ></td>\
+        <td><input onkeyup=\"qtych(\''+r+'_'+f+'\')\" id=\"qty'+r+'_'+f+'\" style=\"width:150px\"  ></td>\
+        <td><input onkeyup=\"basech(\''+r+'_'+f+'\')\" id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"amount'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"disc'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"gst'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"gsta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"total'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"finalrate'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\'total()\' placeholder=\'\'></td>\
+        <td><input onkeyup=\"discountch(\''+r+'_'+f+'\')\" id=\"disc'+r+'_'+f+'\" value=\'0\' style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input onkeyup=\"gstch(\''+r+'_'+f+'\')\" value=\"'+e+'\" id=\"gst'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input onkeyup=\"qtych(\''+r+'_'+f+'\')\" id=\"gsta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"total'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\'total()\' placeholder=\'\'></td>\
+        <td><input id=\"finalrate'+r+'_'+f+'\" style=\"width:150px\"  placeholder=\'\'></td>\
         <td><button onclick=\'remove('+boxes+')\' class=\'btn btn-danger\'>Remove</button></td>\
         </tr><tr id=\'tail\'></tr>';
         var dis='';
