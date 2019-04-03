@@ -132,7 +132,7 @@ elseif($request[1]=="purchase")
     $v[17],
     $v[18],
     $v[19],
-    0,
+    $v[20],
     0,
     0,
     $timestamp];
@@ -522,10 +522,10 @@ elseif($request[1]=="rewardsettings")
 elseif($request[1]=="salesreportget")
 {
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
-  $to=$_POST['to'];
-  $from=$_POST['from'];
+  $to= strtotime($_POST['to']);
+  $from=strtotime($_POST['from']);
   $keys=$_POST['keywords'];
-  $sql="SELECT * FROM sales GROUP BY invoice LIMIT 50";
+  $sql="SELECT * FROM sales GROUP BY invoice  LIMIT 50";
   $result = $db->query($sql);
   $i=1;
   while($row=$result->fetch_assoc()){
@@ -534,7 +534,27 @@ elseif($request[1]=="salesreportget")
     $sq="SELECT * FROM users WHERE id='$id'";
     $res=$db->query($sq)->fetch_assoc();
     $customer = $res['name'];
-    echo "<tr><td style='width:10px;'>".$i++."</td><td style='width:40px;'>$date</td><td >".$row['invoice']."</td><td style='width:10px;'>".$customer."</td><td style='width:10px;'>".$row['total']."</td><td style='width:10px;'>".$row['gst']."</td><td style='width:10px;' >View</td></tr>";
+    $customerno = $res['contactno'];
+    echo "<tr><td style='width:10px;'>".$i++."</td><td style='width:40px;'>$date</td><td >".$row['invoice']."</td><td style='width:10px;'>".$customer."</td><td style='width:10px;'>".$customerno."</td><td style='width:10px;'>".$row['total']."</td><td style='width:10px;'>".$row['gst']."</td><td style='width:10px;' ><a href='../invoice/sales/".$row['invoice']."'>View</a></td></tr>";
+  }
+}
+elseif($request[1]=="purchasereportget")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $to= strtotime($_POST['to']);
+  $from=strtotime($_POST['from']);
+  $keys=$_POST['keywords'];
+  $sql="SELECT * FROM purchase GROUP BY timestamp  LIMIT 50";
+  $result = $db->query($sql);
+  $i=1;
+  while($row=$result->fetch_assoc()){
+    $date = date("d-m-Y",$row['timestamp']);
+    $id=$row['supplier'];
+    $sq="SELECT * FROM supplier WHERE id='$id'";
+    $res=$db->query($sq)->fetch_assoc();
+    $supplier = $res['name'];
+    $suppliercon = $res['contactno'];
+    echo "<tr><td style='width:10px;'>".$i++."</td><td style='width:40px;'>$date</td><td >".$row['invoicenumber']."</td><td style='width:10px;'>".$supplier."</td><td style='width:10px;'>".$suppliercon."</td><td style='width:10px;'>".$row['totalwhole']."</td><td style='width:10px;'>".$row['sgst']."</td><td style='width:10px;'>".$row['cgst']."</td><td style='width:10px;' ><a href='../invoice/sales/".$row['id']."'>View</a></td></tr>";
   }
 }
 ?>

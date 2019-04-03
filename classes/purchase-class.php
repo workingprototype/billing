@@ -137,6 +137,7 @@ class Purchase
             x[7]=document.getElementById('margin'+item).value;
             x[18]=document.getElementById('dispp'+item).value;
             x[19]=document.getElementById('dispd'+item).value;
+            x[20]=document.getElementById('tot').value;
             data[index]=x;
           }
         });

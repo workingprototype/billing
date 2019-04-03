@@ -11,7 +11,8 @@
         $r="<label>Filter Keywords </label><input id='keywords' class='form-control' style='width:450px' ><br>";
         $r.="<strong>Date From: </strong> <input id='datefr' type='date' style='height:20px'> ";
         $r.="<strong>Date To: </strong> <input id='dateto' type='date' style='height:20px' >";
-        $r.=" <button onclick=\"fetchreport()\" class='btn btn-primary' style='width:70px;'>Filter</button><br><br>";
+        $r.=" <button onclick=\"fetchreport()\" class='btn btn-primary' style='width:70px;'>Filter</button>";
+        $r.=" <button onclick=\"fetchreport()\" class='btn btn-danger' style='width:70px;'>Print</button><br><br>";
         //$r.="<div class='form-group'><label>Filter 1: </label><input class='form-control' style='width:300px'></div>";
         return $r;
     }function fetchreport($ths,$req){
@@ -36,14 +37,18 @@
         return $r;
     }
     if($request[1]=='sales'){
-        $th=["Sl.No.","Date","Invoice Number","Customer","Total Amount","GST","View/Print",];
+        $th=["Sl.No.","Date","Invoice Number","Customer","Customer Contact","Total Amount","GST","View/Print",];
         $ths=tablehead($th);
         $title="Sales Report";
         $table= "<table id='tablebody' class='table table-bordered'>$ths</table>";
         $content=fetchreport($ths,"salesreportget").filtermake("salesreportget").$table;
     }
     if($request[1]=='purchase'){
+        $th=["Sl.No.","Date","Invoice Number","Supplier","Supplier Contact","Total Amount","SGST","CGST","View/Print",];
+        $ths=tablehead($th);
         $title="Purchase Report";
+        $table= "<table id='tablebody' class='table table-bordered'>$ths</table>";
+        $content=fetchreport($ths,"purchasereportget").filtermake("salesreportget").$table;
     }
     require_once "./classes/page-class.php";
     require_once "./classes/sidebar-class.php";
