@@ -26,6 +26,7 @@ if(isset($_GET['dir'])){
    route("todaysorders","./pages/todays-orders.php");
    route("rewardsettings","./pages/reward-settings.php");
    route("invoice","./pages/invoices.php");
+   route("reports","./pages/report.php");
    route("addcategory","./pages/add-category.php");
     route("addsubcategory","./pages/add-sub-category.php");
    route("adduom","./pages/add-unit.php");

@@ -519,4 +519,22 @@ elseif($request[1]=="rewardsettings")
   }
   echo json_encode($output);
 }
+elseif($request[1]=="salesreportget")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $to=$_POST['to'];
+  $from=$_POST['from'];
+  $keys=$_POST['keywords'];
+  $sql="SELECT * FROM sales GROUP BY invoice LIMIT 50";
+  $result = $db->query($sql);
+  $i=1;
+  while($row=$result->fetch_assoc()){
+    $date = date("d-m-Y",$row['timestamp']);
+    $id=$row['customer'];
+    $sq="SELECT * FROM users WHERE id='$id'";
+    $res=$db->query($sq)->fetch_assoc();
+    $customer = $res['name'];
+    echo "<tr><td style='width:10px;'>".$i++."</td><td style='width:40px;'>$date</td><td >".$row['invoice']."</td><td style='width:10px;'>".$customer."</td><td style='width:10px;'>".$row['total']."</td><td style='width:10px;'>".$row['gst']."</td><td style='width:10px;' >View</td></tr>";
+  }
+}
 ?>
