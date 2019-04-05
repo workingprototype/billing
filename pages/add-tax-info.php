@@ -14,7 +14,8 @@ $cgst=$_POST['cgst'];
 $sgst=$_POST['sgst'];
 $igst=$_POST['igst'];
 $cess=$_POST['cess'];
-$sql=mysqli_query($con,"insert into taxinfo(taxname,cgst,sgst,igst,cess) values('$taxname','$cgst','$sgst','$igst','$cess')");
+$totalgst=$_POST['totalgst'];
+$sql=mysqli_query($con,"insert into taxinfo(taxname,cgst,sgst,igst,cess,totalgst) values('$taxname','$cgst','$sgst','$igst','$cess','$totalgst')");
 $_SESSION['msg']="Tax Group Added!";
 
 }
@@ -31,7 +32,7 @@ if(isset($_GET['del']))
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin| Beat</title>
+	<title>Admin| Tax Group</title>
 	<link type="text/css" href="./shopping/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link type="text/css" href="./shopping/admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link type="text/css" href="./shopping/admin/css/theme.css" rel="stylesheet">
@@ -73,22 +74,24 @@ if(isset($_GET['del']))
 
 									<br />
 
-			<form class="form-horizontal row-fluid" name="uom" method="post" >
+			<form class="form-horizontal row-fluid" name="taxinfo" method="post" >
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Add Tax Group</label>
 <div class="controls">
-<input type="text" placeholder="Add Tax Group Name"  name="taxname" class="span8 tip" required>
-<input type="text" placeholder="CGST (%)"  name="cgst" class="span8 tip" required>
-<input type="text" placeholder="SGST (%)"  name="sgst" class="span8 tip" required>
-<input type="text" placeholder="IGST (%)"  name="igst" class="span8 tip" required>
-<input type="text" placeholder="CESS (%)"  name="cess" class="span8 tip" required>
+<input type="text" placeholder=" e.g: 14 % Special Tax"  name="taxname" class="span8 tip" required><br><br>
+<div id="the-parent" class="input-prepend input-append">
+<input type="text" onblur="findTotal()" placeholder="CGST"  name="cgst" class="span8 tip" value="0"  required><span class="add-on">%</span><br><br>
+<input type="text" onblur="findTotal()" placeholder="SGST"  name="sgst" class="span8 tip"  value="0"  required> <span class="add-on">%</span>	<br><br>
+<input type="text" onblur="findTotal()" placeholder="IGST"  name="igst" class="span8 tip"  value="0"  required> <span class="add-on">%</span>	<br><br>
+<input type="text" onblur="findTotal()" placeholder="CESS"  name="cess" class="span8 tip"  value="0"  required> <span class="add-on">%</span>	<br><br>
+<input type="text" id="total" placeholder="Total GST" name="totalgst" class="span8 tip" required value="0" readonly> <span class="add-on">%</span>
 </div>
 </div>
-
+</div>
 	<div class="control-group">
 											<div class="controls">
-												<button type="submit" name="submit" class="btn"style="border-radius: 3px;color: #fff;
+												<button type="submit" name="submit" class="btn" style="border-radius: 3px;color: #fff;
     background-color: #5cb85c;
     border-color: #4cae4c;">Add</button>
 												  <button onclick="location.href = './sales';"> Return to Billing </button>
@@ -98,45 +101,64 @@ if(isset($_GET['del']))
 							</div>
 						</div>
 
+						<script type="text/javascript">
+					window.findTotal = function() {
+						    var inputs = document.querySelectorAll('[name="cgst"], [name="sgst"], [name="igst"], [name="cess"]'),
+						        result = document.getElementById('total'),
+						        sum = 0;
 
-	<!-- <div class="module">
+						    for(var i=0; i<inputs.length; i++) {
+						        var ip = inputs[i];
+
+						        if (ip.name && ip.name.indexOf("total") < 0) {
+						            sum += parseInt(ip.value) || 0;
+						        }
+
+						    }
+
+						    result.value = sum;
+						}
+						    </script>
+ <div class="module">
 							<div class="module-head">
-								<h3>Manage Categories</h3>
+								<h3>Manage Tax Groups</h3>
 							</div>
 							<div class="module-body table">
 								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>Category</th>
-											<th>Description</th>
-											<th>Creation date</th>
-											<th>Last Updated</th>
-											<th>Action [not available now]</th>
+											<th>Tax Name</th>
+											<th>CGST (%)</th>
+											<th>SGST (%)</th>
+											<th>IGST (%)</th>
+											<th>CESS (%)</th>
+											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>
 
-<?php $query=mysqli_query($con,"select * from uom");
+<?php $query=mysqli_query($con,"select * from taxinfo");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
 ?>
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($row['categoryName']);?></td>
-											<td><?php echo htmlentities($row['categoryDescription']);?></td>
-											<td> <?php echo htmlentities($row['creationDate']);?></td>
-											<td><?php echo htmlentities($row['updationDate']);?></td>
+											<td><?php echo htmlentities($row['taxname']);?></td>
+											<td><?php echo htmlentities($row['cgst']);?></td>
+											<td> <?php echo htmlentities($row['sgst']);?></td>
+											<td><?php echo htmlentities($row['igst']);?></td>
+											<td><?php echo htmlentities($row['cess']);?></td>
 											<td>
-											<a href="edit-category.php?id=<?php echo $row['id']?>" ><i class="icon-edit"></i></a>
-											<a href="addcategory?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>
+											<a href="./shopping/admin/edit-tax-info.php?id=<?php echo $row['id']?>" ><i class="icon-edit"></i></a>
+											<a href="./shopping/admin/delete-tax.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>
 										</tr>
 										<?php $cnt=$cnt+1; } ?>
 
 								</table>
 							</div>
-						</div> -->
+						</div>
 
 
 
