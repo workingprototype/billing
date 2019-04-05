@@ -2,11 +2,6 @@
 <?php
 session_start();
 include('include/config.php');
-if(strlen($_SESSION['alogin'])==0)
-	{
-header('location:index.php');
-}
-else{
 date_default_timezone_set('Asia/Kolkata');// change according timezone
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 
@@ -16,13 +11,10 @@ if(isset($_POST['submit']))
   $taxname=$_POST['taxname'];
   $cgst=$_POST['cgst'];
   $sgst=$_POST['sgst'];
-  $igst=$_POST['igst'];
-  $cess=$_POST['cess'];
   $totalgst=$_POST['totalgst'];
 	$id=intval($_GET['id']);
 $sql=mysqli_query($con,"update taxinfo set taxname='$taxname',cgst='$cgst',
-sgst='$sgst',igst='$igst',cess='$cess',
-totalgst='$totalgst' where id='$id'");
+sgst='$sgst',totalgst='$totalgst' where id='$id'");
 $_SESSION['msg']=" Tax Updated !!";
 echo "<meta http-equiv=\"refresh\" content=\"1;url=/billing/addtax\"/>";
 }
@@ -91,8 +83,6 @@ while($row=mysqli_fetch_array($query))
 <div id="the-parent" class="input-prepend input-append">
 <input type="text" onblur="findTotal()" placeholder="CGST"  name="cgst" class="span8 tip" value="<?php echo  htmlentities($row['cgst']);?>"  required><span class="add-on">%</span><br><br>
 <input type="text" onblur="findTotal()" placeholder="SGST"  name="sgst" class="span8 tip"  value="<?php echo  htmlentities($row['sgst']);?>"  required> <span class="add-on">%</span>	<br><br>
-<input type="text" onblur="findTotal()" placeholder="IGST"  name="igst" class="span8 tip"  value="<?php echo  htmlentities($row['igst']);?>"  required> <span class="add-on">%</span>	<br><br>
-<input type="text" onblur="findTotal()" placeholder="CESS"  name="cess" class="span8 tip"  value="<?php echo  htmlentities($row['cess']);?>"  required> <span class="add-on">%</span>	<br><br>
 <input type="text" id="total" placeholder="Total GST" name="totalgst" class="span8 tip" required value="<?php echo  htmlentities($row['totalgst']);?>" readonly> <span class="add-on">%</span>
 </div>
 </div>
@@ -111,7 +101,7 @@ border-color: #4cae4c;">Update</button>
 
       <script type="text/javascript">
     window.findTotal = function() {
-          var inputs = document.querySelectorAll('[name="cgst"], [name="sgst"], [name="igst"], [name="cess"]'),
+          var inputs = document.querySelectorAll('[name="cgst"], [name="sgst"]'),
               result = document.getElementById('total'),
               sum = 0;
 
@@ -162,4 +152,3 @@ border-color: #4cae4c;">Update</button>
 		} );
 	</script>
 </body>
-<?php } ?>
