@@ -12,10 +12,8 @@ if(isset($_POST['submit']))
 $taxname=$_POST['taxname'];
 $cgst=$_POST['cgst'];
 $sgst=$_POST['sgst'];
-$igst=$_POST['igst'];
-$cess=$_POST['cess'];
 $totalgst=$_POST['totalgst'];
-$sql=mysqli_query($con,"insert into taxinfo(taxname,cgst,sgst,igst,cess,totalgst) values('$taxname','$cgst','$sgst','$igst','$cess','$totalgst')");
+$sql=mysqli_query($con,"insert into taxinfo(taxname,cgst,sgst,totalgst) values('$taxname','$cgst','$sgst','$totalgst')");
 $_SESSION['msg']="Tax Group Added!";
 
 }
@@ -83,8 +81,6 @@ if(isset($_GET['del']))
 <div id="the-parent" class="input-prepend input-append">
 <input type="text" onblur="findTotal()" placeholder="CGST"  name="cgst" class="span8 tip" value="0"  required><span class="add-on">%</span><br><br>
 <input type="text" onblur="findTotal()" placeholder="SGST"  name="sgst" class="span8 tip"  value="0"  required> <span class="add-on">%</span>	<br><br>
-<input type="text" onblur="findTotal()" placeholder="IGST"  name="igst" class="span8 tip"  value="0"  required> <span class="add-on">%</span>	<br><br>
-<input type="text" onblur="findTotal()" placeholder="CESS"  name="cess" class="span8 tip"  value="0"  required> <span class="add-on">%</span>	<br><br>
 <input type="text" id="total" placeholder="Total GST" name="totalgst" class="span8 tip" required value="0" readonly> <span class="add-on">%</span>
 </div>
 </div>
@@ -103,7 +99,7 @@ if(isset($_GET['del']))
 
 						<script type="text/javascript">
 					window.findTotal = function() {
-						    var inputs = document.querySelectorAll('[name="cgst"], [name="sgst"], [name="igst"], [name="cess"]'),
+						    var inputs = document.querySelectorAll('[name="cgst"], [name="sgst"]'),
 						        result = document.getElementById('total'),
 						        sum = 0;
 
@@ -131,8 +127,6 @@ if(isset($_GET['del']))
 											<th>Tax Name</th>
 											<th>CGST (%)</th>
 											<th>SGST (%)</th>
-											<th>IGST (%)</th>
-											<th>CESS (%)</th>
 											<th>Action</th>
 										</tr>
 									</thead>
@@ -148,8 +142,6 @@ while($row=mysqli_fetch_array($query))
 											<td><?php echo htmlentities($row['taxname']);?></td>
 											<td><?php echo htmlentities($row['cgst']);?></td>
 											<td> <?php echo htmlentities($row['sgst']);?></td>
-											<td><?php echo htmlentities($row['igst']);?></td>
-											<td><?php echo htmlentities($row['cess']);?></td>
 											<td>
 											<a href="./shopping/admin/edit-tax-info.php?id=<?php echo $row['id']?>" ><i class="icon-edit"></i></a>
 											<a href="./shopping/admin/delete-tax.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>

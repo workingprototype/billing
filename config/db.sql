@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2019 at 05:55 PM
+-- Generation Time: Apr 05, 2019 at 11:01 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -548,8 +548,6 @@ CREATE TABLE `taxinfo` (
   `taxname` varchar(50) NOT NULL,
   `cgst` varchar(50) NOT NULL,
   `sgst` varchar(50) NOT NULL,
-  `igst` varchar(50) NOT NULL,
-  `cess` varchar(50) NOT NULL,
   `totalgst` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -557,11 +555,9 @@ CREATE TABLE `taxinfo` (
 -- Dumping data for table `taxinfo`
 --
 
-INSERT INTO `taxinfo` (`id`, `taxname`, `cgst`, `sgst`, `igst`, `cess`, `totalgst`) VALUES
-(35, '22% TAX', '8', '3', '8', '3', '22'),
-(36, '6 %', '4', '1', '0', '1', '6'),
-(37, '22% tAX', '0', '0', '0', '0', '0'),
-(38, '19 % Tax', '0', '5', '4', '10', '19');
+INSERT INTO `taxinfo` (`id`, `taxname`, `cgst`, `sgst`, `totalgst`) VALUES
+(36, '6 %', '4', '1', '6'),
+(37, '4% tAX', '2', '2', '4');
 
 -- --------------------------------------------------------
 
@@ -823,7 +819,7 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT for table `taxinfo`
 --
 ALTER TABLE `taxinfo`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `uom`
