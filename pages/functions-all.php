@@ -329,6 +329,12 @@ elseif($request[1]=="searchi")
         }
       }
       $gst=0;
+      $taxid=$row['taxid'];
+      $sql = "SELECT * FROM taxinfo WHERE id='$taxid'";
+      $res = $db->query($sql);
+      while($ro = $res->fetch_assoc()){
+        $gst=$ro['cgst']+$ro['sgst'];
+      }
       echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"".$row['hsnno']."\",\"".$batchcode."\",\"".$gst."\",\"".$row['id']."\")' class='searchitem'> ".$row['productName']." </div>";
     }
 } else {
