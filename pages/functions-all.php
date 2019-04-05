@@ -582,4 +582,31 @@ elseif($request[1]=="stocks")
     echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['productName']."</td><td style='width:10px;'>".$stock."</td><td style='width:10px;'><a  href='../invoice/sales/".$row['id']."'>View</a></td></tr>";
   }
 }
+elseif($request[1]=="customerrep")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $to= strtotime($_POST['to']);
+  $from=strtotime($_POST['from']);
+  $keys=$_POST['keywords'];
+  $sql="SELECT * FROM users";
+  $result = $db->query($sql);
+  $i=1;
+  while($row=$result->fetch_assoc()){
+    $id=$row['id'];
+    $sq="SELECT * FROM sales WHERE customer='$id' GROUP BY invoice";
+    $resultc=$db->query($sq);
+    $purchases=0;
+    while ($rowc=$resultc->fetch_assoc()){
+      $purchases++;
+    }
+
+    $sq="SELECT * FROM paymentdue WHERE customer='$id'";
+    $resultc=$db->query($sq);
+    $paymentdue=0;
+    while ($rowc=$resultc->fetch_assoc()){
+      $paymentdue+=$rowc['dueamount'];
+    }
+    echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['name']."</td><td style='width:10px;'>".$row['contactno']."</td><td style='width:10px;'>".$purchases."</td><td style='width:100px;'>Have to Add This</td><td style='width:10px;'>".$row['rewards']."</td><td style='width:10px;'>".$paymentdue."</td><td style='width:10px;'><a  href='../invoice/sales/".$row['id']."'>View</a></td></tr>";
+  }
+}
 ?>

@@ -79,6 +79,13 @@
         $table= "<table id='tablebody' class='table table-bordered'>$ths</table>";
         $content=fetchstock($ths,"stocks").filtermake("salesreportget").$table;
     }
+    if($request[1]=='customer'){
+        $th=["Sl.No.","Customer Name","Contact", "Purchases", "Paid" ,"Reward" , "Payment Pending" , "View"];
+        $ths=tablehead($th);
+        $title="Customer Report";
+        $table= "<table id='tablebody' class='table table-bordered'>$ths</table>";
+        $content=fetchstock($ths,"customerrep").filtermake("salesreportget").$table;
+    }
     require_once "./classes/page-class.php";
     require_once "./classes/sidebar-class.php";
     require_once "./classes/top-navigation-class.php";
