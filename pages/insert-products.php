@@ -145,7 +145,7 @@ while($row=mysqli_fetch_array($query))
 while($row=mysqli_fetch_array($query))
 {?>
 
-<option value="<?php echo $row['uom'];?>"><?php echo $row['uom'];?></option>
+<option value="<?php echo $row['id'];?>"><?php echo $row['uom'];?></option>
 <?php } ?>
 </select>
 </div>
