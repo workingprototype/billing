@@ -524,8 +524,10 @@ elseif($request[1]=="salesreportget")
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $to= strtotime($_POST['to']);
   $from=strtotime($_POST['from']);
-  $keys=$_POST['keywords'];
-  $sql="SELECT * FROM sales GROUP BY invoice  LIMIT 50";
+  $keys=trim($_POST['keywords']);
+  $sql="SELECT * FROM sales 
+  WHERE (timestamp BETWEEN '$from'  AND '$to') AND (invoice LIKE '%$keys%') 
+  GROUP BY invoice  LIMIT 50";
   $result = $db->query($sql);
   $i=1;
   while($row=$result->fetch_assoc()){
@@ -543,8 +545,10 @@ elseif($request[1]=="purchasereportget")
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $to= strtotime($_POST['to']);
   $from=strtotime($_POST['from']);
-  $keys=$_POST['keywords'];
-  $sql="SELECT * FROM purchase GROUP BY timestamp  LIMIT 50";
+  $keys=trim($_POST['keywords']);
+  $sql="SELECT * FROM purchase 
+  WHERE (timestamp BETWEEN '$from'  AND '$to') AND (invoicenumber LIKE '%$keys%')
+  GROUP BY timestamp  LIMIT 50";
   $result = $db->query($sql);
   $i=1;
   while($row=$result->fetch_assoc()){
@@ -582,7 +586,7 @@ elseif($request[1]=="stocks")
     echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['productName']."</td><td style='width:10px;'>".$stock."</td><td style='width:10px;'><a  href='../invoice/sales/".$row['id']."'>View</a></td></tr>";
   }
 }
-elseif($request[1]=="customerrep")
+elseif($request[1]=="printcustomerrep")
 {
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $to= strtotime($_POST['to']);
