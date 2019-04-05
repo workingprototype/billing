@@ -91,6 +91,7 @@
     $page->var['sidebar']=$sidebar->echo();
     $page->var['footer']=$footer->echo();
     $page->var['content']=$content;
+    $page->var['content'].="<script> document.onload(fetchreport())</script>";
     $page->var['title']="$title";
     $page->render();
 ?>
