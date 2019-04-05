@@ -35,7 +35,7 @@ if(isset($_GET['dir'])){
     route("addpayments","./pages/add-payments.php");
      // route("editcategory","./pages/edit-category.php");
     route("insertproducts","./pages/insert-products.php");
-    // route("manageproducts","./pages/manage-products.php");
+    route("manageproducts","./pages/manage-products.php");
    route("pendingorders","./pages/pending-orders.php");
    route("deliveredorders","./pages/delivered-orders.php");
 

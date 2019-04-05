@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 30, 2019 at 04:27 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.11
+-- Host: 127.0.0.1
+-- Generation Time: Apr 05, 2019 at 05:55 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -121,7 +121,8 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`id`, `categoryName`, `categoryDescription`, `creationDate`, `updationDate`) VALUES
 (16, 'Lights', '', '2019-02-26 22:37:10', NULL),
 (17, 'Speaker', '', '2019-02-26 22:37:31', NULL),
-(18, 'Phone', 'Phones of All types', '2019-02-28 23:30:51', NULL);
+(18, 'Phone', 'Phones of All types', '2019-02-28 23:30:51', NULL),
+(20, 'New', '', '2019-03-31 06:32:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -180,7 +181,13 @@ INSERT INTO `notifications` (`id`, `timestamp`, `data`, `type`) VALUES
 (37, '1553815215', '[\"Reward added for Invoice No : 155381427934\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
 (38, '1553815215', '[\"Payment added for Invoice No : 155381427934\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
 (39, '1553815525', '[\"Reward added for Invoice No : 155381427934\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
-(40, '1553815525', '[\"Payment added for Invoice No : 155381427934\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2');
+(40, '1553815525', '[\"Payment added for Invoice No : 155381427934\",\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0\",\"127.0.0.1\"]', '2'),
+(41, '1553969034', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(42, '1554231597', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(43, '1554231737', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(44, '1554234088', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(45, '1554324457', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(46, '1554479732', '[\"New Product Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2');
 
 -- --------------------------------------------------------
 
@@ -253,7 +260,12 @@ CREATE TABLE `paymentdue` (
 
 INSERT INTO `paymentdue` (`id`, `customer`, `salesinvoice`, `dueamount`, `timestamp`) VALUES
 (3, '12', '155381295834', '0', '1553812958'),
-(4, '12', '155381427934', '0', '1553814279');
+(4, '12', '155381427934', '0', '1553814279'),
+(5, '10', '155396903434', '699', '1553969034'),
+(6, '10', '155423159634', '125.24', '1554231596'),
+(7, '10', '155423173734', '127.72', '1554231737'),
+(8, '10', '155423408834', '32.4', '1554234088'),
+(9, '10', '155432445734', '20120', '1554324457');
 
 -- --------------------------------------------------------
 
@@ -279,6 +291,7 @@ CREATE TABLE `products` (
   `productAvailability` varchar(255) DEFAULT NULL,
   `quantityleft` int(11) DEFAULT '0',
   `rewardsapplicable` varchar(255) NOT NULL,
+  `taxid` varchar(255) NOT NULL,
   `postingDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updationDate` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -287,17 +300,18 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `category`, `subCategory`, `uom`, `productName`, `productCompany`, `productPrice`, `hsnno`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `quantityleft`, `rewardsapplicable`, `postingDate`, `updationDate`) VALUES
-(55, 16, 20, '', 'Hello Lights', 'Lights Infotech', 150, '235', 200, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '1.jpeg', '2.jpeg', '45.jpg', 10, 'In Stock', -1, '', '2019-02-28 23:49:43', NULL),
-(56, 16, 20, '', 'Wow Lights', 'Lights Infotech', 350, '', 400, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">This new light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '4.jpg', '5.jpg', '6.jpg', 60, 'In Stock', -58, '', '2019-02-28 23:50:29', NULL),
-(57, 17, 21, '', 'Bose Speakers', 'Bose Electronics', 49000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Bose Corporation is a privately held American corporation, based in Framingham, Massachusetts, that designs, develops and sells audio equipment. Founded in 1964 by Amar Bose, the company sells its products throughout the world.</span><br>', '234.jpg', 'SndLinkC2Bk-large.jpg', '3.jpg', 1500, 'In Stock', 35, '', '2019-02-28 23:51:17', NULL),
-(58, 17, 23, '', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 23, '', '2019-02-28 23:52:52', NULL),
-(59, 17, 23, '', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 654, '', '2019-02-28 23:54:20', NULL),
-(60, 18, 24, '', 'iPhone X', '34234', 234234, '23423423', 2342, '234234', 'city.jpg', 'city.jpg', 'city.jpg', 234, 'In Stock', -1, '', '2019-03-10 00:44:47', NULL),
-(64, 17, 23, 'Cases', '3', '4', 324, '23423423', 234, '345', 'com.smart_id.png', 'image002.png', 'WXS92H3.jpg', 345, 'In Stock', 0, '\r\n', '2019-03-23 12:50:38', NULL),
-(65, 17, 23, 'Cases', '3', '4', 324, '23423423', 234, '345', 'com.smart_id.png', 'image002.png', 'WXS92H3.jpg', 345, 'In Stock', 0, '\r\n', '2019-03-23 12:51:22', NULL),
-(66, 17, 22, 'Cases', '34', '345sdf345', 435, '435', 345, '5435', 'WXS92H3.jpg', 'image002.png', 'image002.png', 345, 'In Stock', 0, '1\r\n', '2019-03-23 12:51:48', NULL),
-(71, 18, 24, 'Boxes', 'OnePlusX', 'OnePlus', 20000, '846636', 20000, 'One Plus X is the Best OnePlus Phone ever created<br>', 'Insanely Elegant.png', 'octocat.png', '', 200, 'In Stock', 0, '1\r\n', '2019-03-23 15:58:48', NULL);
+INSERT INTO `products` (`id`, `category`, `subCategory`, `uom`, `productName`, `productCompany`, `productPrice`, `hsnno`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `quantityleft`, `rewardsapplicable`, `taxid`, `postingDate`, `updationDate`) VALUES
+(55, 16, 20, '', 'Hello Lights', 'Lights Infotech', 150, '235', 200, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '1.jpeg', '2.jpeg', '45.jpg', 10, 'In Stock', -1, '', '', '2019-02-28 23:49:43', NULL),
+(56, 16, 20, '', 'Wow Lights', 'Lights Infotech', 350, '', 400, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">This new light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '4.jpg', '5.jpg', '6.jpg', 60, 'In Stock', -98, '', '', '2019-02-28 23:50:29', NULL),
+(57, 17, 21, '', 'Bose Speakers', 'Bose Electronics', 49000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Bose Corporation is a privately held American corporation, based in Framingham, Massachusetts, that designs, develops and sells audio equipment. Founded in 1964 by Amar Bose, the company sells its products throughout the world.</span><br>', '234.jpg', 'SndLinkC2Bk-large.jpg', '3.jpg', 1500, 'In Stock', 22, '', '', '2019-02-28 23:51:17', NULL),
+(58, 17, 23, '', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', -36, '', '', '2019-02-28 23:52:52', NULL),
+(59, 17, 23, '', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 604, '', '', '2019-02-28 23:54:20', NULL),
+(60, 18, 24, '', 'iPhone X', '34234', 234234, '23423423', 2342, '234234', 'city.jpg', 'city.jpg', 'city.jpg', 234, 'In Stock', -85, '', '', '2019-03-10 00:44:47', NULL),
+(64, 17, 23, 'Cases', '3', '4', 324, '23423423', 234, '345', 'com.smart_id.png', 'image002.png', 'WXS92H3.jpg', 345, 'In Stock', 0, '\r\n', '', '2019-03-23 12:50:38', NULL),
+(65, 17, 23, 'Cases', '3', '4', 324, '23423423', 234, '345', 'com.smart_id.png', 'image002.png', 'WXS92H3.jpg', 345, 'In Stock', 0, '\r\n', '', '2019-03-23 12:51:22', NULL),
+(66, 17, 22, 'Cases', '34', '345sdf345', 435, '435', 345, '5435', 'WXS92H3.jpg', 'image002.png', 'image002.png', 345, 'In Stock', 0, '1\r\n', '', '2019-03-23 12:51:48', NULL),
+(71, 18, 24, 'Boxes', 'OnePlusX', 'OnePlus', 20000, '846636', 20000, 'One Plus X is the Best OnePlus Phone ever created<br>', 'Insanely Elegant.png', 'octocat.png', '', 200, 'In Stock', 0, '1\r\n', '', '2019-03-23 15:58:48', NULL),
+(72, 17, 21, 'Cases', 'Red Bull Energy Drink', 'Edison', 15000, '23423423', 234, '5', 'WXS92H3.jpg', 'WXS92H3.jpg', 'WXS92H3.jpg', 55, 'In Stock', 0, '0\r\n', '35', '2019-04-05 15:55:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -413,7 +427,17 @@ INSERT INTO `sales` (`id`, `product`, `hsn`, `utc`, `qty`, `mrp`, `baserate`, `a
 (11, 58, '', '35', 1, '123.00000', '123.00000', '123.00000', '0.00000', '0.00000', '0.00000', '123.00000', '123.00000', '123.00000', '0.00000', '2147483647', 1, '1553812538', '', 12, '234'),
 (12, 0, '', '', 0, '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '2147483647', 0, '1553812958', '', 12, ''),
 (13, 56, '', '35', 1, '234.00000', '234.00000', '234.00000', '0.00000', '0.00000', '0.00000', '234.00000', '234.00000', '234.00000', '0.00000', '2147483647', 1, '1553812958', '', 12, '34'),
-(14, 56, '', '35', 1, '123.00000', '123.00000', '123.00000', '0.00000', '0.00000', '0.00000', '123.00000', '123.00000', '123.00000', '0.00000', '155381427934', 1, '1553814279', '', 12, '34');
+(14, 56, '', '35', 1, '123.00000', '123.00000', '123.00000', '0.00000', '0.00000', '0.00000', '123.00000', '123.00000', '123.00000', '0.00000', '155381427934', 1, '1553814279', '', 12, '34'),
+(15, 0, '', '', 0, '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '155396903434', 0, '1553969034', '', 10, ''),
+(16, 57, '', '35', 7, '4.00000', '7.00000', '7.00000', '7.00000', '7.00000', '7.00000', '8.00000', '699.00000', '699.00000', '0.00000', '155396903434', 1, '1553969034', '', 10, ''),
+(17, 0, '', '', 0, '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '155423159634', 0, '1554231596', '', 10, ''),
+(18, 56, '', '10', 5, '350.00000', '124.00000', '620.00000', '6.00000', '7.00000', '43.40000', '626.20000', '125.24000', '125.24000', '0.00000', '155423159634', 1, '1554231596', '', 10, '34'),
+(19, 56, '', '10', 30, '350.00000', '124.00000', '3720.00000', '2.00000', '5.00000', '186.00000', '3831.60000', '127.72000', '127.72000', '0.00000', '155423173734', 1, '1554231737', '', 10, '34'),
+(20, 59, '', '654', 50, '45000.00000', '100.00000', '700.00000', '2.00000', '6.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '155423173734', 1, '1554231737', '', 10, '433'),
+(21, 58, '', '24', 59, '45000.00000', '36.00000', '2124.00000', '59.00000', '49.00000', '1040.76000', '1911.60000', '32.40000', '32.40000', '0.00000', '155423408834', 1, '1554234088', '', 10, '234'),
+(22, 56, '', '10', 5, '350.00000', '124.00000', '620.00000', '5.00000', '29.00000', '0.00000', '620.00000', '12466.00000', '12466.00000', '0.00000', '155432445734', 1, '1554324457', '', 10, '34'),
+(23, 57, '', '88', 6, '49000.00000', '44.00000', '0.00000', '5.00000', '5.00000', '0.00000', '77.00000', '6988.00000', '6988.00000', '0.00000', '155432445734', 1, '1554324457', '', 10, ''),
+(24, 60, '23423423', '34', 84, '99999.99999', '48.00000', '0.00000', '6.00000', '6.00000', '0.00000', '86767.00000', '666.00000', '666.00000', '0.00000', '155432445734', 1, '1554324457', '', 10, '');
 
 -- --------------------------------------------------------
 
@@ -520,20 +544,24 @@ INSERT INTO `supplier` (`id`, `productcompany`, `firmname`, `email`, `name`, `co
 --
 
 CREATE TABLE `taxinfo` (
-  `taxid` int(50) NOT NULL,
+  `id` int(50) NOT NULL,
   `taxname` varchar(50) NOT NULL,
   `cgst` varchar(50) NOT NULL,
   `sgst` varchar(50) NOT NULL,
   `igst` varchar(50) NOT NULL,
-  `cess` varchar(50) NOT NULL
+  `cess` varchar(50) NOT NULL,
+  `totalgst` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `taxinfo`
 --
 
-INSERT INTO `taxinfo` (`taxid`, `taxname`, `cgst`, `sgst`, `igst`, `cess`) VALUES
-(6, '23', '3', '3', '4', '5');
+INSERT INTO `taxinfo` (`id`, `taxname`, `cgst`, `sgst`, `igst`, `cess`, `totalgst`) VALUES
+(35, '22% TAX', '8', '3', '8', '3', '22'),
+(36, '6 %', '4', '1', '0', '1', '6'),
+(37, '22% tAX', '0', '0', '0', '0', '0'),
+(38, '19 % Tax', '0', '5', '4', '10', '19');
 
 -- --------------------------------------------------------
 
@@ -593,7 +621,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `district`, `rewards`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `gstin`, `fssai`, `pan`, `aadharno`, `birthdate`, `regDate`, `updationDate`) VALUES
-(10, 'Adarsh', 'adarshcool97@gmail.com', 9400503664, 757332423, 'a3dcb4d229de6fde0db5686dee47145d', 'Jerry Road, Thrissurcurry', 'Lays', '400', NULL, NULL, NULL, 'Jerry Road, Thrissurcurry', 'Kerala', NULL, NULL, '23423423423', '42342323423', '232342344234232342323423', '52444234232342323423', '2019-03-05', '2019-03-10 00:31:28', NULL),
+(10, 'Adarsh', 'adarshcool97@gmail.com', 9400503664, 757332423, 'a3dcb4d229de6fde0db5686dee47145d', 'Jerry Road, Thrissurcurry', 'Lays', '-439', NULL, NULL, NULL, 'Jerry Road, Thrissurcurry', 'Kerala', NULL, NULL, '23423423423', '42342323423', '232342344234232342323423', '52444234232342323423', '2019-03-05', '2019-03-10 00:31:28', NULL),
 (12, 'Test Retailer', 'test@test.com', 8838564345, 8798564345, 'f925916e2754e5e03f75dd58a5733251', 'Delhi', NULL, '6006.15', NULL, NULL, NULL, 'Delhi							', NULL, NULL, NULL, '', '', '', '', '0000-00-00', '2019-03-01 00:06:33', NULL);
 
 --
@@ -689,7 +717,7 @@ ALTER TABLE `supplier`
 -- Indexes for table `taxinfo`
 --
 ALTER TABLE `taxinfo`
-  ADD UNIQUE KEY `taxid` (`taxid`);
+  ADD UNIQUE KEY `taxid` (`id`);
 
 --
 -- Indexes for table `uom`
@@ -729,13 +757,13 @@ ALTER TABLE `business`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -753,13 +781,13 @@ ALTER TABLE `ordertrackhistory`
 -- AUTO_INCREMENT for table `paymentdue`
 --
 ALTER TABLE `paymentdue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `purchase`
@@ -771,7 +799,7 @@ ALTER TABLE `purchase`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
@@ -795,7 +823,7 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT for table `taxinfo`
 --
 ALTER TABLE `taxinfo`
-  MODIFY `taxid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `uom`

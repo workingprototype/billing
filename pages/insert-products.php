@@ -6,13 +6,14 @@ if(strlen($_SESSION['alogin'])==0)
 	{
 header('location:login');
 }
-else{  
+else{
 
 if(isset($_POST['submit']))
 {
 	$category=$_POST['category'];
 	$subcat=$_POST['subcategory'];
 	$uom=$_POST['uom'];
+	$taxid=$_POST['taxid'];
 	$productname=$_POST['productName'];
 	$productcompany=$_POST['productCompany'];
 	$productprice=$_POST['productprice'];
@@ -34,8 +35,8 @@ $query=mysqli_query($con,"select max(id) as pid from products");
 	move_uploaded_file($_FILES["productimage1"]["tmp_name"],"./shopping/admin/productimages/$productid/".$_FILES["productimage1"]["name"]);
 	move_uploaded_file($_FILES["productimage2"]["tmp_name"],"./shopping/admin/productimages/$productid/".$_FILES["productimage2"]["name"]);
 	move_uploaded_file($_FILES["productimage3"]["tmp_name"],"./shopping/admin/productimages/$productid/".$_FILES["productimage3"]["name"]);
-$sql=mysqli_query($con,"insert into products(category,subCategory,uom,productName,productCompany,productPrice,hsnno,productDescription,shippingCharge,productAvailability,rewardsapplicable,
-productImage1,productImage2,productImage3,productPriceBeforeDiscount) values('$category','$subcat','$uom','$productname','$productcompany','$productprice','$hsnno','$productdescription','$productscharge','$productavailability','$rewardsapplicable
+$sql=mysqli_query($con,"insert into products(category,subCategory,uom,taxid,productName,productCompany,productPrice,hsnno,productDescription,shippingCharge,productAvailability,rewardsapplicable,
+productImage1,productImage2,productImage3,productPriceBeforeDiscount) values('$category','$subcat','$uom','$taxid','$productname','$productcompany','$productprice','$hsnno','$productdescription','$productscharge','$productavailability','$rewardsapplicable
 ','$productimage1','$productimage2','$productimage3','$productpricebd')");
 $_SESSION['msg']="Product Inserted Successfully !!";
 logify("New Product Added");
@@ -145,6 +146,21 @@ while($row=mysqli_fetch_array($query))
 {?>
 
 <option value="<?php echo $row['uom'];?>"><?php echo $row['uom'];?></option>
+<?php } ?>
+</select>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="basicinput"> Tax Group Name</label>
+<div class="controls">
+<select name="taxid" class="span8 tip" required>
+<option value="">Select Tax Group</option>
+<?php $query=mysqli_query($con,"select * from taxinfo");
+while($row=mysqli_fetch_array($query))
+{?>
+
+<option value="<?php echo $row['id'];?>"><?php echo $row['taxname'];?></option>
 <?php } ?>
 </select>
 </div>
