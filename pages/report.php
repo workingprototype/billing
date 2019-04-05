@@ -36,6 +36,27 @@
         </script>";
         return $r;
     }
+    function fetchstock($ths,$req){
+        $r="<script>
+        function fetchreport(){
+            var table=document.getElementById('tablebody');
+            var ret='$ths';
+            var fromdate= document.getElementById('datefr').value;
+            var todate= document.getElementById('dateto').value;
+            var filter= document.getElementById('keywords').value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    table.innerHTML=ret+this.responseText;
+                }
+            };
+            xhttp.open(\"POST\", \"../function/$req \", true);
+            xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
+            xhttp.send('from='+fromdate+'&to='+todate+'&keywords='+filter);
+        }
+        </script>";
+        return $r;
+    }
     if($request[1]=='sales'){
         $th=["Sl.No.","Date","Invoice Number","Customer","Customer Contact","Total Amount","GST","View/Print",];
         $ths=tablehead($th);
@@ -49,6 +70,14 @@
         $title="Purchase Report";
         $table= "<table id='tablebody' class='table table-bordered'>$ths</table>";
         $content=fetchreport($ths,"purchasereportget").filtermake("salesreportget").$table;
+    }
+
+    if($request[1]=='stock'){
+        $th=["Sl.No.","Product Name","Units In stock" , "View"];
+        $ths=tablehead($th);
+        $title="Stock Report";
+        $table= "<table id='tablebody' class='table table-bordered'>$ths</table>";
+        $content=fetchstock($ths,"stocks").filtermake("salesreportget").$table;
     }
     require_once "./classes/page-class.php";
     require_once "./classes/sidebar-class.php";

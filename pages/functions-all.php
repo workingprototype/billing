@@ -557,4 +557,29 @@ elseif($request[1]=="purchasereportget")
     echo "<tr><td style='width:10px;'>".$i++."</td><td style='width:40px;'>$date</td><td >".$row['invoicenumber']."</td><td style='width:10px;'>".$supplier."</td><td style='width:10px;'>".$suppliercon."</td><td style='width:10px;'>".$row['totalwhole']."</td><td style='width:10px;'>".$row['sgst']."</td><td style='width:10px;'>".$row['cgst']."</td><td style='width:10px;' ><a href='../invoice/sales/".$row['id']."'>View</a></td></tr>";
   }
 }
+elseif($request[1]=="stocks")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $to= strtotime($_POST['to']);
+  $from=strtotime($_POST['from']);
+  $keys=$_POST['keywords'];
+  $sql="SELECT * FROM products";
+  $result = $db->query($sql);
+  $i=1;
+  while($row=$result->fetch_assoc()){
+    $id=$row['id'];
+    $sq="SELECT * FROM purchase WHERE product='$id'";
+    $sr="SELECT * FROM sales WHERE product='$id'";
+    $resultp=$db->query($sq);
+    $stock=0;
+    while ($rowp=$resultp->fetch_assoc()){
+      $stock += $rowp['qtycase']*$rowp['qtyuom'];
+    }
+    $resultp=$db->query($sr);
+    while ($rowp=$resultp->fetch_assoc()){
+      $stock -= $rowp['qty'];
+    }
+    echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['productName']."</td><td style='width:10px;'>".$stock."</td><td style='width:10px;'><a  href='../invoice/sales/".$row['id']."'>View</a></td></tr>";
+  }
+}
 ?>
