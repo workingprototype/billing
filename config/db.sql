@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2019 at 02:47 PM
+-- Generation Time: Apr 06, 2019 at 10:53 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -127,6 +127,27 @@ INSERT INTO `category` (`id`, `categoryName`, `categoryDescription`, `creationDa
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `executive`
+--
+
+CREATE TABLE `executive` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `creationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updationDate` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `executive`
+--
+
+INSERT INTO `executive` (`id`, `username`, `password`, `creationDate`, `updationDate`) VALUES
+(1, 'chandran', '098F6BCD4621D373CADE4E832627B4F6', '2017-01-24 16:21:18', '21-06-2018 08:27:55 PM');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `notifications`
 --
 
@@ -212,7 +233,9 @@ INSERT INTO `notifications` (`id`, `timestamp`, `data`, `type`) VALUES
 (68, '1554553353', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
 (69, '1554553354', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
 (70, '1554553361', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
-(71, '1554553395', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2');
+(71, '1554553395', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(72, '1554576719', '[\"Reward added for Invoice No : 155455319934\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(73, '1554576719', '[\"Payment added for Invoice No : 155455319934\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2');
 
 -- --------------------------------------------------------
 
@@ -298,7 +321,7 @@ INSERT INTO `paymentdue` (`id`, `customer`, `salesinvoice`, `dueamount`, `timest
 (16, '10', '155455318634', '16', '1554553186'),
 (19, '10', '155455319034', '16', '1554553190'),
 (20, '10', '155455319134', '16', '1554553191'),
-(24, '10', '155455319934', '16', '1554553199'),
+(24, '10', '155455319934', '0', '1554553199'),
 (25, '12', '155455323334', '0', '1554553233'),
 (26, '12', '155455324134', '0', '1554553241'),
 (27, '12', '155455330234', '0', '1554553302'),
@@ -690,6 +713,12 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `executive`
+--
+ALTER TABLE `executive`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `notifications`
 --
 ALTER TABLE `notifications`
@@ -797,10 +826,16 @@ ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
+-- AUTO_INCREMENT for table `executive`
+--
+ALTER TABLE `executive`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -824,7 +859,7 @@ ALTER TABLE `paymentdue`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `purchase`
@@ -860,7 +895,7 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT for table `taxinfo`
 --
 ALTER TABLE `taxinfo`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `uom`
