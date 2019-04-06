@@ -279,7 +279,7 @@ while($rw=mysqli_fetch_array($query))
 											<div class="controls">
 												<button type="submit" name="submit" class="btn">Update</button>
 											</div>
-										</div>
+										</div>  <?php	echo "<a href=\"javascript:history.go(-2)\">GO BACK</a>"; ?>
 									</form>
 							</div>
 						</div>

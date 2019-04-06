@@ -83,7 +83,7 @@ while($row=mysqli_fetch_array($query))
 										<?php $cnt=$cnt+1; } ?>
 
 								</table>
-							</div>
+							</div>  <button onclick="location.href = './purchase';"> Return to Billing </button>
 						</div>
 
 
