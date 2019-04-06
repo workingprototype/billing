@@ -8,10 +8,16 @@
         return $r;
     }
     function filtermake($req){
-        $r="<label>Filter Keywords </label><input id='keywords' class='form-control' style='width:450px' ><br>";
+        $r="<script>
+        function gotourl(a) {
+            window.location = '../csv/'+a+'/';
+        }
+        </script>";
+        $r.="<label>Filter Keywords </label><input id='keywords' class='form-control' style='width:450px' ><br>";
         $r.="<strong>Date From: </strong> <input id='datefr' type='date' style='height:20px'> ";
         $r.="<strong>Date To: </strong> <input id='dateto' type='date' style='height:20px' >";
         $r.=" <button onclick=\"fetchreport()\" class='btn btn-primary' style='width:70px;'>Filter</button>";
+        $r.=" <button onclick=\"gotourl('$req')\" class='btn btn-primary' style='width:70px;'>Export</button>";
         $r.=" <button onclick=\"fetchreport()\" class='btn btn-danger' style='width:70px;'>Print</button><br><br>";
         //$r.="<div class='form-group'><label>Filter 1: </label><input class='form-control' style='width:300px'></div>";
         return $r;
@@ -95,7 +101,7 @@
         $ths=tablehead($th);
         $title="Sales Report";
         $table= "<table id='tablebody' class='table table-bordered'>$ths</table>";
-        $content=fetchreport($ths,"salesreportget").filtermake("salesreportget").$table;
+        $content=fetchreport($ths,"salesreportget").filtermake("sales").$table;
     }
     if($request[1]=='purchase'){
         $th=["Sl.No.","Date","Invoice Number","Supplier","Supplier Contact","Total Amount","SGST","CGST","View/Print",];

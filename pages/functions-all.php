@@ -532,6 +532,12 @@ elseif($request[1]=="salesreportget")
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $to= strtotime($_POST['to']);
   $from=strtotime($_POST['from']);
+  if($to==''){
+    $to=time();
+  }
+  if($from==''){
+    $from=0;
+  }
   $keys=trim($_POST['keywords']);
   $sql="SELECT * FROM sales 
   WHERE (timestamp BETWEEN '$from'  AND '$to') AND (invoice LIKE '%$keys%') 
