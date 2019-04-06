@@ -91,6 +91,7 @@ class Sales
       {
         data=[];
         customer = document.getElementById('customer').value;
+        beats = document.getElementById('beats').value;
         billtype = document.getElementById('bill').value;
         puts.forEach(function (item,index)
         {
@@ -125,7 +126,7 @@ class Sales
         var dat = JSON.stringify(data);
         xhttp.open(\"POST\", \"function/sales \", true);
         xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
-        xhttp.send('customer='+customer+'&bill='+billtype+' &data='+dat +'&discount='+rewardsz );
+        xhttp.send('customer='+customer+'&beats='+beats+'&bill='+billtype+' &data='+dat +'&discount='+rewardsz );
 
       }
       var disp =['<tr><th>Batch Code</th>\
@@ -219,18 +220,31 @@ class Sales
     ";
     $users='';
     $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
-  $sql = "SELECT * FROM users";
+    $sql = "SELECT * FROM users";
+    $result = $db->query($sql);
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+        $users.="<option value='".$row['id']."'>Retailer ID: ".$row['id']." , Name: ".$row['name']."</option>";
+      }
+    } else {
+      echo "0 results"; // No retailer registered.
+    }
+  $beats='';
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $sql = "SELECT * FROM beat";
   $result = $db->query($sql);
   if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      $users.="<option value='".$row['id']."'>Retailer ID: ".$row['id']." , Name: ".$row['name']."</option>";
+      $beats.="<option>".$row['beat']."</option>";
     }
   } else {
     echo "0 results"; // No retailer registered.
   }
   
-    $this->r .="<div class='row'><div class='col-md-4'><label><br/> Customer : </label><select onchange='customer(this.value)' id='customer' class='form-control'><option>.....</option>".$users."</select></div></div>";
+  $this->r .="<div class='row'><div class='col-md-4'><label><br/> Customer : </label><select onchange='customer(this.value)' id='customer' class='form-control'><option>.....</option>".$users."</select></div></div>";
+  $this->r .="<div class='row'><div class='col-md-4'><label><br/> Beat : </label><select id='beats' class='form-control'>".$beats."</select></div></div>";
     $this->r .="
     <div class='content' stylr='overflow-x:scroll'>
       <br>
