@@ -21,6 +21,7 @@ if($request[1]=='sales'){
         $base=$row['baserate'];
         $am=$row['amount'];
         $gst=$row['gst'];
+        $beat=$row['beat'];
         $gsta=$row['gstamount'];
         $tot=$row['total'];
         $fr=$row['finalrate'];
@@ -81,7 +82,7 @@ if($request[1]=='sales'){
       </tr>
       <tr>
       <td><strong>STATE: </strong> $state </td>
-      <td><strong>BILL TYPE:</strong> $billtype </td>
+      <td><strong>BILL TYPE:</strong></td>
       </tr>
       </table>
       ";
@@ -118,7 +119,20 @@ if($request[1]=='sales'){
     $page->var['navbar']=$navbar->echo();
     $page->var['sidebar']=$sidebar->echo();
     $page->var['footer']=$footer->echo();
-    $page->var['content']=$table;
+    $page->var['header']="
+    <style type=\"text/css\" media=\"print\">
+    body {  visibility: hidden; }
+    .print { 
+      visibility: visible;
+      position: absolute;
+      left:0;
+      top:0;
+     }
+     .print  * { 
+      visibility: visible;
+     }
+    </style>";
+    $page->var['content']="<div class='print'>".$table."</div><Button class='btn btn-danger' onclick='PrintElem('print')'>Print</button>";
     $page->var['title']="Invoice";
     $page->render();
 }

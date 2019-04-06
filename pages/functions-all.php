@@ -206,18 +206,20 @@ elseif($request[1]=="sales")
   $data = json_decode($_POST['data']);
   $timestamp=time();
   $customer = $_POST['customer'];
+  $beats = $_POST['beats'];
   $invoice = (time()*100)+34;
   $due=0;
   $discount=$_POST['discount'];
   foreach ($data as $k => $v) {
     $v[0]=explode("_",$v[0])[1];
     $due+=$v[14];
-  $val=[$v[1],$v[0],$v[3],$v[4],$v[6],$v[5],$v[8],$v[9],$v[10],$v[11],$v[12],$v[13],$v[14],$invoice,$v[2],$timestamp,$customer,$v[14]];
+  $val=[$v[1],$v[0],$v[3],$beats,$v[4],$v[6],$v[5],$v[8],$v[9],$v[10],$v[11],$v[12],$v[13],$v[14],$invoice,$v[2],$timestamp,$customer,$v[14]];
     $table="sales";
     $col= [
       'batch',
       'product',
       'hsn',
+      'beat',
       'utc',
       'qty', 	
       'mrp',
@@ -592,11 +594,9 @@ elseif($request[1]=="stocks")
     echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['productName']."</td><td style='width:10px;'>".$stock."</td><td style='width:10px;'><a  href='../invoice/sales/".$row['id']."'>View</a></td></tr>";
   }
 }
-elseif($request[1]=="printcustomerrep")
+elseif($request[1]=="customerrep")
 {
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
-  $to= strtotime($_POST['to']);
-  $from=strtotime($_POST['from']);
   $keys=$_POST['keywords'];
   $sql="SELECT * FROM users";
   $result = $db->query($sql);
