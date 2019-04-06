@@ -15,7 +15,20 @@
         $r.=" <button onclick=\"fetchreport()\" class='btn btn-danger' style='width:70px;'>Print</button><br><br>";
         //$r.="<div class='form-group'><label>Filter 1: </label><input class='form-control' style='width:300px'></div>";
         return $r;
-    }function fetchreport($ths,$req){
+    }
+    function filtercustomer($req){
+        $r="<script>
+        function gotourl() {
+            window.location = '../csv/customer/';
+        }
+        </script>";
+        $r.="<label>Filter Keywords </label><input id='keywords' class='form-control' style='width:450px' ><br>";
+        $r.=" <button onclick=\"fetchreport()\" class='btn btn-primary' style='width:70px;'>Filter</button>";
+        $r.=" <button onclick=\"gotourl()\" class='btn btn-danger' style='width:70px;'>Export</button><br><br>";
+        //$r.="<div class='form-group'><label>Filter 1: </label><input class='form-control' style='width:300px'></div>";
+        return $r;
+    }
+    function fetchreport($ths,$req){
         $r="<script>
         function fetchreport(){
             var table=document.getElementById('tablebody');
@@ -32,6 +45,26 @@
             xhttp.open(\"POST\", \"../function/$req \", true);
             xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
             xhttp.send('from='+fromdate+'&to='+todate+'&keywords='+filter);
+        }
+        </script>";
+        return $r;
+    }
+
+    function fetchcustomerreport($ths,$req){
+        $r="<script>
+        function fetchreport(){
+            var table=document.getElementById('tablebody');
+            var ret='$ths';
+            var filter= document.getElementById('keywords').value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    table.innerHTML=ret+this.responseText;
+                }
+            };
+            xhttp.open(\"POST\", \"../function/$req \", true);
+            xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
+            xhttp.send('keywords='+filter);
         }
         </script>";
         return $r;
@@ -84,7 +117,7 @@
         $ths=tablehead($th);
         $title="Customer Report";
         $table= "<table id='tablebody' class='table table-bordered'>$ths</table>";
-        $content=fetchstock($ths,"customerrep").filtermake("salesreportget").$table;
+        $content=fetchcustomerreport($ths,"customerrep").filtercustomer("salesreportget").$table;
     }
     require_once "./classes/page-class.php";
     require_once "./classes/sidebar-class.php";

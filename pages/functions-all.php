@@ -594,11 +594,9 @@ elseif($request[1]=="stocks")
     echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['productName']."</td><td style='width:10px;'>".$stock."</td><td style='width:10px;'><a  href='../invoice/sales/".$row['id']."'>View</a></td></tr>";
   }
 }
-elseif($request[1]=="printcustomerrep")
+elseif($request[1]=="customerrep")
 {
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
-  $to= strtotime($_POST['to']);
-  $from=strtotime($_POST['from']);
   $keys=$_POST['keywords'];
   $sql="SELECT * FROM users";
   $result = $db->query($sql);
