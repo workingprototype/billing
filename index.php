@@ -56,6 +56,10 @@ if(isset($_GET['dir'])){
     route("supplierreg","./pages/supplier-reg.php");
     route("login","./pages/login.page.php");
     route("logout","./pages/logout.page.php");
+    //Executives Pages Below
+    route("exec","./pages/exec/login.page.php");
+    route("exechome","./billing/pages/exec/index.php");
+    route("execpayments","./pages/exec/add-payments.php");
     if($end==0){
       include("./pages/404-page.php");
     }
