@@ -1,12 +1,8 @@
 
 <?php
-session_start();
 include('include/config.php');
-if(strlen($_SESSION['alogin'])==0)
-	{	
-header('location:index.php');
-}
-else{
+
+{
 	$pid=intval($_GET['id']);// product id
 if(isset($_POST['submit']))
 {
@@ -53,17 +49,15 @@ function selectCountry(val) {
 $("#search-box").val(val);
 $("#suggesstion-box").hide();
 }
-</script>	
+</script>
 
 
 </head>
 <body>
-<?php include('include/header.php');?>
 
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
-<?php include('include/sidebar.php');?>				
 			<div class="span9">
 					<div class="content">
 
@@ -78,6 +72,7 @@ $("#suggesstion-box").hide();
 									<div class="alert alert-success">
 										<button type="button" class="close" data-dismiss="alert">×</button>
 									<strong>Well done!</strong>	<?php echo htmlentities($_SESSION['msg']);?><?php echo htmlentities($_SESSION['msg']="");?>
+										<?php	echo "<a href=\"javascript:history.go(-2)\">GO BACK</a>"; ?>
 									</div>
 <?php } ?>
 
@@ -87,13 +82,13 @@ $("#suggesstion-box").hide();
 
 			<form class="form-horizontal row-fluid" name="insertproduct" method="post" enctype="multipart/form-data">
 
-<?php 
+<?php
 
 $query=mysqli_query($con,"select productName,productImage1 from products where id='$pid'");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
-  
+
 
 
 ?>
@@ -110,7 +105,7 @@ while($row=mysqli_fetch_array($query))
 <div class="control-group">
 <label class="control-label" for="basicinput">Current Product Image1</label>
 <div class="controls">
-<img src="productimages/<?php echo htmlentities($pid);?>/<?php echo htmlentities($row['productImage1']);?>" width="200" height="100"> 
+<img src="productimages/<?php echo htmlentities($pid);?>/<?php echo htmlentities($row['productImage1']);?>" width="200" height="100">
 </div>
 </div>
 
@@ -136,16 +131,15 @@ while($row=mysqli_fetch_array($query))
 						</div>
 
 
-	
-						
-						
+
+
+
 					</div><!--/.content-->
 				</div><!--/.span9-->
 			</div>
 		</div><!--/.container-->
 	</div><!--/.wrapper-->
 
-<?php include('include/footer.php');?>
 
 	<script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
 	<script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
