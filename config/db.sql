@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2019 at 11:01 PM
+-- Generation Time: Apr 06, 2019 at 10:53 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -127,6 +127,27 @@ INSERT INTO `category` (`id`, `categoryName`, `categoryDescription`, `creationDa
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `executive`
+--
+
+CREATE TABLE `executive` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `creationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updationDate` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `executive`
+--
+
+INSERT INTO `executive` (`id`, `username`, `password`, `creationDate`, `updationDate`) VALUES
+(1, 'chandran', '098F6BCD4621D373CADE4E832627B4F6', '2017-01-24 16:21:18', '21-06-2018 08:27:55 PM');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `notifications`
 --
 
@@ -187,7 +208,34 @@ INSERT INTO `notifications` (`id`, `timestamp`, `data`, `type`) VALUES
 (43, '1554231737', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
 (44, '1554234088', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
 (45, '1554324457', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
-(46, '1554479732', '[\"New Product Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2');
+(46, '1554479732', '[\"New Product Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(47, '1554553136', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(48, '1554553172', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(49, '1554553176', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(50, '1554553176', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(51, '1554553176', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(52, '1554553185', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(53, '1554553186', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(54, '1554553186', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(55, '1554553186', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(56, '1554553190', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(57, '1554553191', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(58, '1554553191', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(59, '1554553191', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(60, '1554553191', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(61, '1554553199', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(62, '1554553233', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(63, '1554553241', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(64, '1554553302', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(65, '1554553308', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(66, '1554553322', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(67, '1554553341', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(68, '1554553353', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(69, '1554553354', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(70, '1554553361', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(71, '1554553395', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(72, '1554576719', '[\"Reward added for Invoice No : 155455319934\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(73, '1554576719', '[\"Payment added for Invoice No : 155455319934\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2');
 
 -- --------------------------------------------------------
 
@@ -265,7 +313,25 @@ INSERT INTO `paymentdue` (`id`, `customer`, `salesinvoice`, `dueamount`, `timest
 (6, '10', '155423159634', '125.24', '1554231596'),
 (7, '10', '155423173734', '127.72', '1554231737'),
 (8, '10', '155423408834', '32.4', '1554234088'),
-(9, '10', '155432445734', '20120', '1554324457');
+(9, '10', '155432445734', '20120', '1554324457'),
+(10, '10', '155455313634', '0', '1554553136'),
+(11, '10', '155455317234', '16', '1554553172'),
+(12, '10', '155455317634', '16', '1554553176'),
+(15, '10', '155455318534', '16', '1554553185'),
+(16, '10', '155455318634', '16', '1554553186'),
+(19, '10', '155455319034', '16', '1554553190'),
+(20, '10', '155455319134', '16', '1554553191'),
+(24, '10', '155455319934', '0', '1554553199'),
+(25, '12', '155455323334', '0', '1554553233'),
+(26, '12', '155455324134', '0', '1554553241'),
+(27, '12', '155455330234', '0', '1554553302'),
+(28, '12', '155455330834', '0', '1554553308'),
+(29, '12', '155455332234', '0', '1554553322'),
+(30, '12', '155455334134', '0', '1554553341'),
+(31, '12', '155455335334', '888', '1554553353'),
+(32, '12', '155455335434', '888', '1554553354'),
+(33, '12', '155455336134', '0', '1554553361'),
+(34, '12', '155455339534', '0', '1554553395');
 
 -- --------------------------------------------------------
 
@@ -301,17 +367,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category`, `subCategory`, `uom`, `productName`, `productCompany`, `productPrice`, `hsnno`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `quantityleft`, `rewardsapplicable`, `taxid`, `postingDate`, `updationDate`) VALUES
-(55, 16, 20, '', 'Hello Lights', 'Lights Infotech', 150, '235', 200, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '1.jpeg', '2.jpeg', '45.jpg', 10, 'In Stock', -1, '', '', '2019-02-28 23:49:43', NULL),
-(56, 16, 20, '', 'Wow Lights', 'Lights Infotech', 350, '', 400, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">This new light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '4.jpg', '5.jpg', '6.jpg', 60, 'In Stock', -98, '', '', '2019-02-28 23:50:29', NULL),
-(57, 17, 21, '', 'Bose Speakers', 'Bose Electronics', 49000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Bose Corporation is a privately held American corporation, based in Framingham, Massachusetts, that designs, develops and sells audio equipment. Founded in 1964 by Amar Bose, the company sells its products throughout the world.</span><br>', '234.jpg', 'SndLinkC2Bk-large.jpg', '3.jpg', 1500, 'In Stock', 22, '', '', '2019-02-28 23:51:17', NULL),
-(58, 17, 23, '', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', -36, '', '', '2019-02-28 23:52:52', NULL),
-(59, 17, 23, '', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 604, '', '', '2019-02-28 23:54:20', NULL),
-(60, 18, 24, '', 'iPhone X', '34234', 234234, '23423423', 2342, '234234', 'city.jpg', 'city.jpg', 'city.jpg', 234, 'In Stock', -85, '', '', '2019-03-10 00:44:47', NULL),
-(64, 17, 23, 'Cases', '3', '4', 324, '23423423', 234, '345', 'com.smart_id.png', 'image002.png', 'WXS92H3.jpg', 345, 'In Stock', 0, '\r\n', '', '2019-03-23 12:50:38', NULL),
-(65, 17, 23, 'Cases', '3', '4', 324, '23423423', 234, '345', 'com.smart_id.png', 'image002.png', 'WXS92H3.jpg', 345, 'In Stock', 0, '\r\n', '', '2019-03-23 12:51:22', NULL),
-(66, 17, 22, 'Cases', '34', '345sdf345', 435, '435', 345, '5435', 'WXS92H3.jpg', 'image002.png', 'image002.png', 345, 'In Stock', 0, '1\r\n', '', '2019-03-23 12:51:48', NULL),
-(71, 18, 24, 'Boxes', 'OnePlusX', 'OnePlus', 20000, '846636', 20000, 'One Plus X is the Best OnePlus Phone ever created<br>', 'Insanely Elegant.png', 'octocat.png', '', 200, 'In Stock', 0, '1\r\n', '', '2019-03-23 15:58:48', NULL),
-(72, 17, 21, 'Cases', 'Red Bull Energy Drink', 'Edison', 15000, '23423423', 234, '5', 'WXS92H3.jpg', 'WXS92H3.jpg', 'WXS92H3.jpg', 55, 'In Stock', 0, '0\r\n', '35', '2019-04-05 15:55:32', NULL);
+(55, 16, 20, '20', 'Hello Lights', 'Lights Infotech', 150, '235', 200, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', 'image002.png', '2.jpeg', 'image002.png', 10, 'In Stock', -1, '', '37', '2019-02-28 23:49:43', NULL),
+(56, 16, 20, '20', 'Wow Lights', 'Lights Infotech', 350, '', 400, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">This new light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '4.jpg', '5.jpg', '6.jpg', 60, 'In Stock', -98, '', '37', '2019-02-28 23:50:29', NULL),
+(57, 17, 21, '20', 'Bose Speakers', 'Bose Electronics', 49000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Bose Corporation is a privately held American corporation, based in Framingham, Massachusetts, that designs, develops and sells audio equipment. Founded in 1964 by Amar Bose, the company sells its products throughout the world.</span><br>', '234.jpg', 'SndLinkC2Bk-large.jpg', '3.jpg', 1500, 'In Stock', 22, '', '36', '2019-02-28 23:51:17', NULL),
+(58, 17, 23, '20', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', -36, '', '36', '2019-02-28 23:52:52', NULL),
+(59, 17, 23, '19', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 604, '', '37', '2019-02-28 23:54:20', NULL),
+(60, 18, 24, '19', 'iPhone X', '34234', 234234, '23423423', 2342, '234234', 'city.jpg', 'city.jpg', 'city.jpg', 234, 'In Stock', -85, '', '36', '2019-03-10 00:44:47', NULL),
+(71, 18, 24, '20', 'OnePlusX', 'OnePlus', 20000, '846636', 20000, 'One Plus X is the Best OnePlus Phone ever created<br>', 'Insanely Elegant.png', 'octocat.png', '', 200, 'In Stock', 0, '1\r\n', '36', '2019-03-23 15:58:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -413,31 +475,33 @@ CREATE TABLE `sales` (
   `timestamp` varchar(100) NOT NULL,
   `remarks` text NOT NULL,
   `customer` int(11) NOT NULL,
-  `batch` varchar(100) NOT NULL
+  `batch` varchar(100) NOT NULL,
+  `beat` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sales`
 --
 
-INSERT INTO `sales` (`id`, `product`, `hsn`, `utc`, `qty`, `mrp`, `baserate`, `amount`, `dis`, `gst`, `gstamount`, `total`, `finalrate`, `paymentdue`, `totalpaid`, `invoice`, `business`, `timestamp`, `remarks`, `customer`, `batch`) VALUES
-(8, 55, '235', '35', 1, '2234.00000', '1234.00000', '1234.00000', '0.00000', '0.00000', '0.00000', '1234.00000', '1234.00000', '1234.00000', '0.00000', '2147483647', 1, '1553811889', '', 12, ''),
-(9, 60, '23423423', '35', 1, '2234.00000', '1234.00000', '1234.00000', '0.00000', '0.00000', '0.00000', '1234.00000', '1234.00000', '1234.00000', '0.00000', '2147483647', 1, '1553811889', '', 12, ''),
-(10, 0, '', '', 0, '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '2147483647', 0, '1553812538', '', 12, ''),
-(11, 58, '', '35', 1, '123.00000', '123.00000', '123.00000', '0.00000', '0.00000', '0.00000', '123.00000', '123.00000', '123.00000', '0.00000', '2147483647', 1, '1553812538', '', 12, '234'),
-(12, 0, '', '', 0, '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '2147483647', 0, '1553812958', '', 12, ''),
-(13, 56, '', '35', 1, '234.00000', '234.00000', '234.00000', '0.00000', '0.00000', '0.00000', '234.00000', '234.00000', '234.00000', '0.00000', '2147483647', 1, '1553812958', '', 12, '34'),
-(14, 56, '', '35', 1, '123.00000', '123.00000', '123.00000', '0.00000', '0.00000', '0.00000', '123.00000', '123.00000', '123.00000', '0.00000', '155381427934', 1, '1553814279', '', 12, '34'),
-(15, 0, '', '', 0, '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '155396903434', 0, '1553969034', '', 10, ''),
-(16, 57, '', '35', 7, '4.00000', '7.00000', '7.00000', '7.00000', '7.00000', '7.00000', '8.00000', '699.00000', '699.00000', '0.00000', '155396903434', 1, '1553969034', '', 10, ''),
-(17, 0, '', '', 0, '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '155423159634', 0, '1554231596', '', 10, ''),
-(18, 56, '', '10', 5, '350.00000', '124.00000', '620.00000', '6.00000', '7.00000', '43.40000', '626.20000', '125.24000', '125.24000', '0.00000', '155423159634', 1, '1554231596', '', 10, '34'),
-(19, 56, '', '10', 30, '350.00000', '124.00000', '3720.00000', '2.00000', '5.00000', '186.00000', '3831.60000', '127.72000', '127.72000', '0.00000', '155423173734', 1, '1554231737', '', 10, '34'),
-(20, 59, '', '654', 50, '45000.00000', '100.00000', '700.00000', '2.00000', '6.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '155423173734', 1, '1554231737', '', 10, '433'),
-(21, 58, '', '24', 59, '45000.00000', '36.00000', '2124.00000', '59.00000', '49.00000', '1040.76000', '1911.60000', '32.40000', '32.40000', '0.00000', '155423408834', 1, '1554234088', '', 10, '234'),
-(22, 56, '', '10', 5, '350.00000', '124.00000', '620.00000', '5.00000', '29.00000', '0.00000', '620.00000', '12466.00000', '12466.00000', '0.00000', '155432445734', 1, '1554324457', '', 10, '34'),
-(23, 57, '', '88', 6, '49000.00000', '44.00000', '0.00000', '5.00000', '5.00000', '0.00000', '77.00000', '6988.00000', '6988.00000', '0.00000', '155432445734', 1, '1554324457', '', 10, ''),
-(24, 60, '23423423', '34', 84, '99999.99999', '48.00000', '0.00000', '6.00000', '6.00000', '0.00000', '86767.00000', '666.00000', '666.00000', '0.00000', '155432445734', 1, '1554324457', '', 10, '');
+INSERT INTO `sales` (`id`, `product`, `hsn`, `utc`, `qty`, `mrp`, `baserate`, `amount`, `dis`, `gst`, `gstamount`, `total`, `finalrate`, `paymentdue`, `totalpaid`, `invoice`, `business`, `timestamp`, `remarks`, `customer`, `batch`, `beat`) VALUES
+(8, 55, '235', '35', 1, '2234.00000', '1234.00000', '1234.00000', '0.00000', '0.00000', '0.00000', '1234.00000', '1234.00000', '1234.00000', '0.00000', '2147483647', 1, '1553811889', '', 12, '', '25'),
+(9, 60, '23423423', '35', 1, '2234.00000', '1234.00000', '1234.00000', '0.00000', '0.00000', '0.00000', '1234.00000', '1234.00000', '1234.00000', '0.00000', '2147483647', 1, '1553811889', '', 12, '', '25'),
+(10, 0, '', '', 0, '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '2147483647', 0, '1553812538', '', 12, '', '25'),
+(11, 58, '', '35', 1, '123.00000', '123.00000', '123.00000', '0.00000', '0.00000', '0.00000', '123.00000', '123.00000', '123.00000', '0.00000', '2147483647', 1, '1553812538', '', 12, '234', '25'),
+(12, 0, '', '', 0, '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '2147483647', 0, '1553812958', '', 12, '', ''),
+(13, 56, '', '35', 1, '234.00000', '234.00000', '234.00000', '0.00000', '0.00000', '0.00000', '234.00000', '234.00000', '234.00000', '0.00000', '2147483647', 1, '1553812958', '', 12, '34', ''),
+(14, 56, '', '35', 1, '123.00000', '123.00000', '123.00000', '0.00000', '0.00000', '0.00000', '123.00000', '123.00000', '123.00000', '0.00000', '155381427934', 1, '1553814279', '', 12, '34', ''),
+(15, 0, '', '', 0, '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '155396903434', 0, '1553969034', '', 10, '', ''),
+(16, 57, '', '35', 7, '4.00000', '7.00000', '7.00000', '7.00000', '7.00000', '7.00000', '8.00000', '699.00000', '699.00000', '0.00000', '155396903434', 1, '1553969034', '', 10, '', ''),
+(17, 0, '', '', 0, '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '155423159634', 0, '1554231596', '', 10, '', ''),
+(18, 56, '', '10', 5, '350.00000', '124.00000', '620.00000', '6.00000', '7.00000', '43.40000', '626.20000', '125.24000', '125.24000', '0.00000', '155423159634', 1, '1554231596', '', 10, '34', ''),
+(19, 56, '', '10', 30, '350.00000', '124.00000', '3720.00000', '2.00000', '5.00000', '186.00000', '3831.60000', '127.72000', '127.72000', '0.00000', '155423173734', 1, '1554231737', '', 10, '34', ''),
+(20, 59, '', '654', 50, '45000.00000', '100.00000', '700.00000', '2.00000', '6.00000', '0.00000', '0.00000', '0.00000', '0.00000', '0.00000', '155423173734', 1, '1554231737', '', 10, '433', ''),
+(21, 58, '', '24', 59, '45000.00000', '36.00000', '2124.00000', '59.00000', '49.00000', '1040.76000', '1911.60000', '32.40000', '32.40000', '0.00000', '155423408834', 1, '1554234088', '', 10, '234', ''),
+(22, 56, '', '10', 5, '350.00000', '124.00000', '620.00000', '5.00000', '29.00000', '0.00000', '620.00000', '12466.00000', '12466.00000', '0.00000', '155432445734', 1, '1554324457', '', 10, '34', ''),
+(23, 57, '', '88', 6, '49000.00000', '44.00000', '0.00000', '5.00000', '5.00000', '0.00000', '77.00000', '6988.00000', '6988.00000', '0.00000', '155432445734', 1, '1554324457', '', 10, '', ''),
+(24, 60, '23423423', '34', 84, '99999.99999', '48.00000', '0.00000', '6.00000', '6.00000', '0.00000', '86767.00000', '666.00000', '666.00000', '0.00000', '155432445734', 1, '1554324457', '', 10, '', ''),
+(25, 56, '', '', 0, '350.00000', '0.00000', '0.00000', '0.00000', '4.00000', '0.00000', '55.00000', '0.00000', '0.00000', '0.00000', '155455339534', 1, '1554553395', '', 12, '', 'sdf');
 
 -- --------------------------------------------------------
 
@@ -617,8 +681,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `district`, `rewards`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `gstin`, `fssai`, `pan`, `aadharno`, `birthdate`, `regDate`, `updationDate`) VALUES
-(10, 'Adarsh', 'adarshcool97@gmail.com', 9400503664, 757332423, 'a3dcb4d229de6fde0db5686dee47145d', 'Jerry Road, Thrissurcurry', 'Lays', '-439', NULL, NULL, NULL, 'Jerry Road, Thrissurcurry', 'Kerala', NULL, NULL, '23423423423', '42342323423', '232342344234232342323423', '52444234232342323423', '2019-03-05', '2019-03-10 00:31:28', NULL),
-(12, 'Test Retailer', 'test@test.com', 8838564345, 8798564345, 'f925916e2754e5e03f75dd58a5733251', 'Delhi', NULL, '6006.15', NULL, NULL, NULL, 'Delhi							', NULL, NULL, NULL, '', '', '', '', '0000-00-00', '2019-03-01 00:06:33', NULL);
+(10, 'Adarsh', 'adarshcool97@gmail.com', 9400503664, 757332423, 'a3dcb4d229de6fde0db5686dee47145d', 'Jerry Road, Thrissurcurry', 'Lays', '-539', NULL, NULL, NULL, 'Jerry Road, Thrissurcurry', 'Kerala', NULL, NULL, '23423423423', '42342323423', '232342344234232342323423', '52444234232342323423', '2019-03-05', '2019-03-10 00:31:28', NULL),
+(12, 'Test Retailer', 'test@test.com', 8838564345, 8798564345, 'f925916e2754e5e03f75dd58a5733251', 'Delhi', NULL, '0', NULL, NULL, NULL, 'Delhi							', NULL, NULL, NULL, '', '', '', '', '0000-00-00', '2019-03-01 00:06:33', NULL);
 
 --
 -- Indexes for dumped tables
@@ -646,6 +710,12 @@ ALTER TABLE `business`
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `executive`
+--
+ALTER TABLE `executive`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -756,10 +826,16 @@ ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
+-- AUTO_INCREMENT for table `executive`
+--
+ALTER TABLE `executive`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -777,13 +853,13 @@ ALTER TABLE `ordertrackhistory`
 -- AUTO_INCREMENT for table `paymentdue`
 --
 ALTER TABLE `paymentdue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `purchase`
@@ -795,7 +871,7 @@ ALTER TABLE `purchase`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
@@ -819,7 +895,7 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT for table `taxinfo`
 --
 ALTER TABLE `taxinfo`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `uom`
