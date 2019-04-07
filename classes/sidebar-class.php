@@ -86,11 +86,9 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         // $this->submenu("Goto Store Admin","shopping/admin"); //submenu4.3
         $this->menu("<i class=\"fa fa-shopping-cart\"> </i> Shopping");  //Main Menu4
 
-        $this->submenu("Sales Report","salesreport");
-        $this->submenu("Purchase Report","purchasereport"); //submenu4.3
         $this->submenu("Stock Report","reports/stock"); //submenu4.3
-        $this->submenu("Purchase Report 2","reports/purchase"); //submenu4.3
-        $this->submenu("Sales Report 2","reports/sales"); //submenu4.3
+        $this->submenu("Purchase Report","reports/purchase"); //submenu4.3
+        $this->submenu("Sales Report","reports/sales"); //submenu4.3
         $this->submenu("Customer Report","reports/customer"); //submenu4.3
         $this->menu("<i class=\"fa fa-line-chart\"> </i> Reports");  //Main Menu4
 

@@ -18,17 +18,34 @@
         $r.="<strong>Date To: </strong> <input id='dateto' type='date' style='height:20px' >";
         $r.=" <button onclick=\"fetchreport()\" class='btn btn-primary' style='width:70px;'>Filter</button>";
         $r.=" <button onclick=\"gotourl('$req')\" class='btn btn-primary' style='width:70px;'>Export</button>";
-        $r.=" <button onclick=\"fetchreport()\" class='btn btn-danger' style='width:70px;'>Print</button><br><br>";
+        $r.=" <button  onclick='window.print()' class='btn btn-danger' style='width:70px;'>Print</button><br><br>";
         //$r.="<div class='form-group'><label>Filter 1: </label><input class='form-control' style='width:300px'></div>";
         return $r;
     }
-    function filtercustomer($req){
+    function filtercustomer(){
         $r="<script>
         function gotourl() {
             window.location = '../csv/customer/';
         }
         </script>";
         $r.="<label>Filter Keywords </label><input id='keywords' class='form-control' style='width:450px' ><br>";
+        $r.=" <button onclick=\"fetchreport()\" class='btn btn-primary' style='width:70px;'>Filter</button>";
+        $r.=" <button onclick=\"gotourl()\" class='btn btn-danger' style='width:70px;'>Export</button>";
+        $r.=" <button  onclick='window.print()' class='btn btn-danger' style='width:70px;'>Print</button><br><br>";
+        //$r.="<div class='form-group'><label>Filter 1: </label><input class='form-control' style='width:300px'></div>";
+        return $r;
+    }
+
+    function filterstock(){
+        $r="<script>
+        function gotourl() {
+            a = document.getElementById('keywords').value;
+            window.location = '../csv/stock/'+a+'/';
+        }
+        </script>";
+        $r.="<label>Filter Using </label>
+        <input placeholder='Product Name' id='keywords' class='form-control' style='width:250px' ><br>
+        ";
         $r.=" <button onclick=\"fetchreport()\" class='btn btn-primary' style='width:70px;'>Filter</button>";
         $r.=" <button onclick=\"gotourl()\" class='btn btn-danger' style='width:70px;'>Export</button><br><br>";
         //$r.="<div class='form-group'><label>Filter 1: </label><input class='form-control' style='width:300px'></div>";
@@ -80,8 +97,6 @@
         function fetchreport(){
             var table=document.getElementById('tablebody');
             var ret='$ths';
-            var fromdate= document.getElementById('datefr').value;
-            var todate= document.getElementById('dateto').value;
             var filter= document.getElementById('keywords').value;
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -91,7 +106,25 @@
             };
             xhttp.open(\"POST\", \"../function/$req \", true);
             xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
-            xhttp.send('from='+fromdate+'&to='+todate+'&keywords='+filter);
+            xhttp.send('keywords='+filter);
+        }
+        </script>";
+        return $r;
+    }
+    function fetchproduct($ths,$id){
+        $r="<script>
+        function fetchreport(){
+            var table=document.getElementById('tablebody');
+            var ret='$ths';
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    table.innerHTML=ret+this.responseText;
+                }
+            };
+            xhttp.open(\"POST\", \"../../function/productrep \", true);
+            xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
+            xhttp.send('id=$id');
         }
         </script>";
         return $r;
@@ -100,30 +133,37 @@
         $th=["Sl.No.","Date","Invoice Number","Customer","Customer Contact","Total Amount","GST","View/Print",];
         $ths=tablehead($th);
         $title="Sales Report";
-        $table= "<table id='tablebody' class='table table-bordered'>$ths</table>";
+        $table= "<table id='tablebody' class='print table table-bordered'>$ths</table>";
         $content=fetchreport($ths,"salesreportget").filtermake("sales").$table;
     }
     if($request[1]=='purchase'){
         $th=["Sl.No.","Date","Invoice Number","Supplier","Supplier Contact","Total Amount","SGST","CGST","View/Print",];
         $ths=tablehead($th);
         $title="Purchase Report";
-        $table= "<table id='tablebody' class='table table-bordered'>$ths</table>";
-        $content=fetchreport($ths,"purchasereportget").filtermake("salesreportget").$table;
+        $table= "<table id='tablebody' class='print table table-bordered'>$ths</table>";
+        $content=fetchreport($ths,"purchasereportget").filtermake("purchase").$table;
     }
 
     if($request[1]=='stock'){
         $th=["Sl.No.","Product Name","Units In stock" , "View"];
         $ths=tablehead($th);
         $title="Stock Report";
-        $table= "<table id='tablebody' class='table table-bordered'>$ths</table>";
-        $content=fetchstock($ths,"stocks").filtermake("salesreportget").$table;
+        $table= "<table id='tablebody' class='print table table-bordered'>$ths</table>";
+        $content=fetchstock($ths,"stocks").filterstock().$table;
     }
     if($request[1]=='customer'){
         $th=["Sl.No.","Customer Name","Contact", "Purchases", "Paid" ,"Reward" , "Payment Pending" , "View"];
         $ths=tablehead($th);
         $title="Customer Report";
-        $table= "<table id='tablebody' class='table table-bordered'>$ths</table>";
-        $content=fetchcustomerreport($ths,"customerrep").filtercustomer("salesreportget").$table;
+        $table= "<table id='tablebody' class='print table table-bordered'>$ths</table>";
+        $content=fetchcustomerreport($ths,"customerrep").filtercustomer().$table;
+    }
+    if($request[1]=='product'){
+        $th=["Sl.No.","Product Name","Batch", "Stock", "Sold"];
+        $ths=tablehead($th);
+        $title="Product Report";
+        $table= "<table id='tablebody' class='print table table-bordered'>$ths</table>";
+        $content=fetchproduct($ths,$request[2]).$table;
     }
     require_once "./classes/page-class.php";
     require_once "./classes/sidebar-class.php";
@@ -137,6 +177,22 @@
     $page->var['sidebar']=$sidebar->echo();
     $page->var['footer']=$footer->echo();
     $page->var['content']=$content;
+    $page->var['header']="
+    <style type=\"text/css\" media=\"print\">
+    body {  visibility: hidden; }
+    .print { 
+      visibility: visible;
+      position: absolute;
+      left:0;
+      top:0;
+     }
+     .print  * { 
+      visibility: visible;
+     }
+     .print  a { 
+        visibility: hidden;
+       }
+    </style>";
     $page->var['content'].="<script> document.onload(fetchreport())</script>";
     $page->var['title']="$title";
     $page->render();

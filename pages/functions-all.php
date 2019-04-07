@@ -560,6 +560,12 @@ elseif($request[1]=="purchasereportget")
   $to= strtotime($_POST['to']);
   $from=strtotime($_POST['from']);
   $keys=trim($_POST['keywords']);
+  if($to==''){
+    $to=time();
+  }
+  if($from==''){
+    $from=0;
+  }
   $sql="SELECT * FROM purchase 
   WHERE (timestamp BETWEEN '$from'  AND '$to') AND (invoicenumber LIKE '%$keys%')
   GROUP BY timestamp  LIMIT 50";
@@ -578,10 +584,8 @@ elseif($request[1]=="purchasereportget")
 elseif($request[1]=="stocks")
 {
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
-  $to= strtotime($_POST['to']);
-  $from=strtotime($_POST['from']);
-  $keys=$_POST['keywords'];
-  $sql="SELECT * FROM products";
+  $keys=trim($_POST['keywords']);
+  $sql="SELECT * FROM products WHERE productName LIKE '%$keys%'";
   $result = $db->query($sql);
   $i=1;
   while($row=$result->fetch_assoc()){
@@ -597,7 +601,40 @@ elseif($request[1]=="stocks")
     while ($rowp=$resultp->fetch_assoc()){
       $stock -= $rowp['qty'];
     }
-    echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['productName']."</td><td style='width:10px;'>".$stock."</td><td style='width:10px;'><a  href='../invoice/sales/".$row['id']."'>View</a></td></tr>";
+    echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['productName']."</td><td style='width:10px;'>".$stock."</td><td style='width:10px;'><a  href='../reports/product/".$row['id']."'>View</a></td></tr>";
+  }
+}
+elseif($request[1]=="productrep")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $key=$_POST['id'];
+  $sql="SELECT * FROM products WHERE id=$key";
+  $result = $db->query($sql);
+  $i=1;
+  while($row=$result->fetch_assoc()){
+    $id=$row['id'];
+    $sq="SELECT * FROM purchase WHERE product='$id'";
+    $sr="SELECT * FROM sales WHERE product='$id'";
+    $resultp=$db->query($sq);
+    $stock=0;
+    $istock=[];
+    $sstock=[];
+    while ($rowp=$resultp->fetch_assoc()){
+      $stock += $rowp['qtycase']*$rowp['qtyuom'];
+      $istock[$rowp['batch']] += $rowp['qtycase']*$rowp['qtyuom'];
+      $sstock[$rowp['batch']]=0;
+
+    }
+    $resultp=$db->query($sr);
+    while ($rowp=$resultp->fetch_assoc()){
+      $stock -= $rowp['qty'];
+      $istock[$rowp['batch']] -= $rowp['qty'];
+      $sstock[$rowp['batch']] += $rowp['qty'];
+    }
+    foreach ($istock as $key => $value) {
+      echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['productName']."</td><td style='width:10px;'>".$key."</td><td style='width:10px;'>".$value."</td><td style='width:10px;'>".$sstock[$key]."</td></tr>";
+    }
+    //echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['productName']."</td><td style='width:10px;'>".$stock."</td><td style='width:10px;'><a  href='../reports/product/".$row['id']."'>View</a></td></tr>";
   }
 }
 elseif($request[1]=="customerrep")
@@ -622,7 +659,7 @@ elseif($request[1]=="customerrep")
     while ($rowc=$resultc->fetch_assoc()){
       $paymentdue+=$rowc['dueamount'];
     }
-    echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['name']."</td><td style='width:10px;'>".$row['contactno']."</td><td style='width:10px;'>".$purchases."</td><td style='width:100px;'>Have to Add This</td><td style='width:10px;'>".$row['rewards']."</td><td style='width:10px;'>".$paymentdue."</td><td style='width:10px;'><a  href='../invoice/sales/".$row['id']."'>View</a></td></tr>";
+    echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['name']."</td><td style='width:10px;'>".$row['contactno']."</td><td style='width:10px;'>".$purchases."</td><td style='width:100px;'>Have to Add This</td><td style='width:10px;'>".$row['rewards']."</td><td style='width:10px;'>".$paymentdue."</td><td style='width:10px;'></td></tr>";
   }
 }
 ?>

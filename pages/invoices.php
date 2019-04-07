@@ -132,7 +132,7 @@ if($request[1]=='sales'){
       visibility: visible;
      }
     </style>";
-    $page->var['content']="<div class='print'>".$table."</div><Button class='btn btn-danger' onclick='PrintElem('print')'>Print</button>";
+    $page->var['content']="<div class='print'>".$table."</div><Button class='btn btn-danger' onclick='window.print()'>Print</button>";
     $page->var['title']="Invoice";
     $page->render();
 }
