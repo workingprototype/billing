@@ -337,7 +337,7 @@ elseif($request[1]=="searchi")
       while($ro = $res->fetch_assoc()){
         $gst=$ro['cgst']+$ro['sgst'];
       }
-      echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"".$row['hsnno']."\",\"".$batchcode."\",\"".$gst."\",\"".$row['id']."\")' class='searchitem'> ".$row['productName']." </div>";
+      echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"".$row['hsnno']."\",\"".$batchcode."\",\"".$gst."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".$row['productName']." </div>";
     }
 } else {
     echo "0 results";
@@ -375,7 +375,7 @@ elseif($request[1]=="list_product")
 {
     $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
     $table="products";
-    $sql="SELECT * FROM ".$table." LIMIT 50;";
+    $sql="SELECT * FROM ".$table." ;";
     $result = $db->query($sql);
     $x=json_encode($result->fetch_all());
     echo $x;
@@ -541,7 +541,7 @@ elseif($request[1]=="salesreportget")
   $keys=trim($_POST['keywords']);
   $sql="SELECT * FROM sales 
   WHERE (timestamp BETWEEN '$from'  AND '$to') AND (invoice LIKE '%$keys%') 
-  GROUP BY invoice  LIMIT 50";
+  GROUP BY invoice ";
   $result = $db->query($sql);
   $i=1;
   while($row=$result->fetch_assoc()){
@@ -568,7 +568,7 @@ elseif($request[1]=="purchasereportget")
   }
   $sql="SELECT * FROM purchase 
   WHERE (timestamp BETWEEN '$from'  AND '$to') AND (invoicenumber LIKE '%$keys%')
-  GROUP BY timestamp  LIMIT 50";
+  GROUP BY timestamp";
   $result = $db->query($sql);
   $i=1;
   while($row=$result->fetch_assoc()){

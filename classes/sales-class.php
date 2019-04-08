@@ -156,7 +156,7 @@ class Sales
       var s=1;
       var puts=[]
       var boxes=0;
-      function clicked(a,b,c,d,e,f){
+      function clicked(a,b,c,d,e,f,g){
         r=s++;
         puts[boxes]=r+'_'+f;
         disp[i] = '<tr id=\'row_'+boxes+'\'><td><select onchange=\"batchch(\''+r+'_'+f+'\','+f+')\" id=\"batch'+r+'_'+f+'\" style=\"width:80px\"><option></option>'+d+'</select></td>\
@@ -166,6 +166,7 @@ class Sales
         <td><input onkeyup=\"utc()\" id=\"utc'+r+'_'+f+'\" style=\"width:80px\"></td>\
         <td><input id=\"mrp'+r+'_'+f+'\" value=\"'+b+'\" ></td>\
         <td><input onkeyup=\"qtych(\''+r+'_'+f+'\')\" id=\"qty'+r+'_'+f+'\" style=\"width:150px\"  ></td>\
+        <td>'+g+'</td>\
         <td><input onkeyup=\"basech(\''+r+'_'+f+'\')\" id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"amount'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input onkeyup=\"discountch(\''+r+'_'+f+'\')\" id=\"disc'+r+'_'+f+'\" value=\'0\' style=\"width:150px\" placeholder=\'\'></td>\
@@ -265,7 +266,8 @@ class Sales
       <th>HSN Code</th>
       <th>UTC</th>
       <th>MRP</th>
-      <th>Qty (cases)</th>
+      <th>Qty</th>
+      <th>Unit</th>
       <th>Base Rate</th>
       <th>Amount</th>
       <th>Discount %</th>

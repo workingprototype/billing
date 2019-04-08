@@ -47,7 +47,8 @@
         <input placeholder='Product Name' id='keywords' class='form-control' style='width:250px' ><br>
         ";
         $r.=" <button onclick=\"fetchreport()\" class='btn btn-primary' style='width:70px;'>Filter</button>";
-        $r.=" <button onclick=\"gotourl()\" class='btn btn-danger' style='width:70px;'>Export</button><br><br>";
+        $r.=" <button onclick=\"gotourl()\" class='btn btn-danger' style='width:70px;'>Export</button>";
+        $r.=" <button  onclick='window.print()' class='btn btn-danger' style='width:70px;'>Print</button><br><br>";
         //$r.="<div class='form-group'><label>Filter 1: </label><input class='form-control' style='width:300px'></div>";
         return $r;
     }
