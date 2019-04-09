@@ -1,4 +1,5 @@
 <?php
+
     function tablehead($th){
         $r="<tr>";
         foreach ($th as $key => $value) {
@@ -162,7 +163,7 @@
     if($request[1]=='product'){
         $th=["Sl.No.","Product Name","Batch", "Stock", "Sold"];
         $ths=tablehead($th);
-        $title="Product Report";
+        $title="Stock Report";
         $table= "<table id='tablebody' class='print table table-bordered'>$ths</table>";
         $content=fetchproduct($ths,$request[2]).$table;
     }
@@ -181,16 +182,16 @@
     $page->var['header']="
     <style type=\"text/css\" media=\"print\">
     body {  visibility: hidden; }
-    .print { 
+    .print {
       visibility: visible;
       position: absolute;
       left:0;
       top:0;
      }
-     .print  * { 
+     .print  * {
       visibility: visible;
      }
-     .print  a { 
+     .print  a {
         visibility: hidden;
        }
     </style>";

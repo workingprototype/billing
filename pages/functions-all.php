@@ -69,8 +69,8 @@ function updaterewards($customer,$usedreward){
   $row = $result->fetch_assoc();
   $reward=$row['rewards'];
   //subtract the used rewards from the rewards
-  $reward=$reward-$usedreward; 
-  //update the remaining rewards into the usertable for the customer 
+  $reward=$reward-$usedreward;
+  //update the remaining rewards into the usertable for the customer
   $sql="UPDATE customer SET rewards ='$reward' WHERE id='$customer'";
 
   if ($db->query($sql) === TRUE) {
@@ -140,26 +140,26 @@ elseif($request[1]=="purchase")
     $col= ['business', 	'supplier', 	'invoicedate', 	'invoicenumber', 'vehiclenumber', 	'deliveredcontact',	'transport', 	'receiveddate',
     'batch',
     'product',
-    'mrp', 	
-    'qtycase', 	
-    'qtyuom', 	
-    'baseratecase', 	
-    'baserateuom', 	
-    'disc', 	
-    'disca', 	
-    'neta', 	
-    'cgst' ,	
-    'sgst', 	
-    'cgsta', 	
-    'sgsta', 	
-    'cess' ,	
-    'totalamount', 	
-    'margin',	
-    'uomsp', 	
-    'dispp', 	
-    'dispd', 	
-    'totalwhole', 	
-    'creditnote', 
+    'mrp',
+    'qtycase',
+    'qtyuom',
+    'baseratecase',
+    'baserateuom',
+    'disc',
+    'disca',
+    'neta',
+    'cgst' ,
+    'sgst',
+    'cgsta',
+    'sgsta',
+    'cess' ,
+    'totalamount',
+    'margin',
+    'uomsp',
+    'dispp',
+    'dispd',
+    'totalwhole',
+    'creditnote',
     'logistic',
     'timestamp' ];
     $sql="INSERT INTO ".$table." (";
@@ -178,7 +178,7 @@ elseif($request[1]=="purchase")
     }
     $sql .=")";
     if ($db->query($sql) === TRUE) {
-      
+
       $id=$v[0];
       $sql = "SELECT * FROM products
         WHERE id='$id'";
@@ -221,9 +221,9 @@ elseif($request[1]=="sales")
       'hsn',
       'beat',
       'utc',
-      'qty', 	
+      'qty',
       'mrp',
-      'baserate', 	
+      'baserate',
       'amount',
       'dis',
       'gst',
@@ -403,7 +403,7 @@ elseif($request[1]=="purchase_report")
       $res=$res->fetch_assoc();
       echo "<tr><td>".$rs['productName']."</td><td>".$res['name']."</td><td>".$value['invoicenumber']."</td><td>".$value['invoicedate']."</td><td>".$value['qtycase']."</td><td>".$value['cgst']."</td><td>".$value['sgst']."</td><td>".$value['totalamount']."</td></tr>";
     }
-    
+
 }
 elseif($request[1]=="batchbox")
 {
@@ -472,7 +472,7 @@ elseif($request[1]=="record_payment")
   $sql="SELECT * FROM paymentdue where id=$id";
   $result = $db->query($sql)->fetch_assoc();
   $dueremaining=(float)$result['dueamount'] - (float)$_POST['amountpaying'];
-  $inv=$result['salesinvoice']; 
+  $inv=$result['salesinvoice'];
   if($dueremaining>= 0){
     if($dueremaining==0){
       addrewards($inv);
@@ -539,8 +539,8 @@ elseif($request[1]=="salesreportget")
     $from=0;
   }
   $keys=trim($_POST['keywords']);
-  $sql="SELECT * FROM sales 
-  WHERE (timestamp BETWEEN '$from'  AND '$to') AND (invoice LIKE '%$keys%') 
+  $sql="SELECT * FROM sales
+  WHERE (timestamp BETWEEN '$from'  AND '$to') AND (invoice LIKE '%$keys%')
   GROUP BY invoice ";
   $result = $db->query($sql);
   $i=1;
@@ -566,7 +566,7 @@ elseif($request[1]=="purchasereportget")
   if($from==''){
     $from=0;
   }
-  $sql="SELECT * FROM purchase 
+  $sql="SELECT * FROM purchase
   WHERE (timestamp BETWEEN '$from'  AND '$to') AND (invoicenumber LIKE '%$keys%')
   GROUP BY timestamp";
   $result = $db->query($sql);
@@ -620,7 +620,7 @@ elseif($request[1]=="productrep")
     $istock=[];
     $sstock=[];
     while ($rowp=$resultp->fetch_assoc()){
-      $stock += $rowp['qtycase']*$rowp['qtyuom'];
+      $stock += $rowp['qtycase']*$rowp['qtyuom'];error_reporting(0);
       $istock[$rowp['batch']] += $rowp['qtycase']*$rowp['qtyuom'];
       $sstock[$rowp['batch']]=0;
 

@@ -6,7 +6,7 @@ if(strlen($_SESSION['alogin'])==0)
 	{
 header('location:login');
 }
-else{  
+else{
 if(isset($_GET['del']))
 		  {
 		          mysqli_query($con,"delete from sales where id = '".$_GET['id']."'");
@@ -86,7 +86,7 @@ while($row=mysqli_fetch_array($query))
 											<td><?php echo htmlentities($row['batch']);?></td>
 											<td>
 											<!-- <a href="edit-sales.php?id=<?php echo $row['id']?>" ><i class="icon-edit"></i></a> -->
-											<a href="sales?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')">Delete<i class="icon-remove-sign"></i></a></td>
+											<!-- <a href="sales?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')">Delete<i class="icon-remove-sign"></i></a></td> -->
 										</tr>
 										<?php $cnt=$cnt+1; } ?>
 

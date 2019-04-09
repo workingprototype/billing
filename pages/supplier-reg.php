@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 session_start();
 include('config/config.php');
 if(strlen($_SESSION['alogin'])==0)

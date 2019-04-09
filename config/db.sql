@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2019 at 10:53 PM
+-- Generation Time: Apr 08, 2019 at 07:17 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -143,7 +143,7 @@ CREATE TABLE `executive` (
 --
 
 INSERT INTO `executive` (`id`, `username`, `password`, `creationDate`, `updationDate`) VALUES
-(1, 'chandran', '098F6BCD4621D373CADE4E832627B4F6', '2017-01-24 16:21:18', '21-06-2018 08:27:55 PM');
+(1, 'executive', '098F6BCD4621D373CADE4E832627B4F6', '2017-01-24 16:21:18', '21-06-2018 08:27:55 PM');
 
 -- --------------------------------------------------------
 
@@ -426,8 +426,8 @@ INSERT INTO `purchase` (`id`, `business`, `supplier`, `invoicedate`, `invoicenum
 (2, 'Business A', '11', '2019-03-01', '151351353', '356262', '23525', 'Train', '2019-03-04', '34', '56', 455, 10, 100, 41, 124, 12, 12, 234, 23, 23, 23, 23, 23, 2325, 24, 3, 2323, 23, 0, 0, 0, 1552238353),
 (3, 'Business A', '11', '2019-03-01', '151351353', '356262', '23525', 'Train', '2019-03-04', '34', '56', 455, 10, 100, 41, 124, 12, 12, 234, 23, 23, 23, 23, 23, 2325, 24, 3, 2323, 23, 0, 0, 0, 1552238531),
 (4, 'Business A', '11', '2019-03-01', '151351353', '356262', '23525', 'Train', '2019-03-04', '34', '56', 455, 10, 100, 41, 124, 12, 12, 234, 23, 23, 23, 23, 23, 2325, 24, 3, 2323, 23, 0, 0, 0, 1552239094),
-(5, '\'1\'', '10', '2019-03-28', '0876234235', 'KA24B2344', '23523525', 'Truck', '2019-03-28', '234', '58', 45000, 24, 24, 865, 36, 2, 415, 20345, 2, 2, 407, 407, 2, 21159, 234, 43, 2342, 43, 0, 0, 0, 1553779501),
-(6, '\'1\'', '10', '2019-03-28', '0876234235', 'KA24B2344', '23523525', 'Truck', '2019-03-28', '433', '59', 45000, 654, 654, 65400, 100, 2, 855432, 41916168, 2, 2, 838323, 838323, 2, 43592816, 234, 43, 2342, 43, 0, 0, 0, 1553779501);
+(5, 'Business A', '10', '2019-03-28', '0876234235', 'KA24B2344', '23523525', 'Truck', '2019-03-28', '234', '58', 45000, 24, 24, 865, 36, 2, 415, 20345, 2, 2, 407, 407, 2, 21159, 234, 43, 2342, 43, 0, 0, 0, 1553779501),
+(6, 'Business A', '10', '2019-03-28', '0876234235', 'KA24B2344', '23523525', 'Truck', '2019-03-28', '433', '59', 45000, 654, 654, 65400, 100, 2, 855432, 41916168, 2, 2, 838323, 838323, 2, 43592816, 234, 43, 2342, 43, 0, 0, 0, 1553779501);
 
 -- --------------------------------------------------------
 
@@ -598,8 +598,8 @@ CREATE TABLE `supplier` (
 --
 
 INSERT INTO `supplier` (`id`, `productcompany`, `firmname`, `email`, `name`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `district`, `billingState`, `billingCity`, `billingPincode`, `gstin`, `fssai`, `pan`, `aadharno`, `execname`, `execmobile`, `bankname`, `bankcity`, `accountname`, `accountnumber`, `ifsccode`, `regDate`, `updationDate`) VALUES
-(10, '', '', 'test@test.com', 'Test Supplier', 1234567890, 23423, NULL, 'Bengaluru', NULL, NULL, NULL, 'Bengaluru', '', NULL, NULL, NULL, '', '', '', '', '', 0, '', '', '', '', '', '2019-03-01 00:02:07', NULL),
-(11, 'My Play Studios', 'Bullseye', 'adarshcool97@gmail.com', 'Adarsh C', 9400503664, 2342345345, NULL, 'Curry Road', NULL, NULL, NULL, 'Curry Road', 'Lays', 'Kerala', NULL, 680005, '12334556756756', '67456345RF345', '3423645436456546', '3554623457546456', 'Bill Gates', 1233454645234, 'Bullseye', 'Gotham', 'Nigga', '12334598', '34958457943', '2019-03-09 21:24:58', NULL);
+(10, 'Hello Company', 'Titan', 'test@test.com', 'Test Supplier', 1234567890, 23423, NULL, 'Bengaluru', NULL, NULL, NULL, 'Bengaluru', '', NULL, NULL, NULL, '', '', '', '', '', 0, '', '', '', '', '', '2019-03-01 00:02:07', NULL),
+(11, 'My Play Studios', 'Levi', 'adarshcool97@gmail.com', 'Adarsh C', 9400503664, 2342345345, NULL, 'Curry Road', NULL, NULL, NULL, 'Curry Road', 'Lays', 'Kerala', NULL, 680005, '12334556756756', '67456345RF345', '3423645436456546', '3554623457546456', 'Bill Gates', 1233454645234, 'Bullseye', 'Gotham', 'Nigga', '12334598', '34958457943', '2019-03-09 21:24:58', NULL);
 
 -- --------------------------------------------------------
 

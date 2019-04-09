@@ -20,7 +20,7 @@ if(isset($_GET['dir'])){
     route("changepassword","./pages/change-password.php");
     // route("users","./pages/users.page.php");
     route("shopping","./shopping");
-    route("shopping/admin","./shopping/admin/index.php");
+    // route("shopping/admin","./shopping/admin/index.php");
 
 //below not done yet
    route("todaysorders","./pages/todays-orders.php");
