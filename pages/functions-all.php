@@ -300,8 +300,14 @@ elseif($request[1]=="search")
   if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
+      $taxid=$row['taxid'];
+      $sq = "SELECT * FROM taxinfo WHERE id='$taxid'";
+      $res = $db->query($sq);
+      $ro = $res->fetch_assoc();
+      $cgst=$ro['cgst'];
+      $sgst=$ro['sgst'];
       $total = $row['productPrice']+($row['productPrice']*5/100);
-      echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"5\",\"1\",\"".$total."\",\"".$row['id']."\")' class='searchitem'> ".$row['productName']." </div>";
+      echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"$cgst\",\"$sgst\",\"".$total."\",\"".$row['id']."\")' class='searchitem'> ".$row['productName']." </div>";
     }
 } else {
     echo "0 results";

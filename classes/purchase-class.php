@@ -41,7 +41,13 @@ class Purchase
     }
     $this->r .="
     <script>
-    function total(){
+    function total(a){
+      totalx=document.getElementById('totala'+a);
+      marginx=document.getElementById('margin'+a);
+      dispdx=document.getElementById('dispd'+a);
+      disppx=document.getElementById('dispp'+a);
+      dispdx.value=disppx.value-totalx.value;
+      marginx.value=dispdx.value*100/totalx.value;
       xox=0;
       puts.forEach(function (item,index)
       {
@@ -195,15 +201,15 @@ class Purchase
         <td><input id=\"disc'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"disca'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"neta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"cgst'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
-        <td><input id=\"sgst'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
-        <td><input id=\"cgsta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"sgsta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"cgst'+r+'_'+f+'\" value=\"'+c+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
+        <td><input id=\"sgst'+r+'_'+f+'\" value=\"'+d+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
+        <td><input id=\"cgsta'+r+'_'+f+'\"  style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"sgsta'+r+'_'+f+'\"  style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"cess'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"totala'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"uomsp'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"margin'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"dispp'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"total()\" placeholder=\'\'></td>\
+        <td><input id=\"uomsp'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"dispp'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"total(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"dispd'+r+'_'+f+'\" style=\"width:150px\"  placeholder=\'\'></td>\
         <td><button onclick=\'remove('+boxes+')\' class=\'btn btn-danger\'>Remove</button></td>\
         </tr><tr id=\'tail\'></tr>';
