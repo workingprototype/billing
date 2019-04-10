@@ -79,9 +79,13 @@ if(isset($_GET['del']))
 <div class="controls">
 <input type="text" placeholder=" e.g: 14 % Special Tax"  name="taxname" class="span8 tip" required><br><br>
 <div id="the-parent" class="input-prepend input-append">
-<input type="text" onblur="findTotal()" placeholder="CGST"  name="cgst" class="span8 tip" value="0"  required><span class="add-on">%</span><br><br>
-<input type="text" onblur="findTotal()" placeholder="SGST"  name="sgst" class="span8 tip"  value="0"  required> <span class="add-on">%</span>	<br><br>
-<input type="text" id="total" placeholder="Total GST" name="totalgst" class="span8 tip" required value="0" readonly> <span class="add-on">%</span>
+
+	<label for="basicinput">Total GST</label>	<input type="text" id="total" onblur="findTotal()" placeholder="Total GST"  name="totalgst" class="span8 tip" required value="0"> <span class="add-on">%</span>
+</br></br>
+
+<label for="basicinput">CGST</label><input type="text" placeholder="CGST" id="cgst"  name="cgst" class="span8 tip" value="0"  required readonly><span class="add-on">%</span><br><br>
+
+<label for="basicinput">SGST</label><input type="text" placeholder="SGST" id="sgst" name="sgst" class="span8 tip"  value="0"  required readonly> <span class="add-on">%</span>	<br><br>
 </div>
 </div>
 </div>
@@ -99,20 +103,11 @@ if(isset($_GET['del']))
 
 						<script type="text/javascript">
 					window.findTotal = function() {
-						    var inputs = document.querySelectorAll('[name="cgst"], [name="sgst"]'),
-						        result = document.getElementById('total'),
-						        sum = 0;
-
-						    for(var i=0; i<inputs.length; i++) {
-						        var ip = inputs[i];
-
-						        if (ip.name && ip.name.indexOf("total") < 0) {
-						            sum += parseInt(ip.value) || 0;
-						        }
-
-						    }
-
-						    result.value = sum;
+						num1 = document.getElementById("total").value;
+						value = num1 / 2;{
+						document.getElementById("cgst").value = value;
+						document.getElementById("sgst").value = value;
+					}
 						}
 						    </script>
  <div class="module">

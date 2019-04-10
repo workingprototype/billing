@@ -81,9 +81,12 @@ while($row=mysqli_fetch_array($query))
 <div class="controls">
 <input type="text" placeholder=" e.g: 14 % Special Tax"  name="taxname" value="<?php echo  htmlentities($row['taxname']);?>" class="span8 tip" required><br><br>
 <div id="the-parent" class="input-prepend input-append">
-<input type="text" onblur="findTotal()" placeholder="CGST"  name="cgst" class="span8 tip" value="<?php echo  htmlentities($row['cgst']);?>"  required><span class="add-on">%</span><br><br>
-<input type="text" onblur="findTotal()" placeholder="SGST"  name="sgst" class="span8 tip"  value="<?php echo  htmlentities($row['sgst']);?>"  required> <span class="add-on">%</span>	<br><br>
-<input type="text" id="total" placeholder="Total GST" name="totalgst" class="span8 tip" required value="<?php echo  htmlentities($row['totalgst']);?>" readonly> <span class="add-on">%</span>
+  <label for="basicinput">Total GST</label>
+<input type="text" id="total" onblur="findTotal()" placeholder="Total GST" name="totalgst" class="span8 tip" required value="<?php echo  htmlentities($row['totalgst']);?>"> <span class="add-on">%</span>
+</br></br><label for="basicinput">CGST</label>
+<input type="text" id="cgst" placeholder="CGST"  name="cgst" class="span8 tip" value="<?php echo  htmlentities($row['cgst']);?>"  readonly required><span class="add-on">%</span><br><br>
+<label for="basicinput">SGST</label>
+<input type="text" id="sgst" placeholder="SGST"  name="sgst" class="span8 tip"  value="<?php echo  htmlentities($row['sgst']);?>"  readonly required> <span class="add-on">%</span>	<br><br>
 </div>
 </div>
 </div>
@@ -101,20 +104,11 @@ border-color: #4cae4c;">Update</button>
 
       <script type="text/javascript">
     window.findTotal = function() {
-          var inputs = document.querySelectorAll('[name="cgst"], [name="sgst"]'),
-              result = document.getElementById('total'),
-              sum = 0;
-
-          for(var i=0; i<inputs.length; i++) {
-              var ip = inputs[i];
-
-              if (ip.name && ip.name.indexOf("total") < 0) {
-                  sum += parseInt(ip.value) || 0;
-              }
-
-          }
-
-          result.value = sum;
+      num1 = document.getElementById("total").value;
+      value = num1 / 2;{
+      document.getElementById("cgst").value = value;
+      document.getElementById("sgst").value = value;
+    }
       }
           </script>
 
