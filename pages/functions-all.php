@@ -211,11 +211,12 @@ elseif($request[1]=="sales")
   $due=0;
   $discount=$_POST['discount'];
   foreach ($data as $k => $v) {
-    $v[0]=explode("_",$v[0])[1];
-    $due+=$v[14];
-  $val=[$v[1],$v[0],$v[3],$beats,$v[4],$v[6],$v[5],$v[8],$v[9],$v[10],$v[11],$v[12],$v[13],$v[14],$invoice,$v[2],$timestamp,$customer,$v[14]];
-    $table="sales";
-    $col= [
+    if(isset($v[0])){
+      $v[0]=explode("_",$v[0])[1];
+      $due+=$v[14];
+      $val=[$v[1],$v[0],$v[3],$beats,$v[4],$v[6],$v[5],$v[8],$v[9],$v[10],$v[11],$v[12],$v[13],$v[14],$invoice,$v[2],$timestamp,$customer,$v[14]];
+      $table="sales";
+      $col= [
       'batch',
       'product',
       'hsn',
@@ -235,39 +236,40 @@ elseif($request[1]=="sales")
       'timestamp' 	,
       'customer',
       'paymentdue'];
-    $sql="INSERT INTO ".$table." (";
-    foreach ($col as $key => $value) {
-      $sql .=$value;
-      if($key!=(count($col)-1)){
-        $sql .=",";
+      $sql="INSERT INTO ".$table." (";
+      foreach ($col as $key => $value) {
+        $sql .=$value;
+        if($key!=(count($col)-1)){
+          $sql .=",";
+        }
       }
-    }
-    $sql .=") VALUES (";
-    foreach ($val as $key => $value) {
-     $sql .="'".$value."'";
-      if($key!=(count($col)-1)){
-        $sql .=",";
+      $sql .=") VALUES (";
+      foreach ($val as $key => $value) {
+      $sql .="'".$value."'";
+        if($key!=(count($col)-1)){
+          $sql .=",";
+        }
       }
-    }
-    $sql .=")";
-    if ($db->query($sql) === TRUE) {
-      $id=$v[0];
-      $sql = "SELECT * FROM products
-        WHERE id='$id'";
-      $result = $db->query($sql);
-      if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $quant = $row['quantityleft'];
-        $quant -= $v[6];
-        $sql = "UPDATE products SET quantityleft='$quant' WHERE id=$id";
-        $db->query($sql);
+      $sql .=")";
+      if ($db->query($sql) === TRUE) {
+        $id=$v[0];
+        $sql = "SELECT * FROM products
+          WHERE id='$id'";
+        $result = $db->query($sql);
+        if ($result->num_rows > 0) {
+          $row = $result->fetch_assoc();
+          $quant = $row['quantityleft'];
+          $quant -= $v[6];
+          $sql = "UPDATE products SET quantityleft='$quant' WHERE id=$id";
+          $db->query($sql);
+        } else {
+          echo "0 results";
+        }
+        $datax[1]=$invoice;
       } else {
-        echo "0 results";
+        echo "Error: " . $sql . "<br>" . $db->error;
+        echo $data;
       }
-      $datax[1]=$invoice;
-    } else {
-      echo "Error: " . $sql . "<br>" . $db->error;
-      echo $data;
     }
   }
   logify("New Sales Added");
