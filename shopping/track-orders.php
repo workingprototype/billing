@@ -83,7 +83,6 @@ include('includes/config.php');
 		<!-- ============================================== BRANDS CAROUSEL ============================================== -->
 <div
 
-<?php echo include('includes/brands-slider.php');?>
 </div>
 </div>
 <?php include('includes/footer.php');?>
