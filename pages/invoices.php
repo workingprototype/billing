@@ -5,7 +5,10 @@ if($request[1]=='sales'){
     $sql = "SELECT * FROM sales WHERE invoice='$invoice'";
     $result = $db->query($sql);
     $rows='';
+    $stat=0;
     $sno=1;
+    $firms=[];
+    $fpointer=0;
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
         $customer = $row['customer'];
@@ -21,6 +24,7 @@ if($request[1]=='sales'){
         $base=$row['baserate'];
         $am=$row['amount'];
         $gst=$row['gst'];
+        $business=$row['business'];
         $beat=$row['beat'];
         $gsta=$row['gstamount'];
         $tot=$row['total'];
@@ -40,6 +44,16 @@ if($request[1]=='sales'){
         <td>$tot</td>
         <td>$fr</td>
         </tr>";
+        foreach ($firms as $key => $firm) {
+          if($firm==$business){
+            $stat=1;
+          }
+        }
+        if($stat==1){
+          $stat=0;
+        }else{
+          $firms[$fpointer++]=$business;
+        }
       }
       $sql = "SELECT * FROM users WHERE id='$customer'";
       $res = $db->query($sql);
@@ -50,17 +64,26 @@ if($request[1]=='sales'){
             $customer_address=$row['billingAddress'];
             $state=$row['billingState'];
         } 
+      }
+      $firmd='';
+      foreach ($firms as $key => $firm) {
+        $sql = "SELECT * FROM business WHERE id='$firm'";
+        $res = $db->query($sql);
+        if ($res->num_rows > 0) {
+          while($row = $res->fetch_assoc()) {
+            $firmn=$row['account_name'];
+            $gstin=$row['gstin'];
+          } 
+        }
+        $firmd.="<tr>
+        <th>GST IN : $gstin  </th>
+        <th>FIRM NAME ".($key + 1).": $firmn </th>
+        </tr>";
+        unset($gstin);
+        unset($firmn);
       } 
       $table= "<table class='table table-bordered'>
-      <tr>
-      <th>GST IN : </th>
-      <th>FIRM NAME 1: </th>
-      <th>TAX INVOICE: </th>
-      </tr>
-      <tr>
-      <th>GST IN : </th>
-      <th>FIRM NAME 2: </th>
-      </tr>
+      $firmd
       <tr>
       <th colspan='2'>STATE : </th>
       <th>CONTACT NO : </th>
