@@ -187,14 +187,14 @@ class Purchase
       var s=1;
       var puts=[]
       var boxes=0;
-      function clicked(a,b,c,d,e,f){
+      function clicked(a,b,c,d,e,f,g){
         r=s++;
         puts[boxes]=r+'_'+f;
 
         disp[i] = '<tr id=\'row_'+boxes+'\'><td><select id=\"batchbox'+r+'_'+f+'\" onchange=\"batchch(this.value,\'batch'+r+'_'+f+'\',\'uombase'+r+'_'+f+'\')\"><option value=\"new\">New Batch</option></select><input id=\"batch'+r+'_'+f+'\" style=\"width:80px\"></td>\
         <td>'+a+'</td>\
         <td><input id=\"mrp'+r+'_'+f+'\" style=\"width:80px\" value=\"'+b+'\"></td>\
-        <td><input id=\"qty'+r+'_'+f+'\" style=\"width:80px\" value=\"\"></td>\
+        <td><input id=\"qty'+r+'_'+f+'\" style=\"width:80px\" value=\"\">('+g+')</td>\
         <td><input id=\"qtyu'+r+'_'+f+'\" style=\"width:80px\" onkeyup=\"qtyu(\''+r+'_'+f+'\')\" value=\"\"></td>\
         <td><input id=\"uombase'+r+'_'+f+'\" placeholder=\'Base Rate\' onkeyup=\"uombase(\''+r+'_'+f+'\')\" ></td>\
         <td><input id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'Base Rate\'></td>\
