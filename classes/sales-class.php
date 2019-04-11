@@ -73,7 +73,7 @@ class Sales
         };
         xhttp.open(\"POST\", \"function/batchch \", true);
         xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
-        xhttp.send('batch='+batch+'&id='+b); 
+        xhttp.send('batch='+batch+'&id='+b);
       }
       function qtych(a){
         qtyz=document.getElementById('qty'+a).value;
@@ -203,7 +203,7 @@ class Sales
       }
       function discountx(){
         val=document.getElementById('rewardsx').value;
-        dex=document.getElementById('tot').value; 
+        dex=document.getElementById('tot').value;
         document.getElementById('final').value=dex-val;
       }
       function isearch(term){
@@ -243,7 +243,7 @@ class Sales
   } else {
     echo "0 results"; // No retailer registered.
   }
-  
+
   $this->r .="<div class='row'><div class='col-md-4'><label><br/> Customer : </label><select onchange='customer(this.value)' id='customer' class='form-control'><option>.....</option>".$users."</select></div></div>";
   $this->r .="<div class='row'><div class='col-md-4'><label><br/> Beat : </label><select id='beats' class='form-control'>".$beats."</select></div></div>";
     $this->r .="
@@ -278,8 +278,8 @@ class Sales
       <th>Remove</th>
       </tr><tr id='tail'></tr>
       </table></div>
-      <h4>Discount :<input id='rewardsx' onkeyup=\"discountx()\" class='form-control'  type='text'  style='width: 300px' ></h4>
-      
+      <h4>Rewards :<input id='rewardsx' onkeyup=\"discountx()\" class='form-control'  type='text'  style='width: 300px' ></h4>
+
       <h4>Total : <input id='tot' class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
       <h4>Final Amount : <input id='final' class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
       <label>Bill Type:</label><br>
