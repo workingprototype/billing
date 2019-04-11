@@ -102,8 +102,6 @@ $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
 
-
-
 ?>
 
 
@@ -235,7 +233,7 @@ while($rw=mysqli_fetch_array($query))
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Availability</label>
 <div class="controls">
-<select   name="productAvailability"  id="productAvailability" class="span8 tip" required>
+<select   name="productAvailability"  id="productAvailability" class="span8 tip">
 <option value="<?php echo htmlentities($row['productAvailability']);?>"><?php echo htmlentities($row['productAvailability']);?></option>
 <option value="In Stock">In Stock</option>
 <option value="Out of Stock">Out of Stock</option>

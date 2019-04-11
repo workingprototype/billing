@@ -49,7 +49,8 @@ else{
              <li data-name="dashboard" class="drop-down__item"><a href="/billing/execpayments" style="text-decoration: none"> Collect Payments </a>  <svg version="1.1" class="drop-down__item-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="511.626px" height="511.627px" viewBox="0 0 511.626 511.627" style="enable-background:new 0 0 511.626 511.627;" xml:space="preserve">
 
 </svg></li>
-<li data-name="activity" class="drop-down__item"><a href="/billing/shopping" style="text-decoration: none">Shopping: Online Store </a> <svg version="1.1" class="drop-down__item-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="95.103px" height="95.103px" viewBox="0 0 95.103 95.103" style="enable-background:new 0 0 95.103 95.103;" xml:space="preserve">
+<!-- <li data-name="activity" class="drop-down__item"><a href="/billing/shopping" style="text-decoration: none">Shopping: Online Store </a> <svg version="1.1" class="drop-down__item-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="95.103px" height="95.103px" viewBox="0 0 95.103 95.103" style="enable-background:new 0 0 95.103 95.103;" xml:space="preserve"> -->
+<li data-name="activity" class="drop-down__item"><a href="login.php" style="text-decoration: none">Shopping: Online Store </a> <svg version="1.1" class="drop-down__item-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="95.103px" height="95.103px" viewBox="0 0 95.103 95.103" style="enable-background:new 0 0 95.103 95.103;" xml:space="preserve">
 <g>
 <g id="Layer_1_14_">
 <g>
