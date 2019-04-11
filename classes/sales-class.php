@@ -77,8 +77,10 @@ class Sales
       }
       function qtych(a){
         qtyz=document.getElementById('qty'+a).value;
+        utcz=document.getElementById('utc'+a).value;
+        qtyz=qtyz*utcz;
         basez=document.getElementById('base'+a).value;
-        document.getElementById('amount'+a).value=qtyz*basez;
+        document.getElementById('amount'+a).value= qtyz*basez;
         discz=document.getElementById('disc'+a).value;
         discaz=((discz/100)*qtyz*basez);
         gstz=document.getElementById('gst'+a).value;
@@ -86,6 +88,9 @@ class Sales
         document.getElementById('total'+a).value=(((gstz/100)+1)*qtyz*basez)-discaz;
         document.getElementById('finalrate'+a).value=((((gstz/100)+1)*qtyz*basez)-discaz)/qtyz;
         total();
+      }
+      function utc(a){
+        qtych(a);
       }
       function submitty()
       {
@@ -163,7 +168,7 @@ class Sales
         <td><select id=\"firm'+r+'_'+f+'\" style=\"width:80px\">".$supps."</select></td>\
         <td>'+a+'</td>\
         <td><input disabled=\'true\' id=\"hsn'+r+'_'+f+'\" style=\"width:80px\" value=\"'+c+'\"></td>\
-        <td><input onkeyup=\"utc()\" id=\"utc'+r+'_'+f+'\" style=\"width:80px\"></td>\
+        <td><input onkeyup=\"utc(\''+r+'_'+f+'\')\" id=\"utc'+r+'_'+f+'\" style=\"width:80px\"></td>\
         <td><input id=\"mrp'+r+'_'+f+'\" value=\"'+b+'\" ></td>\
         <td><input onkeyup=\"qtych(\''+r+'_'+f+'\')\" id=\"qty'+r+'_'+f+'\" style=\"width:150px\"  ></td>\
         <td>'+g+'</td>\

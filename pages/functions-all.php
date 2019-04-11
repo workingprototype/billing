@@ -259,7 +259,7 @@ elseif($request[1]=="sales")
         if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
           $quant = $row['quantityleft'];
-          $quant -= $v[6];
+          $quant -= ($v[6]*$v[4]);
           $sql = "UPDATE products SET quantityleft='$quant' WHERE id=$id";
           $db->query($sql);
         } else {
@@ -542,7 +542,7 @@ elseif($request[1]=="rewardsettings")
   while($row=$result->fetch_assoc()){
     if($row['batch']==$_POST['batch']){
       $output[0]=$row['baserateuom'];
-      $output[1]=$row['qtycase'];
+      $output[1]=$row['qtyuom'];
     }
   }
   echo json_encode($output);
