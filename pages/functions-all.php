@@ -308,8 +308,14 @@ elseif($request[1]=="search")
       $ro = $res->fetch_assoc();
       $cgst=$ro['cgst'];
       $sgst=$ro['sgst'];
+      $unitid=$row['uom'];
+      $sql = "SELECT * FROM uom WHERE id='$unitid'";
+      $res = $db->query($sql);
+      while($ro = $res->fetch_assoc()){
+        $row['uom']=$ro['uom'];
+      }
       $total = $row['productPrice']+($row['productPrice']*5/100);
-      echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"$cgst\",\"$sgst\",\"".$total."\",\"".$row['id']."\")' class='searchitem'> ".$row['productName']." </div>";
+      echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"$cgst\",\"$sgst\",\"".$total."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".$row['productName']." </div>";
     }
 } else {
     echo "0 results";
@@ -344,6 +350,12 @@ elseif($request[1]=="searchi")
       $res = $db->query($sql);
       while($ro = $res->fetch_assoc()){
         $gst=$ro['cgst']+$ro['sgst'];
+      }
+      $unitid=$row['uom'];
+      $sql = "SELECT * FROM uom WHERE id='$unitid'";
+      $res = $db->query($sql);
+      while($ro = $res->fetch_assoc()){
+        $row['uom']=$ro['uom'];
       }
       echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"".$row['hsnno']."\",\"".$batchcode."\",\"".$gst."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".$row['productName']." </div>";
     }
