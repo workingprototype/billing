@@ -178,7 +178,10 @@ echo htmlentities($_SESSION['errmsg']="");
 	  	<div class="form-group">
 		    <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
 		 <input type="password" name="password" class="form-control unicase-form-control text-input" id="exampleInputPassword1" >
-		</div>
+		</div>	</br>
+			<p> Demo Shopping Credentials: </p>
+			<p>Email: test@test.com </p>
+			<p>Password: Test@123 </p>
 		<div class="radio outer-xs">
 		  	<a href="forgot-password.php" class="forgot-password pull-right">Forgot your Password?</a>
 		</div>

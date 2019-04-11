@@ -41,6 +41,11 @@ $page->var['content']="
     <input type='text' id='inputEmail' name='username' placeholder='Username'><br><br>
     <input type='password' id='inputPassword' name='password' placeholder='Password'><br><br>
     <button type='submit' name='submit' class='btn btn-primary'>Login</button>
+		</br></br></br></br>
+		<p> Demo Credentials: </p>
+		<p>Email: admin </p>
+		<p>Password: Test@123 </p>
+
 		</form>
 </div>";
 $page->render();
