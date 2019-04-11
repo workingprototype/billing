@@ -561,7 +561,7 @@ elseif($request[1]=="salesreportget")
   $keys=trim($_POST['keywords']);
   $sql="SELECT * FROM sales
   WHERE (timestamp BETWEEN '$from'  AND '$to') AND (invoice LIKE '%$keys%')
-  GROUP BY invoice ";
+  GROUP BY invoice ORDER BY timestamp";
   $result = $db->query($sql);
   $i=1;
   while($row=$result->fetch_assoc()){
