@@ -36,6 +36,6 @@ $notif.="</table>";
     $page->var['content']= "<strong>Current date and Time :".date("D d-M-Y, H:m:s",time())."</strong>";
     $page->var['content'].=$notif;
     $page->var['content'].="<a href='./".($request[1]-1)."'><button class='btn btn-primary'><< Previous </button></a><a href='./".($request[1]+1)."'><button class='btn btn-primary'>Next >></button></a>";
-    $page->var['title']="Data Log";
+    $page->var['title']="Activity Log";
     $page->render();
 ?>
