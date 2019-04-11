@@ -25,7 +25,7 @@ if(isset($_GET['dir'])){
 //below not done yet
    route("todaysorders","./pages/todays-orders.php");
    route("csv","./pages/csv.php");
-   route("notifications","./pages/notifications.php");
+   route("log","./pages/notifications.php");
    route("rewardsettings","./pages/reward-settings.php");
    route("invoice","./pages/invoices.php");
    route("reports","./pages/report.php");
