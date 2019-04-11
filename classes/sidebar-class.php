@@ -102,6 +102,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->menu("<i class=\"fa fa-users\"></i>Business Settings"); //Main Menu2
 
         $this->submenu("Change Password","changepassword");
+        $this->submenu("Activity Log","log/1");
         $this->menu("<i class=\"fa fa-key\"></i>Account Settings");
 
     }
