@@ -67,6 +67,18 @@ class Purchase
     function uombase(a){
       qtyu(a);
     }
+
+    function margin(a){
+      fx=document.getElementById('margin'+a).value;
+      fy=document.getElementById('qty'+a).value;
+      fp=document.getElementById('totala'+a).value;
+      fs=document.getElementById('qtyu'+a).value;
+      fz= fs*fy;
+      fs=fp*(100+fx)/100;
+      fz=fs/fz;
+      document.getElementById('uomsp'+a).value=fz;
+      disc(a);
+    }
     function disc(a){
       fx=document.getElementById('disc'+a).value;
       fy=document.getElementById('qty'+a).value;
@@ -87,6 +99,7 @@ class Purchase
       cess= document.getElementById('cess'+a).value;
       ex=document.getElementById('totala'+a);
       ex.value=(parseInt((fb*fx))+parseInt((fb*fy))+parseInt((cess))+fb);
+      margin(a)
     }
       function remove(no){
         document.getElementById(\"row_\"+no+\"\").outerHTML= '';
@@ -207,8 +220,8 @@ class Purchase
         <td><input id=\"sgsta'+r+'_'+f+'\"  style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"cess'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"totala'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"margin'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"uomsp'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"margin'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"margin(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
+        <td><input id=\"uomsp'+r+'_'+f+'\" disabled=\"disabled\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"dispp'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"total(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"dispd'+r+'_'+f+'\" style=\"width:150px\"  placeholder=\'\'></td>\
         <td><button onclick=\'remove('+boxes+')\' class=\'btn btn-danger\'>Remove</button></td>\
