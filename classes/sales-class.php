@@ -53,6 +53,23 @@ class Sales
         document.getElementById('tot').value = xox;
         discountx();
       }
+      
+    function autocompleted(id,value,supervalue){
+      document.getElementById(id).value= value;
+      document.getElementById('hidden_'+id).value= supervalue;
+      document.getElementById('drop_'+id).innerHTML='';
+    }
+    function autocompletex(value,a){
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById('drop_'+a).innerHTML=this.responseText;
+        }
+      };
+      xhttp.open(\"POST\", \"function/auto\"+a, true);
+      xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
+      xhttp.send('data='+value);
+    }
 
       function remove(no){
         document.getElementById(\"row_\"+no+\"\").outerHTML= '';
@@ -250,8 +267,13 @@ class Sales
     echo "0 results"; // No retailer registered.
   }
 
-  $this->r .="<div class='row'><div class='col-md-4'><label><br/> Customer : </label><select onchange='customer(this.value)' id='customer' class='form-control'><option>.....</option>".$users."</select></div></div>";
-  $this->r .="<div class='row'><div class='col-md-4'><label><br/> Beat : </label><select id='beats' class='form-control'>".$beats."</select></div></div>";
+    $this->r .="<div class='row'><div class='col-md-4'></br><label>Customer Name :</label>
+    <input style='visibility:hidden;position:absolute' id='hidden_customer' class='form-control'>
+    <input id='customer' onkeyup='autocompletex(this.value,\"customer\")' class='form-control'>
+    <div id='drop_customer' style='width:347px;background:#999;position:absolute;z-index:2'>
+    </div>
+    </div></div>";
+    $this->r .="<div class='row'><div class='col-md-4'><label><br/> Beat : </label><select id='beats' class='form-control'>".$beats."</select></div></div>";
     $this->r .="
     <div class='content' stylr='overflow-x:scroll'>
       <br>
