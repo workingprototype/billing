@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2019 at 07:17 AM
+-- Generation Time: Apr 11, 2019 at 08:26 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -135,15 +135,26 @@ CREATE TABLE `executive` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `creationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updationDate` varchar(255) NOT NULL
+  `updationDate` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `contactno` varchar(255) NOT NULL,
+  `altcontactno` varchar(255) NOT NULL,
+  `Address` varchar(255) NOT NULL,
+  `district` varchar(255) NOT NULL,
+  `billingState` varchar(255) NOT NULL,
+  `pan` varchar(255) NOT NULL,
+  `aadharno` varchar(255) NOT NULL,
+  `birthdate` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `executive`
 --
 
-INSERT INTO `executive` (`id`, `username`, `password`, `creationDate`, `updationDate`) VALUES
-(1, 'executive', '098F6BCD4621D373CADE4E832627B4F6', '2017-01-24 16:21:18', '21-06-2018 08:27:55 PM');
+INSERT INTO `executive` (`id`, `username`, `password`, `creationDate`, `updationDate`, `name`, `contactno`, `altcontactno`, `Address`, `district`, `billingState`, `pan`, `aadharno`, `birthdate`, `email`) VALUES
+(1, 'executive', '098F6BCD4621D373CADE4E832627B4F6', '2017-01-24 16:21:18', '21-06-2018 08:27:55 PM', '', '', '', '', '', '', '', '', '', ''),
+(2, '', '098f6bcd4621d373cade4e832627b4f6', '2019-04-11 17:49:39', '', 'Titan Man', '1234567890', '634232343', 'Jerry Road', 'Lays', 'Elichi', '11111111', '1234235234', '2019-04-11', 'fellow@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -235,7 +246,8 @@ INSERT INTO `notifications` (`id`, `timestamp`, `data`, `type`) VALUES
 (70, '1554553361', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
 (71, '1554553395', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
 (72, '1554576719', '[\"Reward added for Invoice No : 155455319934\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
-(73, '1554576719', '[\"Payment added for Invoice No : 155455319934\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2');
+(73, '1554576719', '[\"Payment added for Invoice No : 155455319934\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(74, '1554894089', '[\"New Product Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2');
 
 -- --------------------------------------------------------
 
@@ -367,13 +379,14 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category`, `subCategory`, `uom`, `productName`, `productCompany`, `productPrice`, `hsnno`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `quantityleft`, `rewardsapplicable`, `taxid`, `postingDate`, `updationDate`) VALUES
-(55, 16, 20, '20', 'Hello Lights', 'Lights Infotech', 150, '235', 200, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', 'image002.png', '2.jpeg', 'image002.png', 10, 'In Stock', -1, '', '37', '2019-02-28 23:49:43', NULL),
+(55, 16, 20, '20', 'Hello Lights', 'Lights Infotech', 150, '235', 200, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', 'image002.png', '2.jpeg', 'image002.png', 10, 'In Stock', -1, '0', '36', '2019-02-28 23:49:43', NULL),
 (56, 16, 20, '20', 'Wow Lights', 'Lights Infotech', 350, '', 400, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">This new light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '4.jpg', '5.jpg', '6.jpg', 60, 'In Stock', -98, '', '37', '2019-02-28 23:50:29', NULL),
 (57, 17, 21, '20', 'Bose Speakers', 'Bose Electronics', 49000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Bose Corporation is a privately held American corporation, based in Framingham, Massachusetts, that designs, develops and sells audio equipment. Founded in 1964 by Amar Bose, the company sells its products throughout the world.</span><br>', '234.jpg', 'SndLinkC2Bk-large.jpg', '3.jpg', 1500, 'In Stock', 22, '', '36', '2019-02-28 23:51:17', NULL),
-(58, 17, 23, '20', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', -36, '', '36', '2019-02-28 23:52:52', NULL),
+(58, 17, 23, '20', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 36, '', '36', '2019-02-28 23:52:52', NULL),
 (59, 17, 23, '19', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 604, '', '37', '2019-02-28 23:54:20', NULL),
 (60, 18, 24, '19', 'iPhone X', '34234', 234234, '23423423', 2342, '234234', 'city.jpg', 'city.jpg', 'city.jpg', 234, 'In Stock', -85, '', '36', '2019-03-10 00:44:47', NULL),
-(71, 18, 24, '20', 'OnePlusX', 'OnePlus', 20000, '846636', 20000, 'One Plus X is the Best OnePlus Phone ever created<br>', 'Insanely Elegant.png', 'octocat.png', '', 200, 'In Stock', 0, '1\r\n', '36', '2019-03-23 15:58:48', NULL);
+(71, 18, 24, '20', 'OnePlusX', 'OnePlus', 20000, '846636', 20000, 'One Plus X is the Best OnePlus Phone ever created<br>', 'Insanely Elegant.png', 'octocat.png', '', 200, 'In Stock', 0, '1\r\n', '36', '2019-03-23 15:58:48', NULL),
+(72, 18, 24, '19', '123 Lights', 'HP', 120, '435', 345345, '<br>', 'Fast-Moving-Consumer-Goods-1.png', 'Fast-Moving-Consumer-Goods-1.png', 'Fast-Moving-Consumer-Goods-1.png', 20, '', 0, '0\r\n', '38', '2019-04-10 11:01:29', NULL);
 
 -- --------------------------------------------------------
 
@@ -621,7 +634,8 @@ CREATE TABLE `taxinfo` (
 
 INSERT INTO `taxinfo` (`id`, `taxname`, `cgst`, `sgst`, `totalgst`) VALUES
 (36, '6 %', '4', '1', '6'),
-(37, '4% tAX', '2', '2', '4');
+(37, '4% tAX', '2', '2', '4'),
+(38, '55 %', '27.5', '27.5', '55');
 
 -- --------------------------------------------------------
 
@@ -829,13 +843,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `executive`
 --
 ALTER TABLE `executive`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -859,7 +873,7 @@ ALTER TABLE `paymentdue`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `purchase`
@@ -895,7 +909,7 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT for table `taxinfo`
 --
 ALTER TABLE `taxinfo`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `uom`
@@ -907,7 +921,7 @@ ALTER TABLE `uom`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

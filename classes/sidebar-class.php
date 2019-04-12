@@ -96,11 +96,13 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->submenu("Business Registration","breg");  //submenu2.1
         $this->submenu("Supplier Registration","supplierreg");  //submenu2.1
         $this->submenu("Retailer Registration","retailerreg");  //submenu2.1
+        $this->submenu("Marketing Executive Registration","executivereg");  //submenu2.1
         $this->submenu("Beat Entry","beat");  //submenu2.1
         $this->submenu("Tax Settings","addtax");  //submenu2.1
         $this->menu("<i class=\"fa fa-users\"></i>Business Settings"); //Main Menu2
 
         $this->submenu("Change Password","changepassword");
+        $this->submenu("Activity Log","log/1");
         $this->menu("<i class=\"fa fa-key\"></i>Account Settings");
 
     }
