@@ -318,7 +318,7 @@ elseif($request[1]=="search")
         $row['uom']=$ro['uom'];
       }
       $total = $row['productPrice']+($row['productPrice']*5/100);
-      echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"$cgst\",\"$sgst\",\"".$total."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".$row['productName']." </div>";
+      echo "<div onclick='clicked(\"". addslashes($row['productName'])."\",\"".$row['productPrice']."\",\"$cgst\",\"$sgst\",\"".$total."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".htmlentities($row['productName'])." </div>";
     }
 } else {
     echo "0 results";

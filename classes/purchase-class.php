@@ -51,17 +51,11 @@ class Purchase
     $this->r .="
     <script>
     function total(a){
-      totalx=document.getElementById('totala'+a);
-      marginx=document.getElementById('margin'+a);
-      dispdx=document.getElementById('dispd'+a);
-      disppx=document.getElementById('dispp'+a);
-      dispdx.value=disppx.value-totalx.value;
-      marginx.value=dispdx.value*100/totalx.value;
       xox=0;
       puts.forEach(function (item,index)
       {
         if(item!='lol'){
-          xox+=Number(document.getElementById('dispp'+item).value);
+          xox+=Number(document.getElementById('totala'+item).value);
         }
       });
       document.getElementById('tot').value = xox;
@@ -72,6 +66,7 @@ class Purchase
       fz= fy/fx;
       document.getElementById('base'+a).value=fz;
       disc(a);
+      total(a)
     }
     function uombase(a){
       qtyu(a);
@@ -83,10 +78,9 @@ class Purchase
       fp=document.getElementById('totala'+a).value;
       fs=document.getElementById('qtyu'+a).value;
       fz= fs*fy;
-      fs=fp*(100+fx)/100;
-      fz=fs/fz;
+      fs=fp*(100+Number(fx))/100;
+      fz=fs;
       document.getElementById('uomsp'+a).value=fz;
-      disc(a);
     }
     function disc(a){
       fx=document.getElementById('disc'+a).value;
@@ -232,7 +226,7 @@ class Purchase
         disp[i] = '<tr id=\'row_'+boxes+'\'><td><select id=\"batchbox'+r+'_'+f+'\" onchange=\"batchch(this.value,\'batch'+r+'_'+f+'\',\'uombase'+r+'_'+f+'\')\"><option value=\"new\">New Batch</option></select><input id=\"batch'+r+'_'+f+'\" style=\"width:80px\"></td>\
         <td>'+a+'</td>\
         <td><input id=\"mrp'+r+'_'+f+'\" style=\"width:80px\" value=\"'+b+'\"></td>\
-        <td><input id=\"qty'+r+'_'+f+'\" style=\"width:80px\" value=\"\">('+g+')</td>\
+        <td><input id=\"qty'+r+'_'+f+'\" style=\"width:80px\" onkeyup=\"uombase(\''+r+'_'+f+'\')\"  value=\"\">('+g+')</td>\
         <td><input id=\"qtyu'+r+'_'+f+'\" style=\"width:80px\" onkeyup=\"qtyu(\''+r+'_'+f+'\')\" value=\"\"></td>\
         <td><input id=\"uombase'+r+'_'+f+'\" placeholder=\'Base Rate\' onkeyup=\"uombase(\''+r+'_'+f+'\')\" ></td>\
         <td><input id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'Base Rate\'></td>\
@@ -243,11 +237,11 @@ class Purchase
         <td><input id=\"sgst'+r+'_'+f+'\" value=\"'+d+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"cgsta'+r+'_'+f+'\"  style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"sgsta'+r+'_'+f+'\"  style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"cess'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
-        <td><input id=\"totala'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input value=\"0\" id=\"cess'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
+        <td><input id=\"totala'+r+'_'+f+'\" onkeyup=\"total(\''+r+'_'+f+'\')\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"margin'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"margin(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
-        <td><input id=\"uomsp'+r+'_'+f+'\" disabled=\"disabled\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"dispp'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"total(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
+        <td><input id=\"uomsp'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"dispp'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"dispd'+r+'_'+f+'\" style=\"width:150px\"  placeholder=\'\'></td>\
         <td><button onclick=\'remove('+boxes+')\' class=\'btn btn-danger\'>Remove</button></td>\
         </tr><tr id=\'tail\'></tr>';
