@@ -195,6 +195,20 @@ if($request[1]=='sales'){
       $rows
       </table>
       ";
+      $table.="
+      <table class='table table-bordered'>
+      <tr>
+      <th>Rewards</th>
+      <th>Total Amount</th>
+      <th>Amount To be Payed</th>
+      </tr>
+      <tr>
+      <td></td>
+      <td>Total Amount</td>
+      <td>Amount To be Payed</td>
+      </tr>
+      </table>
+      ";
     } else {
       echo "0 results"; // No supplier registered.
     }

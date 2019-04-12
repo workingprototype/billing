@@ -210,11 +210,12 @@ elseif($request[1]=="sales")
   $invoice = (time()*100)+34;
   $due=0;
   $discount=$_POST['discount'];
+  $total=$_POST['total'];
   foreach ($data as $k => $v) {
     if(isset($v[0])){
       $v[0]=explode("_",$v[0])[1];
       $due+=$v[14];
-      $val=[$v[1],$v[0],$v[3],$beats,$v[4],$v[6],$v[5],$v[8],$v[9],$v[10],$v[11],$v[12],$v[13],$v[14],$invoice,$v[2],$timestamp,$customer,$v[14]];
+      $val=[$v[1],$v[0],$v[3],$beats,$v[4],$v[6],$v[5],$v[8],$v[9],$v[10],$v[11],$v[12],$v[13],$v[14],$invoice,$v[2],$timestamp,$customer,$total,$discount];
       $table="sales";
       $col= [
       'batch',
@@ -235,7 +236,8 @@ elseif($request[1]=="sales")
       'business' 	,
       'timestamp' 	,
       'customer',
-      'paymentdue'];
+      'paymentdue',
+      'remarks'];
       $sql="INSERT INTO ".$table." (";
       foreach ($col as $key => $value) {
         $sql .=$value;
@@ -273,6 +275,7 @@ elseif($request[1]=="sales")
     }
   }
   logify("New Sales Added");
+  $due=$due-$discount;
   $sq="INSERT INTO paymentdue (customer, salesinvoice,dueamount,timestamp)
    VALUES('$customer','$invoice','$due','$timestamp')";
    if($db->query($sq)){
