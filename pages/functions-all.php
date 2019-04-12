@@ -465,7 +465,7 @@ elseif($request[1]=="duelist")
     $result = $db->query($sql);
     while($row=$result->fetch_assoc()){
       if ($row['dueamount']>0){
-      echo "<option value=\"".$row['id']."\">".$row['salesinvoice']."</option>";
+      echo "<option value=\"".$row['id']."\"> Invoice: ".$row['salesinvoice']." Due: ".$row['dueamount']."</option>";
       }
     }
 }
