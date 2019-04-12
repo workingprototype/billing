@@ -79,7 +79,7 @@ class Purchase
       fs=document.getElementById('qtyu'+a).value;
       fz= fs*fy;
       fs=fp*(100+Number(fx))/100;
-      fz=fs;
+      fz=fs/fz;
       document.getElementById('uomsp'+a).value=fz;
     }
     function disc(a){
