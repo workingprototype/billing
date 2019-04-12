@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2019 at 08:26 PM
+-- Generation Time: Apr 12, 2019 at 09:54 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -247,7 +247,8 @@ INSERT INTO `notifications` (`id`, `timestamp`, `data`, `type`) VALUES
 (71, '1554553395', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
 (72, '1554576719', '[\"Reward added for Invoice No : 155455319934\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
 (73, '1554576719', '[\"Payment added for Invoice No : 155455319934\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
-(74, '1554894089', '[\"New Product Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2');
+(74, '1554894089', '[\"New Product Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2'),
+(75, '1555049397', '[\"New Purchase Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\",\"::1\"]', '2');
 
 -- --------------------------------------------------------
 
@@ -277,7 +278,16 @@ INSERT INTO `orders` (`id`, `userId`, `productId`, `quantity`, `orderDate`, `pay
 (5, 12, '55', 1, '2019-03-20 05:59:12', 'Credit', NULL),
 (6, 12, '57', 1, '2019-03-20 05:59:12', 'Credit', NULL),
 (7, 12, '58', 1, '2019-03-20 05:59:12', 'Credit', NULL),
-(8, 12, '60', 1, '2019-03-20 05:59:12', 'Credit', NULL);
+(8, 12, '60', 1, '2019-03-20 05:59:12', 'Credit', NULL),
+(9, 12, '56', 1, '2019-04-11 18:36:11', 'COD', 'Delivered'),
+(10, 12, '58', 1, '2019-04-11 18:36:11', 'COD', NULL),
+(11, 12, '72', 1, '2019-04-11 18:36:11', 'COD', NULL),
+(12, 2, '55', 1, '2019-04-11 19:40:41', 'Credit', NULL),
+(13, 2, '60', 1, '2019-04-11 19:40:41', 'Credit', NULL),
+(14, 2, '58', 1, '2019-04-11 19:41:35', 'COD', NULL),
+(15, 2, '72', 1, '2019-04-11 19:41:35', 'COD', NULL),
+(16, 2, '55', 65, '2019-04-11 19:43:33', 'COD', NULL),
+(17, 2, '57', 100, '2019-04-11 19:43:33', 'COD', NULL);
 
 -- --------------------------------------------------------
 
@@ -298,7 +308,8 @@ CREATE TABLE `ordertrackhistory` (
 --
 
 INSERT INTO `ordertrackhistory` (`id`, `orderId`, `status`, `remark`, `postingDate`) VALUES
-(1, 1, 'Delivered', 'delivered to hand.', '2019-03-17 13:31:13');
+(1, 1, 'Delivered', 'delivered to hand.', '2019-03-17 13:31:13'),
+(2, 9, 'Delivered', '4', '2019-04-11 19:45:11');
 
 -- --------------------------------------------------------
 
@@ -381,7 +392,7 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `category`, `subCategory`, `uom`, `productName`, `productCompany`, `productPrice`, `hsnno`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `quantityleft`, `rewardsapplicable`, `taxid`, `postingDate`, `updationDate`) VALUES
 (55, 16, 20, '20', 'Hello Lights', 'Lights Infotech', 150, '235', 200, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', 'image002.png', '2.jpeg', 'image002.png', 10, 'In Stock', -1, '0', '36', '2019-02-28 23:49:43', NULL),
 (56, 16, 20, '20', 'Wow Lights', 'Lights Infotech', 350, '', 400, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">This new light is electromagnetic radiation within a certain portion of the electromagnetic spectrum. The word usually refers to visible light, which is the visible spectrum that is visible to the human eye and is responsible for the sense of sight.</span>', '4.jpg', '5.jpg', '6.jpg', 60, 'In Stock', -98, '', '37', '2019-02-28 23:50:29', NULL),
-(57, 17, 21, '20', 'Bose Speakers', 'Bose Electronics', 49000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Bose Corporation is a privately held American corporation, based in Framingham, Massachusetts, that designs, develops and sells audio equipment. Founded in 1964 by Amar Bose, the company sells its products throughout the world.</span><br>', '234.jpg', 'SndLinkC2Bk-large.jpg', '3.jpg', 1500, 'In Stock', 22, '', '36', '2019-02-28 23:51:17', NULL),
+(57, 17, 21, '20', 'Bose Speakers', 'Bose Electronics', 49000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">Bose Corporation is a privately held American corporation, based in Framingham, Massachusetts, that designs, develops and sells audio equipment. Founded in 1964 by Amar Bose, the company sells its products throughout the world.</span><br>', '234.jpg', 'SndLinkC2Bk-large.jpg', '3.jpg', 1500, 'In Stock', 27, '', '36', '2019-02-28 23:51:17', NULL),
 (58, 17, 23, '20', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 36, '', '36', '2019-02-28 23:52:52', NULL),
 (59, 17, 23, '19', 'Tesla battery', 'Tesla Electronics', 45000, '', 50000, '<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: small;\">An electric battery is a device consisting of one or more electrochemical cells with external connections provided to power electrical devices such as flashlights, smartphones, and electric cars. When a battery is supplying electric power, its positive terminal is the cathode and its negative terminal is the anode</span><br>', '4ed4df68-6be6-4a65-8453-dec1b44beb56_1.90ee7b670f0743206e97fbc4af3b99c2.jpeg', '105605.jpg', 'download (1).jpg', 1500, 'In Stock', 604, '', '37', '2019-02-28 23:54:20', NULL),
 (60, 18, 24, '19', 'iPhone X', '34234', 234234, '23423423', 2342, '234234', 'city.jpg', 'city.jpg', 'city.jpg', 234, 'In Stock', -85, '', '36', '2019-03-10 00:44:47', NULL),
@@ -440,7 +451,8 @@ INSERT INTO `purchase` (`id`, `business`, `supplier`, `invoicedate`, `invoicenum
 (3, 'Business A', '11', '2019-03-01', '151351353', '356262', '23525', 'Train', '2019-03-04', '34', '56', 455, 10, 100, 41, 124, 12, 12, 234, 23, 23, 23, 23, 23, 2325, 24, 3, 2323, 23, 0, 0, 0, 1552238531),
 (4, 'Business A', '11', '2019-03-01', '151351353', '356262', '23525', 'Train', '2019-03-04', '34', '56', 455, 10, 100, 41, 124, 12, 12, 234, 23, 23, 23, 23, 23, 2325, 24, 3, 2323, 23, 0, 0, 0, 1552239094),
 (5, 'Business A', '10', '2019-03-28', '0876234235', 'KA24B2344', '23523525', 'Truck', '2019-03-28', '234', '58', 45000, 24, 24, 865, 36, 2, 415, 20345, 2, 2, 407, 407, 2, 21159, 234, 43, 2342, 43, 0, 0, 0, 1553779501),
-(6, 'Business A', '10', '2019-03-28', '0876234235', 'KA24B2344', '23523525', 'Truck', '2019-03-28', '433', '59', 45000, 654, 654, 65400, 100, 2, 855432, 41916168, 2, 2, 838323, 838323, 2, 43592816, 234, 43, 2342, 43, 0, 0, 0, 1553779501);
+(6, 'Business A', '10', '2019-03-28', '0876234235', 'KA24B2344', '23523525', 'Truck', '2019-03-28', '433', '59', 45000, 654, 654, 65400, 100, 2, 855432, 41916168, 2, 2, 838323, 838323, 2, 43592816, 234, 43, 2342, 43, 0, 0, 0, 1553779501),
+(7, '\'1\'', '10', '2019-04-12', '82000', 'mkbhd', '989898989899', 'kolopoi', '2019-04-13', 'iop', '57', 49000, 5, 60, 588000, 9800, 6, 176400, 2763600, 4, 1, 110544, 27636, 60, 2901838, 1, 60000, 2940000, 38162, 2940000, 0, 0, 1555049397);
 
 -- --------------------------------------------------------
 
@@ -849,19 +861,19 @@ ALTER TABLE `executive`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `ordertrackhistory`
 --
 ALTER TABLE `ordertrackhistory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `paymentdue`
@@ -879,7 +891,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `sales`
