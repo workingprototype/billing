@@ -25,6 +25,15 @@ class Purchase
         font-size:16px;
         background:#fff;
       }
+      .autoitem{
+        width:347px;
+        background:#ddd;
+      }
+      .autoitem:hover{
+        width:345px;
+        margin:1px;
+        background:#ddd;
+      }
     </style>
     ";
     $buiss='';
@@ -101,11 +110,15 @@ class Purchase
       ex.value=(parseInt((fb*fx))+parseInt((fb*fy))+parseInt((cess))+fb);
       margin(a)
     }
-      function remove(no){
-        document.getElementById(\"row_\"+no+\"\").outerHTML= '';
-        disp[no+1]='';
-        puts[no]='lol';
-      }
+    function remove(no){
+      document.getElementById(\"row_\"+no+\"\").outerHTML= '';
+      disp[no+1]='';
+      puts[no]='lol';
+    }
+    function autocompleted(id,value,supervalue){
+      document.getElementById(id).value= value;
+      document.getElementById('hidden_'+id).value= supervalue;
+    }
       function batchch(a,b,c){
         if(a=='new'){
           document.getElementById(b).style.visibility='visible';
@@ -124,8 +137,8 @@ class Purchase
       function submitty()
       {
         data=[]
-        business_name = document.getElementById('business').value;
-        supplier = document.getElementById('supplier').value;
+        business_name = document.getElementById('hidden_business').value;
+        supplier = document.getElementById('hidden_supplier').value;
         invoice = document.getElementById('invoice').value;
         invoicedate = document.getElementById('invoicedate').value;
         transport = document.getElementById('transport').value;
@@ -262,20 +275,20 @@ class Purchase
       }
     </script>
     ";
-    $users='';
-    $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
-  $sql = "SELECT * FROM supplier";
-  $result = $db->query($sql);
-  if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-      $users.="<option value='".$row['id']."'>Supplier ID: ".$row['id']." , Name: ".$row['name']."</option>";
-    }
-  } else {
-    echo "0 results"; // No supplier registered.
-  }
-    $this->r .="<div class='row'><div class='col-md-4'></br><label>Firm Name :</label><select id='business' class='form-control'>".$buiss."</select></div></div>";
-    $this->r .="<div class='row'><div class='col-md-4'><label><br/> Supplier Name: </label><select id='supplier' class='form-control'>".$users."</select></div></div>";
+    $this->r .="<div class='row'><div class='col-md-4'></br><label>Firm Name :</label>
+    <input style='visibility:hidden;position:absolute' id='hidden_business' class='form-control'>
+    <input id='business' class='form-control'>
+    <div style='width:347px;background:#999;position:absolute;z-index:2'>
+    <a href='#'><div onclick='autocompleted(\"supplier\",this.innerHTML,\"Super\")' class='autoitem'> a </div></a>
+    </div>
+    </div></div>";
+    $this->r .="<div class='row'><div class='col-md-4'><label><br/> Supplier Name: </label>
+    <input style='visibility:hidden;position:absolute' id='hidden_supplier' class='form-control'>
+    <input id='supplier' class='form-control'>
+    <div style='width:347px;background:#999;position:absolute;z-index:2'>
+    <a href='#'><div onclick='autocompleted(\"supplier\",this.innerHTML,\"Super\")' class='autoitem'> a </div></a>
+    </div>
+    </div></div>";
     $this->r .="
     <div class='content' stylr='overflow-x:scroll'>
       <br>
