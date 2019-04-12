@@ -291,14 +291,12 @@ class Purchase
     <input style='visibility:hidden;position:absolute' id='hidden_business' class='form-control'>
     <input id='business' onkeyup='autocompletex(this.value,\"business\")' class='form-control'>
     <div id='drop_business' style='width:347px;background:#999;position:absolute;z-index:2'>
-    <a href='#'><div onclick='autocompleted(\"business\",this.innerHTML,\"Super\")' class='autoitem'> a </div></a>
     </div>
     </div></div>";
     $this->r .="<div class='row'><div class='col-md-4'><label><br/> Supplier Name: </label>
     <input style='visibility:hidden;position:absolute' id='hidden_supplier' class='form-control'>
     <input id='supplier' onkeyup='autocompletex(this.value,\"supplier\")' class='form-control'>
     <div id='drop_supplier' style='width:347px;background:#999;position:absolute;z-index:2'>
-    <a href='#'><div onclick='autocompleted(\"supplier\",this.innerHTML,\"Super\")' class='autoitem'> a </div></a>
     </div>
     </div></div>";
     $this->r .="
