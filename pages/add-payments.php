@@ -121,18 +121,7 @@ $content.="</select>
 
 					</div><!--/.content-->
 				</div><!--/.span9-->
-			</div>
-
-
-<script>
-		$(document).ready(function() {
-			$('.datatable-1').dataTable();
-			$('.dataTables_paginate').addClass(\"btn-group datatable-pagination\");
-			$('.dataTables_paginate > a').wrapInner('<span />');
-			$('.dataTables_paginate > a:first-child').append('<i class=\"icon-chevron-left shaded\"></i>');
-			$('.dataTables_paginate > a:last-child').append('<i class=\"icon-chevron-right shaded\"></i>');
-		} );
-	</script>";
+			</div>";
 require_once "./classes/page-class.php";
 require_once "./classes/sidebar-class.php";
 require_once "./classes/top-navigation-class.php";
