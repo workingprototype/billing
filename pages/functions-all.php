@@ -685,4 +685,24 @@ elseif($request[1]=="customerrep")
     echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['name']."</td><td style='width:10px;'>".$row['contactno']."</td><td style='width:10px;'>".$purchases."</td><td style='width:100px;'>Have to Add This</td><td style='width:10px;'>".$row['rewards']."</td><td style='width:10px;'>".$paymentdue."</td><td style='width:10px;'></td></tr>";
   }
 }
+elseif($request[1]=="autobusiness")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $keys=$_POST['data'];
+  $sql="SELECT * FROM business WHERE account_name LIKE '%$keys%' ";
+  $result = $db->query($sql);
+  while($row=$result->fetch_assoc()){
+    echo "<a href='#'><div onclick='autocompleted(\"business\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".$row['account_name']."</div></a>";
+  }
+}
+elseif($request[1]=="autosupplier")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $keys=$_POST['data'];
+  $sql="SELECT * FROM users WHERE name LIKE '%$keys%' ";
+  $result = $db->query($sql);
+  while($row=$result->fetch_assoc()){
+    echo "<a href='#'><div onclick='autocompleted(\"supplier\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".$row['name']."</div></a>";
+  }
+}
 ?>

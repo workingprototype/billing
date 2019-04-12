@@ -118,6 +118,18 @@ class Purchase
     function autocompleted(id,value,supervalue){
       document.getElementById(id).value= value;
       document.getElementById('hidden_'+id).value= supervalue;
+      document.getElementById('drop_'+id).innerHTML='';
+    }
+    function autocompletex(value,a){
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById('drop_'+a).innerHTML=this.responseText;
+        }
+      };
+      xhttp.open(\"POST\", \"function/auto\"+a, true);
+      xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
+      xhttp.send('data='+value);
     }
       function batchch(a,b,c){
         if(a=='new'){
@@ -277,15 +289,15 @@ class Purchase
     ";
     $this->r .="<div class='row'><div class='col-md-4'></br><label>Firm Name :</label>
     <input style='visibility:hidden;position:absolute' id='hidden_business' class='form-control'>
-    <input id='business' class='form-control'>
-    <div style='width:347px;background:#999;position:absolute;z-index:2'>
-    <a href='#'><div onclick='autocompleted(\"supplier\",this.innerHTML,\"Super\")' class='autoitem'> a </div></a>
+    <input id='business' onkeyup='autocompletex(this.value,\"business\")' class='form-control'>
+    <div id='drop_business' style='width:347px;background:#999;position:absolute;z-index:2'>
+    <a href='#'><div onclick='autocompleted(\"business\",this.innerHTML,\"Super\")' class='autoitem'> a </div></a>
     </div>
     </div></div>";
     $this->r .="<div class='row'><div class='col-md-4'><label><br/> Supplier Name: </label>
     <input style='visibility:hidden;position:absolute' id='hidden_supplier' class='form-control'>
-    <input id='supplier' class='form-control'>
-    <div style='width:347px;background:#999;position:absolute;z-index:2'>
+    <input id='supplier' onkeyup='autocompletex(this.value,\"supplier\")' class='form-control'>
+    <div id='drop_supplier' style='width:347px;background:#999;position:absolute;z-index:2'>
     <a href='#'><div onclick='autocompleted(\"supplier\",this.innerHTML,\"Super\")' class='autoitem'> a </div></a>
     </div>
     </div></div>";
