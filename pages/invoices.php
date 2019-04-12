@@ -4,16 +4,17 @@ if($request[1]=='sales'){
     $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
     $sql = "SELECT * FROM sales WHERE invoice='$invoice'";
     $result = $db->query($sql);
-    $rows='';
+    $rows=[];
     $stat=0;
     $sno=1;
+    $ix=0;
     $firms=[];
     $fpointer=0;
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
         $customer = $row['customer'];
-        $productname=$row['product'];
-        $sqz="SELECT * FROM products WHERE id='$productname'";
+        $productid=$row['product'];
+        $sqz="SELECT * FROM products WHERE id='$productid'";
         $res=$db->query($sqz);
         $product=$res->fetch_assoc();
         $productname=$product['productName'];
@@ -30,20 +31,19 @@ if($request[1]=='sales'){
         $tot=$row['total'];
         $fr=$row['finalrate'];
         $invoice_date = date("d-M-Y", $row['timestamp']);
-        $rows.="<tr>
-        <td>".$sno++."</td>
-        <td>$productname</td>
-        <td>$hsn</td>
-        <td>$utc</td>
-        <td>$qty</td>
-        <td>$mrp</td>
-        <td>$base</td>
-        <td>$am</td>
-        <td>$gst</td>
-        <td>$gsta</td>
-        <td>$tot</td>
-        <td>$fr</td>
-        </tr>";
+        $rows[$ix++]="
+        $productid</td>
+        $productname</td>
+        $hsn</td>
+        $utc</td>
+        $qty</td>
+        $mrp</td>
+        $base</td>
+        $am</td>
+        $gst</td>
+        $gsta</td>
+        $tot</td>
+        $fr";
         foreach ($firms as $key => $firm) {
           if($firm==$business){
             $stat=1;
@@ -109,6 +109,73 @@ if($request[1]=='sales'){
       </tr>
       </table>
       ";
+      $iz=[[],0,[],0];   
+      //store all the product id to an array iz[0]
+      foreach ($rows as $key => $value) {
+        $value=explode("</td>",$value);
+        $iz[0][$iz[1]++]=$value[0];
+      }
+      $iz[1]=0;
+      //add the info to an array row by row, if duplicate found after combine both if dublicate found before then mark as duplicate;
+      foreach ($iz[0] as $k => $val) {
+        $iz[2][$k]="N";              
+        foreach ($iz[0] as $key => $value) {
+          if($value==$val){
+            if($k>$key){
+              $iz[2][$k]="D";
+            }elseif ($k<$key) {
+              $iz[2][$k]="C";              
+            }
+          }
+        }
+      }
+      function combined($k,$a){
+        $pid=explode("</td>",$a[$k]);$pid=$pid[0];
+        $acc=[0,0,0,0,0,0,0,0,0,0,0];
+        foreach ($a as $key => $value) {
+          $value=explode("</td>",$value);
+          if($value[0]==$pid){
+            $acc[0]=$value[0];
+            $acc[1]=$value[1];
+            $acc[2]=$value[2];
+            $acc[3]=$value[3];
+            $acc[4]+=$value[4];
+            $acc[5]=$value[5];
+            $acc[6]=$value[6];
+            $acc[7]=$value[7];
+            $acc[8]=$value[8];
+            $acc[9]+=$value[9];
+            $acc[10]+=$value[10];
+            $acc[11]=$value[11];
+          }
+        }
+        return implode("</td>",$acc);
+      }
+      $newrow=[];
+      foreach ($iz[2] as $key => $value) {
+        if($value=="N"){
+          $newrow[$iz[3]++]=$rows[$key];
+        }elseif ($value=="C") {
+          $newrow[$iz[3]++]=combined($key,$rows);          
+        }elseif ($value=="D") {
+          # code...
+        }
+      }
+      $rows='';
+      foreach ($newrow as $key => $value) {
+        $value=explode("</td>",$value);
+        $val='';
+        foreach ($value as $k => $v) {
+          $val.="<td>".$v."</td>";
+        }
+        $rows.="<tr>".$val."</tr>";
+      }
+      //
+      //
+      //
+      //
+      //
+      //
       $table.="
       <table class='table table-bordered'>
       <tr>
@@ -126,6 +193,20 @@ if($request[1]=='sales'){
       <th>Final Rate</th>
       </tr>
       $rows
+      </table>
+      ";
+      $table.="
+      <table class='table table-bordered'>
+      <tr>
+      <th>Rewards</th>
+      <th>Total Amount</th>
+      <th>Amount To be Payed</th>
+      </tr>
+      <tr>
+      <td></td>
+      <td>Total Amount</td>
+      <td>Amount To be Payed</td>
+      </tr>
       </table>
       ";
     } else {
@@ -155,7 +236,7 @@ if($request[1]=='sales'){
       visibility: visible;
      }
     </style>";
-    $page->var['content']="<div class='print'>".$table."</div><Button class='btn btn-danger' onclick='window.print()'>Print</button>";
+    $page->var['content']="<div class='print'>".$table."</div><Button class='btn btn-danger' onclick='window.print()'>Print</button><a href='../../addpayments' <Button class='btn btn-primary'>Print</button></a>";
     $page->var['title']="Invoice";
     $page->render();
 }

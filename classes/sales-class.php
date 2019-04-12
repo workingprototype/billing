@@ -128,10 +128,11 @@ class Sales
           }
         };
         var rewardsz = document.getElementById('rewardsx').value;
+        var total = document.getElementById('tot').value;
         var dat = JSON.stringify(data);
         xhttp.open(\"POST\", \"function/sales \", true);
         xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
-        xhttp.send('customer='+customer+'&beats='+beats+'&bill='+billtype+' &data='+dat +'&discount='+rewardsz );
+        xhttp.send('total='+total+'&customer='+customer+'&beats='+beats+'&bill='+billtype+' &data='+dat +'&discount='+rewardsz );
 
       }
       var disp =['<tr><th>Batch Code</th>\
