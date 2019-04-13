@@ -263,10 +263,6 @@ while ($row=mysqli_fetch_array($ret))
 			</div>
 		<!-- ============================================== TABS : END ============================================== -->
 
-
-
-
-<?php // include('includes/brands-slider.php');?>
 </div>
 </div>
 <?php include('includes/footer.php');?>

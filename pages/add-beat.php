@@ -6,7 +6,7 @@ if(strlen($_SESSION['alogin'])==0)
 	{
 header('location:login');
 }
-else{  
+else{
 date_default_timezone_set('Asia/Kolkata');// change according timezone
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 
@@ -16,13 +16,14 @@ if(isset($_POST['submit']))
 	$beat=$_POST['beat'];
 $sql=mysqli_query($con,"insert into beat(beat) values('$beat')");
 $_SESSION['msg']="Beat Added !!";
-
+logify("New Beat Added");
 }
 
 if(isset($_GET['del']))
 		  {
 		          mysqli_query($con,"delete from beat where id = '".$_GET['id']."'");
                   $_SESSION['delmsg']="Beat deleted !!";
+									logify("Beat Added");
 		  }
 
 ?>
