@@ -140,22 +140,36 @@ echo htmlentities($_SESSION['errmsg']);
 <?php
 echo htmlentities($_SESSION['errmsg']="");
 ?>
+<script>
+
+function autocompleted(id,value,supervalue){
+  document.getElementById(id).value= value;
+  document.getElementById('hidden_'+id).value= supervalue;
+  document.getElementById('drop_'+id).innerHTML='';
+}
+function autocompletex(value,a){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById('drop_'+a).innerHTML=this.responseText;
+    }
+  };
+  xhttp.open("POST", "/billing/function/auto"+a, true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send('data='+value);
+ }
+</script>
 	</span>
   <div class="control-group">
   <label class="control-label" for="basicinput">Retailer</label>
   <div class="controls">
-  <select name="users" class="span8 tip" onChange="getUser(this.value);"  required>
-  <option value="">Select Retailer</option>
-  <?php $query=mysqli_query($con,"select * from users");
-  while($row=mysqli_fetch_array($query))
-  {?>
-
-  <option value="<?php echo $row['id'];?>"><?php echo $row['name'];?></option>
-  <?php } ?>
-  </select>
+		<input name='users' style='visibility:hidden;position:absolute' id='hidden_customer' class='form-control'>
+    <input id='customer' onkeyup='autocompletex(this.value,"customer")' class='form-control' autocomplete='chromeisnotnice'>
+    <div id='drop_customer' style=' width: 90%;background:#eee;position:absolute;z-index:2'>
+    </div>
   </div>
   </div>
-</br>
+<br>
 
 
   <div class="control-group" hidden>
@@ -164,7 +178,7 @@ echo htmlentities($_SESSION['errmsg']="");
   <select   name="email"  id="email" class="span8 tip" required>
   </select>
   </div>
-  </div></br>
+  </div><br>
 	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button" name="login">Login</button>
 	</form>
 </div>
