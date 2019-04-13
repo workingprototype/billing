@@ -41,7 +41,7 @@ $page->var['content']="
     <button type='submit' name='submit' class='btn btn-primary'>Login</button>
 		</br></br></br></br>
 		<p> Demo Credentials: </p>
-		<p>Email: fellow@gmail.com </p>
+		<p>Email: executive@gmail.com </p>
 		<p>Password: test </p>
 		</form>
 </div>";
