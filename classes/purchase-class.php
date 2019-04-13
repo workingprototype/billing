@@ -98,7 +98,7 @@ class Purchase
       fy=fy/100;
       document.getElementById('cgsta'+a).value=(fb*fx);
       document.getElementById('sgsta'+a).value=(fb*fy);
-      
+
       cess= document.getElementById('cess'+a).value;
       ex=document.getElementById('totala'+a);
       ex.value=(parseInt((fb*fx))+parseInt((fb*fy))+parseInt((cess))+fb);
@@ -137,7 +137,7 @@ class Purchase
           document.getElementById(b).value=a[0];
           document.getElementById(c).value=a[1];
           document.getElementById(c).disabled=true;
-          
+
         }
       }
       function submitty()
@@ -253,7 +253,7 @@ class Purchase
         );
         document.getElementById('tail').outerHTML=disp[i];
         document.getElementById('idrop').innerHTML='';
-        
+
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
@@ -283,7 +283,7 @@ class Purchase
     ";
     $this->r .="<div class='row'><div class='col-md-4'></br><label>Firm Name :</label>
     <input style='visibility:hidden;position:absolute' id='hidden_business' class='form-control'>
-    <input id='business' onkeyup='autocompletex(this.value,\"business\")' class='form-control'>
+    <input id='business' onkeyup='autocompletex(this.value,\"business\")' class='form-control' autocomplete='business'>
     <div id='drop_business' style='width:347px;background:#999;position:absolute;z-index:2'>
     </div>
     </div></div>";
@@ -349,7 +349,7 @@ class Purchase
 
       <label>Delivery Person's Contact:</label><br>
       <input id='delcontact' placeholder='Delivery Contact' class='form-control' style='width:400px'>
-
+      </br></br>
       <button class='btn btn-success' onclick='submitty()'>Record Purchase</button>
     <div>";
   }
