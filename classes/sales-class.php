@@ -86,6 +86,7 @@ class Sales
             data=JSON.parse(this.responseText);
             document.getElementById('base'+a).value=data[0];
             document.getElementById('utc'+a).value=data[1];
+            document.getElementById('disc'+a).value=data[2];
           }
         };
         xhttp.open(\"POST\", \"function/batchch \", true);
@@ -112,7 +113,7 @@ class Sales
       function submitty()
       {
         data=[];
-        customer = document.getElementById('customer').value;
+        customer = document.getElementById('hidden_customer').value;
         beats = document.getElementById('beats').value;
         billtype = document.getElementById('bill').value;
         puts.forEach(function (item,index)
@@ -139,9 +140,9 @@ class Sales
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
             data=JSON.parse(this.responseText);
             window.location = './invoice/sales/'+data[1];
-            console.log(this.responseText);
           }
         };
         var rewardsz = document.getElementById('rewardsx').value;

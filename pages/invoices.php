@@ -7,6 +7,7 @@ if($request[1]=='sales'){
     $rows=[];
     $stat=0;
     $sno=1;
+    $total=0;
     $ix=0;
     $firms=[];
     $fpointer=0;
@@ -22,6 +23,9 @@ if($request[1]=='sales'){
         $utc=$row['utc'];
         $qty=$row['qty'];
         $mrp=$row['mrp'];
+        $reward=$row['remarks'];
+        $total+=$row['total'];
+        $tobepaid=$row['paymentdue'];
         $base=$row['baserate'];
         $am=$row['amount'];
         $gst=$row['gst'];
@@ -195,6 +199,9 @@ if($request[1]=='sales'){
       $rows
       </table>
       ";
+      if($reward==''){
+        $reward=0;
+      }
       $table.="
       <table class='table table-bordered'>
       <tr>
@@ -203,9 +210,9 @@ if($request[1]=='sales'){
       <th>Amount To be Payed</th>
       </tr>
       <tr>
-      <td></td>
-      <td>Total Amount</td>
-      <td>Amount To be Payed</td>
+      <td>$reward Rupees</td>
+      <td>$total Rupees</td>
+      <td>$tobepaid Rupees</td>
       </tr>
       </table>
       ";
@@ -236,7 +243,7 @@ if($request[1]=='sales'){
       visibility: visible;
      }
     </style>";
-    $page->var['content']="<div class='print'>".$table."</div><Button class='btn btn-danger' onclick='window.print()'>Print</button><a href='../../addpayments' <Button class='btn btn-primary'>Print</button></a>";
+    $page->var['content']="<div class='print'>".$table."</div><Button class='btn btn-danger' onclick='window.print()'>Print</button><a href='../../addpayments' <Button class='btn btn-primary'>Pay Here</button></a>";
     $page->var['title']="Invoice";
     $page->render();
 }
