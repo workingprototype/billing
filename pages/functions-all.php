@@ -548,6 +548,7 @@ elseif($request[1]=="rewardsettings")
       $baserate=$row['dispp']/$baserate;
       $output[0]=$baserate;
       $output[1]=$row['qtyuom'];
+      $output[2]=$row['dispd'];
     }
   }
   echo json_encode($output);

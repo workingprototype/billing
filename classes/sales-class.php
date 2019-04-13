@@ -86,6 +86,7 @@ class Sales
             data=JSON.parse(this.responseText);
             document.getElementById('base'+a).value=data[0];
             document.getElementById('utc'+a).value=data[1];
+            document.getElementById('desc'+a).value=data[2];
           }
         };
         xhttp.open(\"POST\", \"function/batchch \", true);
