@@ -360,7 +360,7 @@ elseif($request[1]=="searchi")
       while($ro = $res->fetch_assoc()){
         $row['uom']=$ro['uom'];
       }
-      echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPrice']."\",\"".$row['hsnno']."\",\"".$batchcode."\",\"".$gst."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".$row['productName']." </div>";
+      echo "<div onclick='clicked(\"".addslashes($row['productName'])."\",\"".$row['productPrice']."\",\"".$row['hsnno']."\",\"".$batchcode."\",\"".$gst."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".$row['productName']." </div>";
     }
 } else {
     echo "0 results";
@@ -544,7 +544,9 @@ elseif($request[1]=="rewardsettings")
   $output[1]=0;
   while($row=$result->fetch_assoc()){
     if($row['batch']==$_POST['batch']){
-      $output[0]=$row['baserateuom'];
+      $baserate=(100+$row['cgst']+$row['cgst'])/100;
+      $baserate=$row['dispp']/$baserate;
+      $output[0]=$baserate;
       $output[1]=$row['qtyuom'];
     }
   }
@@ -689,7 +691,7 @@ elseif($request[1]=="autobusiness")
 {
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $keys=$_POST['data'];
-  $sql="SELECT * FROM business WHERE account_name LIKE '%$keys%' ";
+  $sql="SELECT * FROM business WHERE account_name LIKE '%$keys%' LIMIT 10 ";
   $result = $db->query($sql);
   while($row=$result->fetch_assoc()){
     echo "<a href='#'><div onclick='autocompleted(\"business\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".$row['account_name']."</div></a>";
@@ -699,7 +701,7 @@ elseif($request[1]=="autosupplier")
 {
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $keys=$_POST['data'];
-  $sql="SELECT * FROM supplier WHERE productcompany LIKE '%$keys%' ";
+  $sql="SELECT * FROM supplier WHERE productcompany LIKE '%$keys%'  LIMIT 10";
   $result = $db->query($sql);
   while($row=$result->fetch_assoc()){
     echo "<a href='#'><div onclick='autocompleted(\"supplier\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".$row['productcompany']."</div></a>";
@@ -709,7 +711,7 @@ elseif($request[1]=="autocustomer")
 {
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $keys=$_POST['data'];
-  $sql="SELECT * FROM users WHERE name LIKE '%$keys%' ";
+  $sql="SELECT * FROM users WHERE name LIKE '%$keys%'  LIMIT 10";
   $result = $db->query($sql);
   while($row=$result->fetch_assoc()){
     echo "<a href='#'><div onclick='autocompleted(\"customer\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".$row['name']."</div></a>";
