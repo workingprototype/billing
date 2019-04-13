@@ -53,7 +53,7 @@ class Sales
         document.getElementById('tot').value = xox;
         discountx();
       }
-      
+
     function autocompleted(id,value,supervalue){
       document.getElementById(id).value= value;
       document.getElementById('hidden_'+id).value= supervalue;
@@ -269,7 +269,7 @@ class Sales
 
     $this->r .="<div class='row'><div class='col-md-4'></br><label>Customer Name :</label>
     <input style='visibility:hidden;position:absolute' id='hidden_customer' class='form-control'>
-    <input id='customer' onkeyup='autocompletex(this.value,\"customer\")' class='form-control'>
+    <input id='customer' onkeyup='autocompletex(this.value,\"customer\")' class='form-control' autocomplete='chromeisnotnice'>
     <div id='drop_customer' style='width:347px;background:#999;position:absolute;z-index:2'>
     </div>
     </div></div>";
