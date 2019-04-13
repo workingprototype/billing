@@ -265,16 +265,16 @@ elseif($request[1]=="sales")
           $sql = "UPDATE products SET quantityleft='$quant' WHERE id=$id";
           $db->query($sql);
         } else {
-          echo "0 results";
         }
         $datax[1]=$invoice;
       } else {
-        echo "Error: " . $sql . "<br>" . $db->error;
-        echo $data;
       }
     }
   }
   logify("New Sales Added");
+  if(empty($discount)){
+    $discount=0;
+  }
   $due=$due-$discount;
   $sq="INSERT INTO paymentdue (customer, salesinvoice,dueamount,timestamp)
    VALUES('$customer','$invoice','$due','$timestamp')";
@@ -288,8 +288,6 @@ elseif($request[1]=="sales")
      if($db->query($upsql)){
      echo json_encode($datax);
 
-     }else{
-       echo "ERROR";
      }
    }
 }
