@@ -50,6 +50,12 @@ class Purchase
     }
     $this->r .="
     <script>
+    function calcnet(){
+      xs=Number(document.getElementById('tot').value);
+      ys=Number(document.getElementById('credit').value);
+      zs=Number(document.getElementById('logistic').value);
+      document.getElementById('netam').value=(xs-(ys+zs));
+    }
     function total(a){
       xox=0;
       puts.forEach(function (item,index)
@@ -59,6 +65,7 @@ class Purchase
         }
       });
       document.getElementById('tot').value = xox;
+      calcnet();
     }
     function qtyu(a){
       fx=document.getElementById('qtyu'+a).value;
@@ -331,6 +338,9 @@ class Purchase
       </tr><tr id='tail'></tr>
       </table></div>
       <h4>Total : <input id='tot' class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
+      <h4>Less: Credit Note Amount : <input onkeyup='calcnet()' value='0' id='credit' class='form-control'  type='text'  style='width: 300px' ></h4>
+      <h4>Less:Logistic Amount : <input onkeyup='calcnet()' value='0' id='logistic' class='form-control' type='text'  style='width: 300px' ></h4>
+      <h4>Net Amount : <input id='netam' class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
 
       <label>Invoice Number:</label><br>
       <input id='invoice' placeholder='Invoice Number' class='form-control'>
