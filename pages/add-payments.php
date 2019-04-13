@@ -28,6 +28,25 @@ function duelist2(a){
     xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
     xhttp.send(\"id=\"+a);
 }
+
+function autocompleted(id,value,supervalue){
+	document.getElementById(id).value= value;
+	document.getElementById('hidden_'+id).value= supervalue;
+	document.getElementById('drop_'+id).innerHTML='';
+	duelist(supervalue);
+  }
+  function autocompletex(value,a){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	  if (this.readyState == 4 && this.status == 200) {
+		document.getElementById('drop_'+a).innerHTML=this.responseText;
+	  }
+	};
+	xhttp.open(\"POST\", \"function/auto\"+a, true);
+	xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
+	xhttp.send('data='+value);
+  }
+
 </script>
 
 			<div style='margin:20px;' class=\"row\">
@@ -61,17 +80,13 @@ $content.="<br />
 			<form class=\"form-horizontal row-fluid\" action=\"./function/record_payment\" name=\"subcategory\" method=\"post\" >
 
 <div  class=\"control-group\">
-<label class=\"control-label\" for=\"basicinput\">Payments</label>
-<div class=\"controls\">
-<select  onchange=\"return duelist(this.value)\" name=\"category\" class=\"span8 tip\" required>
-<option value=\"\">Select Debtor</option>";
-$db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
-$query=$db->query("SELECT * FROM users");
-while($row=$query->fetch_assoc())
-{
-	$content.="<option value=\"".$row['id']."\"> ".$row['name']."</option>";
-}
-$content.="</select>
+<label class=\"control-label\" for=\"basicinput\">Debtor</label>
+<div class=\"controls\">";
+$content.="
+<input style='visibility:hidden;position:absolute' placeholder='Start typing the name of the debtor' id='hidden_customer' class='form-control'>
+    <input id='customer' onkeyup='autocompletex(this.value,\"customer\")' class='form-control' autocomplete='chromeisnotnice'>
+    <div id='drop_customer' style='width:347px;background:#999;position:absolute;z-index:2'>
+    </div>
 </div>
 </div>
 
