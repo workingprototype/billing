@@ -181,7 +181,7 @@ echo htmlentities($_SESSION['errmsg']="");
 		</div>	</br>
 			<p> Demo Shopping Credentials: </p>
 			<p>Email: test@test.com </p>
-			<p>Password: Test@123 </p>
+			<p>Password: test </p>
 		<div class="radio outer-xs">
 		  	<a href="forgot-password.php" class="forgot-password pull-right">Forgot your Password?</a>
 		</div>

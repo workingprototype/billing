@@ -11,7 +11,8 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 		$query_p=mysqli_query($con,$sql_p);
 		if(mysqli_num_rows($query_p)!=0){
 			$row_p=mysqli_fetch_array($query_p);
-			$_SESSION['cart'][$row_p['id']]=array("quantity" => 1, "price" => $row_p['productPrice']);
+			$qty=1;
+			$_SESSION['cart'][$row_p['id']]=array("quantity" => $qty, "price" => $row_p['productPrice']);
 			header('location:my-cart.php');
 		}else{
 			$message="Product ID is invalid";
@@ -380,7 +381,7 @@ while($row=mysqli_fetch_array($ret))
 							<div class="quantity-container info-container">
 								<div class="row">
 
-									<div class="col-sm-2">
+									<!-- <div class="col-sm-2">
 										<span class="label">Qty :</span>
 									</div>
 
@@ -394,7 +395,7 @@ while($row=mysqli_fetch_array($ret))
 								                <input type="text" value="1">
 							              </div>
 							            </div>
-									</div>
+									</div> -->
 
 									<div class="col-sm-7">
 										<a href="product-details.php?page=product&action=add&id=<?php echo $row['id']; ?>" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
@@ -552,7 +553,6 @@ while($rvw=mysqli_fetch_array($qry))
 			$subcid=$row['subCategory']; } ?>
 				<!-- ============================================== UPSELL PRODUCTS ============================================== -->
 <section class="section featured-product wow fadeInUp">
-	<h3 class="section-title">Related Products </h3>
 	<div class="owl-carousel home-owl-carousel upsell-product custom-carousel owl-theme outer-top-xs">
 
 		<?php
