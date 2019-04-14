@@ -601,7 +601,8 @@ elseif($request[1]=="purchasereportget")
   WHERE (timestamp BETWEEN '$from'  AND '$to') 
   AND (invoicenumber LIKE '%$keys%') 
   AND (supplier.productcompany LIKE '%$name%') 
-  AND (supplier.contactno LIKE '%$contact%')";
+  AND (supplier.contactno LIKE '%$contact%')
+  GROUP BY invoice ORDER BY timestamp";
   $result = $db->query($sql);
   $i=1;
   while($row=$result->fetch_assoc()){
@@ -699,7 +700,7 @@ elseif($request[1]=="autobusiness")
   $keys=$_POST['data'];
   $sql="SELECT * FROM business WHERE account_name LIKE '%$keys%' LIMIT 10 ";
   $result = $db->query($sql);
-  while($row=$result->fetch_assoc()){
+    while($row=$result->fetch_assoc()){
     echo "<a href='#'><div onclick='autocompleted(\"business\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".$row['account_name']."</div></a>";
   }
 }
