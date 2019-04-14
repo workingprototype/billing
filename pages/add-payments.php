@@ -118,7 +118,7 @@ $content.="
 
 
 	<div class=\"control-group\">
-											<div class=\"controls\">
+											<div class=\"controls\"> </br> </br>
 												<button type=\"submit\" name=\"submit\" class=\"btn\"style=\"border-radius: 3px;color: #fff;
 		background-color: #5cb85c;
 		border-color: #4cae4c;\">Record Payment</button>
