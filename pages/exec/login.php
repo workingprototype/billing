@@ -6,8 +6,8 @@ include('config.php');
 // Code for User login
 if(isset($_POST['login']))
 {
-   $email=$_POST['email'];
-$query=mysqli_query($con,"SELECT * FROM users WHERE email='$email'");
+   $email=$_POST['id'];
+$query=mysqli_query($con,"SELECT * FROM users WHERE id='$email'");
 $num=mysqli_fetch_array($query);
 if($num>0)
 {
@@ -163,7 +163,7 @@ function autocompletex(value,a){
   <div class="control-group">
   <label class="control-label" for="basicinput">Retailer</label>
   <div class="controls">
-		<input name='users' style='visibility:hidden;position:absolute' id='hidden_customer' class='form-control'>
+		<input name='id' style='visibility:hidden;position:absolute' id='hidden_customer' class='form-control'>
     <input id='customer' onkeyup='autocompletex(this.value,"customer")' class='form-control' autocomplete='chromeisnotnice'>
     <div id='drop_customer' style=' width: 90%;background:#eee;position:absolute;z-index:2'>
     </div>
@@ -172,13 +172,7 @@ function autocompletex(value,a){
 <br>
 
 
-  <div class="control-group" hidden>
-  <label class="control-label" for="basicinput">Email</label>
-  <div class="controls">
-  <select   name="email"  id="email" class="span8 tip" required>
-  </select>
-  </div>
-  </div><br>
+  <br>
 	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button" name="login">Login</button>
 	</form>
 </div>
