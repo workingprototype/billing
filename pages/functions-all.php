@@ -671,7 +671,8 @@ elseif($request[1]=="customerrep")
 {
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $keys=$_POST['keywords'];
-  $sql="SELECT * FROM users";
+  $contact=trim($_POST['contact']);
+  $sql="SELECT * FROM users WHERE (name LIKE '%$keys%') AND (contactno LIKE '%$contact%')";
   $result = $db->query($sql);
   $i=1;
   while($row=$result->fetch_assoc()){

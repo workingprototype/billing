@@ -40,7 +40,10 @@
             window.location = '../csv/customer/';
         }
         </script>";
-        $r.="<label>Filter Keywords </label><input id='keywords' class='form-control' style='width:450px' ><br>";
+        $r.="<h4>Filter By</h4><table class='table' >";
+            $r.="<tr><th>Customer Name </th><th>Customer Contact</th><tr>";
+            $r.="<tr><td><input id='keywords'  style='max-width:250px' ></td><td><input id='contact'  style='max-width:250px' ></td></tr>";
+            $r.="</table><input id='name'  style='visibility:hidden; position:absolute; max-width:250px' >";
         $r.=" <button onclick=\"fetchreport()\" class='btn btn-primary' style='width:70px;'>Filter</button>";
         $r.=" <button onclick=\"gotourl()\" class='btn btn-danger' style='width:70px;'>Export</button>";
         $r.=" <button  onclick='window.print()' class='btn btn-danger' style='width:70px;'>Print</button><br><br>";
@@ -94,6 +97,7 @@
             var table=document.getElementById('tablebody');
             var ret='$ths';
             var filter= document.getElementById('keywords').value;
+            var contact= document.getElementById('contact').value;
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
@@ -102,7 +106,7 @@
             };
             xhttp.open(\"POST\", \"../function/$req \", true);
             xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
-            xhttp.send('keywords='+filter);
+            xhttp.send('keywords='+filter+'&contact='+contact);
         }
         </script>";
         return $r;
