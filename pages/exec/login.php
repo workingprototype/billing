@@ -163,8 +163,8 @@ function autocompletex(value,a){
   <div class="control-group">
   <label class="control-label" for="basicinput">Retailer</label>
   <div class="controls">
-		<input name='id' style='visibility:hidden;position:absolute' id='hidden_customer' class='form-control'>
-    <input id='customer' onkeyup='autocompletex(this.value,"customer")' class='form-control' autocomplete='chromeisnotnice'>
+		<input name='id' style='visibility:hidden;position:absolute' id='hidden_customer' class='form-control' required>
+    <input id='customer' onkeyup='autocompletex(this.value,"customer")' class='form-control'>
     <div id='drop_customer' style=' width: 90%;background:#eee;position:absolute;z-index:2'>
     </div>
   </div>
