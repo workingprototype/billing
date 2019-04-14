@@ -602,7 +602,7 @@ elseif($request[1]=="purchasereportget")
   AND (invoicenumber LIKE '%$keys%') 
   AND (supplier.productcompany LIKE '%$name%') 
   AND (supplier.contactno LIKE '%$contact%')
-  GROUP BY invoice ORDER BY timestamp";
+  GROUP BY invoicenumber ORDER BY timestamp";
   $result = $db->query($sql);
   $i=1;
   while($row=$result->fetch_assoc()){
