@@ -584,24 +584,30 @@ elseif($request[1]=="purchasereportget")
   $to= strtotime($_POST['to']);
   $from=strtotime($_POST['from']);
   $keys=trim($_POST['keywords']);
+  $name=trim($_POST['name']);
+  $contact=trim($_POST['contact']);
   if($to==''){
     $to=time();
   }
   if($from==''){
     $from=0;
   }
-  $sql="SELECT * FROM purchase
-  WHERE (timestamp BETWEEN '$from'  AND '$to') AND (invoicenumber LIKE '%$keys%')
-  GROUP BY timestamp";
+  $sql = "SELECT supplier.productcompany as firmname,
+  supplier.contactno as contact,
+  timestamp, invoicenumber,totalwhole, sgst, cgst,
+  purchase.id as id 
+  FROM purchase  
+  INNER JOIN supplier ON purchase.supplier=supplier.id 
+  WHERE (timestamp BETWEEN '$from'  AND '$to') 
+  AND (invoicenumber LIKE '%$keys%') 
+  AND (supplier.productcompany LIKE '%$name%') 
+  AND (supplier.contactno LIKE '%$contact%')";
   $result = $db->query($sql);
   $i=1;
   while($row=$result->fetch_assoc()){
     $date = date("d-m-Y",$row['timestamp']);
-    $id=$row['supplier'];
-    $sq="SELECT * FROM supplier WHERE id='$id'";
-    $res=$db->query($sq)->fetch_assoc();
-    $supplier = $res['name'];
-    $suppliercon = $res['contactno'];
+    $supplier = $row['firmname'];
+    $suppliercon = $row['contact'];
     echo "<tr><td style='width:10px;'>".$i++."</td><td style='width:40px;'>$date</td><td >".$row['invoicenumber']."</td><td style='width:10px;'>".$supplier."</td><td style='width:10px;'>".$suppliercon."</td><td style='width:10px;'>".$row['totalwhole']."</td><td style='width:10px;'>".$row['sgst']."</td><td style='width:10px;'>".$row['cgst']."</td><td style='width:10px;' ><a href='../invoice/sales/".$row['id']."'>View</a></td></tr>";
   }
 }

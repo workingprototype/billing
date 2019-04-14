@@ -8,13 +8,18 @@
         $r.="</tr>";
         return $r;
     }
-    function filtermake($req){
+        function filtermake($req){
         $r="<script>
         function gotourl(a) {
             window.location = '../csv/'+a+'/';
         }
         </script>";
-        $r.="<label>Filter Keywords </label><input id='keywords' class='form-control' style='width:450px' ><br>";
+        if($req=='purchase'){
+            $r.="<h4>Filter By</h4><table class='table' >";
+            $r.="<tr><th>Invoice Number </th><th>Supplier Name</th><th> Supplier Contact</th><tr>";
+            $r.="<tr><td><input id='keywords'  style='max-width:250px' ></td><td><input id='name'  style='max-width:250px' ></td><td><input id='contact'  style='max-width:250px' ></td></tr>";
+            $r.="</table>";
+        }
         $r.="<strong>Date From: </strong> <input id='datefr' type='date' style='height:20px'> ";
         $r.="<strong>Date To: </strong> <input id='dateto' type='date' style='height:20px' >";
         $r.=" <button onclick=\"fetchreport()\" class='btn btn-primary' style='width:70px;'>Filter</button>";
@@ -61,6 +66,8 @@
             var fromdate= document.getElementById('datefr').value;
             var todate= document.getElementById('dateto').value;
             var filter= document.getElementById('keywords').value;
+            var name= document.getElementById('name').value;
+            var contact= document.getElementById('contact').value;
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
@@ -69,7 +76,7 @@
             };
             xhttp.open(\"POST\", \"../function/$req \", true);
             xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
-            xhttp.send('from='+fromdate+'&to='+todate+'&keywords='+filter);
+            xhttp.send('from='+fromdate+'&to='+todate+'&keywords='+filter+'&name='+name+'&contact='+contact);
         }
         </script>";
         return $r;
