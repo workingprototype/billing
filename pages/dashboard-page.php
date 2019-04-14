@@ -19,6 +19,26 @@ $page->var['navbar']=$navbar->echo();
 $page->var['sidebar']=$sidebar->echo();
 $page->var['footer']=$footer->echo();
 
+$query = "SELECT * FROM products";
+$result = mysqli_query($con, $query);
+$chart_data = '';
+while($row = mysqli_fetch_array($result))
+{
+ $chart_data .= "{ productPrice:'".$row["productPrice"]."', productPriceBeforeDiscount:".$row["productPriceBeforeDiscount"].", shippingCharge:".$row["shippingCharge"].", rewardsapplicable:".$row["rewardsapplicable"]."}, ";
+}
+$chart_data = substr($chart_data, 0, -2);
+
+$query2 = "SELECT purchase.timestamp as timer,business.account_name as bname,purchase.count(invoicenumber) as invoicecount,purchase.totalwhole as ptotal, FROM purchase join business on business.id = purchase.business";
+$result2 = mysqli_query($con, $query2);
+$chart_data2 = '';
+while($row = mysqli_fetch_array($result2))
+{
+ $chart_data2 .= "{ productPrice:'".$row["productPrice"]."', productPriceBeforeDiscount:".$row["productPriceBeforeDiscount"].", shippingCharge:".$row["shippingCharge"].", rewardsapplicable:".$row["rewardsapplicable"]."}, ";
+}
+$chart_data2 = substr($chart_data2, 0, -2);
+
+
+
 $result1 = mysqli_query($con, "SELECT COUNT(id) AS `count` FROM `products`");
 $row1 = mysqli_fetch_array($result1);
 $count1 = $row1['count'];
@@ -85,7 +105,47 @@ $page->var['content']='    <div class="row tile_count">
         </div>
       </div>
 
-    </div>';
+    </div>
+
+		  <link rel="stylesheet" href="./assets/css/morris.css">
+		  <script src="./assets/js/jquery-1.9.0.js"></script>
+		  <script src="./assets/js/raphael-min.js"></script>
+		  <script src="./assets/js/moris/morris.min.js"></script>
+
+		 </head>
+		 <body>
+		  <br /><br />
+		  <div class="container" style="width:900px;">
+		   <h2 align="center">Products Report</h2>
+		   <br /><br />
+		   <div id="productchart"></div>
+		   <div id="purchasechart"></div>
+		  </div>
+		 </body>
+		</html>
+
+		<script>
+		Morris.Bar({
+		 element : "productchart",
+		 data:['.$chart_data.'],
+		 xkey:"productPrice",
+		 ykeys:["productPriceBeforeDiscount", "shippingCharge", "rewardsapplicable"],
+		 labels:["Product Price", "Shipping Charge", "Rewards"],
+		 hideHover:"auto",
+		 stacked:true
+		});
+		Morris.Bar({
+		 element : "purchasechart",
+		 data:['.$chart_data.'],
+		 xkey:"productPrice",
+		 ykeys:["productPriceBeforeDiscount", "shippingCharge", "rewardsapplicable"],
+		 labels:["Product Price", "Shipping Charge", "Rewards"],
+		 hideHover:"auto",
+		 stacked:true
+		});
+		</script>
+
+';
 $page->var['title']="Dashboard";
 $page->render();
 }
