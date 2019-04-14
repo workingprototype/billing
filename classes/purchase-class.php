@@ -34,6 +34,18 @@ class Purchase
         margin:1px;
         background:#ddd;
       }
+      .free {
+        position:fixed;
+        width:350px;
+        top:50%;
+        left:50%;
+        background:#fff;
+        height: 200px;
+        box-shadow: 5px 10px 5px;
+        padding:5px;
+        margin-top: -100px;
+        margin-left: -175px;
+      }
     </style>
     ";
     $buiss='';
@@ -147,12 +159,29 @@ class Purchase
 
         }
       }
+      function freecancel(a){
+        document.getElementById('freebox'+a).style.visibility='hidden';
+        document.getElementById('freename'+a).value='';
+        document.getElementById('pname'+a).innerHTML= name;
+        document.getElementById('name'+a).style.visibility='hidden';
+      }
+      function freeshow(a){
+        document.getElementById('freebox'+a).style.visibility='visible';
+      }
+      function freeadd(a){
+        freename=document.getElementById('freename'+a).value;
+        name=document.getElementById('name'+a).value;
+        document.getElementById('pname'+a).innerHTML= name +' + Free: ( '+freename+' )';
+        document.getElementById('freebox'+a).style.visibility='hidden';
+      }
       function submitty()
       {
         data=[]
         business_name = document.getElementById('hidden_business').value;
         supplier = document.getElementById('hidden_supplier').value;
         invoice = document.getElementById('invoice').value;
+        logistic = document.getElementById('logistic').value;
+        credit = document.getElementById('credit').value;
         invoicedate = document.getElementById('invoicedate').value;
         transport = document.getElementById('transport').value;
         receivedate = document.getElementById('receivedate').value;
@@ -183,6 +212,7 @@ class Purchase
             x[18]=document.getElementById('dispp'+item).value;
             x[19]=document.getElementById('dispd'+item).value;
             x[20]=document.getElementById('tot').value;
+            x[21]=document.getElementById('freename'+item).value;
             data[index]=x;
           }
         });
@@ -196,7 +226,7 @@ class Purchase
         var dat = JSON.stringify(data);
         xhttp.open(\"POST\", \"function/purchase \", true);
         xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
-        xhttp.send('supplier='+supplier+'&invoice='+invoice+'&invoicedate='+invoicedate+'&receivedate='+receivedate+'&transport='+transport+'&delcontact='+delcontact+'&vehicleno='+vehicleno+'&business='+business_name+'&data='+dat);
+        xhttp.send('supplier='+supplier+'&invoice='+invoice+'&invoicedate='+invoicedate+'&receivedate='+receivedate+'&transport='+transport+'&delcontact='+delcontact+'&vehicleno='+vehicleno+'&business='+business_name+'&data='+dat+'&logistic='+logistic+'&credit='+credit);
 
       }
       var disp =['<tr><th>Batch Code</th>\
@@ -231,8 +261,11 @@ class Purchase
         puts[boxes]=r+'_'+f;
 
         disp[i] = '<tr id=\'row_'+boxes+'\'><td><select id=\"batchbox'+r+'_'+f+'\" onchange=\"batchch(this.value,\'batch'+r+'_'+f+'\',\'uombase'+r+'_'+f+'\')\"><option value=\"new\">New Batch</option></select><input id=\"batch'+r+'_'+f+'\" style=\"width:80px\"></td>\
-        <td>'+a+'</td>\
-        <td><input id=\"mrp'+r+'_'+f+'\" style=\"width:80px\" value=\"'+b+'\"></td>\
+        <td><span id=\"pname'+r+'_'+f+'\">'+a+'</span><button onclick=\"freeshow(\''+r+'_'+f+'\')\" class=\"btn btn-primary\">Add Free Product</button></td>\
+        <td><input id=\"mrp'+r+'_'+f+'\" style=\"width:80px\" value=\"'+b+'\"><input id=\"name'+r+'_'+f+'\" style=\"width:80px\" value=\"'+a+'\">\
+        <div class=\"free\" id=\"freebox'+r+'_'+f+'\" align=\"center\"><h4>Attach Free Product</h4> <input id=\"freename'+r+'_'+f+'\" placeholder=\"Free Product Name\" >\
+        <br><br><br><button onclick=\"freeadd(\''+r+'_'+f+'\')\" class=\"btn btn-primary\">Enter</button><button onclick=\"freecancel(\''+r+'_'+f+'\')\" class=\"btn btn-danger\">Cancel</button><div>\
+        </td>\
         <td><input id=\"qty'+r+'_'+f+'\" style=\"width:80px\" onkeyup=\"uombase(\''+r+'_'+f+'\')\"  value=\"\">('+g+')</td>\
         <td><input id=\"qtyu'+r+'_'+f+'\" style=\"width:80px\" onkeyup=\"qtyu(\''+r+'_'+f+'\')\" value=\"\"></td>\
         <td><input id=\"uombase'+r+'_'+f+'\" placeholder=\'Base Rate\' onkeyup=\"uombase(\''+r+'_'+f+'\')\" ></td>\
@@ -260,7 +293,7 @@ class Purchase
         );
         document.getElementById('tail').outerHTML=disp[i];
         document.getElementById('idrop').innerHTML='';
-
+        freecancel(r+'_'+f);
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {

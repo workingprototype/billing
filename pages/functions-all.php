@@ -102,6 +102,8 @@ elseif($request[1]=="purchase")
   $data = json_decode($_POST['data']);
   $timestamp=time();
   $invoice = $_POST['invoice'];
+  $logistic = $_POST['logistic'];
+  $credit = $_POST['credit'];
   $business = $_POST['business'];
   $vehicle=$_POST['vehicleno'];
   $supplier=$_POST['supplier'];
@@ -133,8 +135,9 @@ elseif($request[1]=="purchase")
     $v[18],
     $v[19],
     $v[20],
-    0,
-    0,
+    $credit,
+    $logistic,
+    $v[21],
     $timestamp];
     $table="purchase";
     $col= ['business', 	'supplier', 	'invoicedate', 	'invoicenumber', 'vehiclenumber', 	'deliveredcontact',	'transport', 	'receiveddate',
@@ -161,6 +164,7 @@ elseif($request[1]=="purchase")
     'totalwhole',
     'creditnote',
     'logistic',
+    'freeproduct',
     'timestamp' ];
     $sql="INSERT INTO ".$table." (";
     foreach ($col as $key => $value) {
