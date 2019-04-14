@@ -6,13 +6,13 @@ include('config.php');
 // Code for User login
 if(isset($_POST['login']))
 {
-   $email=$_POST['id'];
-$query=mysqli_query($con,"SELECT * FROM users WHERE id='$email'");
+   $id=$_POST['id'];
+$query=mysqli_query($con,"SELECT * FROM users WHERE id='$id'");
 $num=mysqli_fetch_array($query);
 if($num>0)
 {
 $extra="my-cart.php";
-$_SESSION['login']=$_POST['email'];
+$_SESSION['login']=$_POST['id'];
 $_SESSION['id']=$num['id'];
 $_SESSION['username']=$num['name'];
 $uip=$_SERVER['REMOTE_ADDR'];
