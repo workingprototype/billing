@@ -85,8 +85,14 @@ class Sales
             console.log(this.responseText);
             data=JSON.parse(this.responseText);
             document.getElementById('base'+a).value=data[0];
+            pname=document.getElementById('pname'+a).value;
             document.getElementById('utc'+a).value=data[1];
             document.getElementById('disc'+a).value=data[2];
+            if(data[3]!='--null--'){
+              document.getElementById('name'+a).innerHTML=pname+' + Free ('+data[3]+')';
+            }else{
+              document.getElementById('name'+a).innerHTML=pname;
+            }
           }
         };
         xhttp.open(\"POST\", \"function/batchch \", true);
@@ -185,7 +191,7 @@ class Sales
         puts[boxes]=r+'_'+f;
         disp[i] = '<tr id=\'row_'+boxes+'\'><td><select onchange=\"batchch(\''+r+'_'+f+'\','+f+')\" id=\"batch'+r+'_'+f+'\" style=\"width:80px\"><option></option>'+d+'</select></td>\
         <td><select id=\"firm'+r+'_'+f+'\" style=\"width:80px\">".$supps."</select></td>\
-        <td>'+a+'</td>\
+        <td id=\"name'+r+'_'+f+'\" >'+a+'<input hidden=\"hidden\" id=\"pname'+r+'_'+f+'\" value=\"'+a+'\"></td>\
         <td><input disabled=\'true\' id=\"hsn'+r+'_'+f+'\" style=\"width:80px\" value=\"'+c+'\"></td>\
         <td><input onkeyup=\"utc(\''+r+'_'+f+'\')\" id=\"utc'+r+'_'+f+'\" style=\"width:80px\"></td>\
         <td><input id=\"mrp'+r+'_'+f+'\" value=\"'+b+'\" ></td>\
