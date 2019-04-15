@@ -729,4 +729,28 @@ elseif($request[1]=="autocustomer")
     echo "<a href='#'><div onclick='autocompleted(\"customer\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".$row['name']."</div></a>";
   }
 }
+elseif($request[1]=="purchasec")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $id=$_POST['data'];
+  $sql="SELECT * FROM purchase WHERE id='$id'";
+  $result = $db->query($sql);
+  $data=[];
+  $i=0;
+  $sql=$result->fetch_assoc();
+  $timestamp = $sql['timestamp'];
+  $invoice = $sql['invoicenumber'];
+  $supplier = $sql['supplier'];
+  $firm = $sql['business'];
+  $total = $sql['totalwhole'];
+  $sql="SELECT purchase.id as id, business.account_name AS firmname, purchase.timestamp as timestamp, business, supplier, supplier.productcompany as suppliername, invoicenumber, invoicedate, receiveddate, transport, vehiclenumber,deliveredcontact, batch, product, products.productName as productname, mrp, qtycase, qtyuom, baseratecase, baserateuom, disc, disca, neta, cgst,cgsta, sgst, sgsta, cess, totalamount, margin, uomsp, dispp, dispd, totalwhole, creditnote, logistic, freeproduct  FROM purchase INNER JOIN business ON purchase.business=business.id INNER JOIN supplier ON purchase.supplier=supplier.id INNER JOIN products ON purchase.product=products.id WHERE (invoicenumber='$invoice') AND (business='$firm') AND (supplier='$supplier') AND (totalwhole='$total') ";
+  $result = $db->query($sql);
+  while($row=$result->fetch_assoc()){
+    if($timestamp==$row['timestamp']){
+      $data[$i++]=$row;
+    }
+  }
+  $data[$i][0]="OVER";
+  echo json_encode($data);
+}
 ?>
