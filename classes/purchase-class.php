@@ -160,6 +160,7 @@ class Purchase
         }
       }
       function freecancel(a){
+        name=document.getElementById('name'+a).value;
         document.getElementById('freebox'+a).style.visibility='hidden';
         document.getElementById('freename'+a).value='';
         document.getElementById('pname'+a).innerHTML= name;

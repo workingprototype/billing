@@ -551,6 +551,7 @@ elseif($request[1]=="rewardsettings")
       $output[0]=$baserate;
       $output[1]=$row['qtyuom'];
       $output[2]=$row['dispd'];
+      $output[3]=$row['freeproduct'];
     }
   }
   echo json_encode($output);
