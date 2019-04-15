@@ -9,8 +9,8 @@ header('location:index.php');
 else{
 $oid=intval($_GET['oid']);
 if(isset($_POST['submit2'])){
-$status=$_POST['status'];
-$remark=$_POST['remark'];//space char
+$status=mysqli_real_escape_string($con,$_POST['status']);
+$remark=mysqli_real_escape_string($con,$_POST['remark']);//space char
 
 $query=mysqli_query($con,"insert into ordertrackhistory(orderId,status,remark) values('$oid','$status','$remark')");
 $sql=mysqli_query($con,"update orders set orderStatus='$status' where id='$oid'");
@@ -44,11 +44,11 @@ window.print();
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 
     <tr height="50">
-      <td colspan="2" class="fontkink2" style="padding-left:0px;"><div class="fontpink2"> <b>Update Order !</b></div></td>
+      <td colspan="2" class="fontkink2" style="padding-left:0px;"><div class="fontpink2"> <b>Update Order Status !</b></div></td>
 
     </tr>
     <tr height="30">
-      <td  class="fontkink1"><b>order Id:</b></td>
+      <td  class="fontkink1"><b>Order Id:</b></td>
       <td  class="fontkink"><?php echo $oid;?></td>
     </tr>
     <?php
@@ -60,7 +60,7 @@ $ret = mysqli_query($con,"SELECT * FROM ordertrackhistory WHERE orderId='$oid'")
 
 
       <tr height="20">
-      <td class="fontkink1" ><b>At Date:</b></td>
+      <td class="fontkink1" ><b>On Date:</b></td>
       <td  class="fontkink"><?php echo $row['postingDate'];?></td>
     </tr>
      <tr height="20">

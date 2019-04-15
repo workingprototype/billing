@@ -9,10 +9,10 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 
 if(isset($_POST['submit']))
 {
-$taxname=$_POST['taxname'];
-$cgst=$_POST['cgst'];
-$sgst=$_POST['sgst'];
-$totalgst=$_POST['totalgst'];
+$taxname=mysqli_real_escape_string($con,$_POST['taxname']);
+$cgst=mysqli_real_escape_string($con,$_POST['cgst']);
+$sgst=mysqli_real_escape_string($con,$_POST['sgst']);
+$totalgst=mysqli_real_escape_string($con,$_POST['totalgst']);
 $sql=mysqli_query($con,"insert into taxinfo(taxname,cgst,sgst,totalgst) values('$taxname','$cgst','$sgst','$totalgst')");
 $_SESSION['msg']="Tax Group Added!";
 

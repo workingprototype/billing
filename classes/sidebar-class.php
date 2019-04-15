@@ -61,7 +61,6 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
        // $this->submenu("Edit Product Category","editcategory"); //submenu4.1
        $this->submenu("Create Sub Category","addsubcategory"); //submenu4.1
        $this->submenu("Create Unit of Measurement","adduom"); //submenu4.1
-       $this->submenu("Create Sub Unit & Qty","addsubuom"); //submenu4.1
         // $this->submenu("Edit Sub Category","editsubcategory"); //submenu4.1
         $this->submenu("Insert Products","insertproducts");
         $this->submenu("Manage, Edit & Display Products","manageproducts");
@@ -99,6 +98,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->submenu("Marketing Executive Registration","executivereg");  //submenu2.1
         $this->submenu("Beat Entry","beat");  //submenu2.1
         $this->submenu("Tax Settings","addtax");  //submenu2.1
+        $this->submenu("Reward Settings","rewardsettings");  //submenu2.1
         $this->menu("<i class=\"fa fa-users\"></i>Business Settings"); //Main Menu2
 
         $this->submenu("Change Password","changepassword");

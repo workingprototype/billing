@@ -6,19 +6,19 @@ include('include/config.php');
 	$pid=intval($_GET['id']);// product id
 if(isset($_POST['submit']))
 {
-	$category=$_POST['category'];
-	$subcat=$_POST['subcategory'];
-	$productname=$_POST['productName'];
-	$productcompany=$_POST['productCompany'];
-	$productprice=$_POST['productprice'];
-	$productpricebd=$_POST['productpricebd'];
-	$productdescription=$_POST['productDescription'];
-	$productscharge=$_POST['productShippingcharge'];
-	$productavailability=$_POST['productAvailability'];
-	$taxid=$_POST['taxid'];
-	$uom=$_POST['uom'];
-	$hsnno=$_POST['hsnno'];
-	$rewardsapplicable=$_POST['rewardsapplicable'];
+	$category=mysqli_real_escape_string($con,$_POST['category']);
+	$subcat=mysqli_real_escape_string($con,$_POST['subcategory']);
+	$productname=mysqli_real_escape_string($con,$_POST['productName']);
+	$productcompany=mysqli_real_escape_string($con,$_POST['productCompany']);
+	$productprice=mysqli_real_escape_string($con,$_POST['productprice']);
+	$productpricebd=mysqli_real_escape_string($con,$_POST['productpricebd']);
+	$productdescription=mysqli_real_escape_string($con,$_POST['productDescription']);
+	$productscharge=mysqli_real_escape_string($con,$_POST['productShippingcharge']);
+	$productavailability=mysqli_real_escape_string($con,$_POST['productAvailability']);
+	$taxid=mysqli_real_escape_string($con,$_POST['taxid']);
+	$uom=mysqli_real_escape_string($con,$_POST['uom']);
+	$hsnno=mysqli_real_escape_string($con,$_POST['hsnno']);
+	$rewardsapplicable=mysqli_real_escape_string($con,$_POST['rewardsapplicable']);
 
 $sql=mysqli_query($con,"update  products set category='$category',subCategory='$subcat',productName='$productname',productCompany='$productcompany',productPrice='$productprice',productDescription='$productdescription',shippingCharge='$productscharge',productAvailability='$productavailability',productPriceBeforeDiscount='$productpricebd',uom='$uom', taxid='$taxid', hsnno='$hsnno', rewardsapplicable='$rewardsapplicable' where id='$pid' ");
 $_SESSION['msg']="Product Updated Successfully !!";

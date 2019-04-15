@@ -10,7 +10,7 @@ else{
 	$pid=intval($_GET['id']);// product id
 if(isset($_POST['submit']))
 {
-	$productname=$_POST['productName'];
+	$productname=mysqli_real_escape_string($con,$_POST['productName']);
 	$productimage2=$_FILES["productimage2"]["name"];
 
 //dir="productimages";

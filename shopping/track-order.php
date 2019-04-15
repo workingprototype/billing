@@ -32,7 +32,7 @@ window.print();
 
     </tr>
     <tr height="30">
-      <td  class="fontkink1"><b>order Id:</b></td>
+      <td  class="fontkink1"><b>Order Id:</b></td>
       <td  class="fontkink"><?php echo $oid;?></td>
     </tr>
     <?php
@@ -47,7 +47,7 @@ while($row=mysqli_fetch_array($ret))
 
 
       <tr height="20">
-      <td class="fontkink1" ><b>At Date:</b></td>
+      <td class="fontkink1" ><b>On Date:</b></td>
       <td  class="fontkink"><?php echo $row['postingDate'];?></td>
     </tr>
      <tr height="20">

@@ -2,24 +2,16 @@
 <?php
 session_start();
 include('include/config.php');
-if(strlen($_SESSION['alogin'])==0)
-	{
-header('location:index.php');
-}
-else{
-date_default_timezone_set('Asia/Kolkata');// change according timezone
+date_default_timezone_set('Asia/Kolkata');
 $currentTime = date( 'd-m-Y h:i:s A', time () );
-
 
 if(isset($_POST['submit']))
 {
-	$category=mysqli_real_escape_string($con,$_POST['category']);
-	$subcat=mysqli_real_escape_string($con,$_POST['subcategory']);
+  $uom=mysqli_real_escape_string($con,$_POST['uom']);
 	$id=intval($_GET['id']);
-$sql=mysqli_query($con,"update subcategory set categoryid='$category',subcategory='$subcat',updationDate='$currentTime' where id='$id'");
-$_SESSION['msg']="Sub-Category Updated !!";
-echo "<meta http-equiv=\"refresh\" content=\"1;url=/billing/addsubcategory\"/>";
-
+$sql=mysqli_query($con,"update uom set uom='$uom',updationDate='$currentTime' where id='$id'");
+$_SESSION['msg']=" UOM Updated !!";
+echo "<meta http-equiv=\"refresh\" content=\"1;url=/billing/adduom\"/>";
 }
 
 ?>
@@ -28,7 +20,7 @@ echo "<meta http-equiv=\"refresh\" content=\"1;url=/billing/addsubcategory\"/>";
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin| Edit SubCategory</title>
+	<title>Admin| Edit- UOM</title>
 	<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link type="text/css" href="css/theme.css" rel="stylesheet">
@@ -45,7 +37,7 @@ echo "<meta http-equiv=\"refresh\" content=\"1;url=/billing/addsubcategory\"/>";
 
 						<div class="module">
 							<div class="module-head">
-								<h3>Edit SubCategory</h3>
+								<h3>Unit of Measurement</h3>
 							</div>
 							<div class="module-body">
 
@@ -54,59 +46,54 @@ echo "<meta http-equiv=\"refresh\" content=\"1;url=/billing/addsubcategory\"/>";
 									<div class="alert alert-success">
 										<button type="button" class="close" data-dismiss="alert">×</button>
 									<strong>Well done!</strong>	<?php echo htmlentities($_SESSION['msg']);?><?php echo htmlentities($_SESSION['msg']="");?>
-									</div>
+                	</div>
+                  <div id="redirect" style="visibility: hidden" class="alert alert-info">
+										<button type="button" class="close" data-dismiss="alert">×</button>
+									<strong>Redirecting To Add UOM!</strong>
+                	</div>
+                  <script type="text/javascript">
+function showIt() {
+  document.getElementById("redirect").style.visibility = "visible";
+}
+setTimeout("showIt()", 400); // after 1 sec
+</script>
 <?php } ?>
 
 
 									<br />
 
-			<form class="form-horizontal row-fluid" name="Category" method="post" >
+			<form class="form-horizontal row-fluid" name="taxinfo" method="post" >
 <?php
 $id=intval($_GET['id']);
-$query=mysqli_query($con,"select category.id,category.categoryName,subcategory.subcategory from subcategory join category on category.id=subcategory.categoryid where subcategory.id='$id'");
+$query=mysqli_query($con,"select * from uom where id='$id'");
 while($row=mysqli_fetch_array($query))
 {
 ?>
+<form class="form-horizontal row-fluid" name="uom" method="post" >
 
+  <div class="control-group">
+  <label class="control-label" for="basicinput">Edit Unit of Measurement</label>
+  <div class="controls">
+  <input type="text" placeholder="Add Unit of Measurement"  name="uom" class="span8 tip" required value="<?php echo  htmlentities($row['uom']);?>">
+  </div>
+  </div>
 <div class="control-group">
-<label class="control-label" for="basicinput">Category</label>
-<div class="controls">
-<select name="category" class="span8 tip" required>
-<option value="<?php echo htmlentities($row['id']);?>"><?php echo htmlentities($catname=$row['categoryName']);?></option>
-<?php $ret=mysqli_query($con,"select * from category");
-while($result=mysqli_fetch_array($ret))
-{
-echo $cat=$result['categoryName'];
-if($catname==$cat)
-{
-	continue;
-}
-else{
-?>
-<option value="<?php echo $result['id'];?>"><?php echo $result['categoryName'];?></option>
-<?php } }?>
-</select>
-</div>
-</div>
+                <div class="controls">
+                  <button type="submit" name="submit" class="btn" style="border-radius: 3px;color: #fff;
+background-color: #5cb85c;
+border-color: #4cae4c;">Update</button>
 
+                </div>
+              </div>
 
+        </div>
+      </div>
 
-
-<div class="control-group">
-<label class="control-label" for="basicinput">SubCategory Name</label>
-<div class="controls">
-<input type="text" placeholder="Enter category Name"  name="subcategory" value="<?php echo  htmlentities($row['subcategory']);?>" class="span8 tip" required>
-</div>
-</div>
 
 
 									<?php } ?>
 
-	<div class="control-group">
-											<div class="controls">
-												<button type="submit" name="submit" class="btn">Update</button>
-											</div>
-										</div>
+
 									</form>
 							</div>
 						</div>
@@ -121,6 +108,7 @@ else{
 			</div>
 		</div><!--/.container-->
 	</div><!--/.wrapper-->
+
 
 	<script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
 	<script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
@@ -137,4 +125,3 @@ else{
 		} );
 	</script>
 </body>
-<?php } ?>

@@ -10,19 +10,19 @@ else{
 
 if(isset($_POST['submit']))
 {
-	$category=$_POST['category'];
-	$subcat=$_POST['subcategory'];
-	$uom=$_POST['uom'];
-	$taxid=$_POST['taxid'];
-	$productname=$_POST['productName'];
-	$productcompany=$_POST['productCompany'];
-	$productprice=$_POST['productprice'];
-	$hsnno=$_POST['hsnno'];
-	$productpricebd=$_POST['productpricebd'];
-	$productdescription=$_POST['productDescription'];
-	$productscharge=$_POST['productShippingcharge'];
-	$productavailability=$_POST['productAvailability'];
-	$rewardsapplicable=$_POST['rewardsapplicable'];
+	$category=mysqli_real_escape_string($con,$_POST['category']);
+	$subcat=mysqli_real_escape_string($con,$_POST['subcategory']);
+	$uom=mysqli_real_escape_string($con,$_POST['uom']);
+	$taxid=mysqli_real_escape_string($con,$_POST['taxid']);
+	$productname=mysqli_real_escape_string($con,$_POST['productName']);
+	$productcompany=mysqli_real_escape_string($con,$_POST['productCompany']);
+	$productprice=mysqli_real_escape_string($con,$_POST['productprice']);
+	$hsnno=mysqli_real_escape_string($con,$_POST['hsnno']);
+	$productpricebd=mysqli_real_escape_string($con,$_POST['productpricebd']);
+	$productdescription=mysqli_real_escape_string($con,$_POST['productDescription']);
+	$productscharge=mysqli_real_escape_string($con,$_POST['productShippingcharge']);
+	$productavailability=mysqli_real_escape_string($con,$_POST['productAvailability']);
+	$rewardsapplicable=mysqli_real_escape_string($con,$_POST['rewardsapplicable']);
 	$productimage1=$_FILES["productimage1"]["name"];
 	$productimage2=$_FILES["productimage2"]["name"];
 	$productimage3=$_FILES["productimage3"]["name"];

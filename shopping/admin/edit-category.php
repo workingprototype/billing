@@ -3,7 +3,7 @@
 session_start();
 include('include/config.php');
 if(strlen($_SESSION['alogin'])==0)
-	{	
+	{
 header('location:index.php');
 }
 else{
@@ -13,12 +13,12 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 
 if(isset($_POST['submit']))
 {
-	$category=$_POST['category'];
-	$description=$_POST['description'];
+	$category=mysqli_real_escape_string($con,$_POST['category']);
+	$description=mysqli_real_escape_string($con,$_POST['description']);
 	$id=intval($_GET['id']);
 $sql=mysqli_query($con,"update category set categoryName='$category',categoryDescription='$description',updationDate='$currentTime' where id='$id'");
 $_SESSION['msg']="Category Updated !!";
-
+echo "<meta http-equiv=\"refresh\" content=\"1;url=/billing/addcategory\"/>";
 }
 
 ?>
@@ -35,12 +35,9 @@ $_SESSION['msg']="Category Updated !!";
 	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
 </head>
 <body>
-<?php include('include/header.php');?>
-
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
-<?php include('include/sidebar.php');?>				
 			<div class="span9">
 					<div class="content">
 
@@ -67,7 +64,7 @@ $id=intval($_GET['id']);
 $query=mysqli_query($con,"select * from category where id='$id'");
 while($row=mysqli_fetch_array($query))
 {
-?>									
+?>
 <div class="control-group">
 <label class="control-label" for="basicinput">Category Name</label>
 <div class="controls">
@@ -75,14 +72,13 @@ while($row=mysqli_fetch_array($query))
 </div>
 </div>
 
-
 <div class="control-group">
 											<label class="control-label" for="basicinput">Description</label>
 											<div class="controls">
 												<textarea class="span8" name="description" rows="5"><?php echo  htmlentities($row['categoryDescription']);?></textarea>
 											</div>
 										</div>
-									<?php } ?>	
+									<?php } ?>
 
 	<div class="control-group">
 											<div class="controls">
@@ -94,17 +90,16 @@ while($row=mysqli_fetch_array($query))
 						</div>
 
 
-						
 
-						
-						
+
+
+
 					</div><!--/.content-->
 				</div><!--/.span9-->
 			</div>
 		</div><!--/.container-->
 	</div><!--/.wrapper-->
 
-<?php include('include/footer.php');?>
 
 	<script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
 	<script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>

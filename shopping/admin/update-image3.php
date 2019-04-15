@@ -7,7 +7,7 @@ include('include/config.php');
 	$pid=intval($_GET['id']);// product id
 if(isset($_POST['submit']))
 {
-	$productname=$_POST['productName'];
+	$productname=mysqli_real_escape_string($con,$_POST['productName']);
 	$productimage3=$_FILES["productimage3"]["name"];
 
 

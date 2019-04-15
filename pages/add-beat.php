@@ -13,7 +13,7 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 
 if(isset($_POST['submit']))
 {
-	$beat=$_POST['beat'];
+	$beat=mysqli_real_escape_string($con,$_POST['beat']);
 $sql=mysqli_query($con,"insert into beat(beat) values('$beat')");
 $_SESSION['msg']="Beat Added !!";
 logify("New Beat Added");

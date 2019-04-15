@@ -13,18 +13,12 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 
 if(isset($_POST['submit']))
 {
-	$category=$_POST['category'];
-	$description=$_POST['description'];
+	$category=mysqli_real_escape_string($con,$_POST['category']);
+	$description=mysqli_real_escape_string($con,$_POST['description']);
 $sql=mysqli_query($con,"insert into category(categoryName,categoryDescription) values('$category','$description')");
 $_SESSION['msg']="Category Created !!";
 
 }
-
-if(isset($_GET['del']))
-		  {
-		          mysqli_query($con,"delete from category where id = '".$_GET['id']."'");
-                  $_SESSION['delmsg']="Category deleted !!";
-		  }
 
 ?>
 <!DOCTYPE html>
@@ -104,7 +98,7 @@ if(isset($_GET['del']))
 						</div>
 
 
-	<!-- <div class="module">
+	 <div class="module">
 							<div class="module-head">
 								<h3>Manage Categories</h3>
 							</div>
@@ -117,7 +111,7 @@ if(isset($_GET['del']))
 											<th>Description</th>
 											<th>Creation date</th>
 											<th>Last Updated</th>
-											<th>Action [not available now]</th>
+											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -134,14 +128,14 @@ while($row=mysqli_fetch_array($query))
 											<td> <?php echo htmlentities($row['creationDate']);?></td>
 											<td><?php echo htmlentities($row['updationDate']);?></td>
 											<td>
-											<a href="edit-category.php?id=<?php echo $row['id']?>" ><i class="icon-edit"></i></a>
-											<a href="addcategory?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>
+											<a href="./shopping/admin/edit-category.php?id=<?php echo $row['id']?>" ><i class="icon-edit"></i></a>
+											<a href="./shopping/admin/delete-category.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>
 										</tr>
 										<?php $cnt=$cnt+1; } ?>
 
 								</table>
 							</div>
-						</div> -->
+						</div>
 
 
 
