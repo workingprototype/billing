@@ -10,7 +10,7 @@ else{
 date_default_timezone_set('Asia/Kolkata');
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 
-$oid=intval($_GET['oid']);
+$orderNumber=$_GET['orderNumber'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,7 +66,9 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 									<thead>
 										<tr>
 											<th>#</th>
-											<th> Name</th>
+											<th>Unique Order Number</th>
+											<th>Name</th>
+										<th class="cart-description item">Image</th>
 											<th width="50">Email /Contact no</th>
 											<th>Shipping Address</th>
 											<th>Product </th>
@@ -85,14 +87,20 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 $from=date('Y-m-d')." ".$f1;
 $t1="23:59:59";
 $to=date('Y-m-d')." ".$t1;
-$query=mysqli_query($con,"select users.name as username,users.email as useremail,users.contactno as usercontact,users.shippingAddress as shippingaddress,users.shippingCity as shippingcity,users.shippingState as shippingstate,users.shippingPincode as shippingpincode,products.productName as productname,products.shippingCharge as shippingcharge,orders.quantity as quantity,orders.orderDate as orderdate,products.productPrice as productprice,orders.id as id  from orders join users on  orders.userId=users.id join products on products.id=orders.productId where orders.orderDate Between '$from' and '$to'");
+$query=mysqli_query($con,"select products.id as proid, products.productImage1 as pimg1,orders.orderNumber as orderNumber, users.name as username,users.email as useremail,users.contactno as usercontact,users.shippingAddress as shippingaddress,users.shippingCity as shippingcity,users.shippingState as shippingstate,users.shippingPincode as shippingpincode,products.productName as productname,products.shippingCharge as shippingcharge,orders.quantity as quantity,orders.orderDate as orderdate,products.productPrice as productprice,orders.id as id  from orders join users on  orders.userId=users.id join products on products.id=orders.productId where orders.orderDate Between '$from' and '$to' and orderNumber = '$orderNumber'");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
 ?>
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
+											<td><?php echo htmlentities($row['orderNumber']);?></td>
 											<td><?php echo htmlentities($row['username']);?></td>
+											<td class="cart-image">
+												<a class="entry-thumbnail">
+												    <img src="productimages/<?php echo $row['proid'];?>/<?php echo $row['pimg1'];?>" alt="" width="84" height="146">
+												</a>
+											</td>
 											<td><?php echo htmlentities($row['useremail']);?>/<?php echo htmlentities($row['usercontact']);?></td>
 											<td><?php echo htmlentities($row['shippingaddress'].",".$row['shippingcity'].",".$row['shippingstate']."-".$row['shippingpincode']);?></td>
 											<td><?php echo htmlentities($row['productname']);?></td>
@@ -109,7 +117,7 @@ while($row=mysqli_fetch_array($query))
 							</div>
 						</div>
 
-<button onclick="location.href = './purchase';"> Return to Billing </button>
+<button onclick="location.href = '/billing/todaysorders';"> Return to Today's Order Tracking </button>
 
 					</div><!--/.content-->
 				</div><!--/.span9-->

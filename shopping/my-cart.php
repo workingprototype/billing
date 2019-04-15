@@ -39,6 +39,7 @@ header('location:login.php');
 }
 else{
 
+	$orderNumber = mysqli_real_escape_string($con,$_POST['orderNumber']);
 	$quantity=$_POST['quantity'];
 	$pdd=$_SESSION['pid'];
 	$value=array_combine($pdd,$quantity);
@@ -48,7 +49,7 @@ else{
 
 
 
-mysqli_query($con,"insert into orders(userId,productId,quantity) values('".$_SESSION['id']."','$qty','$val34')");
+mysqli_query($con,"insert into orders(userId,productId,quantity,orderNumber) values('".$_SESSION['id']."','$qty','$val34','$orderNumber')");
 header('location:payment-method.php');
 }
 }
@@ -61,6 +62,17 @@ header('location:payment-method.php');
 <html lang="en">
 	<head>
 		<!-- Meta -->
+		<script>
+		window.onload = function(){
+		function randomString(length, chars) {
+	    var result = '';
+	    for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+	    return result;
+	}
+
+ document.getElementById('orderNumber').value = randomString(10, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+}
+		</script>
 		<meta charset="utf-8">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -266,6 +278,7 @@ while ($rt=mysqli_fetch_array($qry)) {
 		<thead>
 			<tr>
 				<th>
+					<input type="text" name="orderNumber" id="orderNumber" hidden> </input>
 					<span class="estimate-title">Billing Address</span>
 				</th>
 			</tr>
