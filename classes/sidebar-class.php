@@ -57,10 +57,10 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         // $this->submenu("Roles","roles"); //// TODO: Role management not done. Do it with checkboxes
         // $this->menu("<i class=\"fa fa-user-plus\" aria-hidden=\"true\"></i>User Management");  //Main Menu3
 
-       $this->submenu("Create Product Category","addcategory"); //submenu4.1
+       $this->submenu("Create & Manage Product Category","addcategory"); //submenu4.1
        // $this->submenu("Edit Product Category","editcategory"); //submenu4.1
-       $this->submenu("Create Sub Category","addsubcategory"); //submenu4.1
-       $this->submenu("Create Unit of Measurement","adduom"); //submenu4.1
+       $this->submenu("Create & Manage Sub Category","addsubcategory"); //submenu4.1
+       $this->submenu("Create & Manage Unit of Measurement","adduom"); //submenu4.1
         // $this->submenu("Edit Sub Category","editsubcategory"); //submenu4.1
         $this->submenu("Insert Products","insertproducts");
         $this->submenu("Manage, Edit & Display Products","manageproducts");
@@ -96,8 +96,8 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->submenu("Supplier Registration","supplierreg");  //submenu2.1
         $this->submenu("Retailer Registration","retailerreg");  //submenu2.1
         $this->submenu("Marketing Executive Registration","executivereg");  //submenu2.1
-        $this->submenu("Beat Entry","beat");  //submenu2.1
-        $this->submenu("Tax Settings","addtax");  //submenu2.1
+        $this->submenu("Create and Manage Beat Entry","beat");  //submenu2.1
+        $this->submenu("Create & Manage Tax Settings","addtax");  //submenu2.1
         $this->submenu("Reward Settings","rewardsettings");  //submenu2.1
         $this->menu("<i class=\"fa fa-users\"></i>Business Settings"); //Main Menu2
 

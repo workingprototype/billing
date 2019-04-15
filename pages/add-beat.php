@@ -96,44 +96,42 @@ if(isset($_GET['del']))
 						</div>
 
 
-	<!-- <div class="module">
+ <div class="module">
 							<div class="module-head">
-								<h3>Manage Categories</h3>
+								<h3>Manage Beat</h3>
 							</div>
 							<div class="module-body table">
 								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>Category</th>
-											<th>Description</th>
+											<th>Beat</th>
 											<th>Creation date</th>
 											<th>Last Updated</th>
-											<th>Action [not available now]</th>
+											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>
 
-<?php $query=mysqli_query($con,"select * from uom");
+<?php $query=mysqli_query($con,"select * from beat");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
 ?>
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($row['categoryName']);?></td>
-											<td><?php echo htmlentities($row['categoryDescription']);?></td>
+											<td><?php echo htmlentities($row['beat']);?></td>
 											<td> <?php echo htmlentities($row['creationDate']);?></td>
 											<td><?php echo htmlentities($row['updationDate']);?></td>
 											<td>
-											<a href="edit-category.php?id=<?php echo $row['id']?>" ><i class="icon-edit"></i></a>
-											<a href="addcategory?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>
+											<a href="./shopping/admin/edit-beat.php?id=<?php echo $row['id']?>" ><i class="icon-edit"></i></a>
+											<a href="./shopping/admin/delete-beat.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>
 										</tr>
 										<?php $cnt=$cnt+1; } ?>
 
 								</table>
 							</div>
-						</div> -->
+						</div>
 
 
 
