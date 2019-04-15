@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2019 at 12:29 PM
+-- Generation Time: Apr 15, 2019 at 08:06 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -214,7 +214,8 @@ INSERT INTO `notifications` (`id`, `timestamp`, `data`, `type`) VALUES
 (34, '1555319543', '[\"Reward Settings Changed to : :2:5::::::::\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36\",\"::1\"]', '2'),
 (35, '1555319561', '[\"Reward Settings Changed to : :8:9::::::::\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36\",\"::1\"]', '2'),
 (36, '1555323943', '[\"New Beat Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36\",\"::1\"]', '2'),
-(37, '1555323961', '[\"New Beat Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36\",\"::1\"]', '2');
+(37, '1555323961', '[\"New Beat Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36\",\"::1\"]', '2'),
+(38, '1555333197', '[\"New Purchase Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36\",\"::1\"]', '2');
 
 -- --------------------------------------------------------
 
@@ -228,6 +229,7 @@ CREATE TABLE `orders` (
   `productId` varchar(255) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
   `orderDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `orderNumber` longtext NOT NULL,
   `paymentMethod` varchar(50) DEFAULT NULL,
   `orderStatus` varchar(55) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -236,11 +238,16 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `userId`, `productId`, `quantity`, `orderDate`, `paymentMethod`, `orderStatus`) VALUES
-(1, 13, '17', 1, '2019-04-14 06:13:09', 'COD', 'in Process'),
-(2, 13, '18', 1, '2019-04-14 06:13:09', 'COD', 'Delivered'),
-(3, 13, '2', 1, '2019-04-15 09:44:02', 'COD', NULL),
-(4, 13, '4', 1, '2019-04-15 09:44:02', 'COD', NULL);
+INSERT INTO `orders` (`id`, `userId`, `productId`, `quantity`, `orderDate`, `orderNumber`, `paymentMethod`, `orderStatus`) VALUES
+(1, 13, '17', 1, '2019-04-14 06:13:09', '8meM976YFw', 'COD', 'Delivered'),
+(2, 13, '18', 1, '2019-04-14 06:13:09', '8meM976YFw', 'COD', 'Delivered'),
+(3, 13, '2', 1, '2019-04-15 09:44:02', '7me07BfYFw', 'COD', 'in Process'),
+(4, 13, '4', 1, '2019-04-15 09:44:02', '7me07BfYFw', 'COD', NULL),
+(5, 13, '3', 1, '2019-04-15 15:34:45', '8meMmBfYFw', 'COD', NULL),
+(6, 1, '3', 1, '2019-04-15 17:45:56', 'NrRGq2sIlN', 'COD', NULL),
+(7, 1, '3', 1, '2019-04-15 17:47:05', 'NrRGq2sIlN', 'COD', NULL),
+(8, 1, '17', 1, '2019-04-15 17:48:23', 'l7r7XlfKaM', 'COD', NULL),
+(9, 1, '18', 1, '2019-04-15 17:48:23', 'l7r7XlfKaM', 'COD', NULL);
 
 -- --------------------------------------------------------
 
@@ -251,6 +258,7 @@ INSERT INTO `orders` (`id`, `userId`, `productId`, `quantity`, `orderDate`, `pay
 CREATE TABLE `ordertrackhistory` (
   `id` int(11) NOT NULL,
   `orderId` varchar(255) DEFAULT NULL,
+  `orderNumber` longtext NOT NULL,
   `status` varchar(255) DEFAULT NULL,
   `remark` mediumtext,
   `postingDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -260,9 +268,11 @@ CREATE TABLE `ordertrackhistory` (
 -- Dumping data for table `ordertrackhistory`
 --
 
-INSERT INTO `ordertrackhistory` (`id`, `orderId`, `status`, `remark`, `postingDate`) VALUES
-(1, '1', 'in Process', 'Its in the process of bein\' delivered!', '2019-04-15 08:37:40'),
-(2, '2', 'Delivered', 'Delivered it to the boy who received it!', '2019-04-15 09:41:13');
+INSERT INTO `ordertrackhistory` (`id`, `orderId`, `orderNumber`, `status`, `remark`, `postingDate`) VALUES
+(1, '1', '8meM976YFw', 'in Process', 'Its in the process of bein\' delivered!', '2019-04-15 08:37:40'),
+(2, '2', '7me07BfYFw', 'Delivered', 'Delivered it to the boy who received it!', '2019-04-15 09:41:13'),
+(3, '1', '', 'Delivered', 'given', '2019-04-15 16:39:30'),
+(4, '3', '', 'in Process', 'packing', '2019-04-15 16:41:02');
 
 -- --------------------------------------------------------
 
@@ -319,7 +329,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category`, `subCategory`, `uom`, `productName`, `productCompany`, `productPrice`, `hsnno`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `quantityleft`, `rewardsapplicable`, `taxid`, `postingDate`, `updationDate`) VALUES
-(1, '1', '1', '1', 'Bose Quiet Comfort 35 II Wireless Headphone Silver', 'Bose Electronics', '29363.00', '63454634234', '39363.00', '<div id=\"dpx-product-description_feature_div\" style=\"box-sizing: border-box; color: rgb(17, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\"><div id=\"descriptionAndDetails\" class=\"a-section a-spacing-extra-large\" style=\"box-sizing: border-box; margin-bottom: 0px;\"><div id=\"productDescription_feature_div\" class=\"feature\" data-feature-name=\"productDescription\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box;\"><div id=\"productDescription_feature_div\" data-feature-name=\"productDescription\" data-template-name=\"productDescription\" class=\"a-row feature\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box; width: 1674px;\"><div id=\"productDescription\" class=\"a-section a-spacing-small\" style=\"box-sizing: border-box; margin: 0.5em 0px 0em 25px; color: rgb(51, 51, 51); overflow-wrap: break-word; font-size: small; line-height: initial;\"><p style=\"box-sizing: border-box; padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em;\">Quiet comfort 35 wireless headphones II are engineered with world-class noise cancellation and now theyâ€™re even better. You can control music, send and receive texts, and get answers using just your voice. Just press and hold the action button, and start talking. With QC 35 headphones II, you can be free from wires by connecting easily to your devices with Bluetooth and NFC pairing and voice prompts walk you through the connection. The multi-function button continues to offer access to your phoneâ€™s default virtual assistant, like Siri. Volume-optimized EQ gives you balanced audio performance at any volume, while a noise-rejecting dual-microphone system provides clearer calls, even in noisy environments. They feature up to 20 hours of wireless listening per charge and are designed with premium materials that make them lightweight and comfortable for all-day wear and the Bose Connect app helps you set your preferred level of noise cancellation, unlock more features and access future updates. Get caught with a low battery? The included cable lets you plug in and keep the music playing. Available in black or silver.</p></div></div></div></div></div>', '81B1hwVr9ML._SL1500_.jpg', '81eKatMbk7L._SL1500_.jpg', '71DNFlj7zdL._SL1500_.jpg', '180', 'In Stock', '0', '1\r\n', '1', '2019-04-12 21:34:04', NULL),
+(1, '1', '1', '1', 'Bose Quiet Comfort 35 II Wireless Headphone Silver', 'Bose Electronics', '29363.00', '63454634234', '39363.00', '<div id=\"dpx-product-description_feature_div\" style=\"box-sizing: border-box; color: rgb(17, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\"><div id=\"descriptionAndDetails\" class=\"a-section a-spacing-extra-large\" style=\"box-sizing: border-box; margin-bottom: 0px;\"><div id=\"productDescription_feature_div\" class=\"feature\" data-feature-name=\"productDescription\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box;\"><div id=\"productDescription_feature_div\" data-feature-name=\"productDescription\" data-template-name=\"productDescription\" class=\"a-row feature\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box; width: 1674px;\"><div id=\"productDescription\" class=\"a-section a-spacing-small\" style=\"box-sizing: border-box; margin: 0.5em 0px 0em 25px; color: rgb(51, 51, 51); overflow-wrap: break-word; font-size: small; line-height: initial;\"><p style=\"box-sizing: border-box; padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em;\">Quiet comfort 35 wireless headphones II are engineered with world-class noise cancellation and now theyâ€™re even better. You can control music, send and receive texts, and get answers using just your voice. Just press and hold the action button, and start talking. With QC 35 headphones II, you can be free from wires by connecting easily to your devices with Bluetooth and NFC pairing and voice prompts walk you through the connection. The multi-function button continues to offer access to your phoneâ€™s default virtual assistant, like Siri. Volume-optimized EQ gives you balanced audio performance at any volume, while a noise-rejecting dual-microphone system provides clearer calls, even in noisy environments. They feature up to 20 hours of wireless listening per charge and are designed with premium materials that make them lightweight and comfortable for all-day wear and the Bose Connect app helps you set your preferred level of noise cancellation, unlock more features and access future updates. Get caught with a low battery? The included cable lets you plug in and keep the music playing. Available in black or silver.</p></div></div></div></div></div>', '81B1hwVr9ML._SL1500_.jpg', '81eKatMbk7L._SL1500_.jpg', '71DNFlj7zdL._SL1500_.jpg', '180', 'In Stock', '1', '1\r\n', '1', '2019-04-12 21:34:04', NULL),
 (2, '1', '1', '1', 'Sony\'s WH-1000XM3 Wireless Industry Leading Noise Cancellation Headphones with Alexa (Black)', 'Sony Electronics', '26990.00', '87504634234', '29990.00', '<div id=\"dpx-product-description_feature_div\" style=\"box-sizing: border-box; color: rgb(17, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\"><div id=\"descriptionAndDetails\" class=\"a-section a-spacing-extra-large\" style=\"box-sizing: border-box; margin-bottom: 0px;\"><div id=\"productDescription_feature_div\" class=\"feature\" data-feature-name=\"productDescription\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box;\"><div id=\"productDescription_feature_div\" data-feature-name=\"productDescription\" data-template-name=\"productDescription\" class=\"a-row feature\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box; width: 1674px;\"><div id=\"productDescription\" class=\"a-section a-spacing-small\" style=\"box-sizing: border-box; margin: 0.5em 0px 0em 25px; color: rgb(51, 51, 51); overflow-wrap: break-word; font-size: small; line-height: initial;\"><ul class=\"a-unordered-list a-vertical a-spacing-none\" style=\"box-sizing: border-box; margin-bottom: 0px; margin-left: 18px; color: rgb(148, 148, 148); font-size: 13px;\"><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Industry-leading Digital Noise Cancelling lets you listen without distractions with QN1 HD Processor</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Quick Attention Mode for effortless conversations without taking your headphones off</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Quick charge for 10min charge for 5 hours play back</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Battery life up to 30hrs for long listening hours</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Sony | Headphones Connect APP for Android /iOS to use Smart Listening technology to control your ambient sound settings</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Touch Sensors to play and skip tracks, control volume by a simple tap or swipe on the ear cups</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Noise Cancelling Optimizer automatically adjusts to your surroundings and activities</span></li></ul></div></div></div></div></div>', '61TT0ZPDlLL._SL1500_.jpg', '71jG6sNzmLL._SL1500_.jpg', '61Wdwg+R-aL._SL1500_.jpg', '260', 'In Stock', '0', '0', '1', '2019-04-12 21:36:59', NULL),
 (3, '4', '7', '3', 'Matrix Men Formal Eco Fleece Sherpa Collar Duster Coat with Pockets', 'Ziaesm', '8177.97', '7323423423', '8377.97', '<h3 class=\"a-spacing-mini\" style=\"box-sizing: border-box; padding: 0px; font-size: 17px; line-height: 1.255; font-family: Arial, sans-serif; color: rgb(17, 17, 17); margin-bottom: 6px !important;\">Quilted Jacket</h3><p style=\"box-sizing: border-box; padding: 0px; margin-bottom: 14px; color: rgb(17, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\">Designed to be both functional and fashionable, this modern travel friendly bomber jacket has a stylish flair. The Ben Martin jacket is reliable, especially as the temperatures drop and a light breeze chills the air. Typically casual, this jacket embodies both retro cool and modern style. It is designed to take you from a party setting to the casual ski mountains in high style.</p>', 'Movie-Clothes-Matrix-Neo-Cosplay-Costume-Black-uniform-suit-Trench-Coat-only-Customizable.jpg_640x640.jpg', 'pms-coat-same-as-photo-s-chic-stand-collar-button-thicken-woolen-long-coat-4503005823070_1200x1200.jpg', 'The-Matrix-Cosplay-Customised-Black-Cosplay-Costume-Neo-Trench-Coat-Only-Coat-womens-mens-girls-boys.jpg_640x640.jpg', '20', 'In Stock', '0', '1\r\n', '1', '2019-04-12 21:42:41', NULL),
 (4, '1', '5', '3', 'OnePlus 6T (Mirror Black, 8GB RAM, 128GB Storage)', 'OnePlus', '37999.99', '4355435234', '41999.00', '<ul class=\"a-unordered-list a-vertical a-spacing-none\" style=\"box-sizing: border-box; margin-bottom: 0px; margin-left: 18px; color: rgb(148, 148, 148); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\"><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Camera: 16+20 MP Dual rear camera with Optical Image Stabilization, Super slow motion, Nightscape and Studio Lighting | 16 MP front camera</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Display:&nbsp;6.41-inch(16.2 cms)&nbsp;Full HD+ Optic AMOLED display with 2340 x 1080 pixels resolution and an 86% screen-to-body ratio</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Memory, Storage &amp; SIM: 8GB RAM | 128GB storage | Dual nano SIM with dual standby (4G+4G)</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Screen Unlock: In-screen fingerprint sensor. The OnePlus 6T unlocks in 0.34s for a seamless and intuitive unlock experience</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Operating System and Processor: OxygenOS based on Android 9.0 Pie with 2.8GHz Qualcomm Snapdragon 845 octa-core processor</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Battery : 3700 mAh lithium-polymer battery with Fast Charge technology</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Included in the Box: Screen Protector (pre-applied); Translucent Case; OnePlus Fast Charge Type-C Cable; OnePlus Fast Charge Power Adapter; SIM Tray Ejector; Quick Start Guide; Safety Information; OnePlus Type-C to 3.5mm Audio Jack Adapter</span></li></ul>', '51EfDWKl24L._SL1300_.jpg', '51gY+4V-uBL._SL1300_.jpg', '51GmNm5ke0L._SL1300_.jpg', '0', 'In Stock', '0', '1\r\n', '1', '2019-04-12 21:45:32', NULL),
@@ -379,7 +389,8 @@ INSERT INTO `purchase` (`id`, `business`, `supplier`, `invoicedate`, `invoicenum
 (1, '1', '1', '2019-04-14', 'A232234234234234', 'K4A5A4464', '867835745', 'Truck', '2019-04-15', 'A1', '17', '30', '5', '40', '857.4', '21.435', '0', '0', '4287', '9', '9', '385.83', '385.83', '0', '5057', '6', '26.8021', '27', '0', '146909.9', '0', '0', '--null--', '1555242181'),
 (2, '1', '1', '2019-04-14', 'A232234234234234', 'K4A5A4464', '867835745', 'Truck', '2019-04-15', 'A1', '18', '105', '20', '80', '6754.945', '84.4368125', '0', '0', '135098.9', '2.5', '2.5', '3377.4725', '3377.4725', '0', '141852.9', '4', '92.204385', '95.2', '3.15126', '146909.9', '0', '0', '--null--', '1555242181'),
 (3, '1', '1', '2019-04-09', '98765432', 'KL 7 A 5555', '234323456', 'Truck', '2019-04-15', 'A1', '1', '29363.00', '10', '1', '10000', '10000', '', '0', '100000', '6', '6', '6000', '6000', '0', '112000', '0', '11200', '11200', '0', '672000', '100', '50', 'Toshiba Pendrive 8GB', '1555318445'),
-(4, '1', '1', '2019-04-09', '98765432', 'KL 7 A 5555', '234323456', 'Truck', '2019-04-15', 'A1', '5', '75000.00', '10', '1', '50000', '50000', '', '0', '500000', '6', '6', '30000', '30000', '0', '560000', '0', '56000', '56000', '0', '672000', '100', '50', '2 Apple Stickers', '1555318445');
+(4, '1', '1', '2019-04-09', '98765432', 'KL 7 A 5555', '234323456', 'Truck', '2019-04-15', 'A1', '5', '75000.00', '10', '1', '50000', '50000', '', '0', '500000', '6', '6', '30000', '30000', '0', '560000', '0', '56000', '56000', '0', '672000', '100', '50', '2 Apple Stickers', '1555318445'),
+(5, '2', '1', '2019-04-09', '68765453452', 'KL 7 A 5555', '234323456', 'plane', '2019-04-23', 'A2', '1', '29363.00', '1', '2', '52726', '26363', '5', '2636.3', '50089.7', '6', '6', '3005.3819999999996', '3005.3819999999996', '0', '56099.7', '5', '29452.3425', '78777', '5', '56099.7', '500', '500', 'Shampoo', '1555333197');
 
 -- --------------------------------------------------------
 
@@ -743,19 +754,19 @@ ALTER TABLE `executive`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `ordertrackhistory`
 --
 ALTER TABLE `ordertrackhistory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `paymentdue`
@@ -773,7 +784,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `sales`
