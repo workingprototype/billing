@@ -46,6 +46,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         </div>
         <!-- /menu footer buttons -->";
     }
+
     public function __construct() {       // this constructor can accept submenus which are passed when the object is created
 
        $this->submenu("Home","dashboard");  //submenu1.1
@@ -54,7 +55,6 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
 
         //
         // $this->submenu("Users","users"); //submenu3.1
-        // $this->submenu("Roles","roles"); //// TODO: Role management not done. Do it with checkboxes
         // $this->menu("<i class=\"fa fa-user-plus\" aria-hidden=\"true\"></i>User Management");  //Main Menu3
 
        $this->submenu("Create & Manage Product Category","addcategory"); //submenu4.1
@@ -107,5 +107,4 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
 
     }
 }
-
 ?>

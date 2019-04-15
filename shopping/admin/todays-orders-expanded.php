@@ -68,10 +68,10 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 											<th>#</th>
 											<th>Unique Order Number</th>
 											<th>Name</th>
+											<th>Product Name</th>
 										<th class="cart-description item">Image</th>
 											<th width="50">Email /Contact no</th>
 											<th>Shipping Address</th>
-											<th>Product </th>
 											<th>Qty </th>
 											<th>Amount </th>
 											<th>Order Date</th>
@@ -96,6 +96,7 @@ while($row=mysqli_fetch_array($query))
 											<td><?php echo htmlentities($cnt);?></td>
 											<td><?php echo htmlentities($row['orderNumber']);?></td>
 											<td><?php echo htmlentities($row['username']);?></td>
+											<td><?php echo htmlentities($row['productname']);?></td>
 											<td class="cart-image">
 												<a class="entry-thumbnail">
 												    <img src="productimages/<?php echo $row['proid'];?>/<?php echo $row['pimg1'];?>" alt="" width="84" height="146">
@@ -103,9 +104,8 @@ while($row=mysqli_fetch_array($query))
 											</td>
 											<td><?php echo htmlentities($row['useremail']);?>/<?php echo htmlentities($row['usercontact']);?></td>
 											<td><?php echo htmlentities($row['shippingaddress'].",".$row['shippingcity'].",".$row['shippingstate']."-".$row['shippingpincode']);?></td>
-											<td><?php echo htmlentities($row['productname']);?></td>
 											<td><?php echo htmlentities($row['quantity']);?></td>
-											<td><?php echo htmlentities($row['quantity']*$row['productprice']+$row['shippingcharge']);?></td>
+											<td>₹<?php echo htmlentities($row['quantity']*$row['productprice']+$row['shippingcharge']);?></td>
 											<td><?php echo htmlentities($row['orderdate']);?></td>
 											<td>    <a href="updateorder.php?oid=<?php echo htmlentities($row['id']);?>" title="Update order" target="_blank"><i class="icon-edit"></i></a>
 											</td>
