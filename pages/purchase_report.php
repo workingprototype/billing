@@ -43,3 +43,4 @@ $page->var['title']="Purchase Report";
 $page->render();
 }
 ?>
+

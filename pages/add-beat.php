@@ -26,23 +26,8 @@ if(isset($_GET['del']))
 									logify("Beat Added");
 		  }
 
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin| Beat</title>
-	<link type="text/css" href="./shopping/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link type="text/css" href="./shopping/admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-	<link type="text/css" href="./shopping/admin/css/theme.css" rel="stylesheet">
-	<link type="text/css" href="./shopping/admin/images/icons/css/font-awesome.css" rel="stylesheet">
-	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
-</head>
-<body>
 
-
-	<div class="wrapper">
+$content='	<div class="wrapper">
 		<div class="container">
 			<div class="row">
 
@@ -50,28 +35,25 @@ if(isset($_GET['del']))
 					<div class="content">
 
 						<div class="module">
-							<div class="module-head">
-								<h3>Beat</h3>
-							</div>
-							<div class="module-body">
-
-									<?php if(isset($_POST['submit']))
-{?>
+						
+							<div class="module-body">';
+if(isset($_POST['submit']))
+{
+	$content.='
 									<div class="alert alert-success">
 										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Well done!</strong>	<?php echo htmlentities($_SESSION['msg']);?><?php echo htmlentities($_SESSION['msg']="");?>
-									</div>
-<?php } ?>
-
-
-									<?php if(isset($_GET['del']))
-{?>
+									<strong>Well done!</strong>	'.htmlentities($_SESSION['msg']).''.htmlentities($_SESSION['msg']="").'
+									</div>';
+}
+if(isset($_GET['del']))
+{
+	$content.='
 									<div class="alert alert-error">
 										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Oh snap!</strong> 	<?php echo htmlentities($_SESSION['delmsg']);?><?php echo htmlentities($_SESSION['delmsg']="");?>
-									</div>
-<?php } ?>
-
+									<strong>Oh snap!</strong> 	'.htmlentities($_SESSION['delmsg']).''.htmlentities($_SESSION['delmsg']="").'
+									</div>';
+									} 
+									$content.='
 									<br />
 
 			<form class="form-horizontal row-fluid" name="uom" method="post" >
@@ -84,12 +66,10 @@ if(isset($_GET['del']))
 </div>
 
 	<div class="control-group">
-											<div class="controls">
+											<div class="controls"><br>
 												<button type="submit" name="submit" class="btn"style="border-radius: 3px;color: #fff;
     background-color: #5cb85c;
-    border-color: #4cae4c;">Add</button>
-												  <button onclick="location.href = './sales';"> Return to Billing </button>
-											</div>
+    border-color: #4cae4c;">Add</button>	</div>
 										</div>
 									</form>
 							</div>
@@ -112,24 +92,24 @@ if(isset($_GET['del']))
 										</tr>
 									</thead>
 									<tbody>
-
-<?php $query=mysqli_query($con,"select * from beat");
+';
+$query=mysqli_query($con,"select * from beat");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
-?>
+	$content.='
 										<tr>
-											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($row['beat']);?></td>
-											<td> <?php echo htmlentities($row['creationDate']);?></td>
-											<td><?php echo htmlentities($row['updationDate']);?></td>
+											<td>'.htmlentities($cnt).'</td>
+											<td>'.htmlentities($row['beat']).'</td>
+											<td> '.htmlentities($row['creationDate']).'</td>
+											<td>'.htmlentities($row['updationDate']).'</td>
 											<td>
-											<a href="./shopping/admin/edit-beat.php?id=<?php echo $row['id']?>" ><i class="icon-edit"></i></a>
-											<a href="./shopping/admin/delete-beat.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>
-										</tr>
-										<?php $cnt=$cnt+1; } ?>
+											<a href="./shopping/admin/edit-beat.php?id='.$row['id'].'" ><i class="icon-edit"></i></a>
+											<a href="./shopping/admin/delete-beat.php?id='.$row['id'].'&del=delete" onClick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-remove-sign"></i></a></td>
+										</tr>';
+										$cnt=$cnt+1; } 
 
-								</table>
+								$content.='</table>
 							</div>
 						</div>
 
@@ -139,20 +119,22 @@ while($row=mysqli_fetch_array($query))
 				</div><!--/.span9-->
 			</div>
 		</div><!--/.container-->
-	</div><!--/.wrapper-->
-	<script src="./shopping/admin/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-	<script src="./shopping/admin/scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-	<script src="./shopping/admin/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="./shopping/admin/scripts/flot/jquery.flot.js" type="text/javascript"></script>
-	<script src="./shopping/admin/scripts/datatables/jquery.dataTables.js"></script>
-	<script>
-		$(document).ready(function() {
-			$('.datatable-1').dataTable();
-			$('.dataTables_paginate').addClass("btn-group datatable-pagination");
-			$('.dataTables_paginate > a').wrapInner('<span />');
-			$('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
-			$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
-		} );
-	</script>
-</body>
-<?php } ?>
+	</div><!--/.wrapper-->';
+}
+require_once "./classes/page-class.php";
+require_once "./classes/sidebar-class.php";
+require_once "./classes/top-navigation-class.php";
+require_once "./classes/footer-class.php";
+$page = new Page;
+$sidebar = new Sidebar;
+$footer = new Footer;
+$navbar = new TopNav;
+$page->var['navbar']=$navbar->echo();
+$page->var['sidebar']=$sidebar->echo();
+$page->var['footer']=$footer->echo();
+$page->var['content']=$content;
+$page->var['title']="Beat";
+$page->render();
+?>
+
+
