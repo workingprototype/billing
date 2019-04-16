@@ -122,7 +122,7 @@ $content.="
 												<button type=\"submit\" name=\"submit\" class=\"btn\"style=\"border-radius: 3px;color: #fff;
 		background-color: #5cb85c;
 		border-color: #4cae4c;\">Record Payment</button>
-													<button onclick=\"location.href = './purchase';\"> Return to Billing </button>
+												
 											</div>
 										</div>
 									</form>
