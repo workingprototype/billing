@@ -51,7 +51,7 @@ while($row=mysqli_fetch_array($query))
 {
 
 $content.='<option value="'.$row['id'].'">'.$row['categoryName'].'</option>';
-} 
+}
 $content.='</select>
 </div>
 </div>
@@ -110,7 +110,7 @@ while($row=mysqli_fetch_array($query))
 											<a href="./shopping/admin/edit-subcategory.php?id='.$row['id'].'" ><i class="icon-edit"></i></a>
 											<a href="./shopping/admin/delete-subcategory.php?id='.$row['id'].'&del=delete" onClick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-remove-sign"></i></a></td>
 										</tr>';
-										$cnt=$cnt+1; 
+										$cnt=$cnt+1;
 									}
 $content.='
 								</table>
@@ -123,7 +123,23 @@ $content.='
 				</div><!--/.span9-->
 			</div>
 		</div><!--/.container-->
-	</div>';
+	</div>
+	<link type="text/css" href="./shopping/admin/images/icons/css/font-awesome.css" rel="stylesheet">
+	<script src="./shopping/admin/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="./shopping/admin/scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+	<script src="./shopping/admin/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="./shopping/admin/scripts/flot/jquery.flot.js" type="text/javascript"></script>
+	<script src="./shopping/admin/scripts/datatables/jquery.dataTables.js"></script>
+	<script>
+		$(document).ready(function() {
+			$(\'.datatable-1\').dataTable();
+			$(\'.dataTables_paginate\').addClass("btn-group datatable-pagination");
+			$(\'.dataTables_paginate > a\').wrapInner(\'<span />\');
+			$(\'.dataTables_paginate > a:first-child\').append(\'<i class="icon-chevron-left shaded"></i>\');
+			$(\'.dataTables_paginate > a:last-child\').append(\'<i class="icon-chevron-right shaded"></i>\');
+		} );
+	</script>
+	';
  }
 require_once "./classes/page-class.php";
 require_once "./classes/sidebar-class.php";
@@ -140,4 +156,3 @@ $page->var['content']=$content;
 $page->var['title']="Sub Category";
 $page->render();
 ?>
-

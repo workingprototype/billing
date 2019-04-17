@@ -20,6 +20,7 @@ $_SESSION['msg']="Category Created !!";
 
 }
 $content='
+
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
@@ -35,7 +36,7 @@ $content='
 	$content.='							<div class="alert alert-success">
 										<button type="button" class="close" data-dismiss="alert">×</button>
 									<strong>Well done!</strong>'.htmlentities($_SESSION['msg']).htmlentities($_SESSION['msg']="").'</div>';
-									 } 
+									 }
 
 
 if(isset($_GET['del']))
@@ -65,7 +66,7 @@ $content.='									<br />
 										</div>
 
 	<div class="control-group">
-											<div class="controls"><br>	
+											<div class="controls"><br>
 												<button type="submit" name="submit" class="btn"style="border-radius: 3px;color: #fff;
     background-color: #5cb85c;
     border-color: #4cae4c;">Create</button>
@@ -123,6 +124,21 @@ $content.=	'							</table>
 			</div>
 		</div><!--/.container-->
 	</div><!--/.wrapper-->
+	<link type="text/css" href="./shopping/admin/images/icons/css/font-awesome.css" rel="stylesheet">
+	<script src="./shopping/admin/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="./shopping/admin/scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+	<script src="./shopping/admin/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="./shopping/admin/scripts/flot/jquery.flot.js" type="text/javascript"></script>
+	<script src="./shopping/admin/scripts/datatables/jquery.dataTables.js"></script>
+	<script>
+		$(document).ready(function() {
+			$(\'.datatable-1\').dataTable();
+			$(\'.dataTables_paginate\').addClass("btn-group datatable-pagination");
+			$(\'.dataTables_paginate > a\').wrapInner(\'<span />\');
+			$(\'.dataTables_paginate > a:first-child\').append(\'<i class="icon-chevron-left shaded"></i>\');
+			$(\'.dataTables_paginate > a:last-child\').append(\'<i class="icon-chevron-right shaded"></i>\');
+		} );
+	</script>
 ';}
 
 require_once "./classes/page-class.php";
@@ -141,4 +157,3 @@ $page->var['title']="Category";
 $page->render();
 
 ?>
-
