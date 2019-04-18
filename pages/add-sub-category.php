@@ -7,6 +7,7 @@ if(strlen($_SESSION['alogin'])==0)
 header('location:login');
 }
 else{
+
 if(isset($_POST['submit']))
 {
 	$category=mysqli_real_escape_string($con,$_POST['category']);

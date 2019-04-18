@@ -2,11 +2,6 @@
 <?php
 session_start();
 include('config/config.php');
-if(strlen($_SESSION['alogin'])==0)
-	{
-header('location:login');
-}
-else{
 
 if(isset($_POST['submit']))
 {
@@ -44,25 +39,16 @@ logify("New Product Added");
 
 }
 
+$content='
 
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<link type="text/css" href="./shopping/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link type="text/css" href="./shopping/admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-	<link type="text/css" href="./shopping/admin/css/theme.css" rel="stylesheet">
-	<link type="text/css" href="./shopping/admin/images/icons/css/font-awesome.css" rel="stylesheet">
-	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
-<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
-<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
 
    <script>
 function getSubcat(val) {
 	$.ajax({
 	type: "POST",
 	url: "./shopping/admin/get_subcat.php",
-	data:'cat_id='+val,
+	data:\'cat_id=\'+val,
 	success: function(data){
 		$("#subcategory").html(data);
 	}
@@ -75,8 +61,6 @@ $("#suggesstion-box").hide();
 </script>
 
 
-</head>
-<body>
 
 	<div class="wrapper">
 		<div class="container">
@@ -87,42 +71,42 @@ $("#suggesstion-box").hide();
 
 						<div class="module">
 							<div class="module-head">
-								<h3>Insert Product</h3>
+
 							</div>
 							<div class="module-body">
-
-									<?php if(isset($_POST['submit']))
-{?>
+';
+if(isset($_POST['submit']))
+{ 	$content.='
 									<div class="alert alert-success">
 										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Well done!</strong>	<?php echo htmlentities($_SESSION['msg']);?><?php echo htmlentities($_SESSION['msg']="");?>
-									</div>
-<?php } ?>
+									<strong>Well done!</strong>	'.htmlentities($_SESSION['msg']).''.htmlentities($_SESSION['msg']="").'
+									</div> ';
+}
 
 
-									<?php if(isset($_GET['del']))
-{?>
+ if(isset($_GET['del']))
+{ 	$content.='
 									<div class="alert alert-error">
 										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Oh snap!</strong> 	<?php echo htmlentities($_SESSION['delmsg']);?><?php echo htmlentities($_SESSION['delmsg']="");?>
-									</div>
-<?php } ?>
+									<strong>Oh snap!</strong> '.htmlentities($_SESSION['delmsg']).''.htmlentities($_SESSION['delmsg']="").'
+									</div>';
+ } 	$content.='
 
 									<br />
-
+<div style="width:1570px; margin:0 auto;">
 			<form class="form-horizontal row-fluid" name="insertproduct" method="post" enctype="multipart/form-data">
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Category</label>
 <div class="controls">
 <select name="category" class="span8 tip" onChange="getSubcat(this.value);"  required>
-<option value="">Select Category</option>
-<?php $query=mysqli_query($con,"select * from category");
+<option value="">Select Category</option> ';
+ $query=mysqli_query($con,"select * from category");
 while($row=mysqli_fetch_array($query))
-{?>
-
-<option value="<?php echo $row['id'];?>"><?php echo $row['categoryName'];?></option>
-<?php } ?>
+{
+	$content.='
+<option value="'.$row['id'].'">'.$row['categoryName'].'</option>';
+} 	$content.='
 </select>
 </div>
 </div>
@@ -141,13 +125,15 @@ while($row=mysqli_fetch_array($query))
 <div class="controls">
 <select name="uom" class="span8 tip" required>
 <option value="">Select Unit of Measurement</option>
-<?php $query=mysqli_query($con,"select * from uom");
+'; $query=mysqli_query($con,"select * from uom");
 while($row=mysqli_fetch_array($query))
-{?>
+{
 
-<option value="<?php echo $row['id'];?>"><?php echo $row['uom'];?></option>
-<?php } ?>
-</select>
+$content.='
+
+<option value="'.$row['id'].'">'.$row['uom'].'</option>
+ }
+ </select>
 </div>
 </div>
 
@@ -156,12 +142,12 @@ while($row=mysqli_fetch_array($query))
 <div class="controls">
 <select name="taxid" class="span8 tip" required>
 <option value="">Select Tax Group</option>
-<?php $query=mysqli_query($con,"select * from taxinfo");
+'; $query=mysqli_query($con,"select * from taxinfo");
 while($row=mysqli_fetch_array($query))
-{?>
-
-<option value="<?php echo $row['id'];?>"><?php echo $row['taxname'];?></option>
-<?php } ?>
+{
+	$content.='<option value="'.$row['id'].'">'.$row['taxname'].'</option>';
+}
+	$content.='
 </select>
 </div>
 </div>
@@ -169,41 +155,41 @@ while($row=mysqli_fetch_array($query))
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Name</label>
 <div class="controls">
-<input type="text"    name="productName"  placeholder="Enter Product Name" class="span8 tip" required>
+<input type="text"   style="width:200px;" name="productName"  placeholder="Enter Product Name" class="span8 tip" required>
 </div>
 </div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Company</label>
 <div class="controls">
-<input type="text"    name="productCompany"  placeholder="Enter Product Company Name" class="span8 tip" required>
+<input type="text"  style="width:200px;"  name="productCompany"  placeholder="Enter Product Company Name" class="span8 tip" required>
 </div>
 </div>
 <div class="control-group">
 <label class="control-label" for="basicinput">HSN Number:</label>
 <div class="controls">
-<input type="text"    name="hsnno"  placeholder="Enter HSN Number" class="span8 tip" required>
+<input type="text"  style="width:200px;"  name="hsnno"  placeholder="Enter HSN Number" class="span8 tip" required>
 </div>
 </div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Price Before Discount</label>
 <div class="controls">
-<input type="text"    name="productpricebd"  placeholder="Enter Product Price" class="span8 tip" required>
+<input type="text"  style="width:200px;"  name="productpricebd"  placeholder="Enter Product Price" class="span8 tip" required>
 </div>
 </div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Price After Discount(Selling Price)</label>
 <div class="controls">
-<input type="text"    name="productprice"  placeholder="Enter Product Price" class="span8 tip" required>
+<input type="text"  style="width:200px;"  name="productprice"  placeholder="Enter Product Price" class="span8 tip" required>
 </div>
 </div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Description</label>
 <div class="controls">
-<textarea  name="productDescription"  placeholder="Enter Product Description" rows="6" class="span8 tip">
+<textarea  name="productDescription" style="width:1000px;" placeholder="Enter Product Description" rows="6" class="span8 tip">
 </textarea>
 </div>
 </div>
@@ -211,7 +197,7 @@ while($row=mysqli_fetch_array($query))
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Shipping Charge</label>
 <div class="controls">
-<input type="text"    name="productShippingcharge"  placeholder="Enter Product Shipping Charge" class="span8 tip" required>
+<input type="text" style="width:200px;"   name="productShippingcharge"  placeholder="Enter Product Shipping Charge" class="span8 tip" required>
 </div>
 </div>
 
@@ -256,7 +242,7 @@ while($row=mysqli_fetch_array($query))
 <input type="file" name="productimage3"  class="span8 tip">
 </div>
 </div>
-
+</br>
 	<div class="control-group">
 											<div class="controls">
 												<button type="submit" name="submit" class="btn" style="border-radius: 3px;color: #fff;
@@ -265,11 +251,10 @@ while($row=mysqli_fetch_array($query))
 											</div>
 										</div>
                     </form>
-                    <button onclick="location.href = './purchase';"> Return to Billing </button>
-							</div>
+            	</div>
 						</div>
 
-
+</div>
 
 
 
@@ -278,9 +263,12 @@ while($row=mysqli_fetch_array($query))
 			</div>
 		</div><!--/.container-->
 	</div><!--/.wrapper-->
+	<link type="text/css" href="./shopping/admin/images/icons/css/font-awesome.css" rel="stylesheet">
+		<link type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+	<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+	<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 
-
-
+	<link type="text/css" href="./shopping/admin/images/icons/css/font-awesome.css" rel="stylesheet">
 	<script src="./shopping/admin/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
 	<script src="./shopping/admin/scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
 	<script src="./shopping/admin/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -288,12 +276,26 @@ while($row=mysqli_fetch_array($query))
 	<script src="./shopping/admin/scripts/datatables/jquery.dataTables.js"></script>
 	<script>
 		$(document).ready(function() {
-			$('.datatable-1').dataTable();
-			$('.dataTables_paginate').addClass("btn-group datatable-pagination");
-			$('.dataTables_paginate > a').wrapInner('<span />');
-			$('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
-			$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
+			$(\'.datatable-1\').dataTable();
+			$(\'.dataTables_paginate\').addClass("btn-group datatable-pagination");
+			$(\'.dataTables_paginate > a\').wrapInner(\'<span />\');
+			$(\'.dataTables_paginate > a:first-child\').append(\'<i class="icon-chevron-left shaded"></i>\');
+			$(\'.dataTables_paginate > a:last-child\').append(\'<i class="icon-chevron-right shaded"></i>\');
 		} );
-	</script>
-</body>
-<?php } ?>
+	</script>';
+ }
+ require_once "./classes/page-class.php";
+ require_once "./classes/sidebar-class.php";
+ require_once "./classes/top-navigation-class.php";
+ require_once "./classes/footer-class.php";
+ $page = new Page;
+ $sidebar = new Sidebar;
+ $footer = new Footer;
+ $navbar = new TopNav;
+ $page->var['navbar']=$navbar->echo();
+ $page->var['sidebar']=$sidebar->echo();
+ $page->var['footer']=$footer->echo();
+ $page->var['content']=$content;
+ $page->var['title']="Insert Products";
+ $page->render();
+ ?>
