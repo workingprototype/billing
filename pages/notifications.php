@@ -1,6 +1,6 @@
 <?php
 if(!isset($request[1])OR($request[1]=="")){
-    $request[1]=1;
+    header('location:./1');
 }
 if(($request[1]<1)){
     $request[1]=1;

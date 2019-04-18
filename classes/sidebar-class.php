@@ -22,7 +22,33 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
     }
     public function echo()  //
     {
-        return "<div id=\"sidebar-menu\" class=\"main_menu_side hidden-print main_menu\">
+        return "<style>
+        .notificationbox {
+            width: 350px;
+            min-height:100px;
+            position: fixed;
+            background: #2A3F54;
+            right:20px;
+            padding-left:10px;
+            bottom:20px;
+        }
+        .notificationbox h4,p,a {
+            color:#dedede;
+        }
+        .badge-primary{
+            background: #27ae60;
+        }
+        </style>
+        <script>
+        function notifClose(){
+            document.getElementById('notif').style='visibility:hidden';
+        }
+        </script>
+        <a id='notif' href=\"#\">
+        <div class='notificationbox'><h4>Notification <span id='notifbadge' class=\"badge badge-pill badge-primary\">3</span></h4>
+        <p id='notifcon'> New Order has been Placed</p> <button onclick='notifClose()' class='btn btn-danger'>Close</button>
+        </div></a>
+        <div id=\"sidebar-menu\" class=\"main_menu_side hidden-print main_menu\">
                 <div class=\"menu_section\">
                     <h3>Shortcuts</h3>
                     <ul class=\"nav side-menu\">
@@ -81,7 +107,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
          $this->submenu("Today's Orders","todaysorders"); //submenu4.1
          $this->submenu("Pending Orders","pendingorders"); //submenu4.2
         $this->submenu("Delivered Orders","deliveredorders"); //submenu4.3
-        $this->menu("<i class=\"fa fa-line-chart\"> </i> Order Management");  //Main Menu4
+        $this->menu("<i class=\"fa fa-line-chart\"> </i> Order Management <span class=\"badge badge-pill badge-primary\">3</span>");  //Main Menu4
 
         $this->submenu("Goto Store","shopping"); //submenu4.3
         // $this->submenu("Goto Store Admin","shopping/admin"); //submenu4.3
