@@ -20,7 +20,6 @@ $_SESSION['msg']="Category Created !!";
 
 }
 $content='
-
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
