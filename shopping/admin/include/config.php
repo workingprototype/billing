@@ -1,4 +1,7 @@
 <?php
+define('APP_NAME', 'FMCG Application');  //Name of the Application
+define('APP_TITLE', 'FMCG Demo'); // Name to show on the title bar of the browser
+define('APP_ROOT', 'http://localhost/billing/');
 define('DB_SERVER','localhost');
 define('DB_USER','john_constantine');
 define('DB_PASS' ,'imbatmanbitch');
