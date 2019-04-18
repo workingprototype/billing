@@ -29,9 +29,6 @@ $content='
 					<div class="content">
 
 						<div class="module">
-							<div class="module-head">
-								<h3>Tax info</h3>
-							</div>
 							<div class="module-body">
 ';
 if(isset($_POST['submit']))
@@ -51,6 +48,7 @@ function showIt() {
 setTimeout("showIt()", 400); // after 1 sec
 </script>
  } ';
+}else{
 $content.='
 
 									<br />
@@ -61,7 +59,7 @@ $id=intval($_GET['id']);
 $query=mysqli_query($con,"select * from taxinfo where id='$id'");
 while($row=mysqli_fetch_array($query))
 {
-$content.='
+  $content.='
 <form class="form-horizontal row-fluid" name="taxinfo" method="post" >
 
 <div class="control-group">
@@ -93,14 +91,17 @@ border-color: #4cae4c;">Update</button>
       <script type="text/javascript">
     window.findTotal = function() {
       num1 = document.getElementById("total").value;
-      value = num1 / 2;{
-      document.getElementById("cgst").value = value;
-      document.getElementById("sgst").value = value;
-    }
+      value = num1 / 2;
+      {
+        document.getElementById("cgst").value = value;
+        document.getElementById("sgst").value = value;
       }
+    }
           </script>
 ';
-							 } 	$content.='
+               
+} 
+	$content.='
 
 
 									</form>
