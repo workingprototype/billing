@@ -319,8 +319,8 @@ elseif($request[1]=="search")
       while($ro = $res->fetch_assoc()){
         $row['uom']=$ro['uom'];
       }
-      $total = $row['productPrice']+($row['productPrice']*5/100);
-      echo "<div onclick='clicked(\"". addslashes($row['productName'])."\",\"".$row['productPrice']."\",\"$cgst\",\"$sgst\",\"".$total."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".htmlentities($row['productName'])." </div>";
+      $total = $row['productPriceBeforeDiscount']+($row['productPriceBeforeDiscount']*5/100);
+      echo "<div onclick='clicked(\"". addslashes($row['productName'])."\",\"".$row['productPriceBeforeDiscount']."\",\"$cgst\",\"$sgst\",\"".$total."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".htmlentities($row['productName'])." </div>";
     }
 } else {
     echo "0 results";
