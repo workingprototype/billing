@@ -362,7 +362,7 @@ elseif($request[1]=="searchi")
       while($ro = $res->fetch_assoc()){
         $row['uom']=$ro['uom'];
       }
-      echo "<div onclick='clicked(\"".addslashes($row['productName'])."\",\"".$row['productPrice']."\",\"".$row['hsnno']."\",\"".$batchcode."\",\"".$gst."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".$row['productName']." </div>";
+      echo "<div onclick='clicked(\"".addslashes($row['productName'])."\",\"".$row['productPriceBeforeDiscount']."\",\"".$row['hsnno']."\",\"".$batchcode."\",\"".$gst."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".$row['productName']." </div>";
     }
 } else {
     echo "0 results";
