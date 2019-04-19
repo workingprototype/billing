@@ -52,8 +52,8 @@ $content.='
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Add Unit of Measurement</label>
-<div class="controls">
-<input type="text" placeholder="Add Unit of Measurement"  name="uom" class="span8 tip" required>
+<div class="controls"></br>
+<input type="text"  style="width:300px;" name="uom" class="form-control" required>
 </div>
 </div>
 <div class="control-group">
@@ -136,6 +136,6 @@ $page->var['navbar']=$navbar->echo();
 $page->var['sidebar']=$sidebar->echo();
 $page->var['footer']=$footer->echo();
 $page->var['content']=$content;
-$page->var['title']="Manage UOM";
+$page->var['title']="Add and Manage :";
 $page->render();
 ?>

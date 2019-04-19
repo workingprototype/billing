@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_reporting(0);
 include('includes/config.php');
 if(isset($_POST['submit'])){
 		if(!empty($_SESSION['cart'])){
@@ -38,10 +37,11 @@ if(strlen($_SESSION['login'])==0)
 header('location:login.php');
 }
 else{
-
+	
 	$orderNumber = mysqli_real_escape_string($con,$_POST['orderNumber']);
 	$quantity=$_POST['quantity'];
 	$pdd=$_SESSION['pid'];
+
 	$value=array_combine($pdd,$quantity);
 
 
@@ -201,21 +201,7 @@ if(!empty($_SESSION['cart'])){
 
 $_SESSION['sid']=$pd;
 						 ?></a></h4>
-						<div class="row">
-							<div class="col-sm-4">
-								<!-- <div class="rating rateit-small"></div> -->
-							</div>
-							<div class="col-sm-8">
-<?php $rt=mysqli_query($con,"select * from productreviews where productId='$pd'");
-$num=mysqli_num_rows($rt);
-{
-?>
-								<!-- <div class="reviews">
-									( <?php echo htmlentities($num);?> Reviews )
-								</div> -->
-								<?php } ?>
-							</div>
-						</div><!-- /.row -->
+
 
 					</td>
 					<td class="cart-product-quantity">

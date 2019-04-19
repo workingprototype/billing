@@ -305,6 +305,7 @@ $content.='
 		</script>
 		';
 		}
+		require_once "../../classes/notifications.php";
 		require_once "../../classes/page-class.php";
 	  require_once "../../classes/sidebar-class.php";
 	  require_once "../../classes/top-navigation-class.php";
@@ -317,6 +318,6 @@ $content.='
 		$page->var['sidebar']=$sidebar->echo();
 		$page->var['footer']=$footer->echo();
 		$page->var['content']=$content;
-		$page->var['title']="Manage Products!";
+		$page->var['title']="Manage Products";
 		$page->render();
 		?>

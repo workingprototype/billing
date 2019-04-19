@@ -106,6 +106,6 @@ while($row=mysqli_fetch_array($query))
 					$page->var['sidebar']=$sidebar->echo();
 					$page->var['footer']=$footer->echo();
 					$page->var['content']=$content;
-					$page->var['title']="Add Tax Info";
+					$page->var['title']="Manage Products";
 					$page->render();
 					?>
