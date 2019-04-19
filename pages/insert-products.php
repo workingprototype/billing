@@ -34,7 +34,7 @@ $sql=mysqli_query($con,"insert into products(category,subCategory,uom,taxid,prod
 productImage1,productImage2,productImage3,productPriceBeforeDiscount) values('$category','$subcat','$uom','$taxid','$productname','$productcompany','$productprice','$hsnno','$productdescription','$productscharge','$productavailability','$rewardsapplicable
 ','$productimage1','$productimage2','$productimage3','$productpricebd')");
 $_SESSION['msg']="Product Inserted Successfully !!";
-logify("New Product Added");
+logify("New Product: " . "$productname" . "  Added!" );
 
 
 }
@@ -99,7 +99,7 @@ if(isset($_POST['submit']))
 <div class="control-group">
 <label class="control-label" for="basicinput">Category</label>
 <div class="controls">
-<select name="category" class="span8 tip" onChange="getSubcat(this.value);"  required>
+<select name="category"  style="width:1000px;" class="form-control" onChange="getSubcat(this.value);"  required>
 <option value="">Select Category</option> ';
  $query=mysqli_query($con,"select * from category");
 while($row=mysqli_fetch_array($query))
@@ -115,7 +115,7 @@ while($row=mysqli_fetch_array($query))
 <div class="control-group">
 <label class="control-label" for="basicinput">Sub Category</label>
 <div class="controls">
-<select   name="subcategory"  id="subcategory" class="span8 tip" required>
+<select   name="subcategory"  style="width:1000px;"  id="subcategory" class="form-control" required>
 </select>
 </div>
 </div>
@@ -123,7 +123,7 @@ while($row=mysqli_fetch_array($query))
 <div class="control-group">
 <label class="control-label" for="basicinput"> Unit of Measurement</label>
 <div class="controls">
-<select name="uom" class="span8 tip" required>
+<select name="uom"  style="width:1000px;" class="form-control" required>
 <option value="">Select Unit of Measurement</option>
 '; $query=mysqli_query($con,"select * from uom");
 while($row=mysqli_fetch_array($query))
@@ -140,7 +140,7 @@ $content.='
 <div class="control-group">
 <label class="control-label" for="basicinput"> Tax Group Name</label>
 <div class="controls">
-<select name="taxid" class="span8 tip" required>
+<select name="taxid"  style="width:1000px;" class="form-control" required>
 <option value="">Select Tax Group</option>
 '; $query=mysqli_query($con,"select * from taxinfo");
 while($row=mysqli_fetch_array($query))
@@ -155,41 +155,41 @@ while($row=mysqli_fetch_array($query))
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Name</label>
 <div class="controls">
-<input type="text"   style="width:200px;" name="productName"  placeholder="Enter Product Name" class="span8 tip" required>
+<input type="text"   style="width:1000px;" name="productName"  placeholder="Enter Product Name" class="form-control" required>
 </div>
 </div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Company</label>
 <div class="controls">
-<input type="text"  style="width:200px;"  name="productCompany"  placeholder="Enter Product Company Name" class="span8 tip" required>
+<input type="text" style="width:1000px;" name="productCompany"  placeholder="Enter Product Company Name" class="form-control" required>
 </div>
 </div>
 <div class="control-group">
 <label class="control-label" for="basicinput">HSN Number:</label>
 <div class="controls">
-<input type="text"  style="width:200px;"  name="hsnno"  placeholder="Enter HSN Number" class="span8 tip" required>
+<input type="text" style="width:1000px;" name="hsnno"  placeholder="Enter HSN Number" class="form-control" required>
 </div>
 </div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Price Before Discount</label>
 <div class="controls">
-<input type="text"  style="width:200px;"  name="productpricebd"  placeholder="Enter Product Price" class="span8 tip" required>
+<input type="text"  style="width:200px;"  name="productpricebd"  placeholder="Enter Product Price" class="form-control" required>
 </div>
 </div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Price After Discount(Selling Price)</label>
 <div class="controls">
-<input type="text"  style="width:200px;"  name="productprice"  placeholder="Enter Product Price" class="span8 tip" required>
+<input type="text"  style="width:200px;"  name="productprice"  placeholder="Enter Product Price" class="form-control" required>
 </div>
 </div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Description</label>
 <div class="controls">
-<textarea  name="productDescription" style="width:1000px;" placeholder="Enter Product Description" rows="6" class="span8 tip">
+<textarea  name="productDescription" style="width:1000px;" placeholder="Enter Product Description" rows="6" class="form-control">
 </textarea>
 </div>
 </div>
@@ -197,14 +197,14 @@ while($row=mysqli_fetch_array($query))
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Shipping Charge</label>
 <div class="controls">
-<input type="text" style="width:200px;"   name="productShippingcharge"  placeholder="Enter Product Shipping Charge" class="span8 tip" required>
+<input type="text" style="width:200px;"   name="productShippingcharge"  placeholder="Enter Shipping Charge" class="form-control" required>
 </div>
 </div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Availability</label>
 <div class="controls">
-<select   name="productAvailability"  id="productAvailability" class="span8 tip">
+<select   name="productAvailability"  style="width:400px;" id="productAvailability" class="form-control">
 <option value="">Select</option>
 <option value="In Stock">In Stock</option>
 <option value="Out of Stock">Out of Stock</option>
@@ -220,26 +220,26 @@ while($row=mysqli_fetch_array($query))
 </div>
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Product Image1</label>
+<label class="control-label" for="basicinput">Product Image 1</label>
 <div class="controls">
-<input type="file" name="productimage1" id="productimage1" value="" class="span8 tip" required>
+<input type="file"  style="width:1000px;" name="productimage1" id="productimage1" value="" class="form-control" required>
 </div>
 </div>
 
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Product Image2</label>
+<label class="control-label" for="basicinput">Product Image 2</label>
 <div class="controls">
-<input type="file" name="productimage2"  class="span8 tip" required>
+<input type="file" style="width:1000px;" name="productimage2"  class="form-control" required>
 </div>
 </div>
 
 
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Product Image3</label>
+<label class="control-label" for="basicinput">Product Image 3</label>
 <div class="controls">
-<input type="file" name="productimage3"  class="span8 tip">
+<input type="file" style="width:1000px;" name="productimage3"  class="form-control">
 </div>
 </div>
 </br>
@@ -263,7 +263,6 @@ while($row=mysqli_fetch_array($query))
 			</div>
 		</div><!--/.container-->
 	</div><!--/.wrapper-->
-	<link type="text/css" href="./shopping/admin/images/icons/css/font-awesome.css" rel="stylesheet">
 		<link type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
 	<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
 	<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>

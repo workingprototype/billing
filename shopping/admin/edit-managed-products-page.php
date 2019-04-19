@@ -22,31 +22,17 @@ if(isset($_POST['submit']))
 
 $sql=mysqli_query($con,"update  products set category='$category',subCategory='$subcat',productName='$productname',productCompany='$productcompany',productPrice='$productprice',productDescription='$productdescription',shippingCharge='$productscharge',productAvailability='$productavailability',productPriceBeforeDiscount='$productpricebd',uom='$uom', taxid='$taxid', hsnno='$hsnno', rewardsapplicable='$rewardsapplicable' where id='$pid' ");
 $_SESSION['msg']="Product Updated Successfully !!";
-
+echo "<meta http-equiv=\"refresh\" content=\"4;url=/billing/manageproducts\"/>";
 }
 
 
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin| Insert Product</title>
-	<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-	<link type="text/css" href="css/theme.css" rel="stylesheet">
-	<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
-	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
-<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
-<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
-
+$content='
    <script>
 function getSubcat(val) {
 	$.ajax({
 	type: "POST",
 	url: "get_subcat.php",
-	data:'cat_id='+val,
+	data:\'cat_id=\'+val,
 	success: function(data){
 		$("#subcategory").html(data);
 	}
@@ -73,44 +59,57 @@ $("#suggesstion-box").hide();
 								<h3>Edit Products</h3>
 							</div>
 							<div class="module-body">
+							';
+							if(isset($_POST['submit']))
+							{ 	$content.='
+																<div class="alert alert-success">
+																	<button type="button" class="close" data-dismiss="alert">×</button>
+																<strong>Well done!</strong>	'.htmlentities($_SESSION['msg']).''.htmlentities($_SESSION['msg']="").'
+																</div>
 
-									<?php if(isset($_POST['submit']))
-{?>
-									<div class="alert alert-success">
-										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Well done!</strong>	<?php echo htmlentities($_SESSION['msg']);?><?php echo htmlentities($_SESSION['msg']="");?>
-									</div>
-<?php } ?>
+																<div id="redirect" style="visibility: hidden" class="alert alert-info">
+																	<button type="button" class="close" data-dismiss="alert">×</button>
+																<strong>Redirecting To Manage Products!</strong>
+																</div>
+																<script type="text/javascript">
+																function showIt() {
+																document.getElementById("redirect").style.visibility = "visible";
+																}
+																setTimeout("showIt()", 100); // after 2 sec
+																</script>
+															';
+							}
 
 
-									<?php if(isset($_GET['del']))
-{?>
-									<div class="alert alert-error">
-										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Oh snap!</strong> 	<?php echo htmlentities($_SESSION['delmsg']);?><?php echo htmlentities($_SESSION['delmsg']="");?>
-									</div>
-<?php } ?>
+							 if(isset($_GET['del']))
+							{ 	$content.='
+																<div class="alert alert-error">
+																	<button type="button" class="close" data-dismiss="alert">×</button>
+																<strong>Oh snap!</strong> '.htmlentities($_SESSION['delmsg']).''.htmlentities($_SESSION['delmsg']="").'
+																</div>
 
-									<br />
+																';
+							 } 	$content.='
 
+																<br />
+<div style="width:1570px; margin:0 auto;">
 			<form class="form-horizontal row-fluid" name="insertproduct" method="post" enctype="multipart/form-data">
-
-<?php
+';
 
 $query=mysqli_query($con,"select products.*,category.categoryName as catname,category.id as cid,subcategory.subcategory as subcatname,subcategory.id as subcatid, uom.id as uomid, uom.uom as uomname, taxinfo.id as taxinfoid, taxinfo.taxname as taxinfoname from products join category on category.id=products.category join subcategory on subcategory.id=products.subCategory join uom on uom.id = products.uom join taxinfo on taxinfo.id = products.taxid where products.id='$pid'");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
 
-?>
+$content.='
 
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Category</label>
 <div class="controls">
-<select name="category" class="span8 tip" onChange="getSubcat(this.value);"  required>
-<option value="<?php echo htmlentities($row['cid']);?>"><?php echo htmlentities($row['catname']);?></option>
-<?php $query=mysqli_query($con,"select * from category");
+<select name="category" style="width:1000px;" class="form-control" onChange="getSubcat(this.value);"  required>
+<option value="'.htmlentities($row['cid']).'">'.htmlentities($row['catname']).'</option>';
+$query=mysqli_query($con,"select * from category");
 while($rw=mysqli_fetch_array($query))
 {
 	if($row['catname']==$rw['categoryName'])
@@ -118,11 +117,9 @@ while($rw=mysqli_fetch_array($query))
 		continue;
 	}
 	else{
-	?>
-
-<option value="<?php echo $rw['id'];?>"><?php echo $rw['categoryName'];?></option>
-<?php }} ?>
-</select>
+$content.='<option value="'. $rw['id'].'">'.$rw['categoryName'].'</option>';
+ }}
+$content.='</select>
 </div>
 </div>
 
@@ -131,40 +128,33 @@ while($rw=mysqli_fetch_array($query))
 <label class="control-label" for="basicinput">Sub Category</label>
 <div class="controls">
 
-<select   name="subcategory"  id="subcategory" class="span8 tip" required>
-<option value="<?php echo htmlentities($row['subcatid']);?>"><?php echo htmlentities($row['subcatname']);?></option>
+<select  style="width:1000px;" name="subcategory"  id="subcategory" class="form-control" required>
+<option value="'.htmlentities($row['subcatid']).'">'.htmlentities($row['subcatname']).'</option>
 </select>
 </div>
 </div>
 
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Unit of Measurement: </label>
+<label class="control-label" for="basicinput">Unit of Measurement : <label>'.htmlentities($row['uomname']).'</label></br></label>
 <div class="controls">
-<label><?php echo htmlentities($row['uomname']);?></label></br>
-<select   name="uom"  id="uom" class="span8 tip" required>
-<?php $query=mysqli_query($con,"select * from uom");
+<select  style="width:1000px;" name="uom"  id="uom" class="form-control" required>';
+ $query=mysqli_query($con,"select * from uom");
 while($rw=mysqli_fetch_array($query))
 {
-	if($row['uomid']==$rw['uomname'])
-	{
-		continue;
-	}
-	else{
-	?>
-
-<option value="<?php echo $rw['id'];?>"><?php echo $rw['uom'];?></option>
-<?php }} ?>
+$content.='<option value="'.$rw['id'].'">'.$rw['uom'].'</option>';
+}
+$content.='
 </select>
 </div>
 </div>
 
 <div class="control-group">
-<label class="control-label" for="basicinput">GST Group: </label>
+<label class="control-label" for="basicinput">GST Group  : <label>'.htmlentities($row['taxinfoname']).'</label></br></label>
 <div class="controls">
-<label><?php echo htmlentities($row['taxinfoname']);?></label></br>
-<select   name="taxid"  id="taxid" class="span8 tip" required>
-<?php $query=mysqli_query($con,"select * from taxinfo");
+
+<select style="width:1000px;"  name="taxid"  id="taxid" class="form-control" required> ';
+$query=mysqli_query($con,"select * from taxinfo");
 while($rw=mysqli_fetch_array($query))
 {
 	if($row['id']==$rw['taxname'])
@@ -172,10 +162,11 @@ while($rw=mysqli_fetch_array($query))
 		continue;
 	}
 	else{
-	?>
 
-<option value="<?php echo $rw['id'];?>"><?php echo $rw['taxname'];?></option>
-<?php }} ?>
+$content.='
+<option value="'.$rw['id'].'">'.$rw['taxname'].'</option> ';
+}}
+$content.='
 </select>
 </div>
 </div>
@@ -183,42 +174,42 @@ while($rw=mysqli_fetch_array($query))
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Name</label>
 <div class="controls">
-<input type="text"    name="productName"  placeholder="Enter Product Name" value="<?php echo htmlentities($row['productName']);?>" class="span8 tip" >
+<input type="text"  style="width:1000px;" name="productName"  placeholder="Enter Product Name" value="'.htmlentities($row['productName']).'" class="form-control" >
 </div>
 </div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Company</label>
 <div class="controls">
-<input type="text"    name="productCompany"  placeholder="Enter Product Comapny Name" value="<?php echo htmlentities($row['productCompany']);?>" class="span8 tip" required>
+<input type="text" style="width:1000px;"   name="productCompany"  placeholder="Enter Product Company Name" value="'.htmlentities($row['productCompany']).'" class="form-control" required>
 </div>
 </div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">hsnno</label>
 <div class="controls">
-<input type="text"    name="hsnno"  placeholder="Enter HSN No." value="<?php echo htmlentities($row['hsnno']);?>" class="span8 tip" required>
+<input type="text"  style="width:1000px;"  name="hsnno"  placeholder="Enter HSN No." value="'.htmlentities($row['hsnno']).'" class="form-control" required>
 </div>
 </div>
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Price Before Discount</label>
 <div class="controls">
-<input type="text"    name="productpricebd"  placeholder="Enter Product Price" value="<?php echo htmlentities($row['productPriceBeforeDiscount']);?>"  class="span8 tip" required>
+<input type="text"    style="width:200px;"   name="productpricebd"  placeholder="Enter Product Price" value="'.htmlentities($row['productPriceBeforeDiscount']).'"  class="form-control" required>
 </div>
 </div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Price</label>
 <div class="controls">
-<input type="text"    name="productprice"  placeholder="Enter Product Price" value="<?php echo htmlentities($row['productPrice']);?>" class="span8 tip" required>
+<input type="text"    style="width:200px;"   name="productprice"  placeholder="Enter Product Price" value="'.htmlentities($row['productPrice']).'" class="form-control" required>
 </div>
 </div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Description</label>
 <div class="controls">
-<textarea  name="productDescription"  placeholder="Enter Product Description" rows="6" class="span8 tip">
-<?php echo htmlentities($row['productDescription']);?>
+<textarea  name="productDescription" style="" placeholder="Enter Product Description" rows="6" class="form-control">
+'.htmlentities($row['productDescription']).'
 </textarea>
 </div>
 </div>
@@ -226,15 +217,15 @@ while($rw=mysqli_fetch_array($query))
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Shipping Charge</label>
 <div class="controls">
-<input type="text"    name="productShippingcharge"  placeholder="Enter Product Shipping Charge" value="<?php echo htmlentities($row['shippingCharge']);?>" class="span8 tip" required>
+<input type="text"    style="width:200px;"   name="productShippingcharge"  placeholder="Enter Product Shipping Charge" value="'.htmlentities($row['shippingCharge']).'" class="form-control" required>
 </div>
 </div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Availability</label>
 <div class="controls">
-<select   name="productAvailability"  id="productAvailability" class="span8 tip">
-<option value="<?php echo htmlentities($row['productAvailability']);?>"><?php echo htmlentities($row['productAvailability']);?></option>
+<select  style="width:400px;"  name="productAvailability"  id="productAvailability" class="form-control">
+<option value="'.htmlentities($row['productAvailability']).'">'.htmlentities($row['productAvailability']).'</option>
 <option value="In Stock">In Stock</option>
 <option value="Out of Stock">Out of Stock</option>
 </select>
@@ -250,34 +241,35 @@ while($rw=mysqli_fetch_array($query))
 
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Product Image1</label>
+<label class="control-label" for="basicinput">Product Image 1</label>
 <div class="controls">
-<img src="productimages/<?php echo htmlentities($pid);?>/<?php echo htmlentities($row['productImage1']);?>" width="200" height="100"> <a href="update-image1.php?id=<?php echo $row['id'];?>">Change Image</a>
+<img src="productimages/'.htmlentities($pid).'/'.htmlentities($row['productImage1']).'" width="100" height="100"> <a href="update-image2.php?id='.$row['id'].'"><strong>Change Image</strong></a>
 </div>
 </div>
 
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Product Image2</label>
+<label class="control-label" for="basicinput">Product Image 2</label>
 <div class="controls">
-<img src="productimages/<?php echo htmlentities($pid);?>/<?php echo htmlentities($row['productImage2']);?>" width="200" height="100"> <a href="update-image2.php?id=<?php echo $row['id'];?>">Change Image</a>
+<img src="productimages/'.htmlentities($pid).'/'.htmlentities($row['productImage2']).'" width="100" height="100"> <a href="update-image2.php?id='.$row['id'].'">Change Image</a>
 </div>
 </div>
 
 
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Product Image3</label>
+<label class="control-label" for="basicinput">Product Image 3</label>
 <div class="controls">
-<img src="productimages/<?php echo htmlentities($pid);?>/<?php echo htmlentities($row['productImage3']);?>" width="200" height="100"> <a href="update-image3.php?id=<?php echo $row['id'];?>">Change Image</a>
+<img src="productimages/'.htmlentities($pid).'/'.htmlentities($row['productImage3']).'" width="100" height="100"> <a href="update-image2.php?id='.$row['id'].'">Change Image</a>
 </div>
-</div>
-<?php } ?>
+</div>';
+}
+$content.='
 	<div class="control-group">
-											<div class="controls">
-												<button type="submit" name="submit" class="btn">Update</button>
+											<div class="controls"> </br>
+												<button type="submit" name="submit"  style="width:100px; background-color: black;color: white;" class="btn">Update</button>
 											</div>
-										</div>  <?php	echo "<a href=\"javascript:history.go(-2)\">GO BACK</a>"; ?>
+
 									</form>
 							</div>
 						</div>
@@ -286,25 +278,45 @@ while($rw=mysqli_fetch_array($query))
 
 
 
-					</div><!--/.content-->
-				</div><!--/.span9-->
-			</div>
-		</div><!--/.container-->
-	</div><!--/.wrapper-->
+						</div><!--/.content-->
+					</div><!--/.span9-->
+				</div>
+			</div><!--/.container-->
+		</div>
 
-	<script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-	<script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-	<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
-	<script src="scripts/datatables/jquery.dataTables.js"></script>
-	<script>
-		$(document).ready(function() {
-			$('.datatable-1').dataTable();
-			$('.dataTables_paginate').addClass("btn-group datatable-pagination");
-			$('.dataTables_paginate > a').wrapInner('<span />');
-			$('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
-			$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
-		} );
-	</script>
-</body>
-<?php } ?>
+			<link type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+		<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+		<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
+		<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
+		<script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+		<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+		<script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
+		<script src="scripts/datatables/jquery.dataTables.js"></script>
+		<script>
+			$(document).ready(function() {
+				$(\'.datatable-1\').dataTable();
+				$(\'.dataTables_paginate\').addClass("btn-group datatable-pagination");
+				$(\'.dataTables_paginate > a\').wrapInner(\'<span />\');
+				$(\'.dataTables_paginate > a:first-child\').append(\'<i class="icon-chevron-left shaded"></i>\');
+				$(\'.dataTables_paginate > a:last-child\').append(\'<i class="icon-chevron-right shaded"></i>\');
+			} );
+		</script>
+		';
+		}
+		require_once "../../classes/page-class.php";
+	  require_once "../../classes/sidebar-class.php";
+	  require_once "../../classes/top-navigation-class.php";
+	  require_once "../../classes/footer-class.php";
+		$page = new Page;
+		$sidebar = new Sidebar;
+		$footer = new Footer;
+		$navbar = new TopNav;
+		$page->var['navbar']=$navbar->echo();
+		$page->var['sidebar']=$sidebar->echo();
+		$page->var['footer']=$footer->echo();
+		$page->var['content']=$content;
+		$page->var['title']="Manage Products!";
+		$page->render();
+		?>

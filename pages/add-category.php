@@ -17,7 +17,7 @@ if(isset($_POST['submit']))
 	$description=mysqli_real_escape_string($con,$_POST['description']);
 $sql=mysqli_query($con,"insert into category(categoryName,categoryDescription) values('$category','$description')");
 $_SESSION['msg']="Category Created !!";
-
+logify(" Category: " . "$category" . "  Added!" );
 }
 $content='
 	<div class="wrapper">
