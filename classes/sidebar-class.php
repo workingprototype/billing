@@ -95,6 +95,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
                 document.getElementById('torder').innerHTML=data[0];
                 document.getElementById('porder').innerHTML=data[1];
                 document.getElementById('dorder').innerHTML=data[2];
+                document.getElementById('tots').innerHTML=data[3];
             }
             };
             xhttp.open(\"POST\", \"".APP_ROOT."function/order \", true);
@@ -173,10 +174,10 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->submenu("Add & View Payments","addpayments");
         $this->menu("<i class=\"fa fa-users\"></i>Sales"); //Main Menu2
 
-         $this->submenu("<span id=\"torder\" class=\"badge badge-pill badge-primary\"></span> Today's Orders","todaysorders"); //submenu4.1
-         $this->submenu("<span id=\"porder\" class=\"badge badge-pill badge-primary\"></span> Pending Orders","pendingorders"); //submenu4.2
-        $this->submenu("<span id=\"dorder\" class=\"badge badge-pill badge-primary\"></span> Delivered Orders","deliveredorders"); //submenu4.3
-        $this->menu("<i class=\"fa fa-line-chart\"> </i> Order Management");  //Main Menu4
+         $this->submenu("Today's Orders:  <span id=\"torder\" class=\"badge badge-pill badge-primary\"></span>","todaysorders"); //submenu4.1
+         $this->submenu("Pending Orders:  <span id=\"porder\" class=\"badge badge-pill badge-primary\"></span> ","pendingorders"); //submenu4.2
+        $this->submenu("Delivered Orders:  <span id=\"dorder\" class=\"badge badge-pill badge-primary\"></span> ","deliveredorders"); //submenu4.3
+        $this->menu("<i class=\"fa fa-line-chart\"> </i> Order Management : <span id=\"tots\" class=\"badge badge-pill badge-primary\"></span> ");  //Main Menu4
 
         $this->submenu("Goto Store","shopping"); //submenu4.3
         // $this->submenu("Goto Store Admin","shopping/admin"); //submenu4.3

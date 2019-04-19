@@ -790,6 +790,7 @@ elseif($request[1]=="order")
   $rows[1] = mysqli_num_rows($ret);
   $rt = mysqli_query($db,"SELECT * FROM orders where orderStatus='$status'");
   $rows[2] = mysqli_num_rows($rt);
+  $rows[3] =  $rows[0] + $rows[1];
   echo json_encode($rows);
 }
 ?>
