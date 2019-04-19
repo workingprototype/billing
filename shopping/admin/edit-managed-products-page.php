@@ -62,12 +62,12 @@ $("#suggesstion-box").hide();
 							';
 							if(isset($_POST['submit']))
 							{ 	$content.='
-																<div class="alert alert-success" style="width:1000px;">
+																<div class="alert alert-success">
 																	<button type="button" class="close" data-dismiss="alert">×</button>
 																<strong>Well done!</strong>	'.htmlentities($_SESSION['msg']).''.htmlentities($_SESSION['msg']="").'
 																</div>
 
-																<div id="redirect" style="visibility: hidden" class="alert alert-info" style="width:1000px;">
+																<div id="redirect" style="visibility: hidden" class="alert alert-info">
 																	<button type="button" class="close" data-dismiss="alert">×</button>
 																<strong>Redirecting To Manage Products!</strong>
 																</div>
@@ -243,7 +243,7 @@ $content.='
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Image 1</label>
 <div class="controls">
-<img src="productimages/'.htmlentities($pid).'/'.htmlentities($row['productImage1']).'" width="100" height="100"> <a href="update-image2.php?id='.$row['id'].'"><strong>Change Image</strong></a>
+<img src="productimages/'.htmlentities($pid).'/'.htmlentities($row['productImage1']).'" width="100" height="100"> <a href="update-image1.php?id='.$row['id'].'"><strong>Change Image</strong></a>
 </div>
 </div>
 
@@ -260,7 +260,7 @@ $content.='
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Image 3</label>
 <div class="controls">
-<img src="productimages/'.htmlentities($pid).'/'.htmlentities($row['productImage3']).'" width="100" height="100"> <a href="update-image2.php?id='.$row['id'].'">Change Image</a>
+<img src="productimages/'.htmlentities($pid).'/'.htmlentities($row['productImage3']).'" width="100" height="100"> <a href="update-image3.php?id='.$row['id'].'">Change Image</a>
 </div>
 </div>';
 }

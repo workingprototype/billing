@@ -106,38 +106,9 @@ while($row=mysqli_fetch_array($sql))
     </nav>
 </div>
 </div><!-- /.side-menu -->
-<!-- ================================== TOP NAVIGATION : END ================================== -->	            <div class="sidebar-module-container">
-	            	<h3 class="section-title">shop by</h3>
-	            	<div class="sidebar-filter">
-		            	<!-- ============================================== SIDEBAR CATEGORY ============================================== -->
-<div class="sidebar-widget wow fadeInUp outer-bottom-xs ">
-	<div class="widget-header m-t-20">
-		<h4 class="widget-title">Category</h4>
-	</div>
-	<div class="sidebar-widget-body m-t-10">
-	         <?php $sql=mysqli_query($con,"select id,categoryName  from category");
-while($row=mysqli_fetch_array($sql))
-{
-    ?>
-		<div class="accordion">
-	    	<div class="accordion-group">
-	            <div class="accordion-heading">
-	                <a href="category.php?cid=<?php echo $row['id'];?>"  class="accordion-toggle collapsed">
-	                   <?php echo $row['categoryName'];?>
-	                </a>
-	            </div>
-	        </div>
-	    </div>
-	    <?php } ?>
-	</div><!-- /.sidebar-widget-body -->
-</div><!-- /.sidebar-widget -->
+<!-- ================================== TOP NAVIGATION : END ================================== -->
+<div class="sidebar-module-container">
 
-
-
-
-<!-- ============================================== COLOR: END ============================================== -->
-
-	            	</div><!-- /.sidebar-filter -->
 	            </div><!-- /.sidebar-module-container -->
             </div><!-- /.sidebar -->
 			<div class='col-md-9'>
@@ -186,7 +157,7 @@ while ($row=mysqli_fetch_array($ret))
 	<div class="product">
 		<div class="product-image">
 			<div class="image">
-				<a href="product-details.php?pid=<?php echo htmlentities($row['id']);?>"><img  src="assets/images/blank.gif" data-echo="admin/productimages/<?php echo htmlentities($row['id']);?>/<?php echo htmlentities($row['productImage1']);?>" alt="" width="200" height="300"></a>
+				<a href="product-details.php?pid=<?php echo htmlentities($row['id']);?>"><img  src="assets/images/blank.gif" data-echo="admin/productimages/<?php echo htmlentities($row['id']);?>/<?php echo htmlentities($row['productImage1']);?>" alt="" class="img-thumbnail" height:"200px;" width:"200px;"></a>
 			</div><!-- /.image -->
 		</div><!-- /.product-image -->
 
@@ -216,9 +187,7 @@ while ($row=mysqli_fetch_array($ret))
 
 						</li>
 
-		                <!-- <li class="lnk wishlist">
-							<a class="add-to-cart" href="category.php?pid=<?php echo htmlentities($row['id'])?>&&action=wishlist" title="Wishlist">
-								 <i class="icon fa fa-heart"></i> -->
+
 							</a>
 						</li>
 
@@ -256,7 +225,7 @@ while ($row=mysqli_fetch_array($ret))
 
 			</div><!-- /.col -->
 		</div></div>
-		<?php include('includes/brands-slider.php');?>
+
 
 </div>
 </div>
