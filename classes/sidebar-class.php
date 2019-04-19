@@ -69,6 +69,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
             setCookie(\"last\", '".time()."');
         }
         setInterval(function(){ notifGet() }, 3000);
+        setInterval(function(){ orderGet() }, 60000);
         function notifGet(){
             last = getCookie(\"last\");
             var xhttp = new XMLHttpRequest();
@@ -86,6 +87,20 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
             xhttp.open(\"POST\", \"function/notifget \", true);
             xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
             xhttp.send('last='+last);
+        }
+        function orderGet(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                data=JSON.parse(this.responseText);
+                document.getElementById('torder').innerHTML=data[0];
+                document.getElementById('porder').innerHTML=data[1];
+                document.getElementById('dorder').innerHTML=data[2];
+            }
+            };
+            xhttp.open(\"POST\", \"function/order \", true);
+            xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
+            xhttp.send();
         }
         function notifClose(){
             document.getElementById('notif').style='visibility:hidden';
@@ -124,6 +139,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         <!-- /menu footer buttons -->
         <script>
         notifClose();
+        orderGet();
         </script>";
     }
 
@@ -158,10 +174,10 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->submenu("Add & View Payments","addpayments");
         $this->menu("<i class=\"fa fa-users\"></i>Sales"); //Main Menu2
 
-         $this->submenu("Today's Orders","todaysorders"); //submenu4.1
-         $this->submenu("Pending Orders","pendingorders"); //submenu4.2
-        $this->submenu("Delivered Orders","deliveredorders"); //submenu4.3
-        $this->menu("<i class=\"fa fa-line-chart\"> </i> Order Management <span class=\"badge badge-pill badge-primary\">3</span>");  //Main Menu4
+         $this->submenu("<span id=\"torder\" class=\"badge badge-pill badge-primary\"></span> Today's Orders","todaysorders"); //submenu4.1
+         $this->submenu("<span id=\"porder\" class=\"badge badge-pill badge-primary\"></span> Pending Orders","pendingorders"); //submenu4.2
+        $this->submenu("<span id=\"dorder\" class=\"badge badge-pill badge-primary\"></span> Delivered Orders","deliveredorders"); //submenu4.3
+        $this->menu("<i class=\"fa fa-line-chart\"> </i> Order Management");  //Main Menu4
 
         $this->submenu("Goto Store","shopping"); //submenu4.3
         // $this->submenu("Goto Store Admin","shopping/admin"); //submenu4.3
