@@ -397,18 +397,18 @@ class Purchase
             x=0;
           }else{
             console.log(data);
-            document.getElementById('firm').innerHTML='Firm : '+data[i]['firmname'];
-            document.getElementById('sup').innerHTML='Supplier Name : '+data[i]['suppliername'];
-            document.getElementById('invoice').innerHTML='Invoice No : '+data[i]['invoicenumber'];
-            document.getElementById('indate').innerHTML='Invoice Date : '+data[i]['invoicedate'];
-            document.getElementById('recdate').innerHTML='Received Date : '+data[i]['receiveddate'];
-            document.getElementById('transport').innerHTML='Transport : '+data[i]['transport'];
-            document.getElementById('vehicle').innerHTML='Vehicle Number : '+data[i]['vehiclenumber'];
-            document.getElementById('delcon').innerHTML='Delivery Person Contact : '+data[i]['deliveredcontact'];
+            document.getElementById('firm').innerHTML='Firm :<a hidden>'+data[i]['firmid']+'</a> <input id=\"firm\" value=\"'+data[i]['firmname']+'\">';
+            document.getElementById('sup').innerHTML='Supplier Name : <a hidden>'+data[i]['supid']+'</a> <input  id=\"sup\" value=\"'+data[i]['suppliername']+'\">';
+            document.getElementById('invoice').innerHTML='Invoice No : <input id=\"inv\" value=\"'+data[i]['invoicenumber']+'\">';
+            document.getElementById('indate').innerHTML='Invoice Date : <input id=\"ind\" type=\"date\" value=\"'+data[i]['invoicedate']+'\">';
+            document.getElementById('recdate').innerHTML='Received Date : <input id=\"recd\" type=\"date\" value=\"'+data[i]['receiveddate']+'\">';
+            document.getElementById('transport').innerHTML='Transport : <input id=\"tspt\" value=\"'+data[i]['transport']+'\">';
+            document.getElementById('vehicle').innerHTML='Vehicle Number : <input id=\"vno\" value=\"'+data[i]['vehiclenumber']+'\">';
+            document.getElementById('delcon').innerHTML='Delivery Person Contact : <input id=\"delcon\" value=\"'+data[i]['deliveredcontact']+'\">';
             document.getElementById('total').innerHTML='Total : '+data[i]['totalwhole']+' Rs';
-            document.getElementById('credit').innerHTML='Credit Note Amount: '+data[i]['creditnote']+' Rs';
-            document.getElementById('log').innerHTML='Logistic Amount: '+data[i]['logistic']+' Rs';
-            document.getElementById('netamount').innerHTML='Net Amount: '+(Number(data[i]['totalwhole'])-(Number(data[i]['creditnote'])+Number(data[i]['logistic'])))+' Rs';
+            document.getElementById('credit').innerHTML='Credit Note Amount: <input id=\"credit\" value=\"'+data[i]['creditnote']+'\"> Rs';
+            document.getElementById('log').innerHTML='Logistic Amount: <input id=\"log\" value=\"'+data[i]['logistic']+'\"> Rs';
+            document.getElementById('netamount').innerHTML='Net Amount:'+(Number(data[i]['totalwhole'])-(Number(data[i]['creditnote'])+Number(data[i]['logistic'])))+' Rs';
             tablenew(data[i]);
           }
           i=i+1;
@@ -437,6 +437,12 @@ class Purchase
         <td id='free'> Free: \"+data['freeproduct']+\"</td></tr></table>\";
         document.getElementById('tablego').outerHTML=table+\"<div id='tablego'></div>\";
       }
+      function update(){
+        alert('HOW');
+      }
+      function deletex(){
+        alert('you sure?');
+      }
     </script>
     ";
     $this->r .="<span class=\"badge badge-danger\" style='background:orange'>Warning</span>";
@@ -452,6 +458,7 @@ class Purchase
       <table class ='table table-bordered'>
       <tr><td id='total'>Total:</td><td id='credit'>Credit Note Amount:</td><td id='log'>Logistic Amount:</td><td id='netamount'>Net Amount:</td></tr>
       </table>
+      <button class='btn btn-warning' onclick='update()'>Update</button> <button onclick='deletex()' class='btn btn-danger'>Delete</button>
     <script>
     purchasecollect();
     </script>";

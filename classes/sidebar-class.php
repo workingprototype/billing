@@ -76,7 +76,6 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
             xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 data=JSON.parse(this.responseText);
-                console.log(data);
                 if(data[0]!='0'){
                     document.getElementById('notifbadge').innerHTML=data[0];
                     document.getElementById('notifcon').innerHTML=data[1];
@@ -84,7 +83,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
                 }
             }
             };
-            xhttp.open(\"POST\", \"function/notifget \", true);
+            xhttp.open(\"POST\", \"".APP_ROOT."function/notifget \", true);
             xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
             xhttp.send('last='+last);
         }
