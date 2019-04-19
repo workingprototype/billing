@@ -752,5 +752,28 @@ elseif($request[1]=="purchasec")
   }
   $data[$i][0]="OVER";
   echo json_encode($data);
+}elseif($request[1]=="notifget")
+{
+  session_start();
+  if(!isset($_SESSION['notification'])){
+    $_SESSION['notification']=[0,""];
+  }
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $last=$_POST['last'];
+  $data=[0,$last];
+  $sql="SELECT * FROM notifications WHERE (timestamp > $last) AND type=1 ORDER BY timestamp";
+  $result=$db->query($sql);
+  while ($row=$result->fetch_assoc()) {
+    $dat=json_decode($row['data']);
+    $data[0]++;
+    $data[1]=$dat[0];
+  }
+  if($_SESSION['notification']==$data[0]){
+    $data[0]=0;
+    $data[1]="WHOA";
+  }else{
+    $_SESSION['notification']=$data[0];
+  }
+  echo json_encode($data);
 }
 ?>
