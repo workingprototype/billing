@@ -98,7 +98,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
                 document.getElementById('dorder').innerHTML=data[2];
             }
             };
-            xhttp.open(\"POST\", \"function/order \", true);
+            xhttp.open(\"POST\", \"".APP_ROOT."function/order \", true);
             xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
             xhttp.send();
         }

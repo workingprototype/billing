@@ -409,9 +409,33 @@ class Purchase
             document.getElementById('credit').innerHTML='Credit Note Amount: '+data[i]['creditnote']+' Rs';
             document.getElementById('log').innerHTML='Logistic Amount: '+data[i]['logistic']+' Rs';
             document.getElementById('netamount').innerHTML='Net Amount: '+(Number(data[i]['totalwhole'])-(Number(data[i]['creditnote'])+Number(data[i]['logistic'])))+' Rs';
+            tablenew(data[i]);
           }
           i=i+1;
         }
+      }
+      function tablenew(data){
+        table=\"<table class ='table table-bordered'><tr><td id='batch'>batchcode: \"+data['batch']+\"</td>\
+        <td id='pname'> \"+data['productname']+\"</td>\
+        <td id='mrp'>MRP: \"+data['mrp']+\"</td>\
+        <td id='qty'>Qantity (cases): \"+data['qtycase']+\"</td>\
+        <td id='qtyu'>Qantity (units): \"+data['qtyuom']+\"</td>\
+        </tr><tr><td id='base'>Base Rate: \"+data['baseratecase']+\"</td>\
+        <td id='baserateu'>Base Rate (Uom): \"+data['baserateuom']+\" </td>\
+        <td id='disc'>Discount: \"+data['disc']+\"%</td>\
+        <td id='disca'>Discount Amount: \"+data['disca']+\"</td>\
+        <td id='neta'>Net Amount: \"+data['neta']+\"</td>\
+        </tr><tr><td id='cgst'>CGST: \"+data['cgst']+\"</td>\
+        <td id='sgst'>SGST: \"+data['sgst']+\" </td>\
+        <td id='cgsta'>CGST Amount : \"+data['cgsta']+\"</td>\
+        <td id='sgsta'>SGST Amount: \"+data['sgsta']+\"</td>\
+        <td id='cess'>CESS: \"+data['cess']+\"</td></tr>\
+        <tr><td id='margin'>Margin: \"+data['margin']+\"%</td>\
+        <td id='spuom'>Sales Price (UOM): \"+data['uomsp']+\" </td>\
+        <td id='dispp'>Display Price: \"+data['dispp']+\"</td>\
+        <td id='dispd'>Display Discount: \"+data['dispd']+\"</td>\
+        <td id='free'> Free: \"+data['freeproduct']+\"</td></tr></table>\";
+        document.getElementById('tablego').outerHTML=table+\"<div id='tablego'></div>\";
       }
     </script>
     ";
@@ -424,13 +448,7 @@ class Purchase
       <tr><td id='invoice'>Invoice No:</td><td id='indate'>Invoice Date:</td><td id='recdate'>Recieved Date:</td></tr>
       <tr><td id='transport'>Transport:</td><td id='vehicle'>Vehicle Number:</td><td id='delcon'>Delivery Person Contact:</td></tr>
       </table>
-      <table class ='table table-bordered'>
-      <tr><td id='batch'>batchcode:</td><td id='pname'> </td><td id='mrp'>MRP:</td><td id='qty'>Qantity (cases):</td><td id='qtyu'>Qantity (units):</td></tr>
-      <tr><td id='base'>Base Rate:</td><td id='baserateu'>Base Rate (Uom) </td><td id='disc'>Discount:%</td><td id='disca'>Discount Amount:</td><td id='neta'>Net Amount:</td></tr>
-      <tr><td id='cgst'>CGST:</td><td id='sgst'>SGST: </td><td id='cgsta'>CGST Amount : </td><td id='sgsta'>SGST Amount:</td><td id='cess'>CESS:</td></tr>
-      <tr><td id='margin'>Margin:%</td><td id='spuom'>Sales Price (UOM): </td><td id='dispp'>Display Price: </td><td id='dispd'>Display Discount:</td><td id=''></td></tr>
-      </table>
-
+      <div id='tablego'></div>
       <table class ='table table-bordered'>
       <tr><td id='total'>Total:</td><td id='credit'>Credit Note Amount:</td><td id='log'>Logistic Amount:</td><td id='netamount'>Net Amount:</td></tr>
       </table>
