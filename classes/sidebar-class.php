@@ -31,6 +31,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
             right:20px;
             padding-left:10px;
             bottom:20px;
+            z-index:50;
         }
         .notificationbox h4,p,a {
             color:#dedede;
@@ -40,8 +41,58 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         }
         </style>
         <script>
+        function setCookie(cname, cvalue) {
+            var d = new Date();
+            d.setTime(d.getTime() + (60*24*60*60*1000));
+            var expires = \"expires=\"+ d.toUTCString();
+            document.cookie = cname + \"=\" + cvalue + \";\" + expires + \";path=/\";
+          }
+        function getCookie(cname) {
+            var name = cname + \"=\";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for(var i = 0; i <ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+              }
+              if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+              }
+            }
+            return \"\";
+          }
+        var audio = new Audio('".APP_ROOT."/assets/audio/to-the-point.mp3');
+        var last = getCookie(\"last\");
+        if (last != '') {
+        }else{
+            setCookie(\"last\", '".time()."');
+        }
+        setInterval(function(){ notifGet() }, 3000);
+        function notifGet(){
+            last = getCookie(\"last\");
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                data=JSON.parse(this.responseText);
+                console.log(data);
+                if(data[0]!='0'){
+                    document.getElementById('notifbadge').innerHTML=data[0];
+                    document.getElementById('notifcon').innerHTML=data[1];
+                    notifOpen();
+                }
+            }
+            };
+            xhttp.open(\"POST\", \"function/notifget \", true);
+            xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
+            xhttp.send('last='+last);
+        }
         function notifClose(){
             document.getElementById('notif').style='visibility:hidden';
+        }
+        function notifOpen(){
+            audio.play();
+            document.getElementById('notif').style='visibility:block';
         }
         </script>
         <a id='notif' href=\"#\">
@@ -70,7 +121,10 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
             <span class=\"glyphicon glyphicon-off\" aria-hidden=\"true\"></span>
           </a>
         </div>
-        <!-- /menu footer buttons -->";
+        <!-- /menu footer buttons -->
+        <script>
+        notifClose();
+        </script>";
     }
 
     public function __construct() {       // this constructor can accept submenus which are passed when the object is created
