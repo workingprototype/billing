@@ -319,8 +319,8 @@ elseif($request[1]=="search")
       while($ro = $res->fetch_assoc()){
         $row['uom']=$ro['uom'];
       }
-      $total = $row['productPrice']+($row['productPrice']*5/100);
-      echo "<div onclick='clicked(\"". addslashes($row['productName'])."\",\"".$row['productPrice']."\",\"$cgst\",\"$sgst\",\"".$total."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".htmlentities($row['productName'])." </div>";
+      $total = $row['productPriceBeforeDiscount']+($row['productPriceBeforeDiscount']*5/100);
+      echo "<div onclick='clicked(\"". addslashes($row['productName'])."\",\"".$row['productPriceBeforeDiscount']."\",\"$cgst\",\"$sgst\",\"".$total."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".htmlentities($row['productName'])." </div>";
     }
 } else {
     echo "0 results";
@@ -362,7 +362,7 @@ elseif($request[1]=="searchi")
       while($ro = $res->fetch_assoc()){
         $row['uom']=$ro['uom'];
       }
-      echo "<div onclick='clicked(\"".addslashes($row['productName'])."\",\"".$row['productPrice']."\",\"".$row['hsnno']."\",\"".$batchcode."\",\"".$gst."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".$row['productName']." </div>";
+      echo "<div onclick='clicked(\"".addslashes($row['productName'])."\",\"".$row['productPriceBeforeDiscount']."\",\"".$row['hsnno']."\",\"".$batchcode."\",\"".$gst."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".$row['productName']." </div>";
     }
 } else {
     echo "0 results";
@@ -775,5 +775,21 @@ elseif($request[1]=="purchasec")
     $_SESSION['notification']=$data[0];
   }
   echo json_encode($data);
+}
+elseif($request[1]=="order")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $f1="00:00:00";
+  $from=date('Y-m-d')." ".$f1;
+  $t1="23:59:59";
+  $to=date('Y-m-d')." ".$t1;
+  $result = $db->query("SELECT * FROM orders where orderDate Between '$from' and '$to'");
+  $rows=[mysqli_num_rows($result),0,0];
+  $status='Delivered';
+  $ret = mysqli_query($db,"SELECT * FROM orders where orderStatus!='$status' || orderStatus is null ");
+  $rows[1] = mysqli_num_rows($ret);
+  $rt = mysqli_query($db,"SELECT * FROM orders where orderStatus='$status'");
+  $rows[2] = mysqli_num_rows($rt);
+  echo json_encode($rows);
 }
 ?>
