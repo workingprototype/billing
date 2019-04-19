@@ -28,15 +28,15 @@ $content ='	<div class="wrapper">
 							<div class="module-body">';
  if(isset($_POST['submit']))
 {
-$content.='									<div class="alert alert-success">
+$content.='									<div class="alert alert-success" style="width:1000px;">
 										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Well done!</strong>'.htmlentities($_SESSION['msg']).htmlentities($_SESSION['msg']="").'</div>';
+									<strong>Well done! </strong>'.htmlentities($_SESSION['msg']).htmlentities($_SESSION['msg']="").'</div>';
 }
 if(isset($_GET['del']))
 {
-$content.='									<div class="alert alert-error">
+$content.='									<div class="alert alert-error" style="width:1000px;">
 										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Oh snap!</strong> '.htmlentities($_SESSION['delmsg']).htmlentities($_SESSION['delmsg']="").'</div>';
+									<strong>Oh snap! </strong> '.htmlentities($_SESSION['delmsg']).htmlentities($_SESSION['delmsg']="").'</div>';
 }
  $content.='<br />
 
@@ -44,8 +44,8 @@ $content.='									<div class="alert alert-error">
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Category</label>
-<div class="controls">
-<select name="category" class="span8 tip" required>
+<div class="controls"></br>
+<select style="width:1000px;"  name="category" class="form-control" required>
 <option value="">Select Category</option>';
 $query=mysqli_query($con,"select * from category");
 while($row=mysqli_fetch_array($query))
@@ -59,9 +59,9 @@ $content.='</select>
 
 
 <div class="control-group">
-<label class="control-label" for="basicinput">SubCategory Name</label>
-<div class="controls">
-<input type="text" placeholder="Enter SubCategory Name"  name="subcategory" class="span8 tip" required>
+<label class="control-label" for="basicinput">Sub Category Name</label>
+<div class="controls"></br>
+<input type="text" style="width:1000px;"  placeholder="Enter Sub Category Name"  name="subcategory" class="form-control" required>
 </div>
 </div>
 
@@ -81,7 +81,7 @@ $content.='</select>
 
  <div class="module">
 							<div class="module-head">
-								<h3>Sub Category</h3>
+									<h3>Manage Sub Category</h3>
 							</div>
 							<div class="module-body table">
 								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
@@ -154,6 +154,6 @@ $page->var['navbar']=$navbar->echo();
 $page->var['sidebar']=$sidebar->echo();
 $page->var['footer']=$footer->echo();
 $page->var['content']=$content;
-$page->var['title']="Sub Category";
+$page->var['title']="Add Sub Category";
 $page->render();
 ?>

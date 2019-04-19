@@ -27,23 +27,22 @@ $content='<div class="wrapper">
 
 						<div class="module">
 							<div class="module-head">
-								<h3>Unit of Measurement</h3>
 							</div>
 							<div class="module-body">
 
 ';
 if(isset($_POST['submit']))
 {
-	$content.='								<div class="alert alert-success">
+	$content.='								<div class="alert alert-success" style="width:1000px;">
 										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Well done!</strong>	'.htmlentities($_SESSION['msg']).''.htmlentities($_SESSION['msg']="").'
+									<strong>Well done! </strong>	'.htmlentities($_SESSION['msg']).''.htmlentities($_SESSION['msg']="").'
 									</div>';
  }
 if(isset($_GET['del']))
 {
-	$content.='								<div class="alert alert-error">
+	$content.='								<div class="alert alert-error" style="width:1000px;">
 										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Oh snap!</strong> 	'.htmlentities($_SESSION['delmsg']).''.htmlentities($_SESSION['delmsg']="").'
+									<strong>Oh snap! </strong> 	'.htmlentities($_SESSION['delmsg']).''.htmlentities($_SESSION['delmsg']="").'
 									</div>';
 }
 $content.='
@@ -51,7 +50,7 @@ $content.='
 <form class="form-horizontal row-fluid" name="uom" method="post" >
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Add Unit of Measurement</label>
+<label class="control-label" for="basicinput">Add New UOM</label>
 <div class="controls"></br>
 <input type="text"  style="width:300px;" name="uom" class="form-control" required>
 </div>
@@ -60,7 +59,7 @@ $content.='
 											<div class="controls"><br>
 												<button type="submit" name="submit" class="btn"style="border-radius: 3px;color: #fff;
     background-color: #5cb85c;
-    border-color: #4cae4c;">Add</button></div>
+    border-color: #4cae4c;">Add</button></div></br></br>
 										</div>
 									</form>
 							</div>
@@ -69,6 +68,7 @@ $content.='
 
  <div class="module">
 							<div class="module-body table">
+							<h3>Manage Unit of Measurement</h3>
 								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
 									<thead>
 										<tr>
@@ -136,6 +136,6 @@ $page->var['navbar']=$navbar->echo();
 $page->var['sidebar']=$sidebar->echo();
 $page->var['footer']=$footer->echo();
 $page->var['content']=$content;
-$page->var['title']="Add and Manage :";
+$page->var['title']="Add and Manage Unit of Measurement:";
 $page->render();
 ?>

@@ -60,21 +60,43 @@ $content.='
 
 			<form class="form-horizontal row-fluid" name="taxinfo" method="post" >
 
-<div class="control-group"><div style="width:800px; margin:0 auto;">
+
 <label class="control-label" for="basicinput">Add Tax Group</label>
 <div class="controls">
-<input type="text" placeholder=" e.g: 14 % Special Tax" style="width:150px;" name="taxname" class="span8 tip" required><br><br>
-<div id="the-parent" class="input-prepend input-append">
+<input type="text" placeholder=" e.g: 14 % Special Tax" style="width:250px;" name="taxname" class="form-control" required></br>
+<div id="the-parent" class="input-prepend input-append"></br>
 
-	<label for="basicinput">Total GST</label> <br>	<input type="text" style="width:100px;"  id="total" onblur="findTotal()" placeholder="Total GST"  name="totalgst" class="span8 tip" required value="0"> <span class="add-on">%</span>
-</br></br>
 
-<label for="basicinput">CGST</label> <br><input type="text" style="width:100px;"  placeholder="CGST" id="cgst"  name="cgst" class="span8 tip" value="0"  required readonly><span class="add-on">%</span><br><br>
+<div class="col-xs-4"><label> Total GST</label>
+            <div class="input-group">
+            <input type="text" class="form-control" id="total" onblur="findTotal()" name="totalgst" placeholder="GST" required value="0">
+                <span class="input-group-addon">%</span>
+            </div></br></br>
+        </div>
+<div class="col-xs-4"> <label> CGST</label>
+            <div class="input-group">
+                <input type="text" class="form-control"  id="cgst"  name="cgst" value="0" required readonly>
+                <span class="input-group-addon">%</span>
+            </div>
+        </div>
+<div class="col-xs-4"> <label> SGST</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="sgst" name="sgst" value="0"  required readonly>
+                <span class="input-group-addon">%</span>
+            </div>
+        </div>
 
-<label for="basicinput">SGST</label> <br><input type="text" style="width:100px;"  placeholder="SGST" id="sgst" name="sgst" class="span8 tip"  value="0"  required readonly> <span class="add-on">%</span>	<br><br>
-</div></div>
-</div>
-</div>
+
+				</div>
+				</div>
+				</div>
+
+
+
+
+
+
+
 	<div class="control-group">
 											<div class="controls">
 												<button type="submit" name="submit" class="btn" style="border-radius: 3px;color: #fff;

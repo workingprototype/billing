@@ -62,12 +62,12 @@ $("#suggesstion-box").hide();
 							';
 							if(isset($_POST['submit']))
 							{ 	$content.='
-																<div class="alert alert-success">
+																<div class="alert alert-success" style="width:1000px;">
 																	<button type="button" class="close" data-dismiss="alert">×</button>
 																<strong>Well done!</strong>	'.htmlentities($_SESSION['msg']).''.htmlentities($_SESSION['msg']="").'
 																</div>
 
-																<div id="redirect" style="visibility: hidden" class="alert alert-info">
+																<div id="redirect" style="visibility: hidden" class="alert alert-info" style="width:1000px;">
 																	<button type="button" class="close" data-dismiss="alert">×</button>
 																<strong>Redirecting To Manage Products!</strong>
 																</div>
@@ -83,7 +83,7 @@ $("#suggesstion-box").hide();
 
 							 if(isset($_GET['del']))
 							{ 	$content.='
-																<div class="alert alert-error">
+																<div class="alert alert-error" style="width:1000px;">
 																	<button type="button" class="close" data-dismiss="alert">×</button>
 																<strong>Oh snap!</strong> '.htmlentities($_SESSION['delmsg']).''.htmlentities($_SESSION['delmsg']="").'
 																</div>

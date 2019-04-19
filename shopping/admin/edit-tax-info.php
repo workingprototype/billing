@@ -68,11 +68,11 @@ while($row=mysqli_fetch_array($query))
 <input type="text" placeholder=" e.g: 14 % Special Tax"  name="taxname" value="'.htmlentities($row['taxname']).'" class="span8 tip" required><br><br>
 <div id="the-parent" class="input-prepend input-append">
   <label for="basicinput">Total GST</label>
-<input type="text" id="total" onblur="findTotal()" placeholder="Total GST" name="totalgst" class="span8 tip" required value="'.htmlentities($row['totalgst']).'"> <span class="add-on">%</span>
+<input type="text" id="total" onblur="findTotal()" placeholder="Total GST" name="totalgst" class="span8 tip" required value="'.htmlentities($row['totalgst']).'"> 
 </br></br><label for="basicinput">CGST</label>
-<input type="text" id="cgst" placeholder="CGST"  name="cgst" class="span8 tip" value="'.htmlentities($row['cgst']).'"  readonly required><span class="add-on">%</span><br><br>
+<input type="text" id="cgst" placeholder="CGST"  name="cgst" class="span8 tip" value="'.htmlentities($row['cgst']).'"  readonly required><br><br>
 <label for="basicinput">SGST</label>
-<input type="text" id="sgst" placeholder="SGST"  name="sgst" class="span8 tip"  value="'.htmlentities($row['sgst']).'"  readonly required> <span class="add-on">%</span>	<br><br>
+<input type="text" id="sgst" placeholder="SGST"  name="sgst" class="span8 tip"  value="'.htmlentities($row['sgst']).'"  readonly required> 	<br><br>
 </div>
 </div>
 </div>
@@ -99,8 +99,8 @@ border-color: #4cae4c;">Update</button>
     }
           </script>
 ';
-               
-} 
+
+}
 	$content.='
 
 

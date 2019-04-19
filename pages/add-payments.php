@@ -80,11 +80,11 @@ $content.="<br />
 			<form class=\"form-horizontal row-fluid\" action=\"./function/record_payment\" name=\"subcategory\" method=\"post\" >
 
 <div  class=\"control-group\">
-<label class=\"control-label\" for=\"basicinput\">Debtor</label>
+<label class=\"control-label\" for=\"basicinput\">Debtor Name:</label>
 <div class=\"controls\">";
 $content.="
 <input style='visibility:hidden;position:absolute' placeholder='Start typing the name of the debtor' id='hidden_customer' class='form-control'>
-    <input id='customer' onkeyup='autocompletex(this.value,\"customer\")' class='form-control' autocomplete='chromeisnotnice'>
+    <input id='customer' style='width:1000px;'  onkeyup='autocompletex(this.value,\"customer\")' class='form-control' autocomplete='chromeisnotnice'>
     <div id='drop_customer' style='width:347px;background:#999;position:absolute;z-index:2'>
     </div>
 </div>
@@ -102,7 +102,7 @@ $content.="
 <label class=\"control-label\" for=\"basicinput\">Invoice Number: </label>
 <div class=\"controls\">
 
-<select style='width:400px' name='invoice' id='due'>
+<select style='width:400px' class='form-control' name='invoice' id='due'>
 </select>
 </div>
 </div>
@@ -111,7 +111,7 @@ $content.="
 <div class=\"control-group\">
 <label class=\"control-label\" for=\"basicinput\">Payment Amount</label>
 <div class=\"controls\">
-<input type=\"text\" placeholder=\"Enter Payment Amount\"  name=\"amountpaying\" class=\"span8 tip\" required>
+<input type=\"text\"  style='width:400px'placeholder=\"Enter Payment Amount\"  name=\"amountpaying\" class=\"form-control\" required>
 </div>
 </div>
 
@@ -122,7 +122,7 @@ $content.="
 												<button type=\"submit\" name=\"submit\" class=\"btn\"style=\"border-radius: 3px;color: #fff;
 		background-color: #5cb85c;
 		border-color: #4cae4c;\">Record Payment</button>
-												
+
 											</div>
 										</div>
 									</form>

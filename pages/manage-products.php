@@ -30,7 +30,7 @@ if(isset($_GET['del']))
 $content='
 									<div class="alert alert-error">
 										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Oh snap!</strong>'.htmlentities($_SESSION['delmsg']).''.htmlentities($_SESSION['delmsg']="").'
+									<strong>Oh snap! </strong>'.htmlentities($_SESSION['delmsg']).''.htmlentities($_SESSION['delmsg']="").'
 									</div> ';
 }
 $content='

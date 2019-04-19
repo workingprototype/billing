@@ -77,18 +77,18 @@ $("#suggesstion-box").hide();
 ';
 if(isset($_POST['submit']))
 { 	$content.='
-									<div class="alert alert-success">
+									<div class="alert alert-success" style="width:1000px;">
 										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Well done!</strong>	'.htmlentities($_SESSION['msg']).''.htmlentities($_SESSION['msg']="").'
+									<strong>Well done! </strong>	'.htmlentities($_SESSION['msg']).''.htmlentities($_SESSION['msg']="").'
 									</div> ';
 }
 
 
  if(isset($_GET['del']))
 { 	$content.='
-									<div class="alert alert-error">
+									<div class="alert alert-error" style="width:1000px;">
 										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Oh snap!</strong> '.htmlentities($_SESSION['delmsg']).''.htmlentities($_SESSION['delmsg']="").'
+									<strong>Oh snap! </strong> '.htmlentities($_SESSION['delmsg']).''.htmlentities($_SESSION['delmsg']="").'
 									</div>';
  } 	$content.='
 
@@ -173,7 +173,7 @@ while($row=mysqli_fetch_array($query))
 </div>
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Product Price Before Discount</label>
+<label class="control-label" for="basicinput">Product Price Before Discount [MRP]</label>
 <div class="controls">
 <input type="text"  style="width:200px;"  name="productpricebd"  placeholder="Enter Product Price" class="form-control" required>
 </div>

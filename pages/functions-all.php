@@ -488,7 +488,7 @@ elseif($request[1]=="duelist2")
       }
     }
     echo "<table>";
-    echo "<br><p>Total Due : $tot</p><br>";
+    echo "<br><b style = color:black;>Total Due : $tot</b><br></br>";
 }
 elseif($request[1]=="record_payment")
 {
@@ -600,12 +600,12 @@ elseif($request[1]=="purchasereportget")
   $sql = "SELECT supplier.productcompany as firmname,
   supplier.contactno as contact,
   timestamp, invoicenumber,totalwhole, sgst, cgst,
-  purchase.id as id 
-  FROM purchase  
-  INNER JOIN supplier ON purchase.supplier=supplier.id 
-  WHERE (timestamp BETWEEN '$from'  AND '$to') 
-  AND (invoicenumber LIKE '%$keys%') 
-  AND (supplier.productcompany LIKE '%$name%') 
+  purchase.id as id
+  FROM purchase
+  INNER JOIN supplier ON purchase.supplier=supplier.id
+  WHERE (timestamp BETWEEN '$from'  AND '$to')
+  AND (invoicenumber LIKE '%$keys%')
+  AND (supplier.productcompany LIKE '%$name%')
   AND (supplier.contactno LIKE '%$contact%')
   GROUP BY invoicenumber ORDER BY timestamp";
   $result = $db->query($sql);

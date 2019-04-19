@@ -32,17 +32,17 @@ $content='
 
  if(isset($_POST['submit']))
 {
-	$content.='							<div class="alert alert-success">
+	$content.='							<div class="alert alert-success" style="width:1000px;">
 										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Well done!</strong>'.htmlentities($_SESSION['msg']).htmlentities($_SESSION['msg']="").'</div>';
+									<strong>Well done! </strong>'.htmlentities($_SESSION['msg']).htmlentities($_SESSION['msg']="").'</div>';
 									 }
 
 
 if(isset($_GET['del']))
 {
-$content.='<div class="alert alert-error">
+$content.='<div class="alert alert-error" style="width:1000px;">
 										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Oh snap!</strong>'.htmlentities($_SESSION['delmsg']).htmlentities($_SESSION['delmsg']="").'</div>';
+									<strong>Oh snap! </strong>'.htmlentities($_SESSION['delmsg']).htmlentities($_SESSION['delmsg']="").'</div>';
 }
 
 $content.='									<br />
@@ -52,7 +52,7 @@ $content.='									<br />
 <div class="control-group">
 <label class="control-label" for="basicinput">Category Name</label>
 <div class="controls">
-<input type="text" placeholder="Enter category Name"  name="category" class="span8 tip" required>
+<input type="text" style="width:1000px;"  placeholder="Enter category Name"  name="category" class="form-control" required>
 </div>
 </div>
 
@@ -60,7 +60,7 @@ $content.='									<br />
 <div class="control-group">
 											<label class="control-label" for="basicinput">Description</label>
 											<div class="controls">
-												<textarea class="span8" name="description" rows="5"></textarea>
+												<textarea  style="width:1000px;" class="form-control" name="description" rows="5"></textarea>
 											</div>
 										</div>
 
@@ -152,7 +152,7 @@ $page->var['navbar']=$navbar->echo();
 $page->var['sidebar']=$sidebar->echo();
 $page->var['footer']=$footer->echo();
 $page->var['content']=$content;
-$page->var['title']="Category";
+$page->var['title']="Add Category";
 $page->render();
 
 ?>

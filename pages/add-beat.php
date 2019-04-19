@@ -40,7 +40,7 @@ $content='	<div class="wrapper">
 if(isset($_POST['submit']))
 {
 	$content.='
-									<div class="alert alert-success">
+									<div class="alert alert-success" style="width:1000px;">
 										<button type="button" class="close" data-dismiss="alert">×</button>
 									<strong>Well done!</strong>	'.htmlentities($_SESSION['msg']).''.htmlentities($_SESSION['msg']="").'
 									</div>';
@@ -48,7 +48,7 @@ if(isset($_POST['submit']))
 if(isset($_GET['del']))
 {
 	$content.='
-									<div class="alert alert-error">
+									<div class="alert alert-error" style="width:1000px;">
 										<button type="button" class="close" data-dismiss="alert">×</button>
 									<strong>Oh snap!</strong> 	'.htmlentities($_SESSION['delmsg']).''.htmlentities($_SESSION['delmsg']="").'
 									</div>';
@@ -59,9 +59,9 @@ if(isset($_GET['del']))
 			<form class="form-horizontal row-fluid" name="uom" method="post" >
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Add Beat</label>
-<div class="controls">
-<input type="text" placeholder="Add Beat"  name="beat" class="span8 tip" required>
+<label class="control-label" for="basicinput">Add New Beat</label>
+<div class="controls"></br>
+<input type="text" placeholder="Add New Beat"  name="beat" style="width:1000px;" class="form-control" required>
 </div>
 </div>
 
@@ -149,6 +149,6 @@ $page->var['navbar']=$navbar->echo();
 $page->var['sidebar']=$sidebar->echo();
 $page->var['footer']=$footer->echo();
 $page->var['content']=$content;
-$page->var['title']="Beat";
+$page->var['title']="Add Beat";
 $page->render();
 ?>

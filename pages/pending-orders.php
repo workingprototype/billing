@@ -1,6 +1,7 @@
 
 <?php
 session_start();
+error_reporting(0);
 include('config/config.php');
 if(strlen($_SESSION['alogin'])==0)
 	{
@@ -11,18 +12,7 @@ date_default_timezone_set('Asia/Kolkata');// change according timezone
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 
 
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin| Pending Orders</title>
-	<link type="text/css" href="./shopping/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link type="text/css" href="./shopping/admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-	<link type="text/css" href="./shopping/admin/css/theme.css" rel="stylesheet">
-	<link type="text/css" href="./shopping/admin/images/icons/css/font-awesome.css" rel="stylesheet">
-	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
+$content.='
 	<script language="javascript" type="text/javascript">
 var popUpWin=0;
 function popUpWindow(URLStr, left, top, width, height)
@@ -31,12 +21,10 @@ function popUpWindow(URLStr, left, top, width, height)
 {
 if(!popUpWin.closed) popUpWin.close();
 }
-popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width='+600+',height='+600+',left='+left+', top='+top+',screenX='+left+',screenY='+top+'');
+popUpWin = open(URLStr,\'popUpWin\', \'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width=\'+600+\',height=\'+600+\',left=\'+left+\', top=\'+top+\',screenX=\'+left+\',screenY=\'+top+\'\');
 }
 
 </script>
-</head>
-<body>
 
 	<div class="wrapper">
 		<div class="container">
@@ -47,17 +35,16 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 
 	<div class="module">
 							<div class="module-head">
-								<h3>Pending Orders</h3>
 							</div>
-							<div class="module-body table">
-	<?php if(isset($_GET['del']))
-{?>
-									<div class="alert alert-error">
-										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Oh snap!</strong> 	<?php echo htmlentities($_SESSION['delmsg']);?><?php echo htmlentities($_SESSION['delmsg']="");?>
-									</div>
-<?php } ?>
-
+							<div class="module-body table">';
+							if(isset($_GET['del']))
+						{
+														$content.='	<div class="alert alert-error">
+																<button type="button" class="close" data-dismiss="alert">×</button>
+															<strong>Oh snap!</strong> 	'. htmlentities($_SESSION['delmsg']).''.htmlentities($_SESSION['delmsg']="").'
+															</div>';
+						 }
+$content.='
 									<br />
 
 
@@ -77,55 +64,65 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 										</tr>
 									</thead>
 
-<tbody>
-<?php
+<tbody>';
+
 $status='Delivered';
 $query=mysqli_query($con,"select orders.orderNumber as orderNumber,count(userid) as countid,users.name as username,users.email as useremail,users.contactno as usercontact,users.shippingAddress as shippingaddress,users.shippingCity as shippingcity,users.shippingState as shippingstate,users.shippingPincode as shippingpincode,products.productName as productname,products.shippingCharge as shippingcharge,orders.quantity as quantity,orders.orderDate as orderdate,products.productPrice as productprice,orders.id as id  from orders join users on  orders.userId=users.id join products on products.id=orders.productId where orders.	orderStatus!='$status' or orders.orderStatus is null GROUP BY orders.orderNumber");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
-?>
+$content.='
 										<tr>
-											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($row['orderNumber']);?></td>
-											<td><?php echo htmlentities($row['username']);?></td>
-<td><?php echo htmlentities($row['useremail']);?>/<?php echo htmlentities($row['usercontact']);?></td>
-<td><?php echo htmlentities($row['shippingaddress'].",".$row['shippingcity'].",".$row['shippingstate']."-".$row['shippingpincode']);?></td>
-<td><?php echo htmlentities($row['countid']);?></td>
-<td><?php echo htmlentities($row['orderdate']);?></td>
-<td>    <a href="./shopping/admin/pending-orders-expanded.php?orderNumber=<?php echo htmlentities($row['orderNumber']);?>" title="Update order" target="_blank"><i class="icon-edit"></i></a>
+											<td>'.htmlentities($cnt).'</td>
+											<td>'.htmlentities($row['orderNumber']).'</td>
+											<td>'.htmlentities($row['username']).'</td>
+<td>'.htmlentities($row['useremail']).'/'.htmlentities($row['usercontact']).'</td>
+<td>'.htmlentities($row['shippingaddress'].",".$row['shippingcity'].",".$row['shippingstate']."-".$row['shippingpincode']).'</td>
+<td>'.htmlentities($row['countid']).'</td>
+<td>'.htmlentities($row['orderdate']).'</td>
+<td>    <a href="./shopping/admin/pending-orders-expanded.php?orderNumber='.htmlentities($row['orderNumber']).'" title="Update order" target="_blank"><div align="center"><i class="icon-eye-open"></i></div></a>
 </td>
-											</tr>
-
-										<?php $cnt=$cnt+1; } ?>
+											</tr>';
+ $cnt=$cnt+1; } $content.='
 										</tbody>
 								</table>
 							</div>
 						</div>
 
-<button onclick="location.href = './purchase';"> Return to Billing </button>
-
-					</div><!--/.content-->
-				</div><!--/.span9-->
-			</div>
-		</div><!--/.container-->
-	</div><!--/.wrapper-->
-
-
-
-	<script src="./shopping/admin/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-	<script src="./shopping/admin/scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-	<script src="./shopping/admin/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="./shopping/admin/scripts/flot/jquery.flot.js" type="text/javascript"></script>
-	<script src="./shopping/admin/scripts/datatables/jquery.dataTables.js"></script>
-	<script>
-		$(document).ready(function() {
-			$('.datatable-1').dataTable();
-			$('.dataTables_paginate').addClass("btn-group datatable-pagination");
-			$('.dataTables_paginate > a').wrapInner('<span />');
-			$('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
-			$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
-		} );
-	</script>
-</body>
-<?php } ?>
+						</div><!--/.content-->
+					</div><!--/.span9-->
+				</div>
+			</div><!--/.container-->
+		</div><!--/.wrapper-->
+		<link type="text/css" href="./shopping/admin/images/icons/css/font-awesome.css" rel="stylesheet">
+		<script src="./shopping/admin/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="./shopping/admin/scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+		<script src="./shopping/admin/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+		<script src="./shopping/admin/scripts/flot/jquery.flot.js" type="text/javascript"></script>
+		<script src="./shopping/admin/scripts/datatables/jquery.dataTables.js"></script>
+		<script>
+			$(document).ready(function() {
+				$(\'.datatable-1\').dataTable();
+				$(\'.dataTables_paginate\').addClass("btn-group datatable-pagination");
+				$(\'.dataTables_paginate > a\').wrapInner(\'<span />\');
+				$(\'.dataTables_paginate > a:first-child\').append(\'<i class="icon-chevron-left shaded"></i>\');
+				$(\'.dataTables_paginate > a:last-child\').append(\'<i class="icon-chevron-right shaded"></i>\');
+			} );
+		</script>
+		';
+	}
+	require_once "./classes/page-class.php";
+	require_once "./classes/sidebar-class.php";
+	require_once "./classes/top-navigation-class.php";
+	require_once "./classes/footer-class.php";
+	$page = new Page;
+	$sidebar = new Sidebar;
+	$footer = new Footer;
+	$navbar = new TopNav;
+	$page->var['navbar']=$navbar->echo();
+	$page->var['sidebar']=$sidebar->echo();
+	$page->var['footer']=$footer->echo();
+	$page->var['content']=$content;
+	$page->var['title']="Pending E-commerce Orders:";
+	$page->render();
+	?>
