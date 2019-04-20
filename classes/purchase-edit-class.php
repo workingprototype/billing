@@ -468,7 +468,24 @@ class Purchase
         xhttp.send('data=".$this->id."&dat='+dat);
       }
       function deletex(){
-        alert('you sure?');
+        document.getElementById(\"deleteconfirm\").style='visibility:block';
+      }
+
+      function deletexx(){
+        del=document.getElementById(\"deletea\").value;
+        if(del=='DELETE'){
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              alert(this.responseText);
+            }
+          };
+          xhttp.open(\"POST\", \"../function/deletepurchase \", true);
+          xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
+          xhttp.send('data=".$this->id."');
+        }else{
+          alert('Wrong  Confirmation Code');
+        }
       }
     </script>
     ";
@@ -486,8 +503,10 @@ class Purchase
       <tr><td id='total'>Total:</td><td id='credit'>Credit Note Amount:</td><td id='log'>Logistic Amount:</td><td  id='netamount'>Net Amount:</td></tr>
       </table>
       <button class='btn btn-warning' onclick='update()'>Update</button> <button onclick='deletex()' class='btn btn-danger'>Delete</button>
-    <script>
+      <div id='deleteconfirm'> Type 'DELETE' in all capitals to confirm delete action <input id='deletea'> <button class='btn btn-primary' onclick='deletexx()'>Confirm Delete</button></div>
+      <script>
     purchasecollect();
+    document.getElementById(\"deleteconfirm\").style='visibility:hidden';
     </script>";
   }
 }

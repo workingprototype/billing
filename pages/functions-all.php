@@ -830,4 +830,30 @@ elseif($request[1]=="updatepurchase")
     echo "Failed";
   }
 }
+elseif($request[1]=="deletepurchase")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $id=$_POST['data'];
+  $i=0;
+  $sql="SELECT * FROM purchase WHERE id='$id'";
+  $result = $db->query($sql);
+  $i=0;
+  $sql=$result->fetch_assoc();
+  $timestamp = $sql['timestamp'];
+  $invoice = $sql['invoicenumber'];
+  $sql="SELECT * FROM purchase WHERE ( timestamp='$timestamp')AND(invoicenumber='$invoice')";
+  $result = $db->query($sql);
+  while ($row=$result->fetch_assoc()) {
+    $id=$row['id'];
+    $sql="DELETE FROM purchase  WHERE id=$id ";
+    if($db->query($sql)){
+      $i=1;
+    }
+  }
+  if($i==1){
+    echo "Purchase Deleted Successfully";
+  }else{
+    echo "Failed";
+  }
+}
 ?>
