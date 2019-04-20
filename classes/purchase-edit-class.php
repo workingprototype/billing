@@ -30,11 +30,12 @@ class Purchase
         background:#fff;
       }
       .autoitem{
-        width:347px;
+        width:200px;
+        color:#111;
         background:#ddd;
       }
       .autoitem:hover{
-        width:345px;
+        width:200px;
         margin:1px;
         background:#ddd;
       }
@@ -134,7 +135,7 @@ class Purchase
     }
     function autocompleted(id,value,supervalue){
       document.getElementById(id).value= value;
-      document.getElementById('hidden_'+id).value= supervalue;
+      document.getElementById('hidden_'+id).innerHTML= supervalue;
       document.getElementById('drop_'+id).innerHTML='';
     }
     function autocompletex(value,a){
@@ -144,7 +145,7 @@ class Purchase
           document.getElementById('drop_'+a).innerHTML=this.responseText;
         }
       };
-      xhttp.open(\"POST\", \"function/auto\"+a, true);
+      xhttp.open(\"POST\", \"../function/auto\"+a, true);
       xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
       xhttp.send('data='+value);
     }
@@ -366,6 +367,12 @@ class Purchase
         boxes++;
         i++
       }
+      function netcalc(){
+        x=Number(document.getElementById('logi').value);
+        y=Number(document.getElementById('crediti').value);
+        z=document.getElementById('hidden_total').innerHTML;
+        document.getElementById('netamount').innerHTML='Net Amount:'+(z-(x+y))+' Rs';
+      }
       function isearch(term){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -397,17 +404,17 @@ class Purchase
             x=0;
           }else{
             console.log(data);
-            document.getElementById('firm').innerHTML='Firm :<a hidden>'+data[i]['firmid']+'</a> <input id=\"firm\" value=\"'+data[i]['firmname']+'\">';
-            document.getElementById('sup').innerHTML='Supplier Name : <a hidden>'+data[i]['supid']+'</a> <input  id=\"sup\" value=\"'+data[i]['suppliername']+'\">';
+            document.getElementById('firm').innerHTML='Firm :<a id=\"hidden_firmx\" hidden>'+data[i]['firmid']+'</a> <input onkeyup=\'autocompletex(this.value,\"firmx\")\' id=\"firmx\" value=\"'+data[i]['firmname']+'\" > <div style=\"width:200px;background:#999;position:absolute;z-index:2\" id=\"drop_firmx\"></div>';
+            document.getElementById('sup').innerHTML='Supplier Name : <a id=\"hidden_supplier\" hidden>'+data[i]['supid']+'</a> <input onkeyup=\'autocompletex(this.value,\"supplier\")\' id=\"supplier\" value=\"'+data[i]['suppliername']+'\"><div style=\"width:200px;background:#999;position:absolute;z-index:2\" id=\"drop_supplier\"></div>';
             document.getElementById('invoice').innerHTML='Invoice No : <input id=\"inv\" value=\"'+data[i]['invoicenumber']+'\">';
             document.getElementById('indate').innerHTML='Invoice Date : <input id=\"ind\" type=\"date\" value=\"'+data[i]['invoicedate']+'\">';
             document.getElementById('recdate').innerHTML='Received Date : <input id=\"recd\" type=\"date\" value=\"'+data[i]['receiveddate']+'\">';
             document.getElementById('transport').innerHTML='Transport : <input id=\"tspt\" value=\"'+data[i]['transport']+'\">';
             document.getElementById('vehicle').innerHTML='Vehicle Number : <input id=\"vno\" value=\"'+data[i]['vehiclenumber']+'\">';
-            document.getElementById('delcon').innerHTML='Delivery Person Contact : <input id=\"delcon\" value=\"'+data[i]['deliveredcontact']+'\">';
-            document.getElementById('total').innerHTML='Total : '+data[i]['totalwhole']+' Rs';
-            document.getElementById('credit').innerHTML='Credit Note Amount: <input id=\"credit\" value=\"'+data[i]['creditnote']+'\"> Rs';
-            document.getElementById('log').innerHTML='Logistic Amount: <input id=\"log\" value=\"'+data[i]['logistic']+'\"> Rs';
+            document.getElementById('delcon').innerHTML='Delivery Person Contact : <input id=\"delconi\" value=\"'+data[i]['deliveredcontact']+'\">';
+            document.getElementById('total').innerHTML='Total :<a id=\"hidden_total\" hidden>'+data[i]['totalwhole']+'</a> '+data[i]['totalwhole']+' Rs';
+            document.getElementById('credit').innerHTML='Credit Note Amount: <input onkeyup=\'netcalc()\' id=\"crediti\" value=\"'+data[i]['creditnote']+'\"> Rs';
+            document.getElementById('log').innerHTML='Logistic Amount: <input  onkeyup=\'netcalc()\' id=\"logi\" value=\"'+data[i]['logistic']+'\"> Rs';
             document.getElementById('netamount').innerHTML='Net Amount:'+(Number(data[i]['totalwhole'])-(Number(data[i]['creditnote'])+Number(data[i]['logistic'])))+' Rs';
             tablenew(data[i]);
           }
@@ -438,7 +445,27 @@ class Purchase
         document.getElementById('tablego').outerHTML=table+\"<div id='tablego'></div>\";
       }
       function update(){
-        alert('HOW');
+        dat=[];
+        dat[0]=document.getElementById('hidden_firmx').innerHTML;
+        dat[1]=document.getElementById('hidden_supplier').innerHTML;
+        dat[2]=document.getElementById('inv').value;
+        dat[3]=document.getElementById('ind').value;
+        dat[4]=document.getElementById('recd').value;
+        dat[5]=document.getElementById('tspt').value;
+        dat[6]=document.getElementById('vno').value;
+        dat[7]=document.getElementById('delconi').value;
+        dat[8]=document.getElementById('crediti').value;
+        dat[9]=document.getElementById('logi').value;
+        var dat = JSON.stringify(dat);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText);
+          }
+        };
+        xhttp.open(\"POST\", \"../function/updatepurchase \", true);
+        xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
+        xhttp.send('data=".$this->id."&dat='+dat);
       }
       function deletex(){
         alert('you sure?');
@@ -456,7 +483,7 @@ class Purchase
       </table>
       <div id='tablego'></div>
       <table class ='table table-bordered'>
-      <tr><td id='total'>Total:</td><td id='credit'>Credit Note Amount:</td><td id='log'>Logistic Amount:</td><td id='netamount'>Net Amount:</td></tr>
+      <tr><td id='total'>Total:</td><td id='credit'>Credit Note Amount:</td><td id='log'>Logistic Amount:</td><td  id='netamount'>Net Amount:</td></tr>
       </table>
       <button class='btn btn-warning' onclick='update()'>Update</button> <button onclick='deletex()' class='btn btn-danger'>Delete</button>
     <script>

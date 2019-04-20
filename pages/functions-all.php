@@ -709,6 +709,16 @@ elseif($request[1]=="autobusiness")
     echo "<a href='#'><div onclick='autocompleted(\"business\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".$row['account_name']."</div></a>";
   }
 }
+elseif($request[1]=="autofirmx")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $keys=$_POST['data'];
+  $sql="SELECT * FROM business WHERE account_name LIKE '%$keys%' LIMIT 10 ";
+  $result = $db->query($sql);
+    while($row=$result->fetch_assoc()){
+    echo "<a href='#'><div onclick='autocompleted(\"firmx\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".$row['account_name']."</div></a>";
+  }
+}
 elseif($request[1]=="autosupplier")
 {
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
@@ -792,5 +802,32 @@ elseif($request[1]=="order")
   $rows[2] = mysqli_num_rows($rt);
   $rows[3] =  $rows[0] + $rows[1];
   echo json_encode($rows);
+}
+elseif($request[1]=="updatepurchase")
+{
+  $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+  $id=$_POST['data'];
+  $data= json_decode($_POST['dat']);
+  $i=0;
+  $sql="SELECT * FROM purchase WHERE id='$id'";
+  $result = $db->query($sql);
+  $i=0;
+  $sql=$result->fetch_assoc();
+  $timestamp = $sql['timestamp'];
+  $invoice = $sql['invoicenumber'];
+  $sql="SELECT * FROM purchase WHERE ( timestamp='$timestamp')AND(invoicenumber='$invoice')";
+  $result = $db->query($sql);
+  while ($row=$result->fetch_assoc()) {
+    $id=$row['id'];
+    $sql="UPDATE purchase SET business='".$data[0]."', supplier='".$data[1]."', invoicenumber='".$data[2]."', invoicedate='".$data[3]."', receiveddate='".$data[4]."', transport='".$data[5]."', vehiclenumber='".$data[6]."', deliveredcontact='".$data[7]."', creditnote='".$data[8]."', logistic='".$data[9]."' WHERE id=$id ";
+    if($db->query($sql)){
+      $i=1;
+    }
+  }
+  if($i==1){
+    echo "Purchase Updated Successfully";
+  }else{
+    echo "Failed";
+  }
 }
 ?>
