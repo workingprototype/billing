@@ -425,8 +425,8 @@ class Purchase
         table=\"<table class ='table table-bordered'><tr><td id='batch'>batchcode: \"+data['batch']+\"</td>\
         <td id='pname'> \"+data['productname']+\"</td>\
         <td id='mrp'>MRP: \"+data['mrp']+\"</td>\
-        <td id='qty'>Qantity (cases): \"+data['qtycase']+\"</td>\
-        <td id='qtyu'>Qantity (units): \"+data['qtyuom']+\"</td>\
+        <td id='qty'>Quantity (cases): \"+data['qtycase']+\"</td>\
+        <td id='qtyu'>Quantity (units): \"+data['qtyuom']+\"</td>\
         </tr><tr><td id='base'>Base Rate: \"+data['baseratecase']+\"</td>\
         <td id='baserateu'>Base Rate (Uom): \"+data['baserateuom']+\" </td>\
         <td id='disc'>Discount: \"+data['disc']+\"%</td>\

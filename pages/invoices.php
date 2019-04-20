@@ -77,6 +77,8 @@ if($request[1]=='sales'){
           while($row = $res->fetch_assoc()) {
             $firmn=$row['account_name'];
             $gstin=$row['gstin'];
+            $stateb=$row['state'];
+            $conb=$row['phone'];
           } 
         }
         $firmd.="<tr>
@@ -89,8 +91,8 @@ if($request[1]=='sales'){
       $table= "<table class='table table-bordered'>
       $firmd
       <tr>
-      <th colspan='2'>STATE : </th>
-      <th>CONTACT NO : </th>
+      <th colspan='2'>STATE : $stateb </th>
+      <th>CONTACT NO : $conb </th>
       </tr>
       </table>";
       $table.="
@@ -109,7 +111,7 @@ if($request[1]=='sales'){
       </tr>
       <tr>
       <td><strong>STATE: </strong> $state </td>
-      <td><strong>BILL TYPE:</strong></td>
+      <td><strong>BILL TYPE:</strong> <span id='billt'>Original Copy</span></td>
       </tr>
       </table>
       ";
@@ -243,7 +245,15 @@ if($request[1]=='sales'){
       visibility: visible;
      }
     </style>";
-    $page->var['content']="<div class='print'>".$table."</div><Button class='btn btn-danger' onclick='window.print()'>Print</button><a href='../../addpayments' <Button class='btn btn-primary'>Pay Here</button></a>";
+    $page->var['content']="
+    <script>
+    function billtype(a){
+      document.getElementById('billt').innerHTML=a;
+    }
+    </script>
+    <div class='print'>".$table."</div>
+    <select class='form-control' style='width:200px;' onchange='billtype(this.value)' ><option>Original Copy</option><option>Duplicate Copy</option><option>Transport Copy</option></select><br>
+    <Button class='btn btn-danger' onclick='window.print()'>Print</button><a href='../../addpayments' <Button class='btn btn-primary'>Pay Here</button></a>";
     $page->var['title']="Invoice";
     $page->render();
 }
