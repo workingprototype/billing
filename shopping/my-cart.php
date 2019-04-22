@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 include('includes/config.php');
 if(isset($_POST['submit'])){
 		if(!empty($_SESSION['cart'])){
@@ -37,7 +38,7 @@ if(strlen($_SESSION['login'])==0)
 header('location:login.php');
 }
 else{
-	
+
 	$orderNumber = mysqli_real_escape_string($con,$_POST['orderNumber']);
 	$quantity=$_POST['quantity'];
 	$pdd=$_SESSION['pid'];
