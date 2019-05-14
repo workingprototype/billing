@@ -90,10 +90,12 @@ if($request[1]=="breg")
      */
     if($business->push($_POST,$db))
     {
-        echo 1; //success
+      echo '<div class="alert alert-success">Business Registered Successfully! </div>';
+      header("Refresh: 1; URL=/billing/breg");   //success
     }else
     {
-        echo 0;
+      echo '<div class="alert alert-success">Something went wrong! Try again. </div>';
+      header("Refresh: 1; URL=/billing/breg");;
     }
 }
 elseif($request[1]=="purchase")
