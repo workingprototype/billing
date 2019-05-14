@@ -34,7 +34,7 @@ logify("New Product: " . "$productname" . "  Added!" );
 
 
 }
-
+{
 $content='
 
 
@@ -127,8 +127,9 @@ while($row=mysqli_fetch_array($query))
 
 $content.='
 
-<option value="'.$row['id'].'">'.$row['uom'].'</option>
+<option value="'.$row['id'].'">'.$row['uom'].'</option> ';
  }
+ 	$content.=' }
  </select>
 </div>
 </div>
@@ -268,7 +269,7 @@ while($row=mysqli_fetch_array($query))
 			$(\'.dataTables_paginate > a:last-child\').append(\'<i class="icon-chevron-right shaded"></i>\');
 		} );
 	</script>';
- }
+}
  require_once "./classes/page-class.php";
  require_once "./classes/sidebar-class.php";
  require_once "./classes/top-navigation-class.php";

@@ -147,6 +147,7 @@ error:function (){}
 	    	<input type="date" class="form-control unicase-form-control text-input" id="birthdate" name="birthdate">
 </div>
 
+
 <hr class="my-auto flex-grow-1">
 <div class="px-4">Login Details for E-Commerce: </div>
 		<hr class="my-auto flex-grow-1">

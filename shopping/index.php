@@ -73,24 +73,17 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 
 
 		<!-- ============================================== SCROLL TABS ============================================== -->
-		<div id="product-tabs-slider" class="scroll-tabs inner-bottom-vs  wow fadeInUp">
-
-
-			<div class="tab-content outer-top-xs">
-				<div class="tab-pane in active" id="all">
-					<div class="product-slider">
-						<div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
+<div id="product-tabs-slider" class="scroll-tabs inner-bottom-vs  wow fadeInUp">
+<div class="tab-content outer-top-xs">
+<div class="tab-pane in active" id="all">
+<div class="product-slider">
+<div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="8">
 <?php
-$ret=mysqli_query($con,"select * from products");
+$ret=mysqli_query($con,"select * from products LIMIT 8");
 while ($row=mysqli_fetch_array($ret))
 {
-	# code...
-
-
 ?>
-
-
-		<div class="item item-carousel">
+<div class="item item-carousel">
 			<div class="products">
 
 	<div class="product">
@@ -128,19 +121,13 @@ while ($row=mysqli_fetch_array($ret))
 					</div><!-- /.product-slider -->
 				</div>
 
-
-
-			</div>
-		</div>
-
-
          <!-- ============================================== TABS ============================================== -->
 
 		<!-- ============================================== TABS : END ============================================== -->
 
 </div>
 </div>
-<?php include('includes/footer.php');?>
+<?php // include('includes/footer.php');?>
 
 	<script src="assets/js/jquery-1.11.1.min.js"></script>
 
