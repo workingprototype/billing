@@ -96,10 +96,10 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 		<div class='row outer-bottom-sm'>
 			<div class='col-md-3 sidebar'>
 	            <!-- ================================== TOP NAVIGATION ================================== -->
+<!-- <div class="side-menu animate-dropdown outer-bottom-xs">
 <div class="side-menu animate-dropdown outer-bottom-xs">
-<div class="side-menu animate-dropdown outer-bottom-xs">
-    <div class="head"><i class="icon fa fa-align-justify fa-fw"></i>Sub Categories</div>
-    <nav class="yamm megamenu-horizontal" role="navigation">
+    <div class="head"><i class="icon fa fa-align-justify fa-fw"></i>Sub Categories</div> -->
+    <!-- <nav class="yamm megamenu-horizontal" role="navigation">
 
         <ul class="nav">
             <li class="dropdown menu-item">
@@ -114,14 +114,15 @@ while($row=mysqli_fetch_array($sql))
 
 </li>
 </ul>
-    </nav>
-</div>
-</div><!-- /.side-menu -->
+    </nav> -->
+<!-- </div>
+</div> -->
+<!-- /.side-menu -->
 <!-- ================================== TOP NAVIGATION : END ================================== -->	            <div class="sidebar-module-container">
-	            	<h3 class="section-title">shop by</h3>
-	            	<div class="sidebar-filter">
+	            	<!-- <h3 class="section-title">shop by</h3> -->
+	            	<!-- <div class="sidebar-filter"> -->
 		            	<!-- ============================================== SIDEBAR CATEGORY ============================================== -->
-<div class="sidebar-widget wow fadeInUp outer-bottom-xs ">
+<!-- <div class="sidebar-widget wow fadeInUp outer-bottom-xs ">
 	<div class="widget-header m-t-20">
 		<h4 class="widget-title">Category</h4>
 	</div>
@@ -140,15 +141,17 @@ while($row=mysqli_fetch_array($sql))
 	        </div>
 	    </div>
 	    <?php } ?>
-	</div><!-- /.sidebar-widget-body -->
-</div><!-- /.sidebar-widget -->
+	</div> -->
+	<!-- /.sidebar-widget-body -->
+<!-- </div> -->
+<!-- /.sidebar-widget -->
 
 
 
 
 <!-- ============================================== COLOR: END ============================================== -->
 
-	            	</div><!-- /.sidebar-filter -->
+	            	<!-- </div>--><!-- /.sidebar-filter -->
 	            </div><!-- /.sidebar-module-container -->
             </div><!-- /.sidebar -->
 			<div class='col-md-9'>
@@ -184,14 +187,16 @@ if($num>0)
 {
 while ($row=mysqli_fetch_array($ret))
 {?>
-		<div class="col-sm-6 col-md-4 wow fadeInUp">
-			<div class="products">
-	<div class="product">
-		<div class="product-image">
+<div class="col-sm-6 col-md-4 wow fadeInUp">
+<div class="products">
+<div class="product">
+		<!-- <div class="product-image">
 			<div class="image">
 				<a href="product-details.php?pid=<?php echo htmlentities($row['id']);?>"><img  src="assets/images/blank.gif" data-echo="admin/productimages/<?php echo htmlentities($row['id']);?>/<?php echo htmlentities($row['productImage1']);?>" alt="" width="200" height="300"></a>
-			</div><!-- /.image -->
-		</div><!-- /.product-image -->
+			</div> -->
+			<!-- /.image -->
+		<!-- </div> -->
+		<!-- /.product-image -->
 
 
 		<div class="product-info text-left">
