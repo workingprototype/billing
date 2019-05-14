@@ -19,8 +19,6 @@ if(isset($_POST['submit']))
 	$productavailability=mysqli_real_escape_string($con,$_POST['productAvailability']);
 	$rewardsapplicable=mysqli_real_escape_string($con,$_POST['rewardsapplicable']);
 	$productimage1=$_FILES["productimage1"]["name"];
-	$productimage2=$_FILES["productimage2"]["name"];
-	$productimage3=$_FILES["productimage3"]["name"];
 //for getting product id
 $query=mysqli_query($con,"select max(id) as pid from products");
 	$result=mysqli_fetch_array($query);
@@ -28,11 +26,9 @@ $query=mysqli_query($con,"select max(id) as pid from products");
 	$dir="./shopping/admin/productimages/$productid";
 	mkdir($dir);// directory creation for product images
 	move_uploaded_file($_FILES["productimage1"]["tmp_name"],"./shopping/admin/productimages/$productid/".$_FILES["productimage1"]["name"]);
-	move_uploaded_file($_FILES["productimage2"]["tmp_name"],"./shopping/admin/productimages/$productid/".$_FILES["productimage2"]["name"]);
-	move_uploaded_file($_FILES["productimage3"]["tmp_name"],"./shopping/admin/productimages/$productid/".$_FILES["productimage3"]["name"]);
 $sql=mysqli_query($con,"insert into products(category,subCategory,uom,taxid,productName,productCompany,productPrice,hsnno,productDescription,shippingCharge,productAvailability,rewardsapplicable,
-productImage1,productImage2,productImage3,productPriceBeforeDiscount) values('$category','$subcat','$uom','$taxid','$productname','$productcompany','$productprice','$hsnno','$productdescription','$productscharge','$productavailability','$rewardsapplicable
-','$productimage1','$productimage2','$productimage3','$productpricebd')");
+productImage1,productPriceBeforeDiscount) values('$category','$subcat','$uom','$taxid','$productname','$productcompany','$productprice','$hsnno','$productdescription','$productscharge','$productavailability','$rewardsapplicable
+','$productimage1','$productpricebd')");
 $_SESSION['msg']="Product Inserted Successfully !!";
 logify("New Product: " . "$productname" . "  Added!" );
 
@@ -220,28 +216,18 @@ while($row=mysqli_fetch_array($query))
 </div>
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Product Image 1</label>
+<label class="control-label" for="basicinput">Product Image</label>
 <div class="controls">
 <input type="file"  style="width:1000px;" name="productimage1" id="productimage1" value="" class="form-control" required>
 </div>
 </div>
 
 
-<div class="control-group">
-<label class="control-label" for="basicinput">Product Image 2</label>
-<div class="controls">
-<input type="file" style="width:1000px;" name="productimage2"  class="form-control" required>
-</div>
-</div>
 
 
 
-<div class="control-group">
-<label class="control-label" for="basicinput">Product Image 3</label>
-<div class="controls">
-<input type="file" style="width:1000px;" name="productimage3"  class="form-control">
-</div>
-</div>
+
+
 </br>
 	<div class="control-group">
 											<div class="controls">
