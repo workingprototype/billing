@@ -114,11 +114,7 @@ error:function (){}
       	    	<label class="info-title" for="altcontactno">Alternative Contact No. <span>*</span></label>
       	    	<input type="text" class="form-control unicase-form-control text-input" id="altcontactno" name="altcontactno" maxlength="10">
 </div>
-<div class="form-group">
-				    	<label class="info-title" for="shippingAddress">Shipping Address <span>*</span></label>
-				    	<textarea class="form-control unicase-form-control text-input" id="shippingAddress" name="shippingAddress" maxlength="300" required >
-							</textarea>
-</div>
+
 <div class="form-group">
 				    	<label class="info-title" for="billingAddress">Contact / Billing Address <span>*</span></label>
 				    	<textarea class="form-control unicase-form-control text-input" id="billingAddress" name="billingAddress" maxlength="300" required >
