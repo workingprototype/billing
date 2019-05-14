@@ -241,28 +241,16 @@ $content.='
 
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Product Image 1</label>
+<label class="control-label" for="basicinput">Product Image</label>
 <div class="controls">
 <img src="productimages/'.htmlentities($pid).'/'.htmlentities($row['productImage1']).'" width="100" height="100"> <a href="update-image1.php?id='.$row['id'].'"><strong>Change Image</strong></a>
 </div>
 </div>
 
 
-<div class="control-group">
-<label class="control-label" for="basicinput">Product Image 2</label>
-<div class="controls">
-<img src="productimages/'.htmlentities($pid).'/'.htmlentities($row['productImage2']).'" width="100" height="100"> <a href="update-image2.php?id='.$row['id'].'">Change Image</a>
-</div>
-</div>
 
 
-
-<div class="control-group">
-<label class="control-label" for="basicinput">Product Image 3</label>
-<div class="controls">
-<img src="productimages/'.htmlentities($pid).'/'.htmlentities($row['productImage3']).'" width="100" height="100"> <a href="update-image3.php?id='.$row['id'].'">Change Image</a>
-</div>
-</div>';
+';
 }
 $content.='
 	<div class="control-group">
