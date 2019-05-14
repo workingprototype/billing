@@ -77,9 +77,9 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 <div class="tab-content outer-top-xs">
 <div class="tab-pane in active" id="all">
 <div class="product-slider">
-<div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="8">
+<div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
 <?php
-$ret=mysqli_query($con,"select * from products LIMIT 8");
+$ret=mysqli_query($con,"select * from products LIMIT 4");
 while ($row=mysqli_fetch_array($ret))
 {
 ?>

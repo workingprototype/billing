@@ -154,8 +154,8 @@ while ($row=mysqli_fetch_array($ret))
 {?>
 		<div class="col-sm-6 col-md-4 wow fadeInUp">
 			<div class="products">
-	<!-- <div class="product">
-		<div class="product-image">
+	 <div class="product">
+	<!--	<div class="product-image">
 			<div class="image">
 				<a href="product-details.php?pid=<?php echo htmlentities($row['id']);?>"><img  src="assets/images/blank.gif" data-echo="admin/productimages/<?php echo htmlentities($row['id']);?>/<?php echo htmlentities($row['productImage1']);?>" alt="" class="img-thumbnail" height:"200px;" width:"200px;"></a>
 			</div> -->
@@ -163,19 +163,17 @@ while ($row=mysqli_fetch_array($ret))
 		<!-- </div> --><!-- /.product-image -->
 
 
-		<div class="product-info text-left">
-			<p class="name"><a href="product-details.php?pid=<?php echo htmlentities($row['id']);?>"><?php echo htmlentities($row['productName']);?></a></p>
+<div class="product-info text-left">
+<p class="name">
+<a href="product-details.php?pid=<?php echo htmlentities($row['id']);?>"><?php echo htmlentities($row['productName']);?></a></p>
 			<!-- <div class="rating rateit-small"></div> -->
-			<div class="description"></div>
 
-			<div class="product-price">
-				<span class="price">
-					Rs. <?php echo htmlentities($row['productPrice']);?>			</span>
-										     <span class="price-before-discount">Rs. <?php echo htmlentities($row['productPriceBeforeDiscount']);?></span>
+<div class="product-price">
+<span class="price">Rs. <?php echo htmlentities($row['productPrice']);?>
+</span>
+</div><!-- /.product-price -->
 
-			</div><!-- /.product-price -->
-
-		</div><!-- /.product-info -->
+</div><!-- /.product-info -->
 					<div class="cart clearfix animate-effect">
 				<div class="action">
 					<ul class="list-unstyled">
@@ -189,8 +187,7 @@ while ($row=mysqli_fetch_array($ret))
 						</li>
 
 
-							</a>
-						</li>
+
 
 
 					</ul>
@@ -230,7 +227,7 @@ while ($row=mysqli_fetch_array($ret))
 
 </div>
 </div>
-<?php include('includes/footer.php');?>
+<?php // include('includes/footer.php');?>
 	<script src="assets/js/jquery-1.11.1.min.js"></script>
 
 	<script src="assets/js/bootstrap.min.js"></script>
