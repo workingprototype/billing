@@ -220,7 +220,7 @@ elseif($request[1]=="sales")
   foreach ($data as $k => $v) {
     if(isset($v[0])){
       $v[0]=explode("_",$v[0])[1];
-      $due+=$v[14];
+      $due+=$v[13];
       $val=[$v[1],$v[0],$v[3],$beats,$v[4],$v[6],$v[5],$v[8],$v[9],$v[10],$v[11],$v[12],$v[13],$v[14],$invoice,$v[2],$timestamp,$customer,$total,$discount];
       $table="sales";
       $col= [
