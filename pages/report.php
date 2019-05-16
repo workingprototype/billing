@@ -160,7 +160,7 @@
         return $r;
     }
     if($request[1]=='sales'){
-        $th=["Sl.No.","Date","Invoice Number","Customer","Customer Contact", "Beat" ,"Total Amount","GST","View/Print",];
+        $th=["Sl.No.","Date","Invoice Number","Customer","Customer Contact", "Beat" ,"Total Amount","Credit Date","View/Print",];
         $ths=tablehead($th);
         $title="Sales Report";
         $table= "<table id='tablebody' class='print table table-bordered'>$ths</table>";
