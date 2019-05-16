@@ -583,7 +583,9 @@ elseif($request[1]=="salesreportget")
     $date = date("d-m-Y",$row['timestamp']);
     $customer = $row['name'];
     $customerno = $row['contactno'];
-    echo "<tr><td style='width:10px;'>".$i++."</td><td style='width:40px;'>$date</td><td >".$row['invoice']."</td><td style='width:10px;'>".$customer."</td><td style='width:10px;'>".$customerno."</td><td style='width:10px;'>".$row['beat']."</td><td style='width:10px;'>".$row['total']."</td><td style='width:10px;'> CREDIT DATE </td><td style='width:10px;' ><a href='../invoice/sales/".$row['invoice']."'>View</a></td></tr>";
+    $creditdate = time()-$row['timestamp'];
+    $creditdate = round(($creditdate/86400),0);
+    echo "<tr><td style='width:10px;'>".$i++."</td><td style='width:40px;'>$date</td><td >".$row['invoice']."</td><td style='width:10px;'>".$customer."</td><td style='width:10px;'>".$customerno."</td><td style='width:10px;'>".$row['beat']."</td><td style='width:10px;'>".$row['total']."</td><td style='width:10px;'>".$creditdate."</td><td style='width:10px;' ><a href='../invoice/sales/".$row['invoice']."'>View</a></td></tr>";
   }
 }
 elseif($request[1]=="purchasereportget")
