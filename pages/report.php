@@ -1,5 +1,15 @@
 <?php
-
+    function getbeats()
+    {
+        $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+        $sql="SELECT beat FROM beat";
+        $result = $db->query($sql);
+        $sql=$result->fetch_assoc();
+        $a = "";
+        while ($row=$result->fetch_assoc()) 
+            $a.= "<option>".$row['beat']."</option>";
+        return $a;
+    }
     function tablehead($th){
         $r="<tr>";
         foreach ($th as $key => $value) {
@@ -17,13 +27,13 @@
         if($req=='purchase'){
             $r.="<h4>Filter By</h4><table class='table' >";
             $r.="<tr><th>Invoice Number </th><th>Supplier Name</th><th> Supplier Contact</th><tr>";
-            $r.="<tr><td><input id='keywords'  style='max-width:250px' ></td><td><input id='name'  style='max-width:250px' ></td><td><input id='contact'  style='max-width:250px' ></td></tr>";
+            $r.="<tr><td><input id='keywords'  style='max-width:250px' ><input id='beat'  style='display: none' ></td><td><input id='name'  style='max-width:250px' ></td><td><input id='contact'  style='max-width:250px' ></td></tr>";
             $r.="</table>";
         }
         if($req=='sales'){
             $r.="<h4>Filter By</h4><table class='table' >";
-            $r.="<tr><th>Invoice Number </th><th> Customer Name</th><th> Customer Contact</th><tr>";
-            $r.="<tr><td><input id='keywords'  style='max-width:250px' ></td><td><input id='name'  style='max-width:250px' ></td><td><input id='contact'  style='max-width:250px' ></td></tr>";
+            $r.="<tr><th>Invoice Number </th><th> Customer Name</th><th> Customer Contact</th><th> Beat</th><tr>";
+            $r.="<tr><td><input id='keywords'  style='max-width:250px' ></td><td><input id='name'  style='max-width:250px' ></td><td><input id='contact'  style='max-width:250px' ></td><td><select id='beat'  style='max-width:250px' >".getbeats()."</select></td></tr>";
             $r.="</table>";
         }
         $r.="<strong>Date From: </strong> <input id='datefr' type='date' style='height:20px'> ";
@@ -77,6 +87,7 @@
             var filter= document.getElementById('keywords').value;
             var name= document.getElementById('name').value;
             var contact= document.getElementById('contact').value;
+            var beat = document.getElementById('beat').value;
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
@@ -85,7 +96,7 @@
             };
             xhttp.open(\"POST\", \"../function/$req \", true);
             xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
-            xhttp.send('from='+fromdate+'&to='+todate+'&keywords='+filter+'&name='+name+'&contact='+contact);
+            xhttp.send('beat='+beat+'&from='+fromdate+'&to='+todate+'&keywords='+filter+'&name='+name+'&contact='+contact);
         }
         </script>";
         return $r;
@@ -149,7 +160,7 @@
         return $r;
     }
     if($request[1]=='sales'){
-        $th=["Sl.No.","Date","Invoice Number","Customer","Customer Contact","Total Amount","GST","View/Print",];
+        $th=["Sl.No.","Date","Invoice Number","Customer","Customer Contact", "Beat" ,"Total Amount","Credit Date","View/Print",];
         $ths=tablehead($th);
         $title="Sales Report";
         $table= "<table id='tablebody' class='print table table-bordered'>$ths</table>";

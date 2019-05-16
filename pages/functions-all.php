@@ -220,7 +220,7 @@ elseif($request[1]=="sales")
   foreach ($data as $k => $v) {
     if(isset($v[0])){
       $v[0]=explode("_",$v[0])[1];
-      $due+=$v[14];
+      $due+=$v[13];
       $val=[$v[1],$v[0],$v[3],$beats,$v[4],$v[6],$v[5],$v[8],$v[9],$v[10],$v[11],$v[12],$v[13],$v[14],$invoice,$v[2],$timestamp,$customer,$total,$discount];
       $table="sales";
       $col= [
@@ -564,6 +564,7 @@ elseif($request[1]=="salesreportget")
   $to= strtotime($_POST['to']);
   $keys=trim($_POST['keywords']);
   $from=strtotime($_POST['from']);
+  $beat=$_POST['beat'];
   $name=trim($_POST['name']);
   $contact=trim($_POST['contact']);
   if($to==''){
@@ -573,8 +574,8 @@ elseif($request[1]=="salesreportget")
     $from=0;
   }
   $keys=trim($_POST['keywords']);
-  $sql="SELECT timestamp, invoice, total, gst , users.name, users.contactno FROM sales INNER JOIN users ON sales.customer = users.id
-  WHERE (timestamp BETWEEN '$from'  AND '$to') AND (invoice LIKE '%$keys%') AND (users.name LIKE '%$name%') AND (users.contactno LIKE '%$contact%')
+  $sql="SELECT timestamp, beat, invoice, total, users.name, users.contactno FROM sales INNER JOIN users ON sales.customer = users.id
+  WHERE (beat = '$beat') AND (timestamp BETWEEN '$from'  AND '$to') AND (invoice LIKE '%$keys%') AND (users.name LIKE '%$name%') AND (users.contactno LIKE '%$contact%')
   GROUP BY invoice ORDER BY timestamp";
   $result = $db->query($sql);
   $i=1;
@@ -582,7 +583,9 @@ elseif($request[1]=="salesreportget")
     $date = date("d-m-Y",$row['timestamp']);
     $customer = $row['name'];
     $customerno = $row['contactno'];
-    echo "<tr><td style='width:10px;'>".$i++."</td><td style='width:40px;'>$date</td><td >".$row['invoice']."</td><td style='width:10px;'>".$customer."</td><td style='width:10px;'>".$customerno."</td><td style='width:10px;'>".$row['total']."</td><td style='width:10px;'>".$row['gst']."</td><td style='width:10px;' ><a href='../invoice/sales/".$row['invoice']."'>View</a></td></tr>";
+    $creditdate = time()-$row['timestamp'];
+    $creditdate = round(($creditdate/86400),0);
+    echo "<tr><td style='width:10px;'>".$i++."</td><td style='width:40px;'>$date</td><td >".$row['invoice']."</td><td style='width:10px;'>".$customer."</td><td style='width:10px;'>".$customerno."</td><td style='width:10px;'>".$row['beat']."</td><td style='width:10px;'>".$row['total']."</td><td style='width:10px;'>".$creditdate."</td><td style='width:10px;' ><a href='../invoice/sales/".$row['invoice']."'>View</a></td></tr>";
   }
 }
 elseif($request[1]=="purchasereportget")

@@ -193,8 +193,8 @@ class Sales
         <td><select id=\"firm'+r+'_'+f+'\" style=\"width:80px\">".$supps."</select></td>\
         <td id=\"name'+r+'_'+f+'\" >'+a+'</td>\
         <td><input hidden=\"hidden\" id=\"pname'+r+'_'+f+'\" value=\"'+a+'\"><input disabled=\'true\' id=\"hsn'+r+'_'+f+'\" style=\"width:80px\" value=\"'+c+'\"></td>\
-        <td><input onkeyup=\"utc(\''+r+'_'+f+'\')\" id=\"utc'+r+'_'+f+'\" style=\"width:80px\"></td>\
-        <td><input id=\"mrp'+r+'_'+f+'\" value=\"'+b+'\" ></td>\
+        <td><input disabled=\'true\' onkeyup=\"utc(\''+r+'_'+f+'\')\" id=\"utc'+r+'_'+f+'\" style=\"width:80px\"></td>\
+        <td><input disabled=\'true\' id=\"mrp'+r+'_'+f+'\" value=\"'+b+'\" ></td>\
         <td><input onkeyup=\"qtych(\''+r+'_'+f+'\')\" id=\"qty'+r+'_'+f+'\" style=\"width:150px\"  ></td>\
         <td>'+g+'</td>\
         <td><input onkeyup=\"basech(\''+r+'_'+f+'\')\" id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\

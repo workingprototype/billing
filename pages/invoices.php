@@ -36,7 +36,7 @@ if($request[1]=='sales'){
         $fr=$row['finalrate'];
         $invoice_date = date("d-M-Y", $row['timestamp']);
         $rows[$ix++]="
-        $productid</td>
+        $ix</td>
         $productname</td>
         $hsn</td>
         $utc</td>
