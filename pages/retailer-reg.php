@@ -37,12 +37,13 @@ $fssai=$_POST['fssai'];
 $pan=$_POST['pan'];
 $aadharno=$_POST['aadharno'];
 $birthdate=$_POST['birthdate'];
+$beat=$_POST['beat'];
 $email=$_POST['emailid'];
 $password=md5($_POST['password']);
 $query=mysqli_query($con,"insert into users(name,contactno,altcontactno,shippingAddress,billingAddress,district,
-billingState,gstin,fssai,pan,aadharno,birthdate,email,password) values('$name','$contactno','$altcontactno','$shippingAddress',
+billingState,gstin,fssai,pan,aadharno,birthdate,beat,email,password) values('$name','$contactno','$altcontactno','$shippingAddress',
 '$billingAddress','$district','$state','$gstin','$fssai','$pan','$aadharno'
-,'$birthdate','$email','$password')");
+,'$birthdate','$beat','$email','$password')");
 if($query)
 {
 	echo "<script>alert('Retailer successfully registered');</script>";
@@ -146,7 +147,20 @@ error:function (){}
 	    	<label class="info-title" for="birthdate">Birthdate </label>
 	    	<input type="date" class="form-control unicase-form-control text-input" id="birthdate" name="birthdate">
 </div>
-
+<div class="form-group">
+<label class="info-title" for="beat">Beat</label>
+<div class="controls">
+<select name="beat"  style="width:1000px;" class="form-control" required>
+<option value="">Select Beat</option>
+'; $query=mysqli_query($con,"select * from beat");
+while($row=mysqli_fetch_array($query))
+{
+	$content.='<option value="'.$row['id'].'">'.$row['beat'].'</option>';
+}
+	$content.='
+</select>
+</div>
+</div>
 
 <hr class="my-auto flex-grow-1">
 <div class="px-4">Login Details for E-Commerce: </div>
