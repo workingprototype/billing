@@ -27,7 +27,7 @@ class Purchase
       }
       .autoitem{
         width:347px;
-        background:#ddd;
+        background: #73879C;
       }
       .autoitem:hover{
         width:345px;
