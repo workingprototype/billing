@@ -273,14 +273,13 @@ class Sales
   } else {
     echo "0 results"; // No retailer registered.
   }
-
+    $this->r .="<div class='row'><div class='col-md-4'><label><br/> Beat : </label><select id='beats' class='form-control'>".$beats."</select></div></div>";
     $this->r .="<div class='row'><div class='col-md-4'></br><label>Customer Name :</label>
     <input style='visibility:hidden;position:absolute' id='hidden_customer' class='form-control'>
     <input id='customer' onkeyup='autocompletex(this.value,\"customer\")' class='form-control' autocomplete='chromeisnotnice'>
     <div id='drop_customer' style='width:347px;background:#999;position:absolute;z-index:2'>
     </div>
     </div></div>";
-    $this->r .="<div class='row'><div class='col-md-4'><label><br/> Beat : </label><select id='beats' class='form-control'>".$beats."</select></div></div>";
     $this->r .="
     <div class='content' stylr='overflow-x:scroll'>
       <br>

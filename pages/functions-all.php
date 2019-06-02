@@ -579,6 +579,7 @@ elseif($request[1]=="salesreportget")
   GROUP BY invoice ORDER BY timestamp";
   $result = $db->query($sql);
   $i=1;
+  if($result=== FALSE) die;
   while($row=$result->fetch_assoc()){
     $date = date("d-m-Y",$row['timestamp']);
     $customer = $row['name'];
