@@ -152,14 +152,12 @@ error:function (){}
 <div class="controls">
 <select name="beat"  style="width:1000px;" class="form-control" required>
 <option value="">Select Beat</option>
-'; 
-$query=mysqli_query($con,"select * from beat");
+'; $query=mysqli_query($con,"select * from beat");
 while($row=mysqli_fetch_array($query))
 {
-	$page->var['content'].='<option value="'.$row['id'].'">'.$row['beat'].'</option>';
+	$content.='<option value="'.$row['id'].'">'.$row['beat'].'</option>';
 }
-
-$page->var['content'].='
+	$content.='
 </select>
 </div>
 </div>
