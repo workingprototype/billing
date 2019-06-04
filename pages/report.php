@@ -92,6 +92,7 @@
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     table.innerHTML=ret+this.responseText;
+                    console.log(this.responseText);
                 }
             };
             xhttp.open(\"POST\", \"../function/$req \", true);
@@ -223,7 +224,6 @@
         visibility: hidden;
        }
     </style>";
-    $page->var['content'].="<script> document.onload(fetchreport())</script>";
     $page->var['title']="$title";
     $page->render();
 ?>
