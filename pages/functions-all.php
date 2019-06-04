@@ -729,10 +729,10 @@ elseif($request[1]=="autosupplier")
 {
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $keys=$_POST['data'];
-  $sql="SELECT * FROM supplier WHERE productcompany LIKE '%$keys%'  LIMIT 10";
+  $sql="SELECT * FROM supplier WHERE (productcompany LIKE '%$keys%') OR (firmname LIKE '%$keys%')  LIMIT 10";
   $result = $db->query($sql);
   while($row=$result->fetch_assoc()){
-    echo "<a href='#'><div onclick='autocompleted(\"supplier\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".$row['productcompany']."</div></a>";
+    echo "<a href='#'><div onclick='autocompleted(\"supplier\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".$row['productcompany']." (".$row['firmname']." )</div></a>";
   }
 }
 elseif($request[1]=="autocustomer")
