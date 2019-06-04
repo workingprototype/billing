@@ -1,6 +1,5 @@
 <?php
 require_once "./classes/page-class.php";
-require_once "./classes/sidebar-class.php";
 require_once "./classes/top-navigation-class.php";
 require_once "./classes/footer-class.php";
 $page = new Page;
@@ -19,19 +18,13 @@ if($num>0)
 $extra="dashboard";//
 $_SESSION['alogin']=$_POST['username'];
 $_SESSION['id']=$num['id'];
-$host=$_SERVER['HTTP_HOST'];
-$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-header("location:http://$host$uri/$extra");
-exit();
+header("location:".APP_ROOT."$extra");
 }
 else
 {
 $_SESSION['errmsg']="Invalid username or password";
 $extra="login";
-$host  = $_SERVER['HTTP_HOST'];
-$uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-header("location:http://$host$uri/$extra");
-exit();
+header("location:".APP_ROOT."$extra");
 }
 }
 $page->var['content']="

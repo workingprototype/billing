@@ -560,6 +560,7 @@ elseif($request[1]=="rewardsettings")
 }
 elseif($request[1]=="salesreportget")
 {
+
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $to= strtotime($_POST['to']);
   $keys=trim($_POST['keywords']);
@@ -579,7 +580,6 @@ elseif($request[1]=="salesreportget")
   GROUP BY invoice ORDER BY timestamp";
   $result = $db->query($sql);
   $i=1;
-  if($result=== FALSE) die;
   while($row=$result->fetch_assoc()){
     $date = date("d-m-Y",$row['timestamp']);
     $customer = $row['name'];
@@ -780,9 +780,11 @@ elseif($request[1]=="purchasec")
   $sql="SELECT * FROM notifications WHERE (timestamp > $last) AND type=1 ORDER BY timestamp";
   $result=$db->query($sql);
   while ($row=$result->fetch_assoc()) {
-    $dat=json_decode($row['data']);
-    $data[0]++;
-    $data[1]=$dat[0];
+    if($row['timestamp']>$last){
+    	$dat=json_decode($row['data']);
+    	$data[0]++;
+    	$data[1]=$dat[0];
+    }
   }
   if($_SESSION['notification']==$data[0]){
     $data[0]=0;

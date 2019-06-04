@@ -50,7 +50,7 @@ class Sales
             xox+=Number(document.getElementById('total'+item).value);
           }
         });
-        document.getElementById('tot').value = xox;
+        document.getElementById('tot').value = xox.toFixed(2);
         discountx();
       }
 
@@ -84,7 +84,7 @@ class Sales
           if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
             data=JSON.parse(this.responseText);
-            document.getElementById('base'+a).value=data[0];
+            document.getElementById('base'+a).value=data[0].toFixed(2);
             pname=document.getElementById('pname'+a).value;
             document.getElementById('utc'+a).value=data[1];
             document.getElementById('disc'+a).value=data[2];
@@ -101,19 +101,12 @@ class Sales
       }
       function qtych(a){
         qtyz=document.getElementById('qty'+a).value;
-        utcz=document.getElementById('utc'+a).value;
-        qtyz=qtyz*utcz;
-        basez=document.getElementById('base'+a).value;
-        document.getElementById('amount'+a).value= qtyz*basez;
-        discz=document.getElementById('disc'+a).value;
-        discaz=((discz/100)*qtyz*basez);
-        gstz=document.getElementById('gst'+a).value;
-        document.getElementById('gsta'+a).value=(gstz/100)*qtyz*basez;
-        document.getElementById('total'+a).value=(((gstz/100)+1)*qtyz*basez)-discaz;
-        document.getElementById('finalrate'+a).value=((((gstz/100)+1)*qtyz*basez)-discaz)/qtyz;
         total();
       }
       function utc(a){
+        qtych(a);
+      }
+      function discountch(a){
         qtych(a);
       }
       function submitty()
@@ -196,7 +189,7 @@ class Sales
         <td><input disabled=\'true\' onkeyup=\"utc(\''+r+'_'+f+'\')\" id=\"utc'+r+'_'+f+'\" style=\"width:80px\"></td>\
         <td><input disabled=\'true\' id=\"mrp'+r+'_'+f+'\" value=\"'+b+'\" ></td>\
         <td><input onkeyup=\"qtych(\''+r+'_'+f+'\')\" id=\"qty'+r+'_'+f+'\" style=\"width:150px\"  ></td>\
-        <td>'+g+'</td>\
+        <td><select><option>'+g+'</option><option>Pieces</option></select></td>\
         <td><input onkeyup=\"basech(\''+r+'_'+f+'\')\" id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"amount'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input onkeyup=\"discountch(\''+r+'_'+f+'\')\" id=\"disc'+r+'_'+f+'\" value=\'0\' style=\"width:150px\" placeholder=\'\'></td>\
