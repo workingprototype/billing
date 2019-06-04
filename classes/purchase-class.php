@@ -263,7 +263,7 @@ class Purchase
 
         disp[i] = '<tr id=\'row_'+boxes+'\'><td><select id=\"batchbox'+r+'_'+f+'\" onchange=\"batchch(this.value,\'batch'+r+'_'+f+'\',\'uombase'+r+'_'+f+'\')\"><option value=\"new\">New Batch</option></select><input id=\"batch'+r+'_'+f+'\" style=\"width:80px\"></td>\
         <td><span id=\"pname'+r+'_'+f+'\">'+a+'</span><button onclick=\"freeshow(\''+r+'_'+f+'\')\" class=\"btn btn-primary\">Add Free Product</button></td>\
-        <td><input id=\"mrp'+r+'_'+f+'\" style=\"width:80px\" value=\"'+b+'\"><input id=\"name'+r+'_'+f+'\" style=\"width:80px\" value=\"'+a+'\">\
+        <td><input disabled=\'disabled\' id=\"mrp'+r+'_'+f+'\" style=\"width:80px\" value=\"'+b+'\"><input id=\"name'+r+'_'+f+'\" style=\"width:80px\" value=\"'+a+'\">\
         <div class=\"free\" id=\"freebox'+r+'_'+f+'\" align=\"center\"><h4>Attach Free Product</h4> <input id=\"freename'+r+'_'+f+'\" placeholder=\"Free Product Name\" >\
         <br><br><br><button onclick=\"freeadd(\''+r+'_'+f+'\')\" class=\"btn btn-primary\">Enter</button><button onclick=\"freecancel(\''+r+'_'+f+'\')\" class=\"btn btn-danger\">Cancel</button><div>\
         </td>\
