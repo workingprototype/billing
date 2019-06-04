@@ -155,9 +155,9 @@ error:function (){}
 '; $query=mysqli_query($con,"select * from beat");
 while($row=mysqli_fetch_array($query))
 {
-	$content.='<option value="'.$row['id'].'">'.$row['beat'].'</option>';
+	$page->var['content'].='<option value="'.$row['id'].'">'.$row['beat'].'</option>';
 }
-	$content.='
+	$page->var['content'].='
 </select>
 </div>
 </div>
