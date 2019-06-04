@@ -6,14 +6,14 @@ $end=0;
 function route($link,$location)
 {
   global $end,$request;
-  if($request[0]==$link){
+  if($request[1]==$link){
     include($location);
     $end=1;
   }
 }
 if(isset($_GET['dir'])){
   $request=explode("/",$_GET['dir']);
-  if($request[0]!=null){
+  if($request[1]!=null){
     route("setup","./config/setup.php");
     route("sql","./config/sql.php");
     route("dashboard","./pages/dashboard-page.php"); // // TODO: Restore this later to dashboard page
