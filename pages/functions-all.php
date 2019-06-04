@@ -140,6 +140,7 @@ elseif($request[1]=="purchase")
     $credit,
     $logistic,
     $v[21],
+    $v[22],
     $timestamp];
     $table="purchase";
     $col= ['business', 	'supplier', 	'invoicedate', 	'invoicenumber', 'vehiclenumber', 	'deliveredcontact',	'transport', 	'receiveddate',
@@ -167,6 +168,7 @@ elseif($request[1]=="purchase")
     'creditnote',
     'logistic',
     'freeproduct',
+    'UOM',
     'timestamp' ];
     $sql="INSERT INTO ".$table." (";
     foreach ($col as $key => $value) {

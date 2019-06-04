@@ -48,6 +48,7 @@ class Purchase
       }
     </style>
     ";
+    
     $buiss='';
     $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
     $sql = "SELECT * FROM business";
@@ -59,6 +60,12 @@ class Purchase
       }
     } else {
       echo "0 results"; // No supplier registered.
+    }
+    $options="insanelyelegant";
+    $query=mysqli_query($db,"select * from uom");
+    while($row=mysqli_fetch_array($query))
+    {
+       $options .='<option>'.$row['uom'].'</option> ';
     }
     $this->r .="
     <script>
@@ -214,6 +221,7 @@ class Purchase
             x[19]=document.getElementById('dispd'+item).value;
             x[20]=document.getElementById('tot').value;
             x[21]=document.getElementById('freename'+item).value;
+            x[22]=document.getElementById('uom'+item).value;
             data[index]=x;
           }
         });
@@ -234,6 +242,7 @@ class Purchase
       <th>Product Name</th>\
       <th>MRP</th>\
       <th>Qty (cases)</th>\
+      <th>UOM</th>\
       <th>Qty(units)</th>\
       <th>Base Rate(Case) </th>\
       <th>Base Rate (UOM)  </th>\
@@ -268,6 +277,7 @@ class Purchase
         <br><br><br><button onclick=\"freeadd(\''+r+'_'+f+'\')\" class=\"btn btn-primary\">Enter</button><button onclick=\"freecancel(\''+r+'_'+f+'\')\" class=\"btn btn-danger\">Cancel</button><div>\
         </td>\
         <td><input id=\"qty'+r+'_'+f+'\" style=\"width:80px\" onkeyup=\"uombase(\''+r+'_'+f+'\')\"  value=\"\">('+g+')</td>\
+	<td><select id=\"uom'+r+'_'+f+'\" style=\"width:80px\" ><option default=\'deafault\'>'+g+'</option>$options</select></td>\
         <td><input id=\"qtyu'+r+'_'+f+'\" style=\"width:80px\" onkeyup=\"qtyu(\''+r+'_'+f+'\')\" value=\"\"></td>\
         <td><input id=\"uombase'+r+'_'+f+'\" placeholder=\'Base Rate\' onkeyup=\"uombase(\''+r+'_'+f+'\')\" ></td>\
         <td><input id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'Base Rate\'></td>\
@@ -352,6 +362,7 @@ class Purchase
       <th>Product Name</th>
       <th>MRP</th>
       <th>Qty (cases)</th>
+      <th>UOM</th>
       <th>Qty(units)</th>
       <th>Base Rate(Case) </th>
       <th>Base Rate (UOM)  </th>
