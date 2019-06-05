@@ -73,7 +73,7 @@ class Purchase
       xs=Number(document.getElementById('tot').value);
       ys=Number(document.getElementById('credit').value);
       zs=Number(document.getElementById('logistic').value);
-      document.getElementById('netam').value=(xs-(ys+zs));
+      document.getElementById('netam').value=(xs-(ys+zs)).toFixed(2);
     }
     function total(a){
       xox=0;
@@ -83,14 +83,14 @@ class Purchase
           xox+=Number(document.getElementById('totala'+item).value);
         }
       });
-      document.getElementById('tot').value = xox;
+      document.getElementById('tot').value = xox.toFixed(2);
       calcnet();
     }
     function qtyu(a){
       fx=document.getElementById('qtyu'+a).value;
       fy=document.getElementById('uombase'+a).value;
       fz= fy/fx;
-      document.getElementById('base'+a).value=fz;
+      document.getElementById('base'+a).value=fz.toFixed(2);
       disc(a);
       total(a)
     }
@@ -106,7 +106,8 @@ class Purchase
       fz= fs*fy;
       fs=fp*(100+Number(fx))/100;
       fz=fs/fz;
-      document.getElementById('uomsp'+a).value=fz;
+      document.getElementById('uomsp'+a).value=fz.toFixed(2);
+      
     }
     function disc(a){
       fx=document.getElementById('disc'+a).value;
@@ -115,19 +116,19 @@ class Purchase
       fx= fx/100;
       fa= fx*fy*fz;
       fb= (1-fx)*fy*fz;
-      document.getElementById('disca'+a).value=fa;
-      document.getElementById('neta'+a).value=fb;
+      document.getElementById('disca'+a).value=fa.toFixed(2);
+      document.getElementById('neta'+a).value=fb.toFixed(2);
 
       fx=document.getElementById('cgst'+a).value;
       fy=document.getElementById('sgst'+a).value;
       fx=fx/100;
       fy=fy/100;
-      document.getElementById('cgsta'+a).value=(fb*fx);
-      document.getElementById('sgsta'+a).value=(fb*fy);
+      document.getElementById('cgsta'+a).value=(fb*fx).toFixed(2);
+      document.getElementById('sgsta'+a).value=(fb*fy).toFixed(2);
 
       cess= document.getElementById('cess'+a).value;
       ex=document.getElementById('totala'+a);
-      ex.value=(parseInt((fb*fx))+parseInt((fb*fy))+parseInt((cess))+fb);
+      ex.value=(parseInt((fb*fx))+parseInt((fb*fy))+parseInt((cess))+fb).toFixed(2);
       margin(a)
     }
     function remove(no){
