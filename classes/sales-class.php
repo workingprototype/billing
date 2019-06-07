@@ -60,6 +60,7 @@ class Sales
       document.getElementById('drop_'+id).innerHTML='';
     }
     function autocompletex(value,a){
+      var beat = document.getElementById('beats').value;
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -68,7 +69,7 @@ class Sales
       };
       xhttp.open(\"POST\", \"function/auto\"+a, true);
       xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
-      xhttp.send('data='+value);
+      xhttp.send('beat='+beat+'&data='+value);
     }
 
       function remove(no){
