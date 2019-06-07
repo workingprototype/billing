@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2019 at 02:36 PM
+-- Generation Time: Jun 07, 2019 at 02:37 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -727,9 +727,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `district`, `rewards`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `gstin`, `fssai`, `pan`, `aadharno`, `birthdate`, `beat`, `regDate`, `updationDate`) VALUES
-(13, 'Retailer A', 'test@test.com', 324982348, 7434534546, '098f6bcd4621d373cade4e832627b4f6', '3096  Fleming Way, Petersburg, USA', 'District A', '86535.718312349', NULL, NULL, NULL, 'Put Water, 3096  Fleming Way, Petersburg, USA', 'Petersburg', NULL, NULL, '23423423', '23423', '4234234', '234234234', '2019-04-13', '', '2019-04-12 21:57:54', NULL),
-(14, 'Test Retailer B', 'test2@test.com', 324982348, 7434534546, '098f6bcd4621d373cade4e832627b4f6', '3223,Bailey Drive,Iowa City, USA', 'District B ', '4360', NULL, NULL, NULL, 'Iowa Water, 3223,Bailey Drive,Iowa City, USA', 'Iowa', NULL, NULL, '567423', '6786723', '678234', '7834234234', '2019-04-02', '', '2019-04-12 21:59:30', NULL),
-(15, 'CNR', 'CNR@GMAIL.COM', 1234567890, 1234567890, 'e807f1fcf82d132f9bb018ca6738a19f', 'ATMAKUR							', 'NA', '10.870886440678', NULL, NULL, NULL, 'ATMAKUR							', 'NA', NULL, NULL, 'NA', '', 'NA', 'NA', '0000-00-00', '', '2019-05-09 12:54:10', NULL),
+(13, 'Retailer A', 'test@test.com', 324982348, 7434534546, '098f6bcd4621d373cade4e832627b4f6', '3096  Fleming Way, Petersburg, USA', 'District A', '86535.718312349', NULL, NULL, NULL, 'Put Water, 3096  Fleming Way, Petersburg, USA', 'Petersburg', NULL, NULL, '23423423', '23423', '4234234', '234234234', '2019-04-13', '1', '2019-04-12 21:57:54', NULL),
+(14, 'Test Retailer B', 'test2@test.com', 324982348, 7434534546, '098f6bcd4621d373cade4e832627b4f6', '3223,Bailey Drive,Iowa City, USA', 'District B ', '4360', NULL, NULL, NULL, 'Iowa Water, 3223,Bailey Drive,Iowa City, USA', 'Iowa', NULL, NULL, '567423', '6786723', '678234', '7834234234', '2019-04-02', '4', '2019-04-12 21:59:30', NULL),
+(15, 'CNR', 'CNR@GMAIL.COM', 1234567890, 1234567890, 'e807f1fcf82d132f9bb018ca6738a19f', 'ATMAKUR							', 'NA', '10.870886440678', NULL, NULL, NULL, 'ATMAKUR							', 'NA', NULL, NULL, 'NA', '', 'NA', 'NA', '0000-00-00', '2', '2019-05-09 12:54:10', NULL),
 (16, 'Cretailer', 'jack@jack.com', 11111111, 234, 'd2aefeac9dc661bc98eebd6cc12f0b82', 'yolo ship, china', '4', '0', NULL, NULL, NULL, 'no							', '45', NULL, NULL, '5435', '4534', '53645', '97868768', '2019-06-13', '3', '2019-06-04 12:22:50', NULL),
 (17, 'Serena Acevedo', 'suhe@mailinator.net', 0, 0, 'f3ed11bbdb94fd9ebdefbaf646ab94d3', 'Excepteur in ut quia rerum ipsa accusantium pariatur Ipsam dolores id aut mollitia soluta quo sit id tempora', 'Pariatur Anim quis ', '0', NULL, NULL, NULL, 'Possimus omnis ullamco debitis dolor ex sit ab et et eu facilis esse facere itaque placeat nisi officia consequatur aperiam', 'Non eos est nulla s', NULL, NULL, 'Aut odit est blandit', 'Enim atque est ut es', 'Obcaecati autem dolo', 'Maxime ad quas Nam s', '1977-05-01', '1', '2019-06-07 12:29:30', NULL),
 (18, 'Shelley Gill', 'gewukilyki@mailinator.com', 0, 0, 'f3ed11bbdb94fd9ebdefbaf646ab94d3', 'Esse aute sunt nihil saepe tempora ex enim', 'Aliquam tempor dolor', '0', NULL, NULL, NULL, 'Ab suscipit ut magni officia fugit temporibus est aliquip possimus sed consequat Eum voluptas', 'Lorem ut esse quia s', NULL, NULL, 'Sit aut veritatis ve', 'Harum velit earum s', 'Id velit est ad sit', 'Voluptatem suscipit', '1973-08-24', '1', '2019-06-07 12:29:45', NULL),
