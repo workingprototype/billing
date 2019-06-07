@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2019 at 04:48 PM
+-- Generation Time: Jun 07, 2019 at 02:36 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -103,7 +103,11 @@ INSERT INTO `business` (`id`, `account_name`, `type`, `op_bal`, `dbcr`, `address
 (1, 'Business A', 'Money Maker Group', '15000000', '1000', 'Jerry Street, North Signature Hello Road, Stage 1', 'Bengaluru', 'Karnataka', '501123', '101123', '9500101010', '7570204010', 'businessa@mail.com', '5213423429', '4395893485', '3458345', '345394854835834098', '34058340950348A205934A4', 'ACCERYG234256234', '1555105926'),
 (2, 'Business AB', 'Illustrator Group', '35000000', '2000', 'Jerry Street, North Signature Hello Road, Stage 1', 'Paeke', 'Andra Pradesh', '501123', '101123', '9500101010', '7570204010', 'businessa@mail.com', '5213423429', '4395893485', '3458345', '345394854835834098', '34058340950348A205934A4', 'ACCERYG234256234', '1555105969'),
 (3, 'SRI VENKATESWARA AGENCIES', 'AGENCY', '500', '0', 'ATMAKUR', 'NELLORE', 'ANDHRA PRADESH', '524322', '37', '', '9032300385', 'sesha8sai@gmail.com', 'NA', 'ABCDFGH', '37ABCDFGH17', '000', '33100111000', 'SBIN0004828', '1557403195'),
-(4, 'SRI VENKATESWARA AGENCIES', 'AGENCY', '500', '0', 'ATMAKUR', 'NELLORE', 'ANDHRA PRADESH', '524322', '37', '', '9032300385', 'sesha8sai@gmail.com', 'NA', 'ABCDFGH', '37ABCDFGH17', '000', '33100111000', 'SBIN0004828', '1557403284');
+(4, 'SRI VENKATESWARA AGENCIES', 'AGENCY', '500', '0', 'ATMAKUR', 'NELLORE', 'ANDHRA PRADESH', '524322', '37', '', '9032300385', 'sesha8sai@gmail.com', 'NA', 'ABCDFGH', '37ABCDFGH17', '000', '33100111000', 'SBIN0004828', '1557403284'),
+(5, 'Fuga 2', 'Dolor commodi pariat', 'Dolore ratione dolor', 'Ad unde commodo illu', 'Expedita proident r', 'Molestiae ea est ad ', 'Impedit earum sapie', 'Animi voluptas ', 'Fugiat nostrum maior', 'Similique magna', 'Hic sit beatae ', 'bylunycuq@mailinator.com', 'Consequat Et qui pe', 'Voluptas corrupti e', 'Illum corrupti vol', 'Sunt rerum non est s', 'Praesentium cum veni', 'Consequuntur ipsam d', '1559910662'),
+(6, 'Voluptatem eos ess', 'Vel quia blanditiis ', 'Sed amet vel dolore', 'Ipsum nulla sint vo', 'Sed maiores laborios', 'Natus magnam volupta', 'Modi reprehenderit n', 'Veritatis dolor', 'Aspernatur tempor al', 'Velit atque qua', 'Beatae quia do ', 'saloxivi@mailinator.com', 'Corporis ut beatae q', 'Explicabo Quaerat e', 'Fugiat non reprehend', 'Laboris minima adipi', 'Id recusandae Est ', 'Ullamco perspiciatis', '1559910668'),
+(7, 'Quia magna aspernatu', 'Autem officia expedi', 'Doloribus et magna a', 'Voluptate ratione ut', 'Rerum incididunt cil', 'Molestiae accusantiu', 'Non dolores quia qua', 'Reiciendis irur', 'Porro illum sit qu', 'Ratione volupta', 'Et voluptate ac', 'teholo@mailinator.com', 'Cumque id repudiand', 'Nulla id eos labore', 'Ut dicta sint nemo ', 'Molestiae esse at q', 'Officia cupiditate n', 'Dolore recusandae F', '1559910672'),
+(8, 'Aperiam in hic sequi', 'Sit voluptas sit e', 'Ad et vel fugiat dol', 'Consequatur sint dol', 'Incidunt sint esse', 'Sint voluptatibus qu', 'Est iusto illum lab', 'Recusandae Itaq', 'Sapiente velit aut p', 'Quo dolore quae', 'Ut aperiam iste', 'pulum@mailinator.net', 'Incididunt quo paria', 'Nihil error sit null', 'Voluptas vitae dolor', 'Eaque Nam laboris ma', 'Amet sit sit hic et', 'Ipsum praesentium e', '1559910675');
 
 -- --------------------------------------------------------
 
@@ -162,7 +166,10 @@ CREATE TABLE `executive` (
 
 INSERT INTO `executive` (`id`, `username`, `password`, `creationDate`, `updationDate`, `name`, `contactno`, `altcontactno`, `Address`, `district`, `billingState`, `pan`, `aadharno`, `birthdate`, `email`) VALUES
 (1, '', '098f6bcd4621d373cade4e832627b4f6', '2019-04-12 22:00:37', '', 'Executive Andromeda', '4356346345', '8456354565', 'gara,East Fort, Thrissur', 'Lays', 'Kerala', '9708967897978', '9789789789', '2019-03-13', 'executive@gmail.com'),
-(2, '', '098f6bcd4621d373cade4e832627b4f6', '2019-04-12 22:01:18', '', 'Executive Bojack', '786346345', '976354565', 'hello World,East Tower, Thrissur', 'Lays', 'Kerala', '5467457967897978', '5678789789', '1967-05-13', 'executive2@gmail.com');
+(2, '', '098f6bcd4621d373cade4e832627b4f6', '2019-04-12 22:01:18', '', 'Executive Bojack', '786346345', '976354565', 'hello World,East Tower, Thrissur', 'Lays', 'Kerala', '5467457967897978', '5678789789', '1967-05-13', 'executive2@gmail.com'),
+(3, '', 'f3ed11bbdb94fd9ebdefbaf646ab94d3', '2019-06-07 12:31:22', '', 'Uma Witt', 'Aut esse ', 'Quia unde ', 'Excepturi dolor alias eum impedit veniam', 'Veniam saepe velit', 'Expedita aliqua Bla', 'Eaque ab commodi rep', 'Minima laborum ratio', '1989-03-21', 'wenabeqyq@mailinator.com'),
+(4, '', 'f3ed11bbdb94fd9ebdefbaf646ab94d3', '2019-06-07 12:31:25', '', 'Lionel Prince', 'Qui quibus', 'Eum a offi', 'Velit eveniet occaecat id ut est exercitation itaque molestiae blanditiis dignissimos ab aut', 'Aut sed veritatis se', 'Voluptas et nisi nis', 'Molestiae lorem quia', 'Et fugiat sunt non q', '1972-01-03', 'wuvopukim@mailinator.com'),
+(5, '', 'f3ed11bbdb94fd9ebdefbaf646ab94d3', '2019-06-07 12:31:28', '', 'Gareth Oconnor', 'Recusandae', 'A dolor au', 'Dolor earum provident numquam id quo mollitia doloremque vel nostrum rerum', 'Perspiciatis dolore', 'Harum quam ea volupt', 'Autem mollitia volup', 'Voluptatem accusanti', '1975-09-27', 'tymusedasy@mailinator.com');
 
 -- --------------------------------------------------------
 
@@ -273,7 +280,28 @@ INSERT INTO `notifications` (`id`, `timestamp`, `data`, `type`) VALUES
 (89, '1557823882', '[\"New Product: 5  Added!\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
 (90, '1557823925', '[\"New Product: 456  Added!\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
 (91, '1557845595', '[\"New Product: product name  Added!\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
-(92, '1557845806', '[\"New Product: PVR Speakers  Added!\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2');
+(92, '1557845806', '[\"New Product: PVR Speakers  Added!\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
+(93, '1558035177', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
+(94, '1558035996', '[\"Reward added for Invoice No : 155803517734\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
+(95, '1558035996', '[\"Payment added for Invoice No : 155803517734\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
+(96, '1558036154', '[\"Reward Settings Changed to : :1:51::::::::\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
+(97, '1558066353', '[\"Reward Settings Changed to : :1:51::::::::\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
+(98, '1558066427', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
+(99, '1558066494', '[\"Payment added for Invoice No : 155539539734\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
+(100, '1558066530', '[\"Payment added for Invoice No : 155806642734\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
+(101, '1558066548', '[\"Reward added for Invoice No : 155539911934\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
+(102, '1558066548', '[\"Payment added for Invoice No : 155539911934\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
+(103, '1558066615', '[\"Reward added for Invoice No : 155539539734\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
+(104, '1558066615', '[\"Payment added for Invoice No : 155539539734\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
+(105, '1558066631', '[\"Reward added for Invoice No : 155806642734\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
+(106, '1558066631', '[\"Payment added for Invoice No : 155806642734\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36\",\"::1\"]', '2'),
+(107, '1559745015', '[\"New Purchase Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2'),
+(108, '1559745067', '[\"New Purchase Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2'),
+(109, '1559745317', '[\"New Purchase Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2'),
+(110, '1559754824', '[\"New Purchase Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2'),
+(111, '1559756958', '[\"New Purchase Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2'),
+(112, '1559910838', '[\"New Purchase Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2'),
+(113, '1559910914', '[\"New Purchase Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2');
 
 -- --------------------------------------------------------
 
@@ -302,18 +330,20 @@ INSERT INTO `orders` (`id`, `userId`, `productId`, `quantity`, `orderDate`, `ord
 (3, 13, '2', 1, '2019-04-15 09:44:02', '7me07BfYFw', 'COD', 'Delivered'),
 (4, 13, '4', 1, '2019-04-15 09:44:02', '7me07BfYFw', 'COD', 'Delivered'),
 (5, 13, '3', 1, '2019-04-15 15:34:45', '8meMmBfYFw', 'COD', 'Delivered'),
-(6, 1, '3', 1, '2019-04-15 17:45:56', 'NrRGq2sIlN', 'COD', NULL),
-(7, 1, '3', 1, '2019-04-15 17:47:05', 'NrRGq2sIlN', 'COD', NULL),
-(8, 1, '17', 1, '2019-04-15 17:48:23', 'l7r7XlfKaM', 'COD', NULL),
-(9, 1, '18', 1, '2019-04-15 17:48:23', 'l7r7XlfKaM', 'COD', NULL),
-(10, 13, '4', 1, '2019-04-16 05:21:37', 'IPBWMn1WuL', 'Credit', NULL),
-(11, 13, '1', 1, '2019-04-16 05:22:10', 'iC1gG6k22m', 'COD', NULL),
-(12, 13, '2', 1, '2019-04-16 05:22:10', 'iC1gG6k22m', 'COD', NULL),
-(13, 13, '3', 1, '2019-04-16 05:22:10', 'iC1gG6k22m', 'COD', NULL),
+(6, 1, '3', 1, '2019-04-15 17:45:56', 'NrRGq2sIlN', 'COD', 'Delivered'),
+(7, 1, '3', 1, '2019-04-15 17:47:05', 'NrRGq2sIlN', 'COD', 'Delivered'),
+(8, 1, '17', 1, '2019-04-15 17:48:23', 'l7r7XlfKaM', 'COD', 'Delivered'),
+(9, 1, '18', 1, '2019-04-15 17:48:23', 'l7r7XlfKaM', 'COD', 'Delivered'),
+(10, 13, '4', 1, '2019-04-16 05:21:37', 'IPBWMn1WuL', 'Credit', 'Delivered'),
+(11, 13, '1', 1, '2019-04-16 05:22:10', 'iC1gG6k22m', 'COD', 'Delivered'),
+(12, 13, '2', 1, '2019-04-16 05:22:10', 'iC1gG6k22m', 'COD', 'Delivered'),
+(13, 13, '3', 1, '2019-04-16 05:22:10', 'iC1gG6k22m', 'COD', 'Delivered'),
 (15, 13, '3', 1, '2019-04-19 06:30:27', 'PBYycdko4L', 'COD', 'Delivered'),
-(16, 13, '3', 1, '2019-04-19 06:31:03', 'GwAT9qn63p', 'COD', NULL),
+(16, 13, '3', 1, '2019-04-19 06:31:03', 'GwAT9qn63p', 'COD', 'Delivered'),
 (17, 13, '1', 4, '2019-04-22 09:03:48', 'clwe5xYi65', 'COD', 'Delivered'),
-(18, 13, '3', 1, '2019-04-22 09:03:48', 'clwe5xYi65', 'COD', 'Delivered');
+(18, 13, '3', 1, '2019-04-22 09:03:48', 'clwe5xYi65', 'COD', 'Delivered'),
+(19, 13, '2', 4, '2019-05-30 17:03:06', 'gnn2lx1Lhk', 'COD', NULL),
+(20, 13, '4', 1, '2019-05-30 17:03:06', 'gnn2lx1Lhk', 'COD', NULL);
 
 -- --------------------------------------------------------
 
@@ -345,7 +375,12 @@ INSERT INTO `ordertrackhistory` (`id`, `orderId`, `orderNumber`, `status`, `rema
 (8, '4', '', 'Delivered', 'a', '2019-05-14 07:58:38'),
 (9, '17', '', 'Delivered', 'a', '2019-05-14 07:58:46'),
 (10, '5', '', 'Delivered', '4', '2019-05-14 07:59:02'),
-(11, '18', '', 'Delivered', 'u', '2019-05-14 07:59:36');
+(11, '18', '', 'Delivered', 'u', '2019-05-14 07:59:36'),
+(12, '16', '', 'Delivered', 'j', '2019-05-30 16:45:12'),
+(13, '10', '', 'Delivered', 'hy', '2019-05-30 16:55:07'),
+(14, '11', '', 'Delivered', '685', '2019-05-30 16:55:38'),
+(15, '12', '', 'Delivered', ',', '2019-05-30 16:55:51'),
+(16, '13', '', 'Delivered', ';', '2019-05-30 16:56:02');
 
 -- --------------------------------------------------------
 
@@ -367,10 +402,12 @@ CREATE TABLE `paymentdue` (
 
 INSERT INTO `paymentdue` (`id`, `customer`, `salesinvoice`, `dueamount`, `timestamp`) VALUES
 (1, '13', '155525544034', '0', '1555255440'),
-(2, '13', '155539539734', '75253.169642857', '1555395397'),
-(3, '13', '155539911934', '11195', '1555399119'),
+(2, '13', '155539539734', '0', '1555395397'),
+(3, '13', '155539911934', '0', '1555399119'),
 (4, '14', '155539948934', '27', '1555399489'),
-(5, '15', '155740729834', '0', '1557407298');
+(5, '15', '155740729834', '0', '1557407298'),
+(6, '14', '155803517734', '0', '1558035177'),
+(7, '13', '155806642734', '0', '1558066427');
 
 -- --------------------------------------------------------
 
@@ -406,16 +443,16 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category`, `subCategory`, `uom`, `productName`, `productCompany`, `productPrice`, `hsnno`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `quantityleft`, `rewardsapplicable`, `taxid`, `postingDate`, `updationDate`) VALUES
-(1, '1', '1', '1', 'Bose Quiet Comfort 35 II Wireless Headphone Silver', 'Bose Electronics', '29363.00', '63454634234', '39363.00', '<div id=\"dpx-product-description_feature_div\" style=\"box-sizing: border-box;\"><div id=\"descriptionAndDetails\" class=\"a-section a-spacing-extra-large\" style=\"box-sizing: border-box; margin-bottom: 0px;\"><div id=\"productDescription_feature_div\" class=\"feature\" data-feature-name=\"productDescription\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box;\"><div id=\"productDescription_feature_div\" data-feature-name=\"productDescription\" data-template-name=\"productDescription\" class=\"a-row feature\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box; width: 1674px;\"><div id=\"productDescription\" class=\"a-section a-spacing-small\" style=\"box-sizing: border-box; margin: 0.5em 0px 0em 25px; overflow-wrap: break-word; line-height: initial;\"><p style=\"box-sizing: border-box; padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em;\"><font face=\"Amazon Ember, Arial, sans-serif\" size=\"2\"><b>Quiet comfort 35 wireless headphones II</b></font><br></p></div></div></div></div></div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '81B1hwVr9ML._SL1500_.jpg', '81eKatMbk7L._SL1500_.jpg', '71DNFlj7zdL._SL1500_.jpg', '180', 'In Stock', '-6', '0', '1', '2019-04-12 21:34:04', NULL),
+(1, '1', '1', '1', 'Bose Quiet Comfort 35 II Wireless Headphone Silver', 'Bose Electronics', '29363.00', '63454634234', '39363.00', '<div id=\"dpx-product-description_feature_div\" style=\"box-sizing: border-box;\"><div id=\"descriptionAndDetails\" class=\"a-section a-spacing-extra-large\" style=\"box-sizing: border-box; margin-bottom: 0px;\"><div id=\"productDescription_feature_div\" class=\"feature\" data-feature-name=\"productDescription\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box;\"><div id=\"productDescription_feature_div\" data-feature-name=\"productDescription\" data-template-name=\"productDescription\" class=\"a-row feature\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box; width: 1674px;\"><div id=\"productDescription\" class=\"a-section a-spacing-small\" style=\"box-sizing: border-box; margin: 0.5em 0px 0em 25px; overflow-wrap: break-word; line-height: initial;\"><p style=\"box-sizing: border-box; padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em;\"><font face=\"Amazon Ember, Arial, sans-serif\" size=\"2\"><b>Quiet comfort 35 wireless headphones II</b></font><br></p></div></div></div></div></div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '81B1hwVr9ML._SL1500_.jpg', '81eKatMbk7L._SL1500_.jpg', '71DNFlj7zdL._SL1500_.jpg', '180', 'In Stock', '-1', '0', '1', '2019-04-12 21:34:04', NULL),
 (2, '1', '1', '1', 'Sony\'s WH-1000XM3 Wireless Industry Leading Noise Cancellation Headphones with Alexa (Black)', 'Sony Electronics', '26990.00', '87504634234', '29990.00', '<div id=\"dpx-product-description_feature_div\" style=\"box-sizing: border-box; color: rgb(17, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\"><div id=\"descriptionAndDetails\" class=\"a-section a-spacing-extra-large\" style=\"box-sizing: border-box; margin-bottom: 0px;\"><div id=\"productDescription_feature_div\" class=\"feature\" data-feature-name=\"productDescription\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box;\"><div id=\"productDescription_feature_div\" data-feature-name=\"productDescription\" data-template-name=\"productDescription\" class=\"a-row feature\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box; width: 1674px;\"><div id=\"productDescription\" class=\"a-section a-spacing-small\" style=\"box-sizing: border-box; margin: 0.5em 0px 0em 25px; color: rgb(51, 51, 51); overflow-wrap: break-word; font-size: small; line-height: initial;\"><ul class=\"a-unordered-list a-vertical a-spacing-none\" style=\"box-sizing: border-box; margin-bottom: 0px; margin-left: 18px; color: rgb(148, 148, 148); font-size: 13px;\"><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Industry-leading Digital Noise Cancelling lets you listen without distractions with QN1 HD Processor</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Quick Attention Mode for effortless conversations without taking your headphones off</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Quick charge for 10min charge for 5 hours play back</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Battery life up to 30hrs for long listening hours</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Sony | Headphones Connect APP for Android /iOS to use Smart Listening technology to control your ambient sound settings</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Touch Sensors to play and skip tracks, control volume by a simple tap or swipe on the ear cups</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Noise Cancelling Optimizer automatically adjusts to your surroundings and activities</span></li></ul></div></div></div></div></div>\r\n', '61TT0ZPDlLL._SL1500_.jpg', '71jG6sNzmLL._SL1500_.jpg', '61Wdwg+R-aL._SL1500_.jpg', '260', 'In Stock', '0', '0', '1', '2019-04-12 21:36:59', NULL),
-(3, '4', '7', '3', 'Matrix Men Formal Eco Fleece Sherpa Collar Duster Coat with Pockets', 'Ziaesm', '8177.97', '7323423423', '8377.97', '<h3 class=\"a-spacing-mini\" style=\"box-sizing: border-box; padding: 0px; font-size: 17px; line-height: 1.255; font-family: Arial, sans-serif; color: rgb(17, 17, 17); margin-bottom: 6px !important;\">Quilted Jacket</h3><p style=\"box-sizing: border-box; padding: 0px; margin-bottom: 14px; color: rgb(17, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\">Designed to be both functional and fashionable, this modern travel friendly bomber jacket has a stylish flair. The Ben Martin jacket is reliable, especially as the temperatures drop and a light breeze chills the air. Typically casual, this jacket embodies both retro cool and modern style. It is designed to take you from a party setting to the casual ski mountains in high style.</p>', 'Movie-Clothes-Matrix-Neo-Cosplay-Costume-Black-uniform-suit-Trench-Coat-only-Customizable.jpg_640x640.jpg', 'pms-coat-same-as-photo-s-chic-stand-collar-button-thicken-woolen-long-coat-4503005823070_1200x1200.jpg', 'The-Matrix-Cosplay-Customised-Black-Cosplay-Costume-Neo-Trench-Coat-Only-Coat-womens-mens-girls-boys.jpg_640x640.jpg', '20', 'In Stock', '0', '1\r\n', '1', '2019-04-12 21:42:41', NULL),
+(3, '4', '7', '3', 'Matrix Men Formal Eco Fleece Sherpa Collar Duster Coat with Pockets', 'Ziaesm', '8177.97', '7323423423', '8377.97', '<h3 class=\"a-spacing-mini\" style=\"box-sizing: border-box; padding: 0px; font-size: 17px; line-height: 1.255; font-family: Arial, sans-serif; color: rgb(17, 17, 17); margin-bottom: 6px !important;\">Quilted Jacket</h3><p style=\"box-sizing: border-box; padding: 0px; margin-bottom: 14px; color: rgb(17, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\">Designed to be both functional and fashionable, this modern travel friendly bomber jacket has a stylish flair. The Ben Martin jacket is reliable, especially as the temperatures drop and a light breeze chills the air. Typically casual, this jacket embodies both retro cool and modern style. It is designed to take you from a party setting to the casual ski mountains in high style.</p>', 'Movie-Clothes-Matrix-Neo-Cosplay-Costume-Black-uniform-suit-Trench-Coat-only-Customizable.jpg_640x640.jpg', 'pms-coat-same-as-photo-s-chic-stand-collar-button-thicken-woolen-long-coat-4503005823070_1200x1200.jpg', 'The-Matrix-Cosplay-Customised-Black-Cosplay-Costume-Neo-Trench-Coat-Only-Coat-womens-mens-girls-boys.jpg_640x640.jpg', '20', 'In Stock', '1445', '1\r\n', '1', '2019-04-12 21:42:41', NULL),
 (4, '1', '5', '1', 'OnePlus 6T (Mirror Black, 8GB RAM, 128GB Storage)', 'OnePlus', '37999.99', '4355435234', '41999.00', '<ul class=\"a-unordered-list a-vertical a-spacing-none\" style=\"box-sizing: border-box; margin-bottom: 0px; margin-left: 18px; color: rgb(148, 148, 148); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\"><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Camera: 16+20 MP Dual rear camera with Optical Image Stabilization, Super slow motion, Nightscape and Studio Lighting | 16 MP front camera</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Display:&nbsp;6.41-inch(16.2 cms)&nbsp;Full HD+ Optic AMOLED display with 2340 x 1080 pixels resolution and an 86% screen-to-body ratio</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Memory, Storage &amp; SIM: 8GB RAM | 128GB storage | Dual nano SIM with dual standby (4G+4G)</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Screen Unlock: In-screen fingerprint sensor. The OnePlus 6T unlocks in 0.34s for a seamless and intuitive unlock experience</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Operating System and Processor: OxygenOS based on Android 9.0 Pie with 2.8GHz Qualcomm Snapdragon 845 octa-core processor</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Battery : 3700 mAh lithium-polymer battery with Fast Charge technology</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Included in the Box: Screen Protector (pre-applied); Translucent Case; OnePlus Fast Charge Type-C Cable; OnePlus Fast Charge Power Adapter; SIM Tray Ejector; Quick Start Guide; Safety Information; OnePlus Type-C to 3.5mm Audio Jack Adapter</span></li></ul>\r\n\r\n\r\n', 'specs-image-OnePlus-6T-Mirror-Black.jpg', 'specs-image-OnePlus-6T-Mirror-Black.jpg', 'specs-image-OnePlus-6T-Mirror-Black.jpg', '0', 'In Stock', '0', '0', '1', '2019-04-12 21:45:32', NULL),
-(5, '1', '5', '1', 'Apple iPhone X (64GB) - Silver', 'Apple Inc', '75000.00', '63457354345', '91900.00', '<span style=\"color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">iPhone X features a 5.8-inch Super Retina display with HDR and True Tone. An all-screen design and a surgical-grade stainless steel band. Charges wirelessly. Resists water and dust. 12MP dual cameras with dual optical image stabilization. TrueDepth camera with Portrait mode and Portrait Lighting. Face ID lets you unlock and use Apple Pay with just a glance. Powered by the A11 Bionic chip, iPhone X supports augmented reality experiences in games and apps. And iOS 12â€”the most advanced mobile operating systemâ€”with powerful new tools that make iPhone more personal than ever.</span><br>\r\n', '121008-v1-apple-iphone-x-mobile-phone-large-1.jpg', '121008-v1-apple-iphone-x-mobile-phone-large-1.jpg', '41tDXHpeNHL._SL1024_.jpg', '0', 'In Stock', '0', '0', '1', '2019-04-12 21:46:50', NULL),
+(5, '1', '5', '1', 'Apple iPhone X (64GB) - Silver', 'Apple Inc', '75000.00', '63457354345', '91900.00', '<span style=\"color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">iPhone X features a 5.8-inch Super Retina display with HDR and True Tone. An all-screen design and a surgical-grade stainless steel band. Charges wirelessly. Resists water and dust. 12MP dual cameras with dual optical image stabilization. TrueDepth camera with Portrait mode and Portrait Lighting. Face ID lets you unlock and use Apple Pay with just a glance. Powered by the A11 Bionic chip, iPhone X supports augmented reality experiences in games and apps. And iOS 12â€”the most advanced mobile operating systemâ€”with powerful new tools that make iPhone more personal than ever.</span><br>\r\n', '121008-v1-apple-iphone-x-mobile-phone-large-1.jpg', '121008-v1-apple-iphone-x-mobile-phone-large-1.jpg', '41tDXHpeNHL._SL1024_.jpg', '0', 'In Stock', '-59', '0', '1', '2019-04-12 21:46:50', NULL),
 (6, '1', '6', '1', 'All-New Kindle (10th Gen), 6\" Display now with Built-in Light, 4 GB, Wi-Fi (Black)', 'Amazon.com', '7999.00', '456235234234', '7999.00', '<ul class=\"a-unordered-list a-vertical a-spacing-none\" style=\"box-sizing: border-box; margin-bottom: 0px; margin-left: 18px; color: rgb(148, 148, 148); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\"><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Adjustable front light lets you read comfortably for hoursâ€”indoors and outdoors, day and night.</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Purpose-built for reading, with a 167 ppi glare-free display that reads like real paper, even in direct sunlight.</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Read distraction-free. Highlight passages, look up definitions, translate words, and adjust text sizeâ€”without ever leaving the page.</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Select from millions of books including new releases and bestsellers. Holds thousands of titles so you can take your library with you.</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Prime members read free with unlimited access to hundreds of books, comics and more.</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">A single battery charge lasts weeks, not hours.</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">This device does not support playback of Audible audiobooks.</span></li></ul>', '61MWcLEBkDL._SL1000_.jpg', '717XacHyY9L._SL1000_.jpg', '613qVaBn9vL._SL1000_.jpg', '55', 'In Stock', '0', '1\r\n', '2', '2019-04-12 21:47:58', NULL),
-(17, '5', '8', '1', 'Krackjack 200gms', 'Parle', '27', '19059020', '30', '<span style=\"color: rgb(51, 51, 51); font-family: arial; font-size: 16px;\">After a hectic and tiresome day, all we need is a refreshing snack to eat so that we feel fresh. In such a case, Parle krack jack biscuits are a perfect choice. Their crunchiness makes your life crisp and tasty again. The sweet and sour taste of the biscuits will make you forget your worries</span><br>', '12.jpg', '13.jpg', '14.png', '0', 'In Stock', '-31', '1\r\n', '4', '2019-04-14 05:43:17', NULL),
+(17, '5', '8', '1', 'Krackjack 200gms', 'Parle', '27', '19059020', '30', '<span style=\"color: rgb(51, 51, 51); font-family: arial; font-size: 16px;\">After a hectic and tiresome day, all we need is a refreshing snack to eat so that we feel fresh. In such a case, Parle krack jack biscuits are a perfect choice. Their crunchiness makes your life crisp and tasty again. The sweet and sour taste of the biscuits will make you forget your worries</span><br>', '12.jpg', '13.jpg', '14.png', '0', 'In Stock', '1099', '1\r\n', '4', '2019-04-14 05:43:17', NULL),
 (18, '7', '9', '1', 'Parachute 250ml', 'Parachute', '92', '1513.11.00', '105', '<ul class=\"a-unordered-list a-vertical a-spacing-none\" style=\"box-sizing: border-box; margin-bottom: 0px; margin-left: 18px; color: rgb(148, 148, 148); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\"><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Made from 100% pure coconut oil</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Consistent composition and viscosity in every drop of oil</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Long lasting freshness</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">5 Stage Purification process to ensure 100% pure coconut oil every time</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Made from the finest quality coconut to ensure best Coconut Oil</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Parachute Coconut Oil - 250 ml Flip Top</span></li></ul>\r\n', '71OTgymA+ZL._SL1500_.jpg', '71sQ9TFFIJL._SL1500_.jpg', '61hTmsydzFL._SL1500_.jpg', '0', 'In Stock', '20', '0', '1', '2019-04-14 06:11:04', NULL),
 (19, '8', '10', '1', 'Good Day Cashew', 'Britania', '9.75', '123', '10', '<br>', 'DIAMOND.jpg', 'DIAMOND.jpg', '', '0', '', '0', '1\r\n', '1', '2019-05-09 11:54:29', NULL),
-(20, '9', '11', '1', 'CINTHOL ORIGINAL', 'GODREJ', '121.86', '10011', '131', '<br>', 'Desert.jpg', 'Hydrangeas.jpg', 'Koala.jpg', '0', 'In Stock', '-11', '1\r\n', '4', '2019-05-09 11:55:50', NULL),
+(20, '9', '11', '1', 'CINTHOL ORIGINAL', 'GODREJ', '121.86', '10011', '131', '<br>', 'Desert.jpg', 'Hydrangeas.jpg', 'Koala.jpg', '0', 'In Stock', '-155', '1\r\n', '4', '2019-05-09 11:55:50', NULL),
 (21, '9', '11', '1', 'NO1 SANDAL', 'GODREJ', '61.83', '34011190', '72', '<br>\r\n\r\n', 'Chrysanthemum.jpg', 'Desert.jpg', '', '0', 'In Stock', '-63', '0', '4', '2019-05-09 12:31:35', NULL);
 
 -- --------------------------------------------------------
@@ -458,23 +495,21 @@ CREATE TABLE `purchase` (
   `creditnote` varchar(255) NOT NULL,
   `logistic` varchar(255) NOT NULL,
   `freeproduct` varchar(100) NOT NULL DEFAULT '--null--',
-  `timestamp` varchar(255) NOT NULL
+  `timestamp` varchar(255) NOT NULL,
+  `uom` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `purchase`
 --
 
-INSERT INTO `purchase` (`id`, `business`, `supplier`, `invoicedate`, `invoicenumber`, `vehiclenumber`, `deliveredcontact`, `transport`, `receiveddate`, `batch`, `product`, `mrp`, `qtycase`, `qtyuom`, `baseratecase`, `baserateuom`, `disc`, `disca`, `neta`, `cgst`, `sgst`, `cgsta`, `sgsta`, `cess`, `totalamount`, `margin`, `uomsp`, `dispp`, `dispd`, `totalwhole`, `creditnote`, `logistic`, `freeproduct`, `timestamp`) VALUES
-(3, '1', '1', '2019-04-09', '98765432', 'KL 7 A 5555', '234323456', 'Truckers', '2019-04-15', 'A1', '1', '29363.00', '10', '1', '10000', '10000', '', '0', '100000', '6', '6', '6000', '6000', '0', '112000', '0', '11200', '11200', '0', '672000', '100', '50', 'Toshiba Pendrive 8GB', '1555318445'),
-(4, '1', '1', '2019-04-09', '98765432', 'KL 7 A 5555', '234323456', 'Truckers', '2019-04-15', 'A1', '5', '75000.00', '10', '1', '50000', '50000', '', '0', '500000', '6', '6', '30000', '30000', '0', '560000', '0', '56000', '56000', '0', '672000', '100', '50', '2 Apple Stickers', '1555318445'),
-(5, '2', '1', '2019-04-09', '68765453452', 'KL 7 A 5555', '234323456', 'plane', '2019-04-23', 'A2', '1', '29363.00', '1', '2', '52726', '26363', '5', '2636.3', '50089.7', '6', '6', '3005.3819999999996', '3005.3819999999996', '0', '56099.7', '5', '29452.3425', '78777', '5', '56099.7', '500', '500', 'Shampoo', '1555333197'),
-(6, '1', '1', '2019-04-22', '76867', 'KA 43534', '45645', 'Train', '2019-04-30', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '', '1555923685'),
-(7, '1', '1', '2019-04-22', '76867', 'KA 43534', '45645', 'Train', '2019-04-30', '', '17', '30', '6', '6', '599', '99.83333333333333', '1', '35.94', '3558.0599999999995', '9', '9', '320.2253999999999', '320.2253999999999', '0', '4198.0599999999995', '50', '174.91916666666665', '60000', '100', '8847.13', '0', '0', 'Shampoo', '1555923685'),
-(8, '1', '1', '2019-04-22', '76867', 'KA 43534', '45645', 'Train', '2019-04-30', '', '1', '39363.00', '7', '8', '599', '74.875', '1', '41.93000000000001', '4151.07', '6', '6', '249.06419999999997', '249.06419999999997', '0', '4649.07', '50', '124.5286607142857', '60000', '200', '8847.13', '0', '0', '', '1555923685'),
-(9, '3', '4', '2019-05-07', 'G065781900116', 'AP00ABCD', 'RAVI', 'OWN', '2019-05-08', '09052019', '20', '131', '25', '36', '3574.8', '99.30000000000001', '', '0', '89370', '9', '9', '8043.299999999999', '8043.299999999999', '0', '105456', '4', '121.86026666666667', '121.82', '', '123946.1952', '0', '0', '', '1557406114'),
-(10, '3', '4', '2019-05-07', 'G065781900116', 'AP00ABCD', 'RAVI', 'OWN', '2019-05-08', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '', '1557406114'),
-(11, '3', '4', '2019-05-07', 'G065781900116', 'AP00ABCD', 'RAVI', 'OWN', '2019-05-08', '09052019', '21', '72', '9', '36', '1813.68', '50.38', '4', '652.9248', '15670.195200000002', '9', '9', '1410.3175680000002', '1410.3175680000002', '0', '18490.195200000002', '4', '59.35124385185186', '61.82', '', '123946.1952', '0', '0', '', '1557406114');
+INSERT INTO `purchase` (`id`, `business`, `supplier`, `invoicedate`, `invoicenumber`, `vehiclenumber`, `deliveredcontact`, `transport`, `receiveddate`, `batch`, `product`, `mrp`, `qtycase`, `qtyuom`, `baseratecase`, `baserateuom`, `disc`, `disca`, `neta`, `cgst`, `sgst`, `cgsta`, `sgsta`, `cess`, `totalamount`, `margin`, `uomsp`, `dispp`, `dispd`, `totalwhole`, `creditnote`, `logistic`, `freeproduct`, `timestamp`, `uom`) VALUES
+(1, '1', '1', '2019-06-02', 'A1B1', '43454', '123456', 'lol', '2019-06-05', 'A1', '1', '39363.00', '5', '5', '30000', '6000.00', '10', '15000.00', '135000.00', '6', '6', '8100.00', '8100.00', '0', '151200.00', '5', '6350.40', '20000', '100', '151200.00', '1000', '500', '', '1559756958', 'Boxes'),
+(2, '6', '5', '1989-12-19', 'INU999834234', 'Ullam ut fugiat con', '43534534534', 'Culpa ad perspiciat', '2015-09-19', 'A35', '3', '8377.97', '445', '6345', '49956377.97', '7873.35', '4', '889223527.87', '21341364668.78', '6', '6', '1280481880.13', '1280481880.13', '0', '23902328428.78', '55', '13121.40', '5000', '2000', '29072956945.78', '35', '0', 'Shampoo', '1559910838', 'Cases'),
+(3, '6', '5', '1989-12-19', 'INU999834234', 'Ullam ut fugiat con', '43534534534', 'Culpa ad perspiciat', '2015-09-19', '795A', '17', '30', '565', '74564', '7755555', '104.01', '5', '219094428.75', '4162794146.25', '9', '9', '374651473.16', '374651473.16', '0', '4912097092.25', '55', '180.73', '5656', '345', '29072956945.78', '35', '0', '', '1559910838', 'Pieces'),
+(4, '8', '7', '1989-12-19', 'U6699834234', 'Ullam ut fugiat con', '43534534534', 'Culpa ad perspiciat', '2015-09-19', 'A35', '3', '8377.97', '445', '6345', '49956377.97', '7873.35', '4', '889223527.87', '21341364668.78', '6', '6', '1280481880.13', '1280481880.13', '0', '23902328428.78', '55', '13121.40', '5000', '2000', '28818979118.58', '0', '0', 'Shampoo', '1559910914', 'Cases'),
+(5, '8', '7', '1989-12-19', 'U6699834234', 'Ullam ut fugiat con', '43534534534', 'Culpa ad perspiciat', '2015-09-19', '795A', '17', '30', '565', '74564', '7755555', '104.01', '5', '219094428.75', '4162794146.25', '9', '9', '374651473.16', '374651473.16', '0', '4912097092.25', '55', '180.73', '5656', '345', '28818979118.58', '0', '0', '', '1559910914', 'Pieces'),
+(6, '8', '7', '1989-12-19', 'U6699834234', 'Ullam ut fugiat con', '43534534534', 'Culpa ad perspiciat', '2015-09-19', 'yhh', '3', '8377.97', '555', '666', '7877', '11.83', '7', '306021.45', '4065713.55', '6', '6', '243942.81', '243942.81', '0', '4553597.55', '9', '13.43', '8888', '666', '28818979118.58', '0', '0', 'Kara', '1559910914', 'Pieces');
 
 -- --------------------------------------------------------
 
@@ -493,7 +528,7 @@ CREATE TABLE `rewardsettings` (
 --
 
 INSERT INTO `rewardsettings` (`id`, `settings`, `timestamp`) VALUES
-(1, ':8:9::::::::', '');
+(1, ':1:51::::::::', '');
 
 -- --------------------------------------------------------
 
@@ -525,18 +560,6 @@ CREATE TABLE `sales` (
   `batch` varchar(100) NOT NULL,
   `beat` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `sales`
---
-
-INSERT INTO `sales` (`id`, `product`, `hsn`, `utc`, `qty`, `mrp`, `baserate`, `amount`, `dis`, `gst`, `gstamount`, `total`, `finalrate`, `paymentdue`, `totalpaid`, `invoice`, `business`, `timestamp`, `remarks`, `customer`, `batch`, `beat`) VALUES
-(1, '17', '19059020', '40', '1', '30', '22.88135593220339', '915.2542372881356', '0', '18', '164.7457627118644', '1080', '27', '1080', '', '155525544034', '1', '1555255440', '', '13', 'A1', 'North Zone'),
-(2, '1', '63454634234', '2', '5', '29363.00', '70336.60714285713', '703366.0714285714', '5', '12', '84403.92857142855', '752601.6964285714', '75260.16964285713', '752601.6964285714', '', '155539539734', '1', '1555395397', '7', '13', 'A2', 'South Zone'),
-(3, '1', '63454634234', '1', '4', '29363.00', '9999.999999999998', '39999.99999999999', '0', '12', '4799.999999999999', '44799.99999999999', '11199.999999999998', '44799.99999999999', '', '155539911934', '1', '1555399119', '5', '13', 'A1', 'North Zone'),
-(4, '17', '19059020', '2', '1', '30', '22.88135593220339', '45.76271186440678', '0', '18', '8.23728813559322', '54', '27', '54', '', '155539948934', '1', '1555399489', '', '14', 'A1', 'South Zone'),
-(5, '20', '10011', '36', '1', '131', '103.23728813559322', '3716.5423728813557', '1', '18', '668.977627118644', '4348.354576271186', '120.78762711864404', '8667.37220338983', '', '155740729834', '3', '1557407298', '0', '15', '09052019', 'South Zone'),
-(6, '21', '34011190', '36', '2', '72', '52.38983050847458', '3772.06779661017', '3.5', '18', '678.9722033898305', '4319.017627118644', '59.98635593220339', '8667.37220338983', '', '155740729834', '3', '1557407298', '0', '15', '09052019', 'South Zone');
 
 -- --------------------------------------------------------
 
@@ -614,7 +637,10 @@ INSERT INTO `supplier` (`id`, `productcompany`, `firmname`, `email`, `name`, `co
 (1, 'Supplier A', 'Suiter Company', 'suppliera@mail.com', '324234234', 34234234, 2346435345, NULL, '4534534534,JAKSjkasjkdmAS,EKJrker324		', NULL, NULL, NULL, '							', 'Karnataka', 'Bengaluru', NULL, '234234', '35243', '45345', '435345', '345345', 'Admin', 324908209348, 'Goldman Sachs', 'NYC', 'Business Account Name', '342342345662342', '546354345', '2019-04-12 21:55:06', NULL),
 (2, 'Supplier B', 'Apple Company', 'supplierb@mail.com', '324234234', 34234234, 2346435345, NULL, '4534534534,JAKSjkasjkdmAS,EKJrker324		', NULL, NULL, NULL, '							', 'Karnataka', 'Bengaluru', NULL, '234234', '35243', '45345', '435345', '345345', 'Admin', 324908209348, 'Goldman Sachs', 'NYC', 'Business Account Name', '342342345662342', '546354345', '2019-04-12 21:55:42', NULL),
 (3, 'GODREJ', 'SHAH AGENCIES', 'SHAH@GMAIL.COM', 'SHARIF', 9999999999, 0, NULL, 'NELLORE				', NULL, NULL, NULL, 'ATMAKUR					', 'NELLORE', 'ANDHRA PRADESH', NULL, '524322', 'NA', '', 'NA', 'NA', 'SIRAJ', 9999999999, 'na', 'na', 'na', 'na', 'na', '2019-05-09 12:14:37', NULL),
-(4, 'GODREJ', 'SHAH AGENCIES', 'SHAH@SHAH.COM', 'SHARIFF', 1234567890, 987654321, NULL, 'NA			', NULL, NULL, NULL, 'ATMAKUR						', 'NELLORE', 'ANDHRA PRADESH', NULL, '524322', 'NA', 'NA', 'NA', 'NA', 'NA', 0, 'NA', 'NA', 'NA', 'NA', 'NA', '2019-05-09 12:19:02', NULL);
+(4, 'GODREJ', 'SHAH AGENCIES', 'SHAH@SHAH.COM', 'SHARIFF', 1234567890, 987654321, NULL, 'NA			', NULL, NULL, NULL, 'ATMAKUR						', 'NELLORE', 'ANDHRA PRADESH', NULL, '524322', 'NA', 'NA', 'NA', 'NA', 'NA', 0, 'NA', 'NA', 'NA', 'NA', 'NA', '2019-05-09 12:19:02', NULL),
+(5, 'Chase Nicholson Trading', 'Haley Cohen', 'jyny@mailinator.com', 'Hollee Burnett', 0, 0, NULL, '', NULL, NULL, NULL, 'Id quia et sunt velit ex modi', 'Corrupti cumque a o', 'Aut atque qui iure i', NULL, 'Quos eum exercitatio', 'Cupiditate sunt ill', 'Et et est ipsum dolo', 'Est accusantium mole', 'Laborum expedita sun', 'Paloma Richmond', 73453454353454353, 'Reece Contreras', 'Molestias in rerum s', 'Candace Buckley', '7193453453', 'Omnis dolor iusto ve', '2019-06-07 12:30:24', NULL),
+(6, 'Chandler and Copeland Co', 'Steven Hines', 'niru@mailinator.net', 'Leah Howe', 456456, 456456345, NULL, '', NULL, NULL, NULL, 'Provident in similique facere ea ipsum culpa ea labore libero itaque deserunt', 'Iure sunt qui aspern', 'Voluptas sit dolore', NULL, 'Labore atque quia te', 'Omnis blanditiis qui', 'Ratione architecto n', 'Ut iste est veniam ', 'In consequat Sunt a', 'Samantha Rosales', 7345234235, 'Colorado Ferguson', 'Voluptate rerum aliq', 'Nero House', '884', 'Adipisicing aut volu', '2019-06-07 12:30:34', NULL),
+(7, 'Burris Brennan LLC', 'Steven Kirby', 'deratitoj@mailinator.com', 'Rhea Valencia', 345345, 345345435, NULL, '', NULL, NULL, NULL, 'Minim aliquip quos et debitis qui et aut blanditiis ex qui sint fugit accusantium et nisi ut', 'Excepteur ab quia se', 'Illum ea voluptatem', NULL, '3345', 'Doloremque dolorem r', 'Ut qui labore exerci', 'Doloremque distincti', 'Qui odio laborum Qu', 'Howard Bryant', 34534543, 'Hilda Chapman', 'Molestias eiusmod el', 'Aspen Trujillo', '529', 'Officia quaerat nost', '2019-06-07 12:30:52', NULL);
 
 -- --------------------------------------------------------
 
@@ -701,9 +727,16 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `district`, `rewards`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `gstin`, `fssai`, `pan`, `aadharno`, `birthdate`, `beat`, `regDate`, `updationDate`) VALUES
-(13, 'Retailer A', 'test@test.com', 324982348, 7434534546, '098f6bcd4621d373cade4e832627b4f6', '3096  Fleming Way, Petersburg, USA', 'District A', '15', NULL, NULL, NULL, 'Put Water, 3096  Fleming Way, Petersburg, USA', 'Petersburg', NULL, NULL, '23423423', '23423', '4234234', '234234234', '2019-04-13', '', '2019-04-12 21:57:54', NULL),
-(14, 'Test Retailer B', 'test2@test.com', 324982348, 7434534546, '098f6bcd4621d373cade4e832627b4f6', '3223,Bailey Drive,Iowa City, USA', 'District B ', '0', NULL, NULL, NULL, 'Iowa Water, 3223,Bailey Drive,Iowa City, USA', 'Iowa', NULL, NULL, '567423', '6786723', '678234', '7834234234', '2019-04-02', '', '2019-04-12 21:59:30', NULL),
-(15, 'CNR', 'CNR@GMAIL.COM', 1234567890, 1234567890, 'e807f1fcf82d132f9bb018ca6738a19f', 'ATMAKUR							', 'NA', '10.870886440678', NULL, NULL, NULL, 'ATMAKUR							', 'NA', NULL, NULL, 'NA', '', 'NA', 'NA', '0000-00-00', '', '2019-05-09 12:54:10', NULL);
+(13, 'Retailer A', 'test@test.com', 324982348, 7434534546, '098f6bcd4621d373cade4e832627b4f6', '3096  Fleming Way, Petersburg, USA', 'District A', '86535.718312349', NULL, NULL, NULL, 'Put Water, 3096  Fleming Way, Petersburg, USA', 'Petersburg', NULL, NULL, '23423423', '23423', '4234234', '234234234', '2019-04-13', '', '2019-04-12 21:57:54', NULL),
+(14, 'Test Retailer B', 'test2@test.com', 324982348, 7434534546, '098f6bcd4621d373cade4e832627b4f6', '3223,Bailey Drive,Iowa City, USA', 'District B ', '4360', NULL, NULL, NULL, 'Iowa Water, 3223,Bailey Drive,Iowa City, USA', 'Iowa', NULL, NULL, '567423', '6786723', '678234', '7834234234', '2019-04-02', '', '2019-04-12 21:59:30', NULL),
+(15, 'CNR', 'CNR@GMAIL.COM', 1234567890, 1234567890, 'e807f1fcf82d132f9bb018ca6738a19f', 'ATMAKUR							', 'NA', '10.870886440678', NULL, NULL, NULL, 'ATMAKUR							', 'NA', NULL, NULL, 'NA', '', 'NA', 'NA', '0000-00-00', '', '2019-05-09 12:54:10', NULL),
+(16, 'Cretailer', 'jack@jack.com', 11111111, 234, 'd2aefeac9dc661bc98eebd6cc12f0b82', 'yolo ship, china', '4', '0', NULL, NULL, NULL, 'no							', '45', NULL, NULL, '5435', '4534', '53645', '97868768', '2019-06-13', '3', '2019-06-04 12:22:50', NULL),
+(17, 'Serena Acevedo', 'suhe@mailinator.net', 0, 0, 'f3ed11bbdb94fd9ebdefbaf646ab94d3', 'Excepteur in ut quia rerum ipsa accusantium pariatur Ipsam dolores id aut mollitia soluta quo sit id tempora', 'Pariatur Anim quis ', '0', NULL, NULL, NULL, 'Possimus omnis ullamco debitis dolor ex sit ab et et eu facilis esse facere itaque placeat nisi officia consequatur aperiam', 'Non eos est nulla s', NULL, NULL, 'Aut odit est blandit', 'Enim atque est ut es', 'Obcaecati autem dolo', 'Maxime ad quas Nam s', '1977-05-01', '1', '2019-06-07 12:29:30', NULL),
+(18, 'Shelley Gill', 'gewukilyki@mailinator.com', 0, 0, 'f3ed11bbdb94fd9ebdefbaf646ab94d3', 'Esse aute sunt nihil saepe tempora ex enim', 'Aliquam tempor dolor', '0', NULL, NULL, NULL, 'Ab suscipit ut magni officia fugit temporibus est aliquip possimus sed consequat Eum voluptas', 'Lorem ut esse quia s', NULL, NULL, 'Sit aut veritatis ve', 'Harum velit earum s', 'Id velit est ad sit', 'Voluptatem suscipit', '1973-08-24', '1', '2019-06-07 12:29:45', NULL),
+(19, 'Drew Elliott', 'tyjaqa@mailinator.com', 0, 0, 'f3ed11bbdb94fd9ebdefbaf646ab94d3', 'Voluptas tempore aliquam illo ex sunt eos esse nesciunt pariatur Anim non modi dicta', 'Ut ipsum consequatu', '0', NULL, NULL, NULL, 'Ducimus dolorum sunt adipisicing consequat Aute', 'Impedit laboriosam', NULL, NULL, 'Omnis ut voluptate d', 'Officia aperiam ipsa', 'Quisquam eligendi ul', 'Sit enim libero susc', '1983-08-23', '3', '2019-06-07 12:29:53', NULL),
+(20, 'Ivana Eaton', 'nekahelaz@mailinator.com', 0, 0, 'f3ed11bbdb94fd9ebdefbaf646ab94d3', 'Rerum laboris saepe consectetur sit laborum quae sunt nulla', 'Enim enim vitae dolo', '0', NULL, NULL, NULL, 'Provident minus irure veniam autem quia pariatur Pariatur Magna quas culpa qui minim', 'Rem ea optio quia p', NULL, NULL, 'Enim qui deserunt be', 'Officia doloremque l', 'Corporis veniam ex ', 'Quia temporibus sunt', '2015-10-13', '4', '2019-06-07 12:29:57', NULL),
+(21, 'Angela Mcdowell', 'byva@mailinator.com', 0, 0, 'f3ed11bbdb94fd9ebdefbaf646ab94d3', 'Temporibus autem et officia delectus proident obcaecati nulla possimus quisquam minus ex eveniet eius accusantium tenetur est', 'Saepe enim rerum vel', '0', NULL, NULL, NULL, 'Fugiat soluta doloremque error quisquam est sed inventore quis rerum consequatur molestiae', 'Id minim anim eaque', NULL, NULL, 'Impedit earum id s', 'Magna beatae ducimus', 'Laudantium sint ull', 'Aut quam totam dolor', '2014-03-09', '1', '2019-06-07 12:30:01', NULL),
+(22, 'Idona Levine', 'ninubexiz@mailinator.com', 0, 0, 'f3ed11bbdb94fd9ebdefbaf646ab94d3', 'Ut qui ut reprehenderit id et perferendis quas qui et sit non dignissimos aut', 'Dicta voluptatem Un', '0', NULL, NULL, NULL, 'Officiis iure sit labore necessitatibus vel', 'Officia necessitatib', NULL, NULL, 'Voluptatem error dol', 'Voluptates suscipit ', 'Ex necessitatibus is', 'Elit fuga Aut ab l', '1986-11-28', '2', '2019-06-07 12:30:05', NULL);
 
 --
 -- Indexes for dumped tables
@@ -832,7 +865,7 @@ ALTER TABLE `beat`
 -- AUTO_INCREMENT for table `business`
 --
 ALTER TABLE `business`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -844,31 +877,31 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `executive`
 --
 ALTER TABLE `executive`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `ordertrackhistory`
 --
 ALTER TABLE `ordertrackhistory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `paymentdue`
 --
 ALTER TABLE `paymentdue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -880,13 +913,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
@@ -898,7 +931,7 @@ ALTER TABLE `subcategory`
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `taxinfo`
@@ -916,7 +949,7 @@ ALTER TABLE `uom`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
