@@ -6,6 +6,13 @@ if(strlen($_SESSION['alogin'])==0)
 header('location:login');
 }
 else{
+$db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
+$sql="SELECT * FROM rewardsettings";
+$result = $db->query($sql);
+$sql=$result->fetch_assoc();
+$sql=$sql['settings'];
+$settings = explode(":",$sql);
+unset($sql);  
 require_once "./classes/page-class.php";
 require_once "./classes/sidebar-class.php";
 require_once "./classes/top-navigation-class.php";
@@ -45,11 +52,11 @@ function update(){
 
 }
 </script>
-<div>Payment Within <input id='aday' value='' > Days : <input id='aper' value='' > % </div><br>
-<div>Payment Within <input id='bday' value='' > Days : <input id='bper' value='' > % </div><br>
-<div>Payment Within <input id='cday' value=''> Days : <input id='cper' value='' > % </div><br>
-<div>Payment Within <input id='dday' value=''> Days : <input id='dper' value='' > % </div><br>
-<div>Payment Within <input id='eday' value=''> Days : <input id='eper' value=''> % </div><br>
+<div>Payment Within <input id='aday' value='".$settings[1]."' > Days : <input id='aper' value='".$settings[2]."' > % </div><br>
+<div>Payment Within <input id='bday' value='".$settings[3]."' > Days : <input id='bper' value='".$settings[4]."' > % </div><br>
+<div>Payment Within <input id='cday' value='".$settings[5]."'> Days : <input id='cper' value='".$settings[6]."' > % </div><br>
+<div>Payment Within <input id='dday' value='".$settings[7]."'> Days : <input id='dper' value='".$settings[8]."' > % </div><br>
+<div>Payment Within <input id='eday' value='".$settings[9]."'> Days : <input id='eper' value='".$settings[0]."'> % </div><br>
 <button class='btn btn-primary' onclick='update()'>Update</button>
 ";
 $page->var['title']="Reward Settings";
