@@ -58,6 +58,7 @@ class Sales
       document.getElementById(id).value= value;
       document.getElementById('hidden_'+id).value= supervalue;
       document.getElementById('drop_'+id).innerHTML='';
+      customer(supervalue);
     }
     function autocompletex(value,a){
       var beat = document.getElementById('beats').value;
@@ -211,8 +212,8 @@ class Sales
         boxes++;
         i++
       }
-      var rewardx=0;
       function customer(id){
+      	var rewardx=0;
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
