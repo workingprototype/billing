@@ -190,7 +190,7 @@ class Sales
         <td><input disabled=\'true\' onkeyup=\"utc(\''+r+'_'+f+'\')\" id=\"utc'+r+'_'+f+'\" style=\"width:80px\"></td>\
         <td><input disabled=\'true\' id=\"mrp'+r+'_'+f+'\" value=\"'+b+'\" ></td>\
         <td><input onkeyup=\"qtych(\''+r+'_'+f+'\')\" id=\"qty'+r+'_'+f+'\" style=\"width:150px\"  ></td>\
-        <td><select><option>'+g+'</option><option>Pieces</option></select></td>\
+        <td><select><option>'+g+'</option><option>Pcs</option></select></td>\
         <td><input onkeyup=\"basech(\''+r+'_'+f+'\')\" id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"amount'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input onkeyup=\"discountch(\''+r+'_'+f+'\')\" id=\"disc'+r+'_'+f+'\" value=\'0\' style=\"width:150px\" placeholder=\'\'></td>\
