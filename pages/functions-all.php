@@ -577,10 +577,11 @@ elseif($request[1]=="salesreportget")
     $from=0;
   }
   $keys=trim($_POST['keywords']);
-  $sql="SELECT timestamp, beat, invoice, total, users.name, users.contactno FROM sales INNER JOIN users ON sales.customer = users.id
-  WHERE (beat = '$beat') AND (timestamp BETWEEN '$from'  AND '$to') AND (invoice LIKE '%$keys%') AND (users.name LIKE '%$name%') AND (users.contactno LIKE '%$contact%')
+  $sql="SELECT timestamp, users.beat, invoice, total, users.name, users.contactno FROM sales INNER JOIN users ON sales.customer = users.id
+  WHERE (users.beat LIKE '%$beat%') AND (timestamp BETWEEN '$from'  AND '$to') AND (invoice LIKE '%$keys%') AND (users.name LIKE '%$name%') AND (users.contactno LIKE '%$contact%')
   GROUP BY invoice ORDER BY timestamp";
   $result = $db->query($sql);
+  $db->error;
   $i=1;
   while($row=$result->fetch_assoc()){
     $date = date("d-m-Y",$row['timestamp']);

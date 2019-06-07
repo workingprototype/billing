@@ -262,7 +262,7 @@ class Sales
   if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      $beats.="<option>".$row['beat']."</option>";
+      $beats.="<option value='".$row['id']."'>".$row['beat']."</option>";
     }
   } else {
     echo "0 results"; // No retailer registered.
