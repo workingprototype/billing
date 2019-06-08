@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2019 at 02:37 PM
+-- Generation Time: Jun 08, 2019 at 01:59 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -92,22 +92,22 @@ CREATE TABLE `business` (
   `aadhar` varchar(255) NOT NULL DEFAULT '0',
   `bank_account` varchar(100) NOT NULL,
   `ifsc_code` varchar(100) NOT NULL,
-  `timestamp` varchar(255) NOT NULL
+  `timestamp` varchar(255) NOT NULL,
+  `creationDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `business`
 --
 
-INSERT INTO `business` (`id`, `account_name`, `type`, `op_bal`, `dbcr`, `address`, `city`, `state`, `postal_code`, `state_code`, `phone`, `mobile`, `email`, `vat`, `pan`, `gstin`, `aadhar`, `bank_account`, `ifsc_code`, `timestamp`) VALUES
-(1, 'Business A', 'Money Maker Group', '15000000', '1000', 'Jerry Street, North Signature Hello Road, Stage 1', 'Bengaluru', 'Karnataka', '501123', '101123', '9500101010', '7570204010', 'businessa@mail.com', '5213423429', '4395893485', '3458345', '345394854835834098', '34058340950348A205934A4', 'ACCERYG234256234', '1555105926'),
-(2, 'Business AB', 'Illustrator Group', '35000000', '2000', 'Jerry Street, North Signature Hello Road, Stage 1', 'Paeke', 'Andra Pradesh', '501123', '101123', '9500101010', '7570204010', 'businessa@mail.com', '5213423429', '4395893485', '3458345', '345394854835834098', '34058340950348A205934A4', 'ACCERYG234256234', '1555105969'),
-(3, 'SRI VENKATESWARA AGENCIES', 'AGENCY', '500', '0', 'ATMAKUR', 'NELLORE', 'ANDHRA PRADESH', '524322', '37', '', '9032300385', 'sesha8sai@gmail.com', 'NA', 'ABCDFGH', '37ABCDFGH17', '000', '33100111000', 'SBIN0004828', '1557403195'),
-(4, 'SRI VENKATESWARA AGENCIES', 'AGENCY', '500', '0', 'ATMAKUR', 'NELLORE', 'ANDHRA PRADESH', '524322', '37', '', '9032300385', 'sesha8sai@gmail.com', 'NA', 'ABCDFGH', '37ABCDFGH17', '000', '33100111000', 'SBIN0004828', '1557403284'),
-(5, 'Fuga 2', 'Dolor commodi pariat', 'Dolore ratione dolor', 'Ad unde commodo illu', 'Expedita proident r', 'Molestiae ea est ad ', 'Impedit earum sapie', 'Animi voluptas ', 'Fugiat nostrum maior', 'Similique magna', 'Hic sit beatae ', 'bylunycuq@mailinator.com', 'Consequat Et qui pe', 'Voluptas corrupti e', 'Illum corrupti vol', 'Sunt rerum non est s', 'Praesentium cum veni', 'Consequuntur ipsam d', '1559910662'),
-(6, 'Voluptatem eos ess', 'Vel quia blanditiis ', 'Sed amet vel dolore', 'Ipsum nulla sint vo', 'Sed maiores laborios', 'Natus magnam volupta', 'Modi reprehenderit n', 'Veritatis dolor', 'Aspernatur tempor al', 'Velit atque qua', 'Beatae quia do ', 'saloxivi@mailinator.com', 'Corporis ut beatae q', 'Explicabo Quaerat e', 'Fugiat non reprehend', 'Laboris minima adipi', 'Id recusandae Est ', 'Ullamco perspiciatis', '1559910668'),
-(7, 'Quia magna aspernatu', 'Autem officia expedi', 'Doloribus et magna a', 'Voluptate ratione ut', 'Rerum incididunt cil', 'Molestiae accusantiu', 'Non dolores quia qua', 'Reiciendis irur', 'Porro illum sit qu', 'Ratione volupta', 'Et voluptate ac', 'teholo@mailinator.com', 'Cumque id repudiand', 'Nulla id eos labore', 'Ut dicta sint nemo ', 'Molestiae esse at q', 'Officia cupiditate n', 'Dolore recusandae F', '1559910672'),
-(8, 'Aperiam in hic sequi', 'Sit voluptas sit e', 'Ad et vel fugiat dol', 'Consequatur sint dol', 'Incidunt sint esse', 'Sint voluptatibus qu', 'Est iusto illum lab', 'Recusandae Itaq', 'Sapiente velit aut p', 'Quo dolore quae', 'Ut aperiam iste', 'pulum@mailinator.net', 'Incididunt quo paria', 'Nihil error sit null', 'Voluptas vitae dolor', 'Eaque Nam laboris ma', 'Amet sit sit hic et', 'Ipsum praesentium e', '1559910675');
+INSERT INTO `business` (`id`, `account_name`, `type`, `op_bal`, `dbcr`, `address`, `city`, `state`, `postal_code`, `state_code`, `phone`, `mobile`, `email`, `vat`, `pan`, `gstin`, `aadhar`, `bank_account`, `ifsc_code`, `timestamp`, `creationDate`) VALUES
+(1, 'Business A', 'Money Maker Groups', '15000000', '1000', 'Eius iure eum illum', 'Quia eiusmod facilis', 'Ratione modi omnis o', 'Necessitatibus ', 'Dolorem incidunt is', '9500101010', 'Adipisci tempor', 'pali@mailinator.net', '5213423429', 'Eius temporibus nihi', 'Vel at eum officia u', '345394854835834098', '34058340950348A205934A4', 'ACCERYG234256234', '1555105926', '2019-06-08 15:29:19'),
+(2, 'Business AB', 'Illustrator Group', '35000000', '2000', 'Jerry Street, North Signature Hello Road, Stage 1', 'Paeke', 'Andra Pradesh', '501123', '101123', '9500101010', '7570204010', 'businessa@mail.com', '5213423429', '4395893485', '3458345', '345394854835834098', '34058340950348A205934A4', 'ACCERYG234256234', '1555105969', '2019-06-08 15:29:19'),
+(3, 'SRI VENKATESWARA AGENCIES', 'AGENCY', '500', '0', 'ATMAKUR', 'NELLORE', 'ANDHRA PRADESH', '524322', '37', '', '9032300385', 'sesha8sai@gmail.com', 'NA', 'ABCDFGH', '37ABCDFGH17', '000', '33100111000', 'SBIN0004828', '1557403195', '2019-06-08 15:29:19'),
+(4, 'SRI VENKATESWARA AGENCIES', 'AGENCY', '500', '0', 'ATMAKUR', 'NELLORE', 'ANDHRA PRADESH', '524322', '37', '', '9032300385', 'sesha8sai@gmail.com', 'NA', 'ABCDFGH', '37ABCDFGH17', '000', '33100111000', 'SBIN0004828', '1557403284', '2019-06-08 15:29:19'),
+(5, 'Fuga 2', 'Dolor commodi pariat', 'Dolore ratione dolor', 'Ad unde commodo illu', 'Expedita proident r', 'Molestiae ea est ad ', 'Impedit earum sapie', 'Animi voluptas ', 'Fugiat nostrum maior', 'Similique magna', 'Hic sit beatae ', 'bylunycuq@mailinator.com', 'Consequat Et qui pe', 'Voluptas corrupti e', 'Illum corrupti vol', 'Sunt rerum non est s', 'Praesentium cum veni', 'Consequuntur ipsam d', '1559910662', '2019-06-08 15:29:19'),
+(6, 'Voluptatem eos ess', 'Vel quia blanditiis ', 'Sed amet vel dolore', 'Ipsum nulla sint vo', 'Sed maiores laborios', 'Natus magnam volupta', 'Modi reprehenderit n', 'Veritatis dolor', 'Aspernatur tempor al', 'Velit atque qua', 'Beatae quia do ', 'saloxivi@mailinator.com', 'Corporis ut beatae q', 'Explicabo Quaerat e', 'Fugiat non reprehend', 'Laboris minima adipi', 'Id recusandae Est ', 'Ullamco perspiciatis', '1559910668', '2019-06-08 15:29:19'),
+(7, 'Quia magna aspernatu', 'Autem officia expedi', 'Doloribus et magna a', 'Voluptate ratione ut', 'Rerum incididunt cil', 'Molestiae accusantiu', 'Non dolores quia qua', 'Reiciendis irur', 'Porro illum sit qu', 'Ratione volupta', 'Et voluptate ac', 'teholo@mailinator.com', 'Cumque id repudiand', 'Nulla id eos labore', 'Ut dicta sint nemo ', 'Molestiae esse at q', 'Officia cupiditate n', 'Dolore recusandae F', '1559910672', '2019-06-08 15:29:19');
 
 -- --------------------------------------------------------
 
@@ -301,7 +301,9 @@ INSERT INTO `notifications` (`id`, `timestamp`, `data`, `type`) VALUES
 (110, '1559754824', '[\"New Purchase Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2'),
 (111, '1559756958', '[\"New Purchase Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2'),
 (112, '1559910838', '[\"New Purchase Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2'),
-(113, '1559910914', '[\"New Purchase Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2');
+(113, '1559910914', '[\"New Purchase Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2'),
+(114, '1559985773', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2'),
+(115, '1559988444', '[\"New Beat Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2');
 
 -- --------------------------------------------------------
 
@@ -407,7 +409,8 @@ INSERT INTO `paymentdue` (`id`, `customer`, `salesinvoice`, `dueamount`, `timest
 (4, '14', '155539948934', '27', '1555399489'),
 (5, '15', '155740729834', '0', '1557407298'),
 (6, '14', '155803517734', '0', '1558035177'),
-(7, '13', '155806642734', '0', '1558066427');
+(7, '13', '155806642734', '0', '1558066427'),
+(8, '22', '155998577334', '66666', '1559985773');
 
 -- --------------------------------------------------------
 
@@ -443,7 +446,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category`, `subCategory`, `uom`, `productName`, `productCompany`, `productPrice`, `hsnno`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `quantityleft`, `rewardsapplicable`, `taxid`, `postingDate`, `updationDate`) VALUES
-(1, '1', '1', '1', 'Bose Quiet Comfort 35 II Wireless Headphone Silver', 'Bose Electronics', '29363.00', '63454634234', '39363.00', '<div id=\"dpx-product-description_feature_div\" style=\"box-sizing: border-box;\"><div id=\"descriptionAndDetails\" class=\"a-section a-spacing-extra-large\" style=\"box-sizing: border-box; margin-bottom: 0px;\"><div id=\"productDescription_feature_div\" class=\"feature\" data-feature-name=\"productDescription\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box;\"><div id=\"productDescription_feature_div\" data-feature-name=\"productDescription\" data-template-name=\"productDescription\" class=\"a-row feature\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box; width: 1674px;\"><div id=\"productDescription\" class=\"a-section a-spacing-small\" style=\"box-sizing: border-box; margin: 0.5em 0px 0em 25px; overflow-wrap: break-word; line-height: initial;\"><p style=\"box-sizing: border-box; padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em;\"><font face=\"Amazon Ember, Arial, sans-serif\" size=\"2\"><b>Quiet comfort 35 wireless headphones II</b></font><br></p></div></div></div></div></div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '81B1hwVr9ML._SL1500_.jpg', '81eKatMbk7L._SL1500_.jpg', '71DNFlj7zdL._SL1500_.jpg', '180', 'In Stock', '-1', '0', '1', '2019-04-12 21:34:04', NULL),
+(1, '1', '1', '1', 'Bose Quiet Comfort 35 II Wireless Headphone Silver', 'Bose Electronics', '29363.00', '63454634234', '39363.00', '<div id=\"dpx-product-description_feature_div\" style=\"box-sizing: border-box;\"><div id=\"descriptionAndDetails\" class=\"a-section a-spacing-extra-large\" style=\"box-sizing: border-box; margin-bottom: 0px;\"><div id=\"productDescription_feature_div\" class=\"feature\" data-feature-name=\"productDescription\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box;\"><div id=\"productDescription_feature_div\" data-feature-name=\"productDescription\" data-template-name=\"productDescription\" class=\"a-row feature\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box; width: 1674px;\"><div id=\"productDescription\" class=\"a-section a-spacing-small\" style=\"box-sizing: border-box; margin: 0.5em 0px 0em 25px; overflow-wrap: break-word; line-height: initial;\"><p style=\"box-sizing: border-box; padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em;\"><font face=\"Amazon Ember, Arial, sans-serif\" size=\"2\"><b>Quiet comfort 35 wireless headphones II</b></font><br></p></div></div></div></div></div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '81B1hwVr9ML._SL1500_.jpg', '81eKatMbk7L._SL1500_.jpg', '71DNFlj7zdL._SL1500_.jpg', '180', 'In Stock', '-21', '0', '1', '2019-04-12 21:34:04', NULL),
 (2, '1', '1', '1', 'Sony\'s WH-1000XM3 Wireless Industry Leading Noise Cancellation Headphones with Alexa (Black)', 'Sony Electronics', '26990.00', '87504634234', '29990.00', '<div id=\"dpx-product-description_feature_div\" style=\"box-sizing: border-box; color: rgb(17, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\"><div id=\"descriptionAndDetails\" class=\"a-section a-spacing-extra-large\" style=\"box-sizing: border-box; margin-bottom: 0px;\"><div id=\"productDescription_feature_div\" class=\"feature\" data-feature-name=\"productDescription\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box;\"><div id=\"productDescription_feature_div\" data-feature-name=\"productDescription\" data-template-name=\"productDescription\" class=\"a-row feature\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box; width: 1674px;\"><div id=\"productDescription\" class=\"a-section a-spacing-small\" style=\"box-sizing: border-box; margin: 0.5em 0px 0em 25px; color: rgb(51, 51, 51); overflow-wrap: break-word; font-size: small; line-height: initial;\"><ul class=\"a-unordered-list a-vertical a-spacing-none\" style=\"box-sizing: border-box; margin-bottom: 0px; margin-left: 18px; color: rgb(148, 148, 148); font-size: 13px;\"><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Industry-leading Digital Noise Cancelling lets you listen without distractions with QN1 HD Processor</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Quick Attention Mode for effortless conversations without taking your headphones off</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Quick charge for 10min charge for 5 hours play back</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Battery life up to 30hrs for long listening hours</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Sony | Headphones Connect APP for Android /iOS to use Smart Listening technology to control your ambient sound settings</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Touch Sensors to play and skip tracks, control volume by a simple tap or swipe on the ear cups</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Noise Cancelling Optimizer automatically adjusts to your surroundings and activities</span></li></ul></div></div></div></div></div>\r\n', '61TT0ZPDlLL._SL1500_.jpg', '71jG6sNzmLL._SL1500_.jpg', '61Wdwg+R-aL._SL1500_.jpg', '260', 'In Stock', '0', '0', '1', '2019-04-12 21:36:59', NULL),
 (3, '4', '7', '3', 'Matrix Men Formal Eco Fleece Sherpa Collar Duster Coat with Pockets', 'Ziaesm', '8177.97', '7323423423', '8377.97', '<h3 class=\"a-spacing-mini\" style=\"box-sizing: border-box; padding: 0px; font-size: 17px; line-height: 1.255; font-family: Arial, sans-serif; color: rgb(17, 17, 17); margin-bottom: 6px !important;\">Quilted Jacket</h3><p style=\"box-sizing: border-box; padding: 0px; margin-bottom: 14px; color: rgb(17, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\">Designed to be both functional and fashionable, this modern travel friendly bomber jacket has a stylish flair. The Ben Martin jacket is reliable, especially as the temperatures drop and a light breeze chills the air. Typically casual, this jacket embodies both retro cool and modern style. It is designed to take you from a party setting to the casual ski mountains in high style.</p>', 'Movie-Clothes-Matrix-Neo-Cosplay-Costume-Black-uniform-suit-Trench-Coat-only-Customizable.jpg_640x640.jpg', 'pms-coat-same-as-photo-s-chic-stand-collar-button-thicken-woolen-long-coat-4503005823070_1200x1200.jpg', 'The-Matrix-Cosplay-Customised-Black-Cosplay-Costume-Neo-Trench-Coat-Only-Coat-womens-mens-girls-boys.jpg_640x640.jpg', '20', 'In Stock', '1445', '1\r\n', '1', '2019-04-12 21:42:41', NULL),
 (4, '1', '5', '1', 'OnePlus 6T (Mirror Black, 8GB RAM, 128GB Storage)', 'OnePlus', '37999.99', '4355435234', '41999.00', '<ul class=\"a-unordered-list a-vertical a-spacing-none\" style=\"box-sizing: border-box; margin-bottom: 0px; margin-left: 18px; color: rgb(148, 148, 148); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\"><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Camera: 16+20 MP Dual rear camera with Optical Image Stabilization, Super slow motion, Nightscape and Studio Lighting | 16 MP front camera</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Display:&nbsp;6.41-inch(16.2 cms)&nbsp;Full HD+ Optic AMOLED display with 2340 x 1080 pixels resolution and an 86% screen-to-body ratio</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Memory, Storage &amp; SIM: 8GB RAM | 128GB storage | Dual nano SIM with dual standby (4G+4G)</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Screen Unlock: In-screen fingerprint sensor. The OnePlus 6T unlocks in 0.34s for a seamless and intuitive unlock experience</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Operating System and Processor: OxygenOS based on Android 9.0 Pie with 2.8GHz Qualcomm Snapdragon 845 octa-core processor</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Battery : 3700 mAh lithium-polymer battery with Fast Charge technology</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Included in the Box: Screen Protector (pre-applied); Translucent Case; OnePlus Fast Charge Type-C Cable; OnePlus Fast Charge Power Adapter; SIM Tray Ejector; Quick Start Guide; Safety Information; OnePlus Type-C to 3.5mm Audio Jack Adapter</span></li></ul>\r\n\r\n\r\n', 'specs-image-OnePlus-6T-Mirror-Black.jpg', 'specs-image-OnePlus-6T-Mirror-Black.jpg', 'specs-image-OnePlus-6T-Mirror-Black.jpg', '0', 'In Stock', '0', '0', '1', '2019-04-12 21:45:32', NULL),
@@ -560,6 +563,13 @@ CREATE TABLE `sales` (
   `batch` varchar(100) NOT NULL,
   `beat` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sales`
+--
+
+INSERT INTO `sales` (`id`, `product`, `hsn`, `utc`, `qty`, `mrp`, `baserate`, `amount`, `dis`, `gst`, `gstamount`, `total`, `finalrate`, `paymentdue`, `totalpaid`, `invoice`, `business`, `timestamp`, `remarks`, `customer`, `batch`, `beat`) VALUES
+(1, '1', '63454634234', '5', '4', '39363.00', '17857.14', '16555', '10', '12', '', '66666', '4666', '66666.00', '', '155998577334', '2', '1559985773', '', '22', 'A1', '2');
 
 -- --------------------------------------------------------
 
@@ -859,13 +869,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `beat`
 --
 ALTER TABLE `beat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `business`
 --
 ALTER TABLE `business`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -883,7 +893,7 @@ ALTER TABLE `executive`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -901,7 +911,7 @@ ALTER TABLE `ordertrackhistory`
 -- AUTO_INCREMENT for table `paymentdue`
 --
 ALTER TABLE `paymentdue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -919,7 +929,7 @@ ALTER TABLE `purchase`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
@@ -937,7 +947,7 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT for table `taxinfo`
 --
 ALTER TABLE `taxinfo`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `uom`
