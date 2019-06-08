@@ -191,8 +191,9 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
 
 
         $this->submenu("Business Registration","breg");
-        $this->submenu("Manage Business","managebreg");  //submenu2.1
-        $this->submenu("Supplier Registration","supplierreg");  //submenu2.1
+        $this->submenu("Manage Business Info","managebreg");  //submenu2.1
+        $this->submenu("Supplier Registration","supplierreg");
+        $this->submenu("Manage Supplier Info","managesupplierreg");  //submenu2.1
         $this->submenu("Retailer Registration","retailerreg");  //submenu2.1
         $this->submenu("Marketing Executive Registration","executivereg");  //submenu2.1
         $this->submenu("Create and Manage Beat Entry","beat");  //submenu2.1

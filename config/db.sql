@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2019 at 01:59 PM
+-- Generation Time: Jun 08, 2019 at 04:08 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -650,7 +650,11 @@ INSERT INTO `supplier` (`id`, `productcompany`, `firmname`, `email`, `name`, `co
 (4, 'GODREJ', 'SHAH AGENCIES', 'SHAH@SHAH.COM', 'SHARIFF', 1234567890, 987654321, NULL, 'NA			', NULL, NULL, NULL, 'ATMAKUR						', 'NELLORE', 'ANDHRA PRADESH', NULL, '524322', 'NA', 'NA', 'NA', 'NA', 'NA', 0, 'NA', 'NA', 'NA', 'NA', 'NA', '2019-05-09 12:19:02', NULL),
 (5, 'Chase Nicholson Trading', 'Haley Cohen', 'jyny@mailinator.com', 'Hollee Burnett', 0, 0, NULL, '', NULL, NULL, NULL, 'Id quia et sunt velit ex modi', 'Corrupti cumque a o', 'Aut atque qui iure i', NULL, 'Quos eum exercitatio', 'Cupiditate sunt ill', 'Et et est ipsum dolo', 'Est accusantium mole', 'Laborum expedita sun', 'Paloma Richmond', 73453454353454353, 'Reece Contreras', 'Molestias in rerum s', 'Candace Buckley', '7193453453', 'Omnis dolor iusto ve', '2019-06-07 12:30:24', NULL),
 (6, 'Chandler and Copeland Co', 'Steven Hines', 'niru@mailinator.net', 'Leah Howe', 456456, 456456345, NULL, '', NULL, NULL, NULL, 'Provident in similique facere ea ipsum culpa ea labore libero itaque deserunt', 'Iure sunt qui aspern', 'Voluptas sit dolore', NULL, 'Labore atque quia te', 'Omnis blanditiis qui', 'Ratione architecto n', 'Ut iste est veniam ', 'In consequat Sunt a', 'Samantha Rosales', 7345234235, 'Colorado Ferguson', 'Voluptate rerum aliq', 'Nero House', '884', 'Adipisicing aut volu', '2019-06-07 12:30:34', NULL),
-(7, 'Burris Brennan LLC', 'Steven Kirby', 'deratitoj@mailinator.com', 'Rhea Valencia', 345345, 345345435, NULL, '', NULL, NULL, NULL, 'Minim aliquip quos et debitis qui et aut blanditiis ex qui sint fugit accusantium et nisi ut', 'Excepteur ab quia se', 'Illum ea voluptatem', NULL, '3345', 'Doloremque dolorem r', 'Ut qui labore exerci', 'Doloremque distincti', 'Qui odio laborum Qu', 'Howard Bryant', 34534543, 'Hilda Chapman', 'Molestias eiusmod el', 'Aspen Trujillo', '529', 'Officia quaerat nost', '2019-06-07 12:30:52', NULL);
+(7, 'Burris Brennan LLC', 'Steven Kirby', 'deratitoj@mailinator.com', 'Rhea Valencia', 345345, 345345435, NULL, '', NULL, NULL, NULL, 'Minim aliquip quos et debitis qui et aut blanditiis ex qui sint fugit accusantium et nisi ut', 'Excepteur ab quia se', 'Illum ea voluptatem', NULL, '3345', 'Doloremque dolorem r', 'Ut qui labore exerci', 'Doloremque distincti', 'Qui odio laborum Qu', 'Howard Bryant', 34534543, 'Hilda Chapman', 'Molestias eiusmod el', 'Aspen Trujillo', '529', 'Officia quaerat nost', '2019-06-07 12:30:52', NULL),
+(8, 'Byrd Oneal Inc', 'Irene Rowe', 'calah@mailinator.com', 'Genevieve Phelps', 0, 0, NULL, '', NULL, NULL, NULL, 'Nulla est qui officiis dolor quasi eligendi in fugiat voluptas non quo ut tenetur placeat voluptatum', 'Nesciunt dolores cu', 'Minim id ut impedit', NULL, 'Qui laborum Iste ma', 'Minim assumenda est ', 'Fuga Non harum null', 'Id veritatis aut hic', 'Delectus ipsum ea ', 'Katell Browning', 0, 'Mona Dillard', 'Quo ut facilis est a', 'Ryder Butler', '738', 'Ut temporibus in eu ', '2019-06-08 14:01:19', NULL),
+(9, 'Griffith Hunter Plc', 'Burton Small', 'polav@mailinator.com', 'Gary Jarvis', 0, 0, NULL, '', NULL, NULL, NULL, 'Possimus obcaecati sit suscipit porro natus sit nisi in vero sunt voluptatem nobis quisquam repudiandae qui', 'Alias corrupti est', 'Aut nulla nihil comm', NULL, 'Irure ea anim except', 'Distinctio Vel nisi', 'Ea excepturi exceptu', 'Eveniet dolore maio', 'Non dolorem voluptat', 'Amos Mcleod', 0, 'Arsenio Wall', 'Incidunt accusantiu', 'Jonas Church', '568', 'Duis rerum excepteur', '2019-06-08 14:01:23', NULL),
+(11, 'Mcneil Vasquez LLC', 'Alfreda Melton', 'hekuq@mailinator.com', 'Roth Donaldson', 0, 0, NULL, '', NULL, NULL, NULL, 'Corporis reiciendis omnis dignissimos hic est excepteur incidunt hic neque sed ad hic natus quam in iure ut quia earum', 'Aliquid eiusmod sed ', 'Sunt magni consequat', NULL, 'Non in deserunt nobi', 'Dolore quis voluptas', 'Dolore ducimus volu', 'Et consequuntur est ', 'Est suscipit libero ', 'Lev Velazquez', 0, 'Scott Benjamin', 'Corporis eum invento', 'Herman Shelton', '225', 'Laborum omnis eaque ', '2019-06-08 14:01:34', NULL),
+(12, 'Workman and Franks LLC', 'Rudyard Cross', 'xytafyfir@mailinator.com', 'Imelda Molina', 0, 0, NULL, '', NULL, NULL, NULL, 'Et elit occaecat esse sunt velit', 'Corporis laboriosam', 'Reprehenderit aut mo', NULL, 'Assumenda minus in i', 'Incidunt doloribus ', 'Pariatur Aspernatur', 'Aut exercitationem e', 'Magni laboris non co', 'Guy Maddox', 0, 'Maxwell Nicholson', 'Praesentium sint ma', 'Abbot Howe', '330', 'Id eos minim eos a', '2019-06-08 14:01:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -941,7 +945,7 @@ ALTER TABLE `subcategory`
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `taxinfo`
