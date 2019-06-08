@@ -742,8 +742,11 @@ elseif($request[1]=="autocustomer")
 {
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $keys=$_POST['data'];
-  $beat=$_POST['beat'];
-  $sql="SELECT * FROM users WHERE (name LIKE '%$keys%') AND (beat='$beat')  LIMIT 10";
+  if(isset($_POST['beat']))
+  	$beat=$_POST['beat'];
+  else
+  	$beat="";
+  $sql="SELECT * FROM users WHERE (name LIKE '%$keys%') AND (beat LIKE'%$beat%')  LIMIT 10";
   $result = $db->query($sql);
   while($row=$result->fetch_assoc()){
     echo "<a href='#'><div onclick='autocompleted(\"customer\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".$row['name']."</div></a>";
