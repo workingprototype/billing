@@ -1,4 +1,6 @@
-
+<script type="text/javascript">
+alert("Unit of Measurement deleted !!");
+</script>
 <?php
 include('include/config.php');
 if(isset($_GET['del']))

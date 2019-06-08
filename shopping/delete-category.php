@@ -1,4 +1,6 @@
-
+<script type="text/javascript">
+alert("Category deleted !!");
+</script>
 <?php
 include('include/config.php');
 if(isset($_GET['del']))
