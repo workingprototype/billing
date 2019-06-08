@@ -44,6 +44,7 @@ if(isset($_GET['dir'])){
 
     route("function","./pages/functions-all.php");
     route("breg","./pages/b-registration-page.php");
+    route("managebreg","./pages/manage-business.php");
     route("sales","./pages/sales-register-page.php");
     route("beat","./pages/add-beat.php");
     route("payments","./pages/payments.php");
