@@ -56,6 +56,7 @@ if(isset($_GET['dir'])){
     route("purchasereport","./pages/purchase_report.php");
     route("products-list","./pages/productsl.page.php");
     route("executivereg","./pages/executive-reg.php");
+    route("manageexecutivereg","./pages/manage-executive-reg.php");
     route("retailerreg","./pages/retailer-reg.php");
     route("manageretailerreg","./pages/manage-retailer.php");
     route("supplierreg","./pages/supplier-reg.php");
