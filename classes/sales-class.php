@@ -102,14 +102,28 @@ class Sales
         xhttp.send('batch='+batch+'&id='+b);
       }
       function qtych(a){
+        basez=document.getElementById('base'+a).value;
         qtyz=document.getElementById('qty'+a).value;
+        utcz=document.getElementById('utc'+a).value;
+        uomz=document.getElementById('uom'+a).value;
+        discz=document.getElementById('disc'+a).value;
+        gstz=document.getElementById('gst'+a).value;
+        if(uomz==1){
+          rqty=qtyz/utcz;
+        }else{
+          rqty=qtyz;
+        }
+        amountz=(rqty*basez).toFixed(2);
+        discfraction=(1-(discz/100));
+        amount2=(amountz*discfraction).toFixed(2);
+        gstaz=((gstz/100)*amount2).toFixed(2);
+        totalamount=Number(amount2) + Number(gstaz);
+        document.getElementById('amount'+a).value=amountz;
+        document.getElementById('gsta'+a).value=gstaz;
+        document.getElementById('total'+a).value=totalamount;
+        console.log(discfraction);
+        console.log(gstz);
         total();
-      }
-      function utc(a){
-        qtych(a);
-      }
-      function discountch(a){
-        qtych(a);
       }
       function submitty()
       {
@@ -191,13 +205,13 @@ class Sales
         <td><input disabled=\'true\' onkeyup=\"utc(\''+r+'_'+f+'\')\" id=\"utc'+r+'_'+f+'\" style=\"width:80px\"></td>\
         <td><input disabled=\'true\' id=\"mrp'+r+'_'+f+'\" value=\"'+b+'\" ></td>\
         <td><input onkeyup=\"qtych(\''+r+'_'+f+'\')\" id=\"qty'+r+'_'+f+'\" style=\"width:150px\"  ></td>\
-        <td><select><option>'+g+'</option><option>Pcs</option></select></td>\
+        <td><select onchange=\"qtych(\''+r+'_'+f+'\')\" id=\"uom'+r+'_'+f+'\"><option value=\"2\">'+g+'</option><option value=\"1\">Pcs</option></select></td>\
         <td><input onkeyup=\"basech(\''+r+'_'+f+'\')\" id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"amount'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input onkeyup=\"discountch(\''+r+'_'+f+'\')\" id=\"disc'+r+'_'+f+'\" value=\'0\' style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input onkeyup=\"gstch(\''+r+'_'+f+'\')\" value=\"'+e+'\" id=\"gst'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input onkeyup=\"qtych(\''+r+'_'+f+'\')\" id=\"disc'+r+'_'+f+'\" value=\'0\' style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input onkeyup=\"qtych(\''+r+'_'+f+'\')\" value=\"'+e+'\" id=\"gst'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input onkeyup=\"qtych(\''+r+'_'+f+'\')\" id=\"gsta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"total'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\'total()\' placeholder=\'\'></td>\
+        <td><input id=\"total'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"qtych(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"finalrate'+r+'_'+f+'\" style=\"width:150px\"  placeholder=\'\'></td>\
         <td><button onclick=\'remove('+boxes+')\' class=\'btn btn-danger\'>Remove</button></td>\
         </tr><tr id=\'tail\'></tr>';
