@@ -205,6 +205,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
 
         $this->submenu("Change Password","changepassword");
         $this->submenu("Activity Log","log/1");
+        $this->submenu("Logout","logout");
         $this->menu("<i class=\"fa fa-key\"></i>Account Settings");
 
     }
