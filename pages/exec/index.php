@@ -22,10 +22,10 @@ else{
 
 </head>
 
-<body>
+<body style="zoom:180%;">
 
   <div class="table_center">
-       <div class="drop-down">
+       <div class="drop-down"></br></br></br></br>
          <div id="dropDown" class="drop-down__button">
            <span class="drop-down__name">Work Menu</span>
 <svg version="1.1" class="drop-down__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48.625px" height="48.625px" viewBox="0 0 48.625 48.625" style="enable-background:new 0 0 48.625 48.625;" xml:space="preserve">
