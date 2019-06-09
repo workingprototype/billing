@@ -107,7 +107,7 @@ $content.='
 
 <label class="control-label" for="basicinput">District</label>
 <div class="controls"></br>
-<input type="text" style="width:1000px;" name="billingAddress" value="'.htmlentities($row['billingAddress']).'" class="form-control" required>
+<input type="text" style="width:1000px;" name="district" value="'.htmlentities($row['district']).'" class="form-control" required>
 </div>
 
 <label class="control-label" for="basicinput">State</label>
