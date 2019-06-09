@@ -16,7 +16,7 @@ if(isset($_GET['del']))
 		  {
 		          mysqli_query($con,"delete from supplier where id = '".$_GET['id']."'");
                   $_SESSION['delmsg']="Supplier deleted !!";
-									logify("Suppliers Deleted");
+									logify("Supplier Deleted");
 		  }
 
 
