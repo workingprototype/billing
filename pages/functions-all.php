@@ -369,7 +369,8 @@ elseif($request[1]=="searchi")
       while($ro = $res->fetch_assoc()){
         $row['uom']=$ro['uom'];
       }
-      echo "<div onclick='clicked(\"".addslashes($row['productName'])."\",\"".$row['productPriceBeforeDiscount']."\",\"".$row['hsnno']."\",\"".$batchcode."\",\"".$gst."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".$row['productName']." </div>";
+ //HERE TO FIX
+      echo "<div onclick='clicked(\"".$row['productName']."\",\"".$row['productPriceBeforeDiscount']."\",\"".$row['hsnno']."\",\"".$batchcode."\",\"".$gst."\",\"".$row['id']."\",\"".$row['uom']."\")' class='searchitem'> ".$row['productName']." </div>";
     }
 } else {
     echo "0 results";
@@ -649,7 +650,7 @@ elseif($request[1]=="stocks")
     while ($rowp=$resultp->fetch_assoc()){
       $stock -= $rowp['qty'];
     }
-    echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['productName']."</td><td style='width:10px;'>".$stock."</td><td style='width:10px;'><a  href='../reports/product/".$row['id']."'>View</a></td></tr>";
+    echo "<tr><td style='width:10px;'>".$i++."</td><td>".htmlentities($row['productName'])."</td><td style='width:10px;'>".$stock."</td><td style='width:10px;'><a  href='../reports/product/".$row['id']."'>View</a></td></tr>";
   }
 }
 elseif($request[1]=="productrep")
@@ -680,7 +681,7 @@ elseif($request[1]=="productrep")
       $sstock[$rowp['batch']] += $rowp['qty'];
     }
     foreach ($istock as $key => $value) {
-      echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['productName']."</td><td style='width:10px;'>".$key."</td><td style='width:10px;'>".$value."</td><td style='width:10px;'>".$sstock[$key]."</td></tr>";
+      echo "<tr><td style='width:10px;'>".$i++."</td><td>".htmlentities($row['productName'])."</td><td style='width:10px;'>".$key."</td><td style='width:10px;'>".$value."</td><td style='width:10px;'>".$sstock[$key]."</td></tr>";
     }
     //echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['productName']."</td><td style='width:10px;'>".$stock."</td><td style='width:10px;'><a  href='../reports/product/".$row['id']."'>View</a></td></tr>";
   }
@@ -718,7 +719,7 @@ elseif($request[1]=="autobusiness")
   $sql="SELECT * FROM business WHERE account_name LIKE '%$keys%' LIMIT 10 ";
   $result = $db->query($sql);
     while($row=$result->fetch_assoc()){
-    echo "<a href='#'><div onclick='autocompleted(\"business\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".$row['account_name']."</div></a>";
+    echo "<a href='#'><div onclick='autocompleted(\"business\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".htmlentities($row['account_name'])."</div></a>";
   }
 }
 elseif($request[1]=="autofirmx")
@@ -728,7 +729,7 @@ elseif($request[1]=="autofirmx")
   $sql="SELECT * FROM business WHERE account_name LIKE '%$keys%' LIMIT 10 ";
   $result = $db->query($sql);
     while($row=$result->fetch_assoc()){
-    echo "<a href='#'><div onclick='autocompleted(\"firmx\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".$row['account_name']."</div></a>";
+    echo "<a href='#'><div onclick='autocompleted(\"firmx\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".htmlentities($row['account_name'])."</div></a>";
   }
 }
 elseif($request[1]=="autosupplier")
@@ -738,7 +739,7 @@ elseif($request[1]=="autosupplier")
   $sql="SELECT * FROM supplier WHERE (productcompany LIKE '%$keys%') OR (firmname LIKE '%$keys%')  LIMIT 10";
   $result = $db->query($sql);
   while($row=$result->fetch_assoc()){
-    echo "<a href='#'><div onclick='autocompleted(\"supplier\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".$row['productcompany']." (".$row['firmname']." )</div></a>";
+    echo "<a href='#'><div onclick='autocompleted(\"supplier\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".htmlentities($row['productcompany'])." (".htmlentities($row['firmname'])." )</div></a>";
   }
 }
 elseif($request[1]=="autocustomer")
@@ -752,7 +753,7 @@ elseif($request[1]=="autocustomer")
   $sql="SELECT * FROM users WHERE (name LIKE '%$keys%') AND (beat LIKE'%$beat%')  LIMIT 10";
   $result = $db->query($sql);
   while($row=$result->fetch_assoc()){
-    echo "<a href='#'><div onclick='autocompleted(\"customer\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".$row['name']."</div></a>";
+    echo "<a href='#'><div onclick='autocompleted(\"customer\",this.innerHTML,\"".$row['id']."\")' class='autoitem'>".htmlentities($row['name'])."</div></a>";
   }
 }
 elseif($request[1]=="purchasec")
