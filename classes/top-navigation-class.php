@@ -8,7 +8,6 @@
         public function echo()
         {
             return "<div class=\"top_nav\">
-
             <div class=\"nav_menu\">
               <nav class=\"\" role=\"navigation\">
                 <div class=\"nav toggle\">
@@ -18,7 +17,8 @@
                 <ul class=\"nav navbar-nav navbar-right\">
                   <li class=\"\">
                     <a href=\"javascript:;\" class=\"user-profile dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\">
-                      <img src=\"images/img.jpg\" alt=\"\">".$this->user."
+
+        <img src=\"./assets/images/user0.png\" class=\"nav-avatar\" alt=\"\">".$this->user."
                       <span class=\" fa fa-angle-down\"></span>
                     </a>
                     <ul class=\"dropdown-menu dropdown-usermenu animated fadeInDown pull-right\">
