@@ -6,41 +6,42 @@
             		 <!-- ============================================================= CONTACT INFO ============================================================= -->
 <div class="contact-info">
     <div class="footer-logo">
-        <div class="logo">
-            <a href="index.php">
+        <div class="logo"><div class="contact-timing">
+					<div class="module-heading">
+						<h4 class="module-title">opening time</h4>
+					</div><!-- /.module-heading -->
+
+					<div class="module-body outer-top-xs">
+						<div class="table-responsive">
+							<table class="table">
+								<tbody>
+									<tr><td>Monday-Friday:</td><td class="pull-right">08:00 AM To 10:00 PM</td></tr>
+									<tr><td>Saturday:</td><td class="pull-right">09:00 AM To 09:00 PM</td></tr>
+									<tr><td>Sunday:</td><td class="pull-right">10:00 AM To 10:00 PM</td></tr>
+								</tbody>
+							</table>
+						</div><!-- /.table-responsive -->
+					</div><!-- /.module-body -->
+				</div><!-- /.contact-timing -->
+            <!-- <a href="index.php">
 
 <h3>Shopping from FMCG</h3>
-            </a>
+            </a> -->
         </div><!-- /.logo -->
 
     </div><!-- /.footer-logo -->
 
-     <div class="module-body m-t-20">
+     <!-- <div class="module-body m-t-20">
         <p class="about-us"> Hello. </br>This is random text</p>
-    </div><!-- /.module-body -->
+    </div> -->
+		<!-- /.module-body -->
 
 </div><!-- /.contact-info -->
 <!-- ============================================================= CONTACT INFO : END ============================================================= -->            	</div><!-- /.col -->
 
             	<div class="col-xs-12 col-sm-6 col-md-4">
             		 <!-- ============================================================= CONTACT TIMING============================================================= -->
-<div class="contact-timing">
-	<div class="module-heading">
-		<h4 class="module-title">opening time</h4>
-	</div><!-- /.module-heading -->
 
-	<div class="module-body outer-top-xs">
-		<div class="table-responsive">
-			<table class="table">
-				<tbody>
-					<tr><td>Monday-Friday:</td><td class="pull-right">08:00 AM To 10:00 PM</td></tr>
-					<tr><td>Saturday:</td><td class="pull-right">09:00 AM To 09:00 PM</td></tr>
-					<tr><td>Sunday:</td><td class="pull-right">10:00 AM To 10:00 PM</td></tr>
-				</tbody>
-			</table>
-		</div><!-- /.table-responsive -->
-	</div><!-- /.module-body -->
-</div><!-- /.contact-timing -->
 <!-- ============================================================= CONTACT TIMING : END ============================================================= -->            	</div><!-- /.col -->
 
             	<div class="col-xs-12 col-sm-6 col-md-4">

@@ -48,7 +48,7 @@
         <div class="left_col scroll-view">
 
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><i class="fa fa-dashboard"></i> <span><?php echo APP_TITLE ?></span></a>
+            <a href="index.php" class="site_title"><i class="fa fa-dashboard"></i> <span><?php echo APP_TITLE ?></span></a>
           </div>
           <div class="clearfix"></div>
 
@@ -76,6 +76,34 @@
           <div class="page-title">
             <div class="title_left">
               <h1>404  Error . Page Not found</h1>
+              <style>
+
+
+        .err-btn{
+          color:#3498db;
+          border:1px solid #3498db;
+          border-radius:5px;
+          width:150px;
+          font-size:14pt;
+          margin-top:25px;
+          vertical-align: middle;
+          padding-top:10px;
+          padding-bottom:10px;
+          cursor:pointer;
+        }
+
+        .err-btn:hover{
+          color:white;
+          background-color: #3498db;
+        }
+
+              </style>
+              <div class="center" align="center">
+  <canvas height="100" width="100" id="canvas"></canvas>
+  <div class="subtext"><span class="quip"></span><div class="err-btn"><a href="index.php" style="text-decoration: none;">Go back Home?</a></div></div>
+</div>
+
+
             </div>
           </div>
           <div class="clearfix"></div>

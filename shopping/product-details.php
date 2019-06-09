@@ -274,7 +274,7 @@ while($row=mysqli_fetch_array($ret))
 															</div><!-- /.row -->
 														</div>
 
-
+<!--
 							<div class="stock-container info-container m-t-10">
 															<div class="row">
 																<div class="col-sm-3">
@@ -286,14 +286,15 @@ while($row=mysqli_fetch_array($ret))
 																	<div class="stock-box">
 																		<span class="value"><?php
 																		{
-																			echo htmlentities($row['quantityleft']);
+																			// echo htmlentities($row['quantityleft']);
 																		}
 
 																		?></span>
 																	</div>
 																</div>
-															</div><!-- /.row -->
-														</div>
+															</div> -->
+															<!-- /.row -->
+														<!-- </div> -->
 
 
 <div class="stock-container info-container m-t-10">
