@@ -14,9 +14,9 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 
 if(isset($_GET['del']))
 		  {
-		          mysqli_query($con,"delete from users where id = '".$_GET['id']."'");
-                  $_SESSION['delmsg']="Retailer deleted !!";
-									logify("Retailer Deleted");
+		          mysqli_query($con,"delete from executive where id = '".$_GET['id']."'");
+                  $_SESSION['delmsg']="Executive Info deleted !!";
+									logify("Executive Info Deleted");
 		  }
 
 
