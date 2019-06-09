@@ -130,6 +130,7 @@ class Sales
         data=[];
         customer = document.getElementById('hidden_customer').value;
         beats = document.getElementById('beats').value;
+        freight = document.getElementById('freight').value;
         billtype = document.getElementById('bill').value;
         puts.forEach(function (item,index)
         {
@@ -165,7 +166,7 @@ class Sales
         var dat = JSON.stringify(data);
         xhttp.open(\"POST\", \"function/sales \", true);
         xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
-        xhttp.send('total='+total+'&customer='+customer+'&beats='+beats+'&bill='+billtype+' &data='+dat +'&discount='+rewardsz );
+        xhttp.send('freight='+freight+'&total='+total+'&customer='+customer+'&beats='+beats+'&bill='+billtype+' &data='+dat +'&discount='+rewardsz );
 
       }
       var disp =['<tr><th>Batch Code</th>\
@@ -325,6 +326,7 @@ class Sales
 
       <h4>Total : <input id='tot' class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
       <h4>Final Amount : <input id='final' class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
+      <h4>Freight Amount : <input id='freight' class='form-control' value='0' disabled='true' type='text'  style='width: 300px' ></h4>
       <label>Bill Type:</label><br>
       <select style='width:300px' id='bill' class='form-control'><option>Cash</option><option>Credit</option></select>
       <br>
