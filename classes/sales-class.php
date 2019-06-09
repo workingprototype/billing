@@ -108,8 +108,8 @@ class Sales
         uomz=document.getElementById('uom'+a).value;
         discz=document.getElementById('disc'+a).value;
         gstz=document.getElementById('gst'+a).value;
-        if(uomz==1){
-          rqty=qtyz/utcz;
+        if(uomz==2){
+          rqty=qtyz*utcz;
         }else{
           rqty=qtyz;
         }
