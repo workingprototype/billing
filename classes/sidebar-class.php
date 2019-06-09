@@ -197,6 +197,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
         $this->submenu("Retailer Registration","retailerreg");  //submenu2.1
         $this->submenu("Manage Retailer Info","manageretailerreg");  //submenu2.1
         $this->submenu("Marketing Executive Registration","executivereg");  //submenu2.1
+        $this->submenu("Manage Executive Info","manageexecutivereg");  //submenu2.1
         $this->submenu("Create and Manage Beat Entry","beat");  //submenu2.1
         $this->submenu("Create & Manage Tax Settings","addtax");  //submenu2.1
         $this->submenu("Reward Settings","rewardsettings");  //submenu2.1
@@ -204,6 +205,7 @@ class Sidebar    //create a class: Sidebar, and print the HTML elements that you
 
         $this->submenu("Change Password","changepassword");
         $this->submenu("Activity Log","log/1");
+        $this->submenu("Logout","logout");
         $this->menu("<i class=\"fa fa-key\"></i>Account Settings");
 
     }
