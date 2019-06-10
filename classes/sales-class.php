@@ -117,7 +117,7 @@ class Sales
         discfraction=(1-(discz/100));
         amount2=(amountz*discfraction).toFixed(2);
         gstaz=((gstz/100)*amount2).toFixed(2);
-        totalamount=Number(amount2) + Number(gstaz);
+        totalamount=(Number(amount2) + Number(gstaz)).toFixed(2);
         document.getElementById('amount'+a).value=amountz;
         document.getElementById('gsta'+a).value=gstaz;
         document.getElementById('total'+a).value=totalamount;
@@ -326,7 +326,7 @@ class Sales
 
       <h4>Total : <input id='tot' class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
       <h4>Final Amount : <input id='final' class='form-control' disabled='true' type='text'  style='width: 300px' ></h4>
-      <h4>Freight Amount : <input id='freight' class='form-control' value='0' disabled='true' type='text'  style='width: 300px' ></h4>
+      <h4>Freight Amount : <input id='freight' class='form-control' value='0' type='text'  style='width: 300px' ></h4>
       <label>Bill Type:</label><br>
       <select style='width:300px' id='bill' class='form-control'><option>Cash</option><option>Credit</option></select>
       <br>

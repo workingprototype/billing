@@ -247,7 +247,7 @@ elseif($request[1]=="sales")
       'customer',
       'paymentdue',
       'remarks',
-      'frieghta'
+      'freighta'
       ];
       $sql="INSERT INTO ".$table." (";
       foreach ($col as $key => $value) {
@@ -627,7 +627,7 @@ elseif($request[1]=="purchasereportget")
     $date = date("d-m-Y",$row['timestamp']);
     $supplier = $row['firmname'];
     $suppliercon = $row['contact'];
-    echo "<tr><td style='width:10px;'>".$i++."</td><td style='width:40px;'>$date</td><td >".$row['invoicenumber']."</td><td style='width:10px;'>".$supplier."</td><td style='width:10px;'>".$suppliercon."</td><td style='width:10px;'>".$row['totalwhole']."</td><td style='width:10px;'>".$row['sgst']."</td><td style='width:10px;'>".$row['cgst']."</td><td style='width:10px;' ><a href='../editpurchase/".$row['id']."'>View/Edit</a></td></tr>";
+    echo "<tr><td style='width:10px;'>".$i++."</td><td style='width:40px;'>$date</td><td >".$row['invoicenumber']."</td><td style='width:10px;'>".$supplier."</td><td style='width:10px;'>".$suppliercon."</td><td style='width:10px;'>".$row['totalwhole']."</td><td style='width:10px;'>".$row['sgst']."</td><td style='width:10px;'>".$row['cgst']."</td><td style='width:10px;' ><a href='../invoice/".$row['id']."'>View/Edit</a></td></tr>";
   }
 }
 elseif($request[1]=="stocks")

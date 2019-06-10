@@ -2,12 +2,11 @@
     function getbeats()
     {
         $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
-        $sql="SELECT beat FROM beat";
+        $sql="SELECT * FROM beat";
         $result = $db->query($sql);
-        $sql=$result->fetch_assoc();
         $a = "";
         while ($row=$result->fetch_assoc()) 
-            $a.= "<option>".$row['beat']."</option>";
+            $a.= "<option value='".$row['id']."'>".$row['beat']."</option>";
         return $a;
     }
     function tablehead($th){

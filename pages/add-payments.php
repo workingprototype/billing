@@ -1,6 +1,6 @@
 
 <?php
-
+$approot = APP_ROOT;
 $content="
 <script>
 function duelist(a){
@@ -11,7 +11,7 @@ function duelist(a){
 			document.getElementById(\"due\").innerHTML=this.responseText;
         }
     };
-    xhttp.open(\"POST\", \"function/duelist \", true);
+    xhttp.open(\"POST\", \"".$approot."function/duelist \", true);
     xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
     xhttp.send(\"id=\"+a);
 	duelist2(a);
@@ -24,7 +24,7 @@ function duelist2(a){
 			document.getElementById(\"dueshow\").innerHTML=this.responseText;
         }
     };
-    xhttp.open(\"POST\", \"function/duelist2\", true);
+    xhttp.open(\"POST\", \"".$approot."function/duelist2\", true);
     xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
     xhttp.send(\"id=\"+a);
 }
@@ -42,7 +42,7 @@ function autocompleted(id,value,supervalue){
 		document.getElementById('drop_'+a).innerHTML=this.responseText;
 	  }
 	};
-	xhttp.open(\"POST\", \"function/auto\"+a, true);
+	xhttp.open(\"POST\", \"".$approot."function/auto\"+a, true);
 	xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");
 	xhttp.send('data='+value);
   }
