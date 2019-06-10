@@ -28,10 +28,16 @@ if($request[1]=='sales'){
         $tobepaid=$row['paymentdue'];
         $base=$row['baserate'];
         $am=$row['amount'];
+        $dis=($row['dis']/100)*$am;
+        $taxable=$am-$dis;
         $gst=$row['gst'];
+        $cgst=$row['gst']/2;
+        $sgst=$row['gst']/2;
         $business=$row['business'];
         $beat=$row['beat'];
         $gsta=$row['gstamount'];
+        $cgsta=$row['gstamount']/2;
+        $sgsta=$row['gstamount']/2;
         $tot=$row['total'];
         $fr=$row['finalrate'];
         $invoice_date = date("d-M-Y", $row['timestamp']);
@@ -39,15 +45,17 @@ if($request[1]=='sales'){
         $ix</td>
         $productname</td>
         $hsn</td>
-        $utc</td>
         $qty</td>
         $mrp</td>
         $base</td>
         $am</td>
-        $gst</td>
-        $gsta</td>
-        $tot</td>
-        $fr";
+        $dis</td>
+        $taxable</td>
+        $cgst</td>
+        $cgsta</td>
+        $sgst</td>
+        $sgsta</td>
+        $tot";
         foreach ($firms as $key => $firm) {
           if($firm==$business){
             $stat=1;
@@ -79,39 +87,42 @@ if($request[1]=='sales'){
             $gstin=$row['gstin'];
             $stateb=$row['state'];
             $conb=$row['phone'];
+            $addr=$row['address'];
           } 
         }
         $firmd.="<tr>
-        <th>GST IN : $gstin  </th>
-        <th>FIRM NAME ".($key + 1).": $firmn </th>
+        <td style='border:0'>GST IN : $gstin  </th>
+        <td align='center' style='border:0; font-size:23px;'><strong>$firmn</strong></th>
+        <th style='border:0; width:200px'>TAX INVOICE</th>
         </tr>";
         unset($gstin);
         unset($firmn);
       } 
-      $table= "<table class='table table-bordered'>
+      $table= "<table style='margin:0' class='table'>
       $firmd
       <tr>
-      <th colspan='2'>STATE : $stateb </th>
-      <th>CONTACT NO : $conb </th>
+      <td style='border:0'>STATE : $stateb </th>
+      <td align='center' style='border:0'>$addr</th>
+      <td style='border:0'>CONTACT NO : $conb </th>
       </tr>
       </table>";
       $table.="
-      <table class='table table-bordered'>
+      <table style='margin:0;' class='table table-bordered'>
       <tr>
-      <td><strong>CUSTOMER NAME: </strong> $customer_name </td>
+      <td><strong>Retailer Name: </strong> $customer_name </td>
       <td><strong>INVOICE NO:</strong> $invoice </td>
       </tr>
       <tr>
-      <td><strong>ADDRESS: </strong> $customer_address </td>
+      <td><strong>Address: </strong> $customer_address </td>
       <td><strong>INVOICE DATE:</strong> $invoice_date </td>
       </tr>
       <tr>
-      <td><strong>CONTACT No: </strong> $customer_contact </td>
-      <td><strong>BEAT:</strong> $beat </td>
+      <td><strong>Mobile No: </strong> $customer_contact </td>
+      <td><strong>Beat (Area):</strong> $beat </td>
       </tr>
       <tr>
-      <td><strong>STATE: </strong> $state </td>
-      <td><strong>BILL TYPE:</strong> <span id='billt'>Original Copy</span></td>
+      <td><strong>State: </strong> $state </td>
+      <td><strong>Bill Type:</strong> <span id='billt'>Original Copy</span></td>
       </tr>
       </table>
       ";
@@ -122,7 +133,7 @@ if($request[1]=='sales'){
         $iz[0][$iz[1]++]=$value[0];
       }
       $iz[1]=0;
-      //add the info to an array row by row, if duplicate found after combine both if dublicate found before then mark as duplicate;
+      //add the info to an array row by row, if duplicate found after combine both if duplicate found before then mark as duplicate;
       foreach ($iz[0] as $k => $val) {
         $iz[2][$k]="N";              
         foreach ($iz[0] as $key => $value) {
@@ -155,6 +166,7 @@ if($request[1]=='sales'){
             $acc[11]=$value[11];
           }
         }
+        var_dump($acc);
         return implode("</td>",$acc);
       }
       $newrow=[];
@@ -183,20 +195,22 @@ if($request[1]=='sales'){
       //
       //
       $table.="
-      <table class='table table-bordered'>
+      <table style='margin:0' class='table table-bordered'>
       <tr>
       <th>S.No</th>
       <th>Product Name</th>
-      <th>HSN CODE</th>
-      <th>UTC</th>
-      <th>Quantity</th>
+      <th>HSN/SAC</th>
+      <th>Qty</th>
       <th>MRP</th>
-      <th>Base Rate</th>
+      <th>Rate</th>
       <th>Amount</th>
-      <th>GST%</th>
-      <th>GST Amount</th>
+      <th>Dis</th>
+      <th>Taxable</th>
+      <th>CGST %</th>
+      <th>CGST Amt</th>
+      <th>SGST %</th>
+      <th>SGST Amt</th>
       <th>Total</th>
-      <th>Final Rate</th>
       </tr>
       $rows
       </table>
@@ -205,7 +219,7 @@ if($request[1]=='sales'){
         $reward=0;
       }
       $table.="
-      <table class='table table-bordered'>
+      <table  class='table table-bordered'>
       <tr>
       <th>Rewards</th>
       <th>Total Amount</th>
@@ -235,10 +249,12 @@ if($request[1]=='sales'){
     $page->var['header']="
     <style type=\"text/css\" media=\"print\">
     body {  visibility: hidden; }
-    .print { 
+    .print {
+      font-size:7px; 
       visibility: visible;
       position: absolute;
       left:0;
+      margin:0;
       top:0;
      }
      .print  * { 
@@ -256,7 +272,10 @@ if($request[1]=='sales'){
     <Button class='btn btn-danger' onclick='window.print()'>Print</button><a href='../../addpayments/$invoice' <Button class='btn btn-primary'>Pay Here</button></a>";
     $page->var['title']="Invoice";
     $page->render();
-}elseif($request[1]=='purchase'){
+}
+
+
+elseif($request[1]=='purchase'){
     $id=$request[2];
     $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
     $sql = "SELECT * FROM purchase WHERE id='$id'";
@@ -270,7 +289,8 @@ if($request[1]=='sales'){
     $fpointer=0;
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
-        $customer = $row['customer'];
+      	$invoice= $row['invoicenumber'];
+        $supplier = $row['supplier'];
         $productid=$row['product'];
         $sqz="SELECT * FROM products WHERE id='$productid'";
         $res=$db->query($sqz);
@@ -316,13 +336,13 @@ if($request[1]=='sales'){
           $firms[$fpointer++]=$business;
         }
       }
-      $sql = "SELECT * FROM users WHERE id='$customer'";
+      $sql = "SELECT * FROM supplier WHERE id='$supplier'";
       $res = $db->query($sql);
       if ($res->num_rows > 0) {
         while($row = $res->fetch_assoc()) {
-            $customer_name=$row['name'];
-            $customer_contact=$row['contactno'];
-            $customer_address=$row['billingAddress'];
+            $supplier_name=$row['productcompany']." | ".$row['firmname'];
+            $supplier_contact=$row['contactno'];
+            $supplier_address=$row['billingAddress'];
             $state=$row['billingState'];
         } 
       }
@@ -355,15 +375,15 @@ if($request[1]=='sales'){
       $table.="
       <table class='table table-bordered'>
       <tr>
-      <td><strong>CUSTOMER NAME: </strong> $customer_name </td>
+      <td><strong>SUPPLIER NAME: </strong> $supplier_name </td>
       <td><strong>INVOICE NO:</strong> $invoice </td>
       </tr>
       <tr>
-      <td><strong>ADDRESS: </strong> $customer_address </td>
+      <td><strong>ADDRESS: </strong> $supplier_address </td>
       <td><strong>INVOICE DATE:</strong> $invoice_date </td>
       </tr>
       <tr>
-      <td><strong>CONTACT No: </strong> $customer_contact </td>
+      <td><strong>CONTACT No: </strong> $supplier_contact </td>
       <td><strong>BEAT:</strong> $beat </td>
       </tr>
       <tr>
@@ -444,11 +464,11 @@ if($request[1]=='sales'){
       <tr>
       <th>S.No</th>
       <th>Product Name</th>
-      <th>HSN CODE</th>
-      <th>UTC</th>
-      <th>Quantity</th>
+      <th>HSN/SAC</th>
+      <th>Batch</th>
+      <th>Qty</th>
       <th>MRP</th>
-      <th>Base Rate</th>
+      <th>Rate</th>
       <th>Amount</th>
       <th>GST%</th>
       <th>GST Amount</th>
