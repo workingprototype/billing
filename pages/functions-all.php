@@ -1,5 +1,15 @@
 <?php
 include_once "./classes/database-class.php";
+function invoicegen($input_number){
+  $number_part=str_pad($input_number, 7, '0', STR_PAD_LEFT);// makes the number into 6 digit by adding leading zeroes
+  //$timestamp = time(); this part is minimized
+  $thisyear = date("y");
+  if(date("y")<4)
+    $year_part = ($thisyear-1)."-".$thisyear;
+  else
+    $year_part = $thisyear."-".($thisyear+1);
+  return $year_part."-".$number_part; 
+}
 function addrewards($invoice){
   echo $invoice;
   //select the sales with the invoice number $invoice;
@@ -186,7 +196,6 @@ elseif($request[1]=="purchase")
     }
     $sql .=")";
     if ($db->query($sql) === TRUE) {
-
       $id=$v[0];
       $sql = "SELECT * FROM products
         WHERE id='$id'";
@@ -265,9 +274,13 @@ elseif($request[1]=="sales")
       }
       $sql .=")";
       if ($db->query($sql) === TRUE) {
+      	$last_id = mysqli_insert_id($db);
+      	$invoice=invoicegen($last_id);
         $id=$v[0];
+        $sql = "UPDATE sales SET invoice='$invoice' WHERE id=$last_id;";
+        $result = $db->query($sql);
         $sql = "SELECT * FROM products
-          WHERE id='$id'";
+          WHERE id='$id';";
         $result = $db->query($sql);
         if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();

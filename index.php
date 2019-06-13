@@ -36,6 +36,7 @@ if(isset($_GET['dir'])){
    route("adduom","./pages/add-unit.php");
     route("addtax","./pages/add-tax-info.php");
     route("addpayments","./pages/add-payments.php");
+    route("autoaddpayments","./pages/add-payments-autofill.php");
      // route("editcategory","./pages/edit-category.php");
     route("insertproducts","./pages/insert-products.php");
     route("manageproducts","./pages/manage-products.php");

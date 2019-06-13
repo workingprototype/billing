@@ -250,7 +250,7 @@ if($request[1]=='sales'){
     <style type=\"text/css\" media=\"print\">
     body {  visibility: hidden; }
     .print {
-      font-size:7px; 
+      font-size:8px; 
       visibility: visible;
       position: absolute;
       left:0;
@@ -269,7 +269,7 @@ if($request[1]=='sales'){
     </script>
     <div class='print'>".$table."</div>
     <select class='form-control' style='width:200px;' onchange='billtype(this.value)' ><option>Original Copy</option><option>Duplicate Copy</option><option>Transport Copy</option></select><br>
-    <Button class='btn btn-danger' onclick='window.print()'>Print</button><a href='../../addpayments/$invoice' <Button class='btn btn-primary'>Pay Here</button></a>";
+    <Button class='btn btn-danger' onclick='window.print()'>Print</button><a href='../../autoaddpayments/$invoice' <Button class='btn btn-primary'>Pay Here</button></a>";
     $page->var['title']="Invoice";
     $page->render();
 }
