@@ -711,6 +711,12 @@ elseif($request[1]=="customerrep")
   $i=1;
   while($row=$result->fetch_assoc()){
     $id=$row['id'];
+    $sq="SELECT * FROM transaction_history WHERE customer='$id'";
+    $resultc=$db->query($sq);
+    $amountpayed=0;
+    while ($rowc=$resultc->fetch_assoc()){
+      $amountpayed+=$rowc['amount'];
+    }
     $sq="SELECT * FROM sales WHERE customer='$id' GROUP BY invoice";
     $resultc=$db->query($sq);
     $purchases=0;
@@ -724,7 +730,7 @@ elseif($request[1]=="customerrep")
     while ($rowc=$resultc->fetch_assoc()){
       $paymentdue+=$rowc['dueamount'];
     }
-    echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['name']."</td><td style='width:10px;'>".$row['contactno']."</td><td style='width:10px;'>".$purchases."</td><td style='width:100px;'>Have to Add This</td><td style='width:10px;'>".$row['rewards']."</td><td style='width:10px;'>".$paymentdue."</td><td style='width:10px;'></td></tr>";
+    echo "<tr><td style='width:10px;'>".$i++."</td><td>".$row['name']."</td><td style='width:10px;'>".$row['contactno']."</td><td style='width:10px;'>".$purchases."</td><td style='width:100px;'>$amountpayed</td><td style='width:10px;'>".$row['rewards']."</td><td style='width:10px;'>".$paymentdue."</td><td style='width:10px;'></td></tr>";
   }
 }
 elseif($request[1]=="autobusiness")
