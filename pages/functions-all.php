@@ -11,7 +11,6 @@ function invoicegen($input_number){
   return $year_part."-".$number_part; 
 }
 function addrewards($invoice){
-  echo $invoice;
   //select the sales with the invoice number $invoice;
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $sql = "SELECT * FROM sales WHERE invoice='$invoice' ";
@@ -26,9 +25,7 @@ function addrewards($invoice){
   //get the current timestamp and calculate the day gap between payment and sales
   $time= time();
   var_dump($row);
-  echo "Time: $time";
   $time-=$timestampsales;
-  echo "Timestampsales: $timestampsales Time: $time";
   $daygap= $time/86400;
   //select the reward settings and find the reward percentage for the days found out
   $sql = "SELECT * FROM rewardsettings WHERE id=1";
@@ -50,7 +47,6 @@ function addrewards($invoice){
   }else{
     $percent=100;
   }
-  echo $daygap."s".$timestampsales;
   $rewardamount=(float)$rewardeligible*(float)$percent/100;
   //select the reward cell of the customer
   $sql = "SELECT * FROM users WHERE id='$customer'";
@@ -515,14 +511,20 @@ elseif($request[1]=="record_payment")
 {
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $id=$_POST['invoice'];
-  $sql="SELECT * FROM paymentdue where id=$id";
+  $sql="SELECT * FROM paymentdue WHERE id=$id";
   $result = $db->query($sql)->fetch_assoc();
+  $payed = (float)$_POST['amountpaying'];
+  $user = $result['customer'];
+  $time=time();
+  $invoice = $result['salesinvoice'];
   $dueremaining=(float)$result['dueamount'] - (float)$_POST['amountpaying'];
   $inv=$result['salesinvoice'];
   if($dueremaining>= 0){
     if($dueremaining==0){
       addrewards($inv);
     }
+    $sql = "INSERT INTO transaction_history (customer, amount, timestamp, invoice) VALUES ('$user', '$payed', '$time', '$invoice')";
+    $db->query($sql);
     $sql="UPDATE paymentdue SET dueamount ='$dueremaining' WHERE id='$id'";
 
     if ($db->query($sql) === TRUE) {
