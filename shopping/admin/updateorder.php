@@ -20,12 +20,6 @@ echo "<script>alert('Order updated sucessfully...');</script>";
 
 $content.='
 <script language="javascript" type="text/javascript">
-$(document).keydown(function(e) {
-    // ESCAPE key pressed
-    if (e.keyCode == 27) {
-        window.close();
-    }
-});
 function f2()
 {
 window.close();
@@ -127,8 +121,16 @@ $st='Delivered';
 ';
 }
 require_once "../../classes/page-class.php";
-
+require_once "../../classes/sidebar-class.php";
+require_once "../../classes/top-navigation-class.php";
+require_once "../../classes/footer-class.php";
 $page = new Page;
+$sidebar = new Sidebar;
+$footer = new Footer;
+$navbar = new TopNav;
+$page->var['navbar']=$navbar->echo();
+$page->var['sidebar']=$sidebar->echo();
+$page->var['footer']=$footer->echo();
 $page->var['content']=$content;
 $page->var['title']=("Update Order Status: ");
 $page->render();
