@@ -269,7 +269,7 @@ if($request[1]=='sales'){
     </script>
     <div class='print'>".$table."</div>
     <select class='form-control' style='width:200px;' onchange='billtype(this.value)' ><option>Original Copy</option><option>Duplicate Copy</option><option>Transport Copy</option></select><br>
-    <Button class='btn btn-danger' onclick='window.print()'>Print</button><a href='../../autoaddpayments/$invoice' <Button class='btn btn-primary'>Pay Here</button></a>";
+    <a href='../../PRINT/$invoice'><Button class='btn btn-danger'>Print</button></a><a href='../../autoaddpayments/$invoice' <Button class='btn btn-primary'>Pay Here</button></a>";
     $page->var['title']="Invoice";
     $page->render();
 }
