@@ -1,7 +1,7 @@
 <?php
 $sql = file_get_contents('./config/db.sql');
 
-$mysqli = new mysqli("localhost", "john_constantine", "imbatmanbitch", "smcg_database");
+$mysqli = new mysqli("localhost", "u306375126_john", "password", "u306375126_bill");
 if (mysqli_connect_errno()) { /* check connection */
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
