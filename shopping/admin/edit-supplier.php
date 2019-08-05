@@ -122,7 +122,9 @@ $content.='
 
 <label class="control-label" for="basicinput">GSTIN</label>
 <div class="controls"></br>
-<input type="text" style="width:1000px;" name="gstin" value="'.htmlentities($row['gstin']).'" class="form-control">
+<input type="text" class="form-control unicase-form-control text-input" pattern="[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}" id="gstin" name="gstin" required="required" value="'.htmlentities($row['gstin']).'" oninvalid="this.setCustomValidity(\'Please enter the correct GSTIN number\')"
+onchange="try{setCustomValidity(\'\')}catch(e){}"
+oninput="setCustomValidity(\' \')"  >
 </div>
 
 <label class="control-label" for="basicinput">FSSAI</label>
