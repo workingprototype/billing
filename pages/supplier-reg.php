@@ -128,7 +128,45 @@ error:function (){}
 
 <div class="form-group">
 	    	<label class="info-title" for="state">State <span>*</span></label>
-	    	<input type="text" class="form-control unicase-form-control text-input" id="state" name="state" required="required">
+				<select class="form-control unicase-form-control text-input" id="state" name="state" required="required">
+				<option value="">------------Select State------------</option>
+			<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+			<option value="Andhra Pradesh">Andhra Pradesh</option>
+			<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+			<option value="Assam">Assam</option>
+			<option value="Bihar">Bihar</option>
+			<option value="Chandigarh">Chandigarh</option>
+			<option value="Chhattisgarh">Chhattisgarh</option>
+			<option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+			<option value="Daman and Diu">Daman and Diu</option>
+			<option value="Delhi">Delhi</option>
+			<option value="Goa">Goa</option>
+			<option value="Gujarat">Gujarat</option>
+			<option value="Haryana">Haryana</option>
+			<option value="Himachal Pradesh">Himachal Pradesh</option>
+			<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+			<option value="Jharkhand">Jharkhand</option>
+			<option value="Karnataka">Karnataka</option>
+			<option value="Kerala">Kerala</option>
+			<option value="Lakshadweep">Lakshadweep</option>
+			<option value="Madhya Pradesh">Madhya Pradesh</option>
+			<option value="Maharashtra">Maharashtra</option>
+			<option value="Manipur">Manipur</option>
+			<option value="Meghalaya">Meghalaya</option>
+			<option value="Mizoram">Mizoram</option>
+			<option value="Nagaland">Nagaland</option>
+			<option value="Orissa">Orissa</option>
+			<option value="Pondicherry">Pondicherry</option>
+			<option value="Punjab">Punjab</option>
+			<option value="Rajasthan">Rajasthan</option>
+			<option value="Sikkim">Sikkim</option>
+			<option value="Tamil Nadu">Tamil Nadu</option>
+			<option value="Tripura">Tripura</option>
+			<option value="Uttaranchal">Uttaranchal</option>
+			<option value="Uttar Pradesh">Uttar Pradesh</option>
+			<option value="West Bengal">West Bengal</option>
+	</select>
+
 </div>
 
 <div class="form-group">
@@ -138,7 +176,9 @@ error:function (){}
 
 <div class="form-group">
 	    	<label class="info-title" for="gstin">GSTIN: <span>*</span></label>
-	    	<input type="text" class="form-control unicase-form-control text-input" id="gstin" name="gstin" required="required">
+	    	<input type="text" class="form-control unicase-form-control text-input" pattern="[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}" id="gstin" name="gstin" required="required" oninvalid="this.setCustomValidity(\'Please enter the correct GSTIN number\')"
+      onchange="try{setCustomValidity(\'\')}catch(e){}"
+      oninput="setCustomValidity(\' \')"  >
 </div>
 
 <div class="form-group">
