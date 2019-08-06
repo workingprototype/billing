@@ -49,7 +49,7 @@ $invoice=$request[1];
         $ix</td>
         $productname</td>
         $hsn</td>
-        $qty</td>
+        $qty Case</td>
         $mrp</td>
         $base</td>
         $am</td>
@@ -265,6 +265,13 @@ $obj_pdf->SetFont('helvetica', '', 7);
 $obj_pdf->AddPage();
 
 
+$roundt= round($tottt,2);
+$round= $roundt-$tottt;
+if($round<0){
+  $roundt=round($tottt+1 ,2);
+  $round= $roundt-$tottt;
+}
+
 $content = '<table  cellspacing="0" cellpadding="1" border="0">
 <tr>
 	<td>GSTIN: '.$gstin.'</td>
@@ -327,6 +334,28 @@ $content = '<table  cellspacing="0" cellpadding="1" border="0">
 	<td align="center">'.$tots.'</td>
 	<td align="center">'.$tottt.'</td>
 	
+</tr>
+
+</table>
+
+<table cellspacing="0" cellpadding="1" border="0.2">
+<tr>
+	<td  colspan="8" align="left"> Total in words</td>
+	<td colspan="4" align="left">Tax amount before tax :  '.$tott.'</td>
+	
+</tr>
+<tr>
+<td  style="border-color:white" rowspan="4" colspan="8" align="left"></td>
+<td colspan="4" align="left">Add: CGST: '.$totc.' </td>
+</tr>
+<tr>
+<td colspan="4" align="left">Add: SGST: '.$tots.' </td>
+</tr>
+<tr>
+<td colspan="4" align="left">Roundoff: '.$round.' </td>
+</tr>
+<tr>
+<td colspan="4" align="left">Tax amount after tax: '.$roundt.' </td>
 </tr>
 
 </table>
