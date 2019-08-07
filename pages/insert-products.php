@@ -36,8 +36,7 @@ logify("New Product: " . "$productname" . "  Added!" );
 }
 {
 $content='
-
-
+<script type="text/javascript" src="./shopping/admin/typeahead.js"></script>
 
    <script>
 function getSubcat(val) {
@@ -56,7 +55,18 @@ $("#suggesstion-box").hide();
 }
 </script>
 
-
+<style>
+.typeahead { border: 2px solid #FFF;border-radius: 4px;padding: 8px 12px;max-width: 300px;min-width: 290px;background:white;color: black;}
+.tt-menu { width:300px; }
+ul.typeahead{margin:0px;padding:10px 0px;}
+ul.typeahead.dropdown-menu li a {padding: 10px !important;	border-bottom:#CCC 1px solid;color:black;}
+ul.typeahead.dropdown-menu li:last-child a { border-bottom:0px !important; }
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+	text-decoration: none;
+	background-color: #4c8bf5 ;
+	outline: 0;
+}
+</style>
 
 	<div class="wrapper">
 		<div class="container">
@@ -159,9 +169,28 @@ while($row=mysqli_fetch_array($query))
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Company</label>
 <div class="controls">
-<input type="text" style="width:1000px;" name="productCompany"  placeholder="Enter Product Company Name" class="form-control" required>
+<input type="text" autocomplete="new-stuff-dontreadchrome" style="width:1000px;" id="productCompany" name="productCompany"  placeholder="Enter Product Company Name" class="form-control typeahead" required>
 </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $(\'#productCompany\').typeahead({
+            source: function (query, result) {
+                $.ajax({
+                    url: "./shopping/admin/server.php",
+					data: \'query=\' + query,
+                    dataType: "json",
+                    type: "POST",
+                    success: function (data) {
+						result($.map(data, function (item) {
+							return item;
+                        }));
+                    }
+                });
+            }
+        });
+    });
+</script>
 <div class="control-group">
 <label class="control-label" for="basicinput">HSN Number:</label>
 <div class="controls">
