@@ -2,3 +2,9 @@
 config/app.config.php
 
 exit
+
+config/setup\.php
+
+config/config\.php
+
+config/mysql\.config\.php
