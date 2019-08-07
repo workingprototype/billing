@@ -22,6 +22,7 @@ $invoice=$request[1];
         $hsn=$product['hsnno'];
         $utc=$row['utc'];
         $qty=$row['qty'];
+        $uom=$row['uom'];
         $mrp=$row['mrp'];
         $reward=$row['remarks'];
         $total+=$row['total'];
@@ -49,7 +50,7 @@ $invoice=$request[1];
         $ix</td>
         $productname</td>
         $hsn</td>
-        $qty Case</td>
+        $qty $uom</td>
         $mrp</td>
         $base</td>
         $am</td>

@@ -150,6 +150,7 @@ class Sales
             x[12]=document.getElementById('gsta'+item).value;
             x[13]=document.getElementById('total'+item).value;
             x[14]=document.getElementById('finalrate'+item).value;
+            x[15]=document.getElementById('uom'+item).value;
             data[index]=x;
           }
         });
