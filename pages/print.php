@@ -379,7 +379,8 @@ $content = '<table  cellspacing="0" cellpadding="1" border="0">
 	
 </tr>
 <tr>
-<td  style="border-color:white" rowspan="4" colspan="8" align="left"></td>
+<td  style="border-color:white" rowspan="4" colspan="4" align="left"></td>
+<td  style="border-color:white" rowspan="4" colspan="4" align="left"></td>
 <td colspan="4" align="left">Add: CGST: '.$totc.' </td>
 </tr>
 <tr>
@@ -392,6 +393,10 @@ $content = '<table  cellspacing="0" cellpadding="1" border="0">
 <td colspan="4" align="left">Tax amount after tax: '.$roundt.' </td>
 </tr>
 
+</table>
+<table boder="0">
+<tr><td colspan="5"></td><td  align="center" colspan="1"><strong>For '.$firmn.'</strong> </td></tr>
+<tr><td colspan="5"></td><td align="center" colspan="1"><br><br><br><br>Authorized Signatory </td></tr>
 </table>
 
 '; 
