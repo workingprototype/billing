@@ -11,6 +11,9 @@ $invoice=$request[1];
     $ix=0;
     $firms=[];
     $fpointer=0;
+    $basicamt=[];
+    $gstpercent=[];
+    $gstpointer=[0,0,0];
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
         $customer = $row['customer'];
@@ -33,8 +36,22 @@ $invoice=$request[1];
         $taxable=$am-$dis;
         $taxable=intval($taxable*100)/100;
         $gst=$row['gst'];
+        foreach ($gstpercent as $key => $value) {
+          if($value==$gst){
+            $gstpointer[0]=$key;
+            $gstpointer[1]=1;
+          }
+        }
+        if($gstpointer[1]==1){
+          $basicamt[$gstpointer[0]]+=$taxable;
+          $gstpointer[1]=0;
+        }else{
+          $gstpercent[sizeof($gstpercent)]=$gst;
+          $basicamt[sizeof($basicamt)]=$taxable;
+        }
         $cgst=$row['gst']/2;
         $sgst=$row['gst']/2;
+        $basicamt[$gstpointer[0]] = $taxable; 
         $business=$row['business'];
         $beat=$row['beat'];
         $sqz="SELECT * FROM beat WHERE id='$beat'";
@@ -306,6 +323,20 @@ if($round<0){
   $round= $roundt-$tottt;
 }
 $round=round($round,2);
+$aa="";
+$ab="";
+$ac="";
+$ad="";
+$ae="";
+$af="";
+foreach ($gstpercent as $key => $value) {
+  $aa.=$gstpercent[$key]."% ".$basicamt[$key]."<br>";
+  $ab.=$gstpercent[$key]/2 ."% <br>";
+  $ac.=round($basicamt[$key]*$gstpercent[$key]/200,2)."<br>";
+  $ad.=$gstpercent[$key]/2 ."% <br>";
+  $ae.=round($basicamt[$key]*$gstpercent[$key]/200,2)."<br>";
+  $af.= $basicamt[$key]+round($basicamt[$key]*$gstpercent[$key]/100,2)."<br>" ;
+}
 $content = '<table  cellspacing="0" cellpadding="1" border="0">
 <tr>
 	<td>GSTIN: '.$gstin.'</td>
@@ -379,18 +410,31 @@ $content = '<table  cellspacing="0" cellpadding="1" border="0">
 	
 </tr>
 <tr>
-<td  style="border-color:white" rowspan="4" colspan="4" align="left"></td>
-<td  style="border-color:white" rowspan="4" colspan="4" align="left"></td>
-<td colspan="4" align="left">Add: CGST: '.$totc.' </td>
+<td rowspan="1" colspan="0.5" align="left">BASIC AMT</td>
+<td rowspan="1" colspan="0.5" align="left">SGST %</td>
+<td rowspan="1" colspan="0.5" align="left">SGST AMT</td>
+<td rowspan="1" colspan="0.5" align="left">CGST %</td>
+<td rowspan="1" colspan="0.5" align="left">CGST AMT</td>
+<td rowspan="1" colspan="0.5" align="left">Total AMT</td>
+<td  style="border-color:white" rowspan="1" colspan="2" align="left"></td>
+<td colspan="16" align="left">Add: CGST: '.$totc.' </td>
 </tr>
 <tr>
-<td colspan="4" align="left">Add: SGST: '.$tots.' </td>
+
+<td rowspan="10" colspan="0.5" align="left">'.$aa.'</td>
+<td rowspan="10" colspan="0.5" align="left">'.$ab.'</td>
+<td rowspan="10" colspan="0.5" align="left">'.$ac.'</td>
+<td rowspan="5" colspan="0.5" align="left">'.$ad.'</td>
+<td rowspan="5" colspan="0.5" align="left">'.$ae.'</td>
+<td rowspan="5" colspan="0.5" align="left">'.$af.'</td>
+<td  style="border-color:white" rowspan="5" colspan="2" align="left"></td>
+<td colspan="16" align="left">Add: SGST: '.$tots.' </td>
 </tr>
 <tr>
-<td colspan="4" align="left">Roundoff: '.$round.' </td>
+<td colspan="16" align="left">Roundoff: '.$round.' </td>
 </tr>
 <tr>
-<td colspan="4" align="left">Tax amount after tax: '.$roundt.' </td>
+<td colspan="16" align="left">Tax amount after tax: '.$roundt.' </td>
 </tr>
 
 </table>

@@ -215,6 +215,7 @@ elseif($request[1]=="purchase")
 }
 elseif($request[1]=="sales")
 {
+  $repeat=0;
   $db = new mysqli(SQL_HOST, SQL_USERNAME, SQL_PASSWORD , SQL_DBN);
   $data = json_decode($_POST['data']);
   $timestamp=time();
@@ -275,8 +276,11 @@ elseif($request[1]=="sales")
       }
       $sql .=")";
       if ($db->query($sql) === TRUE) {
-      	$last_id = mysqli_insert_id($db);
-      	$invoice=invoicegen($last_id);
+        $last_id = mysqli_insert_id($db);
+        if($repeat==0){
+          $invoice=invoicegen($last_id);
+          $repeat=1;
+        }
         $id=$v[0];
         $sql = "UPDATE sales SET invoice='$invoice' WHERE id=$last_id;";
         $result = $db->query($sql);
