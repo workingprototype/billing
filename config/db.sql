@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 09, 2019 at 05:34 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Host: localhost
+-- Generation Time: Aug 08, 2019 at 06:44 PM
+-- Server version: 10.1.40-MariaDB
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -307,7 +307,11 @@ INSERT INTO `notifications` (`id`, `timestamp`, `data`, `type`) VALUES
 (117, '1560082722', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2'),
 (118, '1560083452', '[\"New Sales Added\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2'),
 (119, '1560083593', '[\" Category: [  Added!\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2'),
-(120, '1560093433', '[\"Payment added for Invoice No : 156008345134\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2');
+(120, '1560093433', '[\"Payment added for Invoice No : 156008345134\",\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36\",\"::1\"]', '2'),
+(121, '1565169832', '[\"New Sales Added\",\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/75.0.3770.90 Chrome/75.0.3770.90 Safari/537.36\",\"::1\"]', '2'),
+(122, '1565170466', '[\"New Sales Added\",\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/75.0.3770.90 Chrome/75.0.3770.90 Safari/537.36\",\"::1\"]', '2'),
+(123, '1565266552', '[\"New Sales Added\",\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/75.0.3770.90 Chrome/75.0.3770.90 Safari/537.36\",\"::1\"]', '2'),
+(124, '1565266868', '[\"New Sales Added\",\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/75.0.3770.90 Chrome/75.0.3770.90 Safari/537.36\",\"::1\"]', '2');
 
 -- --------------------------------------------------------
 
@@ -417,7 +421,11 @@ INSERT INTO `paymentdue` (`id`, `customer`, `salesinvoice`, `dueamount`, `timest
 (7, '13', '155806642734', '0', '1558066427'),
 (8, '22', '155998577334', '66666', '1559985773'),
 (9, '13', '156008272234', '1069.9972', '1560082722'),
-(10, '13', '156008345134', '1034.94', '1560083451');
+(10, '13', '156008345134', '1034.94', '1560083451'),
+(11, '16', '19-20-0000004', '10000', '1565169832'),
+(12, '15', '19-20-0000005', '29989.129113559', '1565170466'),
+(13, '21', '19-20-0000007', '55599.43', '1565266551'),
+(14, '16', '19-20-0000008', '48027', '1565266868');
 
 -- --------------------------------------------------------
 
@@ -453,13 +461,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category`, `subCategory`, `uom`, `productName`, `productCompany`, `productPrice`, `hsnno`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `quantityleft`, `rewardsapplicable`, `taxid`, `postingDate`, `updationDate`) VALUES
-(1, '1', '1', '1', 'Bose Quiet Comfort 35 II Wireless Headphone Silver', 'Bose Electronics', '29363.00', '63454634234', '39363.00', '<div id=\"dpx-product-description_feature_div\" style=\"box-sizing: border-box;\"><div id=\"descriptionAndDetails\" class=\"a-section a-spacing-extra-large\" style=\"box-sizing: border-box; margin-bottom: 0px;\"><div id=\"productDescription_feature_div\" class=\"feature\" data-feature-name=\"productDescription\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box;\"><div id=\"productDescription_feature_div\" data-feature-name=\"productDescription\" data-template-name=\"productDescription\" class=\"a-row feature\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box; width: 1674px;\"><div id=\"productDescription\" class=\"a-section a-spacing-small\" style=\"box-sizing: border-box; margin: 0.5em 0px 0em 25px; overflow-wrap: break-word; line-height: initial;\"><p style=\"box-sizing: border-box; padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em;\"><font face=\"Amazon Ember, Arial, sans-serif\" size=\"2\"><b>Quiet comfort 35 wireless headphones II</b></font><br></p></div></div></div></div></div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '81B1hwVr9ML._SL1500_.jpg', '81eKatMbk7L._SL1500_.jpg', '71DNFlj7zdL._SL1500_.jpg', '180', 'In Stock', '-21', '0', '1', '2019-04-12 21:34:04', NULL),
+(1, '1', '1', '1', 'Bose Quiet Comfort 35 II Wireless Headphone Silver', 'Bose Electronics', '29363.00', '63454634234', '39363.00', '<div id=\"dpx-product-description_feature_div\" style=\"box-sizing: border-box;\"><div id=\"descriptionAndDetails\" class=\"a-section a-spacing-extra-large\" style=\"box-sizing: border-box; margin-bottom: 0px;\"><div id=\"productDescription_feature_div\" class=\"feature\" data-feature-name=\"productDescription\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box;\"><div id=\"productDescription_feature_div\" data-feature-name=\"productDescription\" data-template-name=\"productDescription\" class=\"a-row feature\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box; width: 1674px;\"><div id=\"productDescription\" class=\"a-section a-spacing-small\" style=\"box-sizing: border-box; margin: 0.5em 0px 0em 25px; overflow-wrap: break-word; line-height: initial;\"><p style=\"box-sizing: border-box; padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em;\"><font face=\"Amazon Ember, Arial, sans-serif\" size=\"2\"><b>Quiet comfort 35 wireless headphones II</b></font><br></p></div></div></div></div></div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '81B1hwVr9ML._SL1500_.jpg', '81eKatMbk7L._SL1500_.jpg', '71DNFlj7zdL._SL1500_.jpg', '180', 'In Stock', '-51', '0', '1', '2019-04-12 21:34:04', NULL),
 (2, '1', '1', '1', 'Sonys WH-1000XM3 Wireless Industry Leading Noise Cancellation Headphones with Alexa (Black)', 'Sony Electronics', '26990.00', '87504634234', '29990.00', '<div id=\"dpx-product-description_feature_div\" style=\"box-sizing: border-box; color: rgb(17, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\"><div id=\"descriptionAndDetails\" class=\"a-section a-spacing-extra-large\" style=\"box-sizing: border-box; margin-bottom: 0px;\"><div id=\"productDescription_feature_div\" class=\"feature\" data-feature-name=\"productDescription\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box;\"><div id=\"productDescription_feature_div\" data-feature-name=\"productDescription\" data-template-name=\"productDescription\" class=\"a-row feature\" data-cel-widget=\"productDescription_feature_div\" style=\"box-sizing: border-box; width: 1674px;\"><div id=\"productDescription\" class=\"a-section a-spacing-small\" style=\"box-sizing: border-box; margin: 0.5em 0px 0em 25px; color: rgb(51, 51, 51); overflow-wrap: break-word; font-size: small; line-height: initial;\"><ul class=\"a-unordered-list a-vertical a-spacing-none\" style=\"box-sizing: border-box; margin-bottom: 0px; margin-left: 18px; color: rgb(148, 148, 148); font-size: 13px;\"><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Industry-leading Digital Noise Cancelling lets you listen without distractions with QN1 HD Processor</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Quick Attention Mode for effortless conversations without taking your headphones off</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Quick charge for 10min charge for 5 hours play back</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Battery life up to 30hrs for long listening hours</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Sony | Headphones Connect APP for Android /iOS to use Smart Listening technology to control your ambient sound settings</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Touch Sensors to play and skip tracks, control volume by a simple tap or swipe on the ear cups</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Noise Cancelling Optimizer automatically adjusts to your surroundings and activities</span></li></ul></div></div></div></div></div>\r\n\r\n', '61TT0ZPDlLL._SL1500_.jpg', '71jG6sNzmLL._SL1500_.jpg', '61Wdwg+R-aL._SL1500_.jpg', '260', 'In Stock', '0', '0', '1', '2019-04-12 21:36:59', NULL),
 (3, '4', '7', '3', 'Matrix Men Formal Eco Fleece Sherpa Collar Duster Coat with Pockets', 'Ziaesm', '8177.97', '7323423423', '8377.97', '<h3 class=\"a-spacing-mini\" style=\"box-sizing: border-box; padding: 0px; font-size: 17px; line-height: 1.255; font-family: Arial, sans-serif; color: rgb(17, 17, 17); margin-bottom: 6px !important;\">Quilted Jacket</h3><p style=\"box-sizing: border-box; padding: 0px; margin-bottom: 14px; color: rgb(17, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\">Designed to be both functional and fashionable, this modern travel friendly bomber jacket has a stylish flair. The Ben Martin jacket is reliable, especially as the temperatures drop and a light breeze chills the air. Typically casual, this jacket embodies both retro cool and modern style. It is designed to take you from a party setting to the casual ski mountains in high style.</p>', 'Movie-Clothes-Matrix-Neo-Cosplay-Costume-Black-uniform-suit-Trench-Coat-only-Customizable.jpg_640x640.jpg', 'pms-coat-same-as-photo-s-chic-stand-collar-button-thicken-woolen-long-coat-4503005823070_1200x1200.jpg', 'The-Matrix-Cosplay-Customised-Black-Cosplay-Costume-Neo-Trench-Coat-Only-Coat-womens-mens-girls-boys.jpg_640x640.jpg', '20', 'In Stock', '1445', '1\r\n', '1', '2019-04-12 21:42:41', NULL),
 (4, '1', '5', '1', 'OnePlus 6T (Mirror Black, 8GB RAM, 128GB Storage)', 'OnePlus', '37999.99', '4355435234', '41999.00', '<ul class=\"a-unordered-list a-vertical a-spacing-none\" style=\"box-sizing: border-box; margin-bottom: 0px; margin-left: 18px; color: rgb(148, 148, 148); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\"><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Camera: 16+20 MP Dual rear camera with Optical Image Stabilization, Super slow motion, Nightscape and Studio Lighting | 16 MP front camera</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Display:&nbsp;6.41-inch(16.2 cms)&nbsp;Full HD+ Optic AMOLED display with 2340 x 1080 pixels resolution and an 86% screen-to-body ratio</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Memory, Storage &amp; SIM: 8GB RAM | 128GB storage | Dual nano SIM with dual standby (4G+4G)</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Screen Unlock: In-screen fingerprint sensor. The OnePlus 6T unlocks in 0.34s for a seamless and intuitive unlock experience</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Operating System and Processor: OxygenOS based on Android 9.0 Pie with 2.8GHz Qualcomm Snapdragon 845 octa-core processor</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Battery : 3700 mAh lithium-polymer battery with Fast Charge technology</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Included in the Box: Screen Protector (pre-applied); Translucent Case; OnePlus Fast Charge Type-C Cable; OnePlus Fast Charge Power Adapter; SIM Tray Ejector; Quick Start Guide; Safety Information; OnePlus Type-C to 3.5mm Audio Jack Adapter</span></li></ul>\r\n\r\n\r\n', 'specs-image-OnePlus-6T-Mirror-Black.jpg', 'specs-image-OnePlus-6T-Mirror-Black.jpg', 'specs-image-OnePlus-6T-Mirror-Black.jpg', '0', 'In Stock', '0', '0', '1', '2019-04-12 21:45:32', NULL),
 (5, '1', '5', '1', 'Apple iPhone X (64GB) - Silver', 'Apple Inc', '75000.00', '63457354345', '91900.00', '<span style=\"color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">iPhone X features a 5.8-inch Super Retina display with HDR and True Tone. An all-screen design and a surgical-grade stainless steel band. Charges wirelessly. Resists water and dust. 12MP dual cameras with dual optical image stabilization. TrueDepth camera with Portrait mode and Portrait Lighting. Face ID lets you unlock and use Apple Pay with just a glance. Powered by the A11 Bionic chip, iPhone X supports augmented reality experiences in games and apps. And iOS 12â€”the most advanced mobile operating systemâ€”with powerful new tools that make iPhone more personal than ever.</span><br>\r\n', '121008-v1-apple-iphone-x-mobile-phone-large-1.jpg', '121008-v1-apple-iphone-x-mobile-phone-large-1.jpg', '41tDXHpeNHL._SL1024_.jpg', '0', 'In Stock', '-59', '0', '1', '2019-04-12 21:46:50', NULL),
 (6, '1', '6', '1', 'All-New Kindle (10th Gen), 6 Display now with Built-in Light, 4 GB, Wi-Fi (Black)', 'Amazon.com', '7999.00', '456235234234', '7999.00', '<ul class=\"a-unordered-list a-vertical a-spacing-none\" style=\"box-sizing: border-box; margin-bottom: 0px; margin-left: 18px; color: rgb(148, 148, 148); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\"><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Adjustable front light lets you read comfortably for hoursâ€”indoors and outdoors, day and night.</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Purpose-built for reading, with a 167 ppi glare-free display that reads like real paper, even in direct sunlight.</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Read distraction-free. Highlight passages, look up definitions, translate words, and adjust text sizeâ€”without ever leaving the page.</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Select from millions of books including new releases and bestsellers. Holds thousands of titles so you can take your library with you.</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Prime members read free with unlimited access to hundreds of books, comics and more.</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">A single battery charge lasts weeks, not hours.</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">This device does not support playback of Audible audiobooks.</span></li></ul>\r\n', '61MWcLEBkDL._SL1000_.jpg', '717XacHyY9L._SL1000_.jpg', '613qVaBn9vL._SL1000_.jpg', '55', 'In Stock', '0', '0', '1', '2019-04-12 21:47:58', NULL),
-(17, '5', '8', '1', 'Krackjack 200gms', 'Parle', '27', '19059020', '30', '<span style=\"color: rgb(51, 51, 51); font-family: arial; font-size: 16px;\">After a hectic and tiresome day, all we need is a refreshing snack to eat so that we feel fresh. In such a case, Parle krack jack biscuits are a perfect choice. Their crunchiness makes your life crisp and tasty again. The sweet and sour taste of the biscuits will make you forget your worries</span><br>', '12.jpg', '13.jpg', '14.png', '0', 'In Stock', '1024', '1\r\n', '4', '2019-04-14 05:43:17', NULL),
+(17, '5', '8', '1', 'Krackjack 200gms', 'Parle', '27', '19059020', '30', '<span style=\"color: rgb(51, 51, 51); font-family: arial; font-size: 16px;\">After a hectic and tiresome day, all we need is a refreshing snack to eat so that we feel fresh. In such a case, Parle krack jack biscuits are a perfect choice. Their crunchiness makes your life crisp and tasty again. The sweet and sour taste of the biscuits will make you forget your worries</span><br>', '12.jpg', '13.jpg', '14.png', '0', 'In Stock', '-73580', '1\r\n', '4', '2019-04-14 05:43:17', NULL),
 (18, '7', '9', '1', 'Parachute 250ml', 'Parachute', '92', '1513.11.00', '105', '<ul class=\"a-unordered-list a-vertical a-spacing-none\" style=\"box-sizing: border-box; margin-bottom: 0px; margin-left: 18px; color: rgb(148, 148, 148); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif;\"><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Made from 100% pure coconut oil</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Consistent composition and viscosity in every drop of oil</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Long lasting freshness</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">5 Stage Purification process to ensure 100% pure coconut oil every time</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Made from the finest quality coconut to ensure best Coconut Oil</span></li><li style=\"box-sizing: border-box; list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"box-sizing: border-box; color: rgb(17, 17, 17);\">Parachute Coconut Oil - 250 ml Flip Top</span></li></ul>\r\n', '71OTgymA+ZL._SL1500_.jpg', '71sQ9TFFIJL._SL1500_.jpg', '61hTmsydzFL._SL1500_.jpg', '0', 'In Stock', '20', '0', '1', '2019-04-14 06:11:04', NULL),
 (19, '8', '10', '1', 'Good Day Cashew', 'Britania', '9.75', '123', '10', '<br>', 'DIAMOND.jpg', 'DIAMOND.jpg', '', '0', '', '0', '1\r\n', '1', '2019-05-09 11:54:29', NULL),
 (20, '9', '11', '1', 'CINTHOL ORIGINAL', 'GODREJ', '121.86', '10011', '131', '<br>', 'Desert.jpg', 'Hydrangeas.jpg', 'Koala.jpg', '0', 'In Stock', '-155', '1\r\n', '4', '2019-05-09 11:55:50', NULL),
@@ -570,6 +578,7 @@ CREATE TABLE `sales` (
   `customer` varchar(255) NOT NULL,
   `batch` varchar(100) NOT NULL,
   `beat` varchar(100) NOT NULL,
+  `uom` varchar(20) DEFAULT NULL,
   `freighta` int(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -577,10 +586,16 @@ CREATE TABLE `sales` (
 -- Dumping data for table `sales`
 --
 
-INSERT INTO `sales` (`id`, `product`, `hsn`, `utc`, `qty`, `mrp`, `baserate`, `amount`, `dis`, `gst`, `gstamount`, `total`, `finalrate`, `paymentdue`, `totalpaid`, `invoice`, `business`, `timestamp`, `remarks`, `customer`, `batch`, `beat`, `freighta`) VALUES
-(1, '1', '63454634234', '5', '4', '39363.00', '17857.14', '16555', '10', '12', '', '66666', '4666', '66666.00', '', '155998577334', '2', '1559985773', '', '22', 'A1', '2', 0),
-(2, '17', '19059020', '40', '1', '30', '22.88', '915.254', '0', '18', '164.74', '1079.9972', '27.00', '1080.00', '', '156008272234', '1', '1560082722', '10', '13', 'A1', '1', 0),
-(3, '17', '19059020', '40', '1', '30', '22.88', '915.20', '0', '18', '164.74', '1079.94', '27', '1079.94', '', '156008345134', '1', '1560083451', '1', '13', 'A1', '1', 0);
+INSERT INTO `sales` (`id`, `product`, `hsn`, `utc`, `qty`, `mrp`, `baserate`, `amount`, `dis`, `gst`, `gstamount`, `total`, `finalrate`, `paymentdue`, `totalpaid`, `invoice`, `business`, `timestamp`, `remarks`, `customer`, `batch`, `beat`, `uom`, `freighta`) VALUES
+(1, '1', '63454634234', '5', '4', '39363.00', '17857.14', '16555', '10', '12', '', '66666', '4666', '66666.00', '', '155998577334', '2', '1559985773', '', '22', 'A1', '2', NULL, 0),
+(2, '17', '19059020', '40', '1', '30', '22.88', '915.254', '0', '18', '164.74', '1079.9972', '27.00', '1080.00', '', '156008272234', '1', '1560082722', '10', '13', 'A1', '1', NULL, 0),
+(3, '17', '19059020', '40', '1', '30', '22.88', '915.20', '0', '18', '164.74', '1079.94', '27', '1079.94', '', '156008345134', '1', '1560083451', '1', '13', 'A1', '1', NULL, 0),
+(4, '1', '63454634234', '5', '1', '39363.00', '17857.14', '17857.14', '50', '12', '1071.43', '10000.00', '100000.00', '10000.00', '', '19-20-0000004', '1', '1565169832', '0', '16', 'A1', '3', '1', 0),
+(5, '1', '63454634234', '5', '3', '39363.00', '17857.14', '53571.42', '50', '12', '3214.29', '30000.00', '30000.00', '30000.00', '', '19-20-0000005', '4', '1565170466', '10.870886440678', '15', 'A1', '2', 'Cases', 0),
+(6, '1', '63454634234', '5', '1', '39363.00', '17857.14', '89285.70', '50', '12', '5357.14', '49999.99', '50000', '55599.43', '', '19-20-0000006', '2', '1565266551', '0', '21', 'A1', '1', 'Boxes', 0),
+(7, '17', '19059020', '74564', '1', '30', '4793.22', '4793.22', '1', '18', '854.15', '5599.44', '5600', '55599.43', '', '19-20-0000007', '1', '1565266551', '0', '21', '795A', '1', 'Cases', 0),
+(8, '1', '63454634234', '5', '1', '39363.00', '17857.14', '89285.70', '52', '12', '5142.86', '48000.00', '48000', '48027.00', '', '19-20-0000008', '1', '1565266868', '0', '16', 'A1', '3', 'Boxes', 0),
+(9, '17', '19059020', '40', '1', '30', '22.88', '22.88', '0', '18', '4.12', '27.00', '27', '48027.00', '', '19-20-0000008', '1', '1565266868', '0', '16', 'A1', '3', 'Cases', 0);
 
 -- --------------------------------------------------------
 
@@ -709,9 +724,9 @@ CREATE TABLE `uom` (
 --
 
 INSERT INTO `uom` (`id`, `uom`, `creationDate`, `updationDate`) VALUES
-(1, 'Cases', '2019-04-12 21:23:28', '19-04-2019 09:20:38 PM'),
-(2, 'Boxes', '2019-04-12 21:23:31', NULL),
-(3, 'Pieces', '2019-04-12 21:23:35', NULL),
+(1, 'Pices', '2019-04-12 21:23:28', '19-04-2019 09:20:38 PM'),
+(2, 'Cases', '2019-04-12 21:23:31', NULL),
+(3, 'Boxes', '2019-04-12 21:23:35', NULL),
 (4, 'UNITS', '2019-05-09 11:47:07', '09-05-2019 05:21:53 PM');
 
 -- --------------------------------------------------------
@@ -754,7 +769,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `altcontactno`, `password`, `shippingAddress`, `district`, `rewards`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `gstin`, `fssai`, `pan`, `aadharno`, `birthdate`, `beat`, `regDate`, `updationDate`) VALUES
 (13, 'Retailer A', 'test@test.com', 324982348, 7434534546, '098f6bcd4621d373cade4e832627b4f6', '3096  Fleming Way, Petersburg, USA', 'District A', '86524.718312349', NULL, NULL, NULL, 'Put Water, 3096  Fleming Way, Petersburg, USA', 'Petersburg', NULL, NULL, '23423423', '23423', '4234234', '234234234', '2019-04-13', '1', '2019-04-12 21:57:54', NULL),
 (14, 'Test Retailer B', 'test2@test.com', 324982348, 7434534546, '098f6bcd4621d373cade4e832627b4f6', '3223,Bailey Drive,Iowa City, USA', 'District B ', '4360', NULL, NULL, NULL, 'Iowa Water, 3223,Bailey Drive,Iowa City, USA', 'Iowa', NULL, NULL, '567423', '6786723', '678234', '7834234234', '2019-04-02', '4', '2019-04-12 21:59:30', NULL),
-(15, 'CNR', 'CNR@GMAIL.COM', 1234567890, 1234567890, 'e807f1fcf82d132f9bb018ca6738a19f', 'ATMAKUR							', 'NA', '10.870886440678', NULL, NULL, NULL, 'ATMAKUR							', 'NA', NULL, NULL, 'NA', '', 'NA', 'NA', '0000-00-00', '2', '2019-05-09 12:54:10', NULL),
+(15, 'CNR', 'CNR@GMAIL.COM', 1234567890, 1234567890, 'e807f1fcf82d132f9bb018ca6738a19f', 'ATMAKUR							', 'NA', '0', NULL, NULL, NULL, 'ATMAKUR							', 'NA', NULL, NULL, 'NA', '', 'NA', 'NA', '0000-00-00', '2', '2019-05-09 12:54:10', NULL),
 (16, 'Cretailer', 'jack@jack.com', 11111111, 234, 'd2aefeac9dc661bc98eebd6cc12f0b82', 'yolo ship, china', '4', '0', NULL, NULL, NULL, 'no							', '45', NULL, NULL, '5435', '4534', '53645', '97868768', '2019-06-13', '3', '2019-06-04 12:22:50', NULL),
 (17, 'Serena Acevedo', 'suhe@mailinator.net', 0, 0, 'f3ed11bbdb94fd9ebdefbaf646ab94d3', 'Excepteur in ut quia rerum ipsa accusantium pariatur Ipsam dolores id aut mollitia soluta quo sit id tempora', 'Pariatur Anim quis ', '0', NULL, NULL, NULL, 'Possimus omnis ullamco debitis dolor ex sit ab et et eu facilis esse facere itaque placeat nisi officia consequatur aperiam', 'Non eos est nulla s', NULL, NULL, 'Aut odit est blandit', 'Enim atque est ut es', 'Obcaecati autem dolo', 'Maxime ad quas Nam s', '1977-05-01', '1', '2019-06-07 12:29:30', NULL),
 (18, 'Shelley Gill', 'gewukilyki@mailinator.com', 0, 0, 'f3ed11bbdb94fd9ebdefbaf646ab94d3', 'Esse aute sunt nihil saepe tempora ex enim', 'Aliquam tempor dolor', '0', NULL, NULL, NULL, 'Ab suscipit ut magni officia fugit temporibus est aliquip possimus sed consequat Eum voluptas', 'Lorem ut esse quia s', NULL, NULL, 'Sit aut veritatis ve', 'Harum velit earum s', 'Id velit est ad sit', 'Voluptatem suscipit', '1973-08-24', '1', '2019-06-07 12:29:45', NULL),
@@ -896,7 +911,7 @@ ALTER TABLE `business`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `executive`
@@ -908,7 +923,7 @@ ALTER TABLE `executive`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -926,7 +941,7 @@ ALTER TABLE `ordertrackhistory`
 -- AUTO_INCREMENT for table `paymentdue`
 --
 ALTER TABLE `paymentdue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -944,13 +959,13 @@ ALTER TABLE `purchase`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
 --
 ALTER TABLE `subcategory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `supplier`
