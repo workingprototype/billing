@@ -1,7 +1,7 @@
 <?php
 	$keyword = strval($_POST['query']);
 	$search_param = "{$keyword}%";
-	$conn =new mysqli('localhost', 'john_constantine', 'imbatmanbitch' , 'smcg_database');
+	$conn =new mysqli('localhost', 'u306375126_john', 'password' , 'u306375126_bill');
 
 	$sql = $conn->prepare("SELECT * FROM supplier WHERE productcompany LIKE ?");
 	$sql->bind_param("s",$search_param);
