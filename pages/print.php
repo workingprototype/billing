@@ -299,13 +299,13 @@ $obj_pdf->SetFont('helvetica', '', 7);
 $obj_pdf->AddPage();
 
 
-$roundt= round($tottt,2);
-$round= $roundt-$tottt;
+$roundt= round($tottt,0.2);
+$round = $roundt-$tottt;
 if($round<0){
   $roundt=round($tottt+1 ,2);
   $round= $roundt-$tottt;
 }
-
+$round=round($round,2);
 $content = '<table  cellspacing="0" cellpadding="1" border="0">
 <tr>
 	<td>GSTIN: '.$gstin.'</td>
