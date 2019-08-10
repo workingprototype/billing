@@ -128,8 +128,12 @@ class Purchase
 
       cess= document.getElementById('cess'+a).value;
       ex=document.getElementById('totala'+a);
-      ex.value=(parseInt((fb*fx))+parseInt((fb*fy))+parseInt((cess))+fb).toFixed(2);
-      margin(a)
+      netamountz=document.getElementById('neta'+a).value;
+      cgstaz=document.getElementById('cgsta'+a).value;
+      sgstaz=document.getElementById('sgsta'+a).value;
+      //ex.value=(parseInt((fb*fx))+parseInt((fb*fy))+parseInt((cess))+fb).toFixed(2);
+      ex.value=parseInt(csgtaz)+parseInt(sgstaz)+parseInt(netamountz);
+      margin(a);
     }
     function remove(no){
       document.getElementById(\"row_\"+no+\"\").outerHTML= '';
