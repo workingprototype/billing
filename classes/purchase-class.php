@@ -279,18 +279,18 @@ class Purchase
         </td>\
         <td><input id=\"qty'+r+'_'+f+'\" style=\"width:80px\" onkeyup=\"uombase(\''+r+'_'+f+'\')\"  value=\"\">('+g+')</td>\
 	<td><select id=\"uom'+r+'_'+f+'\" style=\"width:80px\" ><option default=\'deafault\'>'+g+'</option>$options</select></td>\
-        <td><input id=\"qtyu'+r+'_'+f+'\" style=\"width:80px\" onkeyup=\"qtyu(\''+r+'_'+f+'\')\" value=\"\"></td>\
+        <td><input id=\"qtyu'+r+'_'+f+'\" style=\"width:80px\" onkeyup=\"uombase(\''+r+'_'+f+'\')\" value=\"\"></td>\
         <td><input id=\"uombase'+r+'_'+f+'\" placeholder=\'Base Rate\' onkeyup=\"uombase(\''+r+'_'+f+'\')\" ></td>\
-        <td><input id=\"base'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'Base Rate\'></td>\
-        <td><input id=\"disc'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
-        <td><input id=\"disca'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"base'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"uombase(\''+r+'_'+f+'\')\" placeholder=\'Base Rate\'></td>\
+        <td><input id=\"disc'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"uombase(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
+        <td><input id=\"disca'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"uombase(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"neta'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input id=\"cgst'+r+'_'+f+'\" value=\"'+c+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
-        <td><input id=\"sgst'+r+'_'+f+'\" value=\"'+d+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
+        <td><input id=\"cgst'+r+'_'+f+'\" value=\"'+c+'\" style=\"width:150px\" onkeyup=\"uombase(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
+        <td><input id=\"sgst'+r+'_'+f+'\" value=\"'+d+'\" style=\"width:150px\" onkeyup=\"uombase(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"cgsta'+r+'_'+f+'\"  style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"sgsta'+r+'_'+f+'\"  style=\"width:150px\" placeholder=\'\'></td>\
         <td><input value=\"0\" id=\"cess'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
-        <td><input id=\"totala'+r+'_'+f+'\" onkeyup=\"total(\''+r+'_'+f+'\')\" style=\"width:150px\" placeholder=\'\'></td>\
+        <td><input id=\"totala'+r+'_'+f+'\" onkeyup=\"uombase(\''+r+'_'+f+'\')\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"margin'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"margin(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"uomsp'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"dispp'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
