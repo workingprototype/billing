@@ -289,7 +289,7 @@ class Purchase
         <td><input id=\"sgst'+r+'_'+f+'\" value=\"'+d+'\" style=\"width:150px\" onkeyup=\"uombase(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"cgsta'+r+'_'+f+'\"  style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"sgsta'+r+'_'+f+'\"  style=\"width:150px\" placeholder=\'\'></td>\
-        <td><input value=\"0\" id=\"cess'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"disc(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
+        <td><input value=\"0\" id=\"cess'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"uombase(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"totala'+r+'_'+f+'\" onkeyup=\"uombase(\''+r+'_'+f+'\')\" style=\"width:150px\" placeholder=\'\'></td>\
         <td><input id=\"margin'+r+'_'+f+'\" style=\"width:150px\" onkeyup=\"margin(\''+r+'_'+f+'\')\" placeholder=\'\'></td>\
         <td><input id=\"uomsp'+r+'_'+f+'\" style=\"width:150px\" placeholder=\'\'></td>\
