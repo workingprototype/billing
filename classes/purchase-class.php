@@ -132,7 +132,7 @@ class Purchase
       cgstaz=document.getElementById('cgsta'+a).value;
       sgstaz=document.getElementById('sgsta'+a).value;
       //ex.value=(parseInt((fb*fx))+parseInt((fb*fy))+parseInt((cess))+fb).toFixed(2);
-      ex.value=parseInt(csgtaz)+parseInt(sgstaz)+parseInt(netamountz);
+      ex.value=parseInt(cgstaz)+parseInt(sgstaz)+parseInt(netamountz);
       margin(a);
     }
     function remove(no){
